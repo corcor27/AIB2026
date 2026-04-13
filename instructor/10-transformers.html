@@ -261,7 +261,9 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#key-points">Key points</a></li>
+        <ul><li><a href="#transformer-deep-learning-models">Transformer Deep Learning Models</a></li>
+<li><a href="#the-core-philosophy-parallelism-context">The Core Philosophy: Parallelism &amp; Context</a></li>
+<li><a href="#key-points">Key points</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -376,7 +378,80 @@ model.</li>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a></h2>
+<section><h2 class="section-heading" id="transformer-deep-learning-models">Transformer Deep Learning Models<a class="anchor" aria-label="anchor" href="#transformer-deep-learning-models"></a></h2>
+<hr class="half-width"><div class="section level3">
+<h3 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a></h3>
+<p>Transformers are a type of deep learning architecture designed
+primarily for handling sequential data such as text, audio, and time
+series. They power many modern AI systems, including language models,
+translation systems, and chatbots.</p>
+<p>Instead of processing data step-by-step like RNNs or LSTMs,
+transformers process entire sequences in parallel using a mechanism
+called attention.</p>
+</div>
+</section><section><h2 class="section-heading" id="the-core-philosophy-parallelism-context">The Core Philosophy: Parallelism &amp; Context<a class="anchor" aria-label="anchor" href="#the-core-philosophy-parallelism-context"></a></h2>
+<hr class="half-width"><p>Before 2017, AI processed language like a human reading a book: one
+word at a time, from left to right (using RNNs or LSTMs). This was slow
+and often “forgot” the beginning of a long sentence by the time it
+reached the end.</p>
+<p>The Transformer changed this by processing the entire sentence at
+once. It doesn’t care about the order initially; instead, it uses
+“Attention” to see how every word relates to every other word
+simultaneously. Key Advantages:</p>
+<ul><li>Parallelization: Because it sees everything at once, we can train it
+on massive GPUs much faster.</li>
+<li>Long-Range Dependencies: It can easily link a word at the beginning
+of a 1,000-page book to a word at the very end.</li>
+</ul><p>Step 0: Tokenisation &amp; Embedding</p>
+<p>Computers don’t read words; they read numbers.</p>
+<ul><li>Tokenization: The sentence “The cat sat” is broken into chunks
+(tokens): [“The”, ” cat”, ” sat”].</li>
+<li>Embedding: Each token is converted into a long list of numbers (a
+vector) that represents its meaning. In this space, the vector for “cat”
+is mathematically close to “kitten” but far from “airplane.”</li>
+</ul><div class="section level3">
+<h3 id="step-1-positional-encoding-the-map">Step 1: Positional Encoding (The “Map”)<a class="anchor" aria-label="anchor" href="#step-1-positional-encoding-the-map"></a></h3>
+<p>Since the model processes all words at once, it loses the sense of
+order. To fix this, we add a “Position Signal” to the embeddings.</p>
+<ul><li>Classic Method: Sinusoidal waves (sine/cosine).</li>
+<li>Modern 2026 Standard: RoPE (Rotary Positional Embeddings), which
+rotates the vectors in a way that helps the model understand relative
+distances between words more naturally.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="step-2-self-attention-the-spotlight">Step 2: Self-Attention (The “Spotlight”)<a class="anchor" aria-label="anchor" href="#step-2-self-attention-the-spotlight"></a></h3>
+<p>This is the “secret sauce.” For every word, the model asks: “Which
+other words in this sentence help me understand this specific word
+better?”</p>
+<p>It uses three vectors for each token:</p>
+<ul><li>Query (Q): What am I looking for? (The “Question”)</li>
+<li>Key (K): What do I contain? (The “Label”)</li>
+<li>Value (V): What information do I actually hold? (The “Content”)</li>
+<li>Example: In the sentence “The animal didn’t cross the street because
+it was too tired,” the word “it” sends out a Query. The Key for “animal”
+matches that Query strongly, so the model “attends” to “animal” to
+understand what “it” refers to.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="step-3-multi-head-attention">Step 3: Multi-Head Attention<a class="anchor" aria-label="anchor" href="#step-3-multi-head-attention"></a></h3>
+<p>Instead of looking at the sentence once, the model does it many times
+in parallel (Heads).</p>
+<ul><li>Head 1 might focus on grammar.</li>
+<li>Head 2 might focus on pronouns.</li>
+<li>Head 3 might focus on the relationship between objects and
+actions.</li>
+<li>All these perspectives are then merged back together.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="step-4-feed-forward-normalization">Step 4: Feed-Forward &amp; Normalization<a class="anchor" aria-label="anchor" href="#step-4-feed-forward-normalization"></a></h3>
+<p>After attention, the data passes through a standard neural network
+(Feed-Forward) to refine the features.</p>
+<ul><li>Add &amp; Norm: We use “Residual Connections” (shortcuts) to make
+sure information doesn’t get lost as the model gets deeper.</li>
+<li>Modern Note: Most 2026 models use Pre-Norm (normalizing before the
+layer) for better stability during training.</li>
+</ul><figure><img src="../fig/multi-head.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><figure><img src="../fig/scaled_dot.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure></div>
+</section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a></h2>
 <hr class="half-width"><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
