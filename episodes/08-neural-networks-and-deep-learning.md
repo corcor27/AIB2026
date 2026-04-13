@@ -2,24 +2,23 @@
 title: "Neural Networks and Deep Learning"
 teaching: 35
 exercises: 15
-editor_options:
-  markdown:
-    wrap: 72
+
 ---
-
-::: questions
-- What is a neural network in plain language?
-- What makes deep learning different from a simple linear model?
-- When are CNNs or other deep-learning architectures worth considering?
-:::
-
-::: objectives
+::::::::::::::::::::::::::::::::::::::: objectives
 - Explain the basic idea of neurons, layers, weights, and activations.
 - Distinguish between a simple multilayer perceptron and architectures
   designed for structured data such as CNNs.
 - Identify when deep learning is a sensible modelling option and when it
   is not.
-:::
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+- What is a neural network in plain language?
+- What makes deep learning different from a simple linear model?
+- When are CNNs or other deep-learning architectures worth considering?
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 
 ## Why introduce neural networks here?
 
@@ -44,7 +43,7 @@ A neural network starts from a simple idea.
 That combination acts like a simple computational unit, often called a
 neuron.
 
-![](docs/fig/MLP.png){alt="Diagram of a simple perceptron showing inputs, weights, and an output."}
+![](fig/MLP.png){alt="Diagram of a simple perceptron showing inputs, weights, and an output."}
 (cite:https://muneebsa.medium.com/deep-learning-101-lesson-7-perceptron-f6a698d81be8)
 
 If you removed the activation function and used only a single layer,
@@ -61,12 +60,12 @@ That limitation is the reason neural networks use multiple neurons and
 multiple layers. Stacking layers lets the model combine simple local
 decisions into richer nonlinear behaviour.
 
-![](docs/fig/MLP_output.png){alt="Illustration showing a limitation of a single perceptron on a nonlinearly separable pattern."}
+![](fig/MLP_output.png){alt="Illustration showing a limitation of a single perceptron on a nonlinearly separable pattern."}
 
 
 ## From one layer to deep learning
 
-![](docs/fig/Multilayer_mlp.png){alt="Diagram of a multilayer perceptron with input, hidden, and output layers."}
+![](fig/Multilayer_mlp.png){alt="Diagram of a multilayer perceptron with input, hidden, and output layers."}
 (cite:https://machinelearninggeek.com/multi-layer-perceptron-neural-network-using-python/)
 
 A neural network is built by stacking many of those units into layers.
@@ -85,7 +84,7 @@ move through the network.
 
 ## Why activations matter
 
-![](docs/fig/activation_functions.png){alt="Examples of common activation functions used in neural networks."}
+![](fig/activation_functions.png){alt="Examples of common activation functions used in neural networks."}
 
 Activation functions decide how strongly a unit responds to its input.
 They matter because without them, stacking layers would still behave
@@ -241,7 +240,7 @@ Different kernels can become sensitive to different structures, such as
 edges, corners, or textures. As the network gets deeper, those early
 patterns can be combined into more complex visual concepts.
 
-![](docs/fig/image_in_pixels.png){alt="Diagram showing how an image is represented as pixel values."}
+![](fig/image_in_pixels.png){alt="Diagram showing how an image is represented as pixel values."}
 
 At the start of training, the kernel values are not meaningful. The
 model learns them from data by adjusting them during training.
@@ -252,13 +251,13 @@ model learns them from data by adjusting them during training.
 In image tasks, the kernel is usually a small $N \times N$ window that
 moves across the image.
 
-![](docs/fig/how_kernals_work.png){alt="Diagram showing a convolutional kernel sliding across an image."}
+![](fig/how_kernals_work.png){alt="Diagram showing a convolutional kernel sliding across an image."}
 
 Each pass of that kernel produces a feature map. This is what lets the
 network detect useful local visual structure without treating every
 pixel location as a completely separate problem.
 
-![](docs/fig/kernal_features.png){alt="Example feature maps created by different convolutional kernels."}
+![](fig/kernal_features.png){alt="Example feature maps created by different convolutional kernels."}
 
 For teaching purposes, the important point is not the exact arithmetic.
 It is that CNNs learn reusable local detectors and then stack them into
@@ -298,7 +297,7 @@ learning.
 
 ## Key points
 
-::: keypoints
+:::::::::::::::::::::::::::::::::::::::: keypoints
 - A neural network is built from weighted transformations and
   activation functions arranged in layers.
 - Deep learning means learning increasingly useful internal
@@ -308,22 +307,11 @@ learning.
   matter.
 - Deep learning should be justified by the structure of the data and
   the limits of simpler models.
-:::
 
 - Does PCA count as representation learning?
 - In what sense is it similar to learned embeddings?
 - In what sense is it different from neural-network-based
   representation learning?
-:::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Key points
 
-::: keypoints
-- Neural networks learn internal feature representations automatically.
-- Deep learning is often most useful when the data are unstructured or
-  the representation problem is hard.
-- Transfer learning is usually more realistic than training from
-  scratch for workshop-scale projects.
-- Conventional baselines still matter because they tell you whether the
-  extra complexity is justified.
-:::

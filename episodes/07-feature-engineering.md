@@ -2,27 +2,24 @@
 title: "Feature Engineering for Real Problems"
 teaching: 40
 exercises: 25
-editor_options:
-  markdown:
-    wrap: 72
 ---
 
-::: questions
-- What is feature engineering and why does it matter?
-- How do features differ across tabular, text, image, time-series, and
-  spectral problems?
-- What simple task-specific features can I try before training a more
-  complex model?
-:::
-
-::: objectives
+::::::::::::::::::::::::::::::::::::::: objectives
 - Explain why the representation of the data often matters as much as
   the choice of model.
 - Identify common feature-engineering strategies for tabular, text,
   vision, time-series, spectral, and bioinformatics tasks.
 - Choose one or two realistic feature ideas to test on your own
   problem.
-:::
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+- What is feature engineering and why does it matter?
+- How do features differ across tabular, text, image, time-series, and
+  spectral problems?
+- What simple task-specific features can I try before training a more
+  complex model?
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Quick navigation
 
@@ -97,7 +94,7 @@ Ask:
 Images are arrays of pixel values, but raw pixels are not always the
 best first representation for a small project.
 
-![](AAISS25_html/docs/fig/image_in_pixels.png){alt="Illustration showing how image information is stored as pixel values."}
+![](fig/image_in_pixels.png){alt="Illustration showing how image information is stored as pixel values."}
 
 Useful starter strategies include:
 
@@ -186,7 +183,7 @@ model simply because they appear everywhere.
 
 An illustrative computation for one term is shown below.
 
-![](AAISS25_html/docs/fig/tfidf_weights.svg){alt="Diagram showing one simple TF-IDF calculation for the term gene across a small corpus."}
+![](fig/tfidf_weights.svg){alt="Diagram showing one simple TF-IDF calculation for the term gene across a small corpus."}
 
 If you need a little local context beyond single words, n-grams can
 still be useful as an optional extension, but TF-IDF is often the
@@ -231,7 +228,7 @@ For example, the DNA sequence `ATGCAT` contains the 3-mers:
 - `GCA`
 - `CAT`
 
-![](AAISS25_html/docs/fig/genomics_kmers.svg){alt="Diagram showing how a DNA sequence is split into symbols and 3-mers."}
+![](fig/genomics_kmers.svg){alt="Diagram showing how a DNA sequence is split into symbols and 3-mers."}
 
 You can turn these into numeric features by counting how often each
 k-mer appears, or by using frequencies rather than raw counts.
@@ -297,7 +294,7 @@ such as daily demand, monthly temperature, or repeated sensor readings.
 The same ideas also extend to multivariate time series, where several
 variables are recorded together over time.
 
-![](AAISS25_html/docs/fig/time_series_univariate_multivariate.png){alt="Illustration comparing a univariate time series with one measured variable over time and a multivariate time series with several variables recorded over the same time points."}
+![](fig/time_series_univariate_multivariate.png){alt="Illustration comparing a univariate time series with one measured variable over time and a multivariate time series with several variables recorded over the same time points."}
 
 The top panel shows a univariate time series with one measured variable.
 The bottom panel shows a multivariate time series where several related
@@ -392,7 +389,7 @@ detect?" In practice, that often means borrowing a useful summary from
 signal processing, image processing, statistics, mathematics, chemistry,
 or another domain-specific workflow.
 
-::: challenge
+::::::::::::::::::::::::::::::::::::::  challenge
 ## Cross-domain transfer
 
 One reason feature engineering becomes easier over time is that a good
@@ -422,7 +419,7 @@ Prompts:
 - What feature idea from another domain could you borrow as a first
   baseline?
 
-::: solution
+:::::::::::::::  solution
 ### Example answer
 
 Possible answers include:
@@ -446,9 +443,11 @@ The practical lesson is that success in one domain can suggest a good
 starting point in another. Once you recognise the shared structure of a
 problem, you can often transfer a feature idea instead of inventing a
 completely new process from scratch.
-:::
+:::::::::::::::::::::::::
 
-::: challenge
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::  challenge
 ## Pick one feature change
 
 Choose one concrete feature idea for your own problem and write:
@@ -457,7 +456,7 @@ Choose one concrete feature idea for your own problem and write:
 - the feature you could create;
 - why that feature might make the pattern easier to learn.
 
-::: solution
+:::::::::::::::  solution
 ### Example answers
 
 - "I have daily sales totals, and I could add day-of-week as a feature
@@ -470,7 +469,9 @@ Choose one concrete feature idea for your own problem and write:
 - "I have gene-expression data, and I could aggregate genes into pathway
   scores because that may capture biology more directly than thousands
   of separate raw columns."
-:::
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## When to stop engineering by hand
 
@@ -496,7 +497,7 @@ first feature representation and a sensible baseline model.
 
 ## Key points
 
-::: keypoints
+:::::::::::::::::::::::::::::::::::::::: keypoints
 - Better features often improve a model more than switching to a more
   complex algorithm.
 - Different task types need different representations.
@@ -511,4 +512,4 @@ first feature representation and a sensible baseline model.
   features such as k-mers, motifs, SNP markers, or pathway summaries.
 - Feature engineering and feature learning sit on the same continuum of
   representation choices.
-:::
+::::::::::::::::::::::::::::::::::::::::::::::::::
