@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Model basket concepts</title>
+  <desc id="desc">A summary diagram showing the main ideas behind baseline and comparison models: linear models, trees, nearest neighbours, clustering, Naive Bayes, ensembles, support vector machines, and boosted trees.</desc>
+  <rect width="1200" height="700" fill="#fafaf9"/>
+  <text x="60" y="60" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">Starter model basket: model families at a glance</text>
+
+  <rect x="60" y="100" width="340" height="150" rx="18" fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
+  <text x="90" y="145" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#1f2937">Linear models</text>
+  <text x="90" y="190" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#111827">
+    <tspan x="90" dy="0">Linear Regression,</tspan>
+    <tspan x="90" dy="24">Logistic Regression</tspan>
+  </text>
+  <text x="90" y="228" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#374151">
+    <tspan x="90" dy="0">[simple, interpretable baselines]</tspan>
+  </text>
+
+  <rect x="430" y="100" width="340" height="150" rx="18" fill="#dcfce7" stroke="#22c55e" stroke-width="3"/>
+  <text x="460" y="145" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#1f2937">Tree-based models</text>
+  <text x="460" y="195" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#111827">Decision Tree, Random Forest</text>
+  <text x="460" y="228" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#374151">
+    <tspan x="460" dy="0">[non-linearity, variable interactions]</tspan>
+  </text>
+
+  <rect x="800" y="100" width="340" height="150" rx="18" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
+  <text x="830" y="145" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#1f2937">Neighbour models</text>
+  <text x="830" y="185" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#111827">k-Nearest Neighbours</text>
+  <text x="830" y="215" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#374151">
+    <tspan x="830" dy="0">[nearby cases behave similarly]</tspan>
+  </text>
+
+  <rect x="60" y="290" width="340" height="150" rx="18" fill="#fee2e2" stroke="#ef4444" stroke-width="3"/>
+  <text x="90" y="335" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#1f2937">Clustering</text>
+  <text x="90" y="375" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#111827">K-Means</text>
+  <text x="90" y="405" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#374151">
+    <tspan x="90" dy="0">[exploratory grouping without labels]</tspan>
+  </text>
+
+  <rect x="430" y="290" width="340" height="150" rx="18" fill="#ede9fe" stroke="#8b5cf6" stroke-width="3"/>
+  <text x="460" y="335" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#1f2937">Probabilistic classifier</text>
+  <text x="460" y="375" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#111827">Naive Bayes</text>
+  <text x="460" y="392" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#374151">
+    <tspan x="460" dy="0">[sparse counts, bag-of-words, TF-IDF]</tspan>
+  </text>
+
+  <rect x="800" y="290" width="340" height="150" rx="18" fill="#cffafe" stroke="#06b6d4" stroke-width="3"/>
+  <text x="830" y="335" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#1f2937">Margin-based models</text>
+  <text x="830" y="375" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#111827">Support Vector Machine</text>
+  <text x="830" y="405" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#374151">
+    <tspan x="830" dy="0">[separation boundaries matter]</tspan>
+  </text>
+
+  <rect x="245" y="480" width="340" height="150" rx="18" fill="#fde68a" stroke="#eab308" stroke-width="3"/>
+  <text x="275" y="525" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#1f2937">Boosted trees</text>
+  <text x="275" y="565" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#111827">Gradient Boosting / XGBoost</text>
+  <text x="275" y="582" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#374151">
+    <tspan x="275" dy="0">[strong comparison after a baseline]</tspan>
+  </text>
+
+  <rect x="615" y="480" width="340" height="150" rx="18" fill="#e5e7eb" stroke="#6b7280" stroke-width="3"/>
+  <text x="645" y="525" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#1f2937">Reference baseline</text>
+  <text x="645" y="565" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#111827">mean / median / majority class</text>
+  <text x="645" y="582" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#374151">
+    <tspan x="645" dy="0">[beats a trivial rule?]</tspan>
+  </text>
+</svg>

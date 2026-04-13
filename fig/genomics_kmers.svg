@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Genomics k-mer visual</title>
+  <desc id="desc">A diagram showing a DNA sequence split into symbols and 3-mers.</desc>
+  <rect width="960" height="420" fill="#f7fafc"/>
+  <text x="60" y="55" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#1f2937">From sequence to k-mers</text>
+  <text x="60" y="90" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#374151">Example DNA sequence: ATGCAT</text>
+
+  <text x="60" y="140" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#1f2937">Symbols</text>
+  <rect x="60" y="160" width="70" height="52" rx="12" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+  <rect x="145" y="160" width="70" height="52" rx="12" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+  <rect x="230" y="160" width="70" height="52" rx="12" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <rect x="315" y="160" width="70" height="52" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="400" y="160" width="70" height="52" rx="12" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+  <rect x="485" y="160" width="70" height="52" rx="12" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="86" y="194" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">A</text>
+  <text x="171" y="194" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">T</text>
+  <text x="254" y="194" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">G</text>
+  <text x="339" y="194" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">C</text>
+  <text x="426" y="194" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">A</text>
+  <text x="511" y="194" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#111827">T</text>
+
+  <text x="60" y="280" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#1f2937">3-mers</text>
+  <rect x="60" y="300" width="110" height="46" rx="10" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="185" y="300" width="110" height="46" rx="10" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="310" y="300" width="110" height="46" rx="10" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="435" y="300" width="110" height="46" rx="10" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="91" y="329" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">ATG</text>
+  <text x="216" y="329" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">TGC</text>
+  <text x="341" y="329" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">GCA</text>
+  <text x="466" y="329" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#111827">CAT</text>
+
+  <text x="610" y="165" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#374151">Like text n-grams, k-mers</text>
+  <text x="610" y="190" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#374151">capture short local patterns</text>
+  <text x="610" y="215" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#374151">that can be counted and used</text>
+  <text x="610" y="240" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#374151">as numeric model features.</text>
+</svg>

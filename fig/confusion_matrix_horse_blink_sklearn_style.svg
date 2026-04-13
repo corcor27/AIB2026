@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="620" viewBox="0 0 860 620" role="img" aria-labelledby="title desc">
+  <title id="title">Horse blink confusion matrix in scikit-learn style</title>
+  <desc id="desc">A two by two confusion matrix with Actual H and Actual F on rows, Predicted H and Predicted F on columns, and counts 8, 2, 3, and 7.</desc>
+  <rect width="860" height="620" fill="#ffffff"/>
+
+  <text x="430" y="62" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#111827">Horse Blink Example</text>
+  <text x="430" y="96" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#374151">Confusion Matrix</text>
+
+  <text x="520" y="146" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#374151">Predicted label</text>
+  <text x="110" y="355" text-anchor="middle" transform="rotate(-90 110 355)" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#374151">True label</text>
+
+  <text x="430" y="186" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#111827">H</text>
+  <text x="610" y="186" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#111827">F</text>
+  <text x="250" y="294" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#111827">H</text>
+  <text x="250" y="474" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#111827">F</text>
+
+  <rect x="340" y="210" width="180" height="180" fill="#2f6db3" stroke="#d1d5db" stroke-width="2"/>
+  <rect x="520" y="210" width="180" height="180" fill="#edf4fb" stroke="#d1d5db" stroke-width="2"/>
+  <rect x="340" y="390" width="180" height="180" fill="#d8e7f6" stroke="#d1d5db" stroke-width="2"/>
+  <rect x="520" y="390" width="180" height="180" fill="#4f85c3" stroke="#d1d5db" stroke-width="2"/>
+
+  <text x="430" y="286" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">TP</text>
+  <text x="430" y="336" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="56" font-weight="700" fill="#ffffff">8</text>
+
+  <text x="610" y="286" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#1f2937">FN</text>
+  <text x="610" y="336" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="56" font-weight="700" fill="#1f2937">2</text>
+
+  <text x="430" y="466" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#1f2937">FP</text>
+  <text x="430" y="516" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="56" font-weight="700" fill="#1f2937">3</text>
+
+  <text x="610" y="466" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">TN</text>
+  <text x="610" y="516" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="56" font-weight="700" fill="#ffffff">7</text>
+</svg>
