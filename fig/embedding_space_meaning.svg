@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Embeddings capture semantic meaning in a vector space</title>
+  <desc id="desc">A clean schematic showing related texts grouped together in an embedding space, with a new example positioned near similar texts.</desc>
+  <rect width="1200" height="620" fill="#fafaf9"/>
+
+  <text x="60" y="60" font-family="Helvetica, Arial, sans-serif" font-size="32" font-weight="700" fill="#1f2937">Embeddings capture semantic meaning in a vector space</text>
+
+  <line x1="120" y1="520" x2="1040" y2="520" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="120" y1="520" x2="120" y2="140" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="852" y="555" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#334155">embedding dimension 1</text>
+  <text x="42" y="260" transform="rotate(-90 42 260)" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#334155">embedding dimension 2</text>
+
+  <text x="215" y="165" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#b91c1c">medical texts</text>
+  <text x="760" y="305" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#1d4ed8">space texts</text>
+
+  <circle cx="270" cy="255" r="12" fill="#dc2626"/>
+  <circle cx="330" cy="220" r="12" fill="#dc2626"/>
+  <circle cx="355" cy="285" r="12" fill="#dc2626"/>
+  <circle cx="240" cy="320" r="12" fill="#dc2626"/>
+  <text x="286" y="248" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#111827">tumour response</text>
+  <text x="346" y="213" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#111827">patient treatment</text>
+  <text x="371" y="278" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#111827">drug dosage</text>
+  <text x="256" y="347" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#111827">clinical trial</text>
+
+  <circle cx="790" cy="410" r="12" fill="#2563eb"/>
+  <circle cx="850" cy="360" r="12" fill="#2563eb"/>
+  <circle cx="905" cy="435" r="12" fill="#2563eb"/>
+  <circle cx="735" cy="455" r="12" fill="#2563eb"/>
+  <text x="806" y="403" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#111827">rocket launch</text>
+  <text x="866" y="353" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#111827">orbital mission</text>
+  <text x="921" y="428" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#111827">satellite design</text>
+  <text x="751" y="482" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#111827">space shuttle</text>
+
+  <circle cx="560" cy="340" r="14" fill="#16a34a" stroke="#166534" stroke-width="2"/>
+  <text x="582" y="347" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#111827">new sentence</text>
+
+  <line x1="560" y1="340" x2="365" y2="285" stroke="#f59e0b" stroke-width="3" stroke-dasharray="10 8"/>
+  <line x1="560" y1="340" x2="790" y2="410" stroke="#94a3b8" stroke-width="3" stroke-dasharray="10 8"/>
+
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
