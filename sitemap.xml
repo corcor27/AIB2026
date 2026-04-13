@@ -13,16 +13,34 @@
     <loc>https://swcarpentry.github.io/python-novice-inflammation/07-feature-engineering.html</loc>
   </url>
   <url>
+    <loc>https://swcarpentry.github.io/python-novice-inflammation/08-ethics.html</loc>
+  </url>
+  <url>
     <loc>https://swcarpentry.github.io/python-novice-inflammation/08-neural-networks-and-deep-learning.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/python-novice-inflammation/09-feature-learning-and-transfer-learning.html</loc>
   </url>
   <url>
+    <loc>https://swcarpentry.github.io/python-novice-inflammation/09-neural-networks-and-deep-learning.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/python-novice-inflammation/10-CNNs.html</loc>
+  </url>
+  <url>
     <loc>https://swcarpentry.github.io/python-novice-inflammation/10-transformers.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/python-novice-inflammation/11-LLMs.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/python-novice-inflammation/11-transformers.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/python-novice-inflammation/12-LLMs.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/python-novice-inflammation/13-feature-learning-and-transfer-learning.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/python-novice-inflammation/404.html</loc>
@@ -64,16 +82,34 @@
     <loc>https://swcarpentry.github.io/python-novice-inflammation/instructor/07-feature-engineering.html</loc>
   </url>
   <url>
+    <loc>https://swcarpentry.github.io/python-novice-inflammation/instructor/08-ethics.html</loc>
+  </url>
+  <url>
     <loc>https://swcarpentry.github.io/python-novice-inflammation/instructor/08-neural-networks-and-deep-learning.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/python-novice-inflammation/instructor/09-feature-learning-and-transfer-learning.html</loc>
   </url>
   <url>
+    <loc>https://swcarpentry.github.io/python-novice-inflammation/instructor/09-neural-networks-and-deep-learning.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/python-novice-inflammation/instructor/10-CNNs.html</loc>
+  </url>
+  <url>
     <loc>https://swcarpentry.github.io/python-novice-inflammation/instructor/10-transformers.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/python-novice-inflammation/instructor/11-LLMs.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/python-novice-inflammation/instructor/11-transformers.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/python-novice-inflammation/instructor/12-LLMs.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/python-novice-inflammation/instructor/13-feature-learning-and-transfer-learning.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/python-novice-inflammation/instructor/404.html</loc>

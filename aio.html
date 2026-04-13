@@ -284,7 +284,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="08-neural-networks-and-deep-learning.html">5. Neural Networks and Deep Learning</a>
+        <a href="08-ethics.html">5. The Ethics of machine learning learning</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -296,7 +296,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="09-feature-learning-and-transfer-learning.html">6. Feature Learning and Transfer Learning</a>
+        <a href="09-neural-networks-and-deep-learning.html">6. Neural Networks and Deep Learning</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -308,7 +308,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="10-transformers.html">7. Transformers</a>
+        <a href="10-CNNs.html">7. Convolutional Neural Networks</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -320,7 +320,31 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="11-LLMs.html">8. Large Language Models</a>
+        <a href="11-transformers.html">8. Transformers</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush10">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading10">
+        <a href="12-LLMs.html">9. Large Language Models</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush11">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading11">
+        <a href="13-feature-learning-and-transfer-learning.html">10. Feature Learning and Transfer Learning</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -651,7 +675,7 @@ classification.</p>
   Answer
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>No. Logistic regression is often introduced first for binary
 classification, but it is not limited to only two classes.</p>
@@ -705,7 +729,7 @@ boundaries</h3>
   Answer
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>For classification, a split is useful when it makes the resulting
 child nodes contain more cases from a single class than before. In other
@@ -760,7 +784,7 @@ method.</p>
   Answer
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Yes. For regression, k-nearest neighbours can predict by averaging
 the target values of the <code>k</code> nearest neighbours instead of
@@ -830,7 +854,7 @@ tree?</li>
   Answer
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Yes, a random forest can be used for feature selection in a rough,
 practical sense. Because it can estimate feature importance, it can help
@@ -892,7 +916,7 @@ matter?</li>
   Answer
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>An SVM does not usually rely equally on all training points. Its
 decision rule is mainly determined by a smaller set of influential cases
@@ -956,7 +980,7 @@ build their trees?</li>
   Answer
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>The main difference is how the ensemble is built. A random forest
 grows many trees independently in parallel on different resampled
@@ -1038,7 +1062,7 @@ __________.”</p>
   Example answers
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 <ul>
 <li>“My task is regression, my trivial reference baseline is predicting
@@ -1508,7 +1532,7 @@ problem.</li>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>“My baseline classification model is missing important domain
 structure, so I will add two engineered features before trying a more
@@ -2895,7 +2919,7 @@ baseline?</li>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Possible answers include:</p>
 <ul>
@@ -2945,7 +2969,7 @@ completely new process from scratch.</p>
   Example answers
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ul>
 <li>“I have daily sales totals, and I could add day-of-week as a feature
@@ -3050,11 +3074,435 @@ of representation choices.</li>
 </div>
 </div>
 </div>
-</section></section><section id="aio-08-neural-networks-and-deep-learning"><p>Content from <a href="08-neural-networks-and-deep-learning.html">Neural Networks and Deep Learning</a></p>
+</section></section><section id="aio-08-ethics"><p>Content from <a href="08-ethics.html">The Ethics of machine learning learning</a></p>
 <hr>
 <p>Last updated on 2026-04-13 |
 
-        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/08-neural-networks-and-deep-learning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/08-ethics.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What is machine learning and what benefits does it present?</li>
+<li>How do I select an appropriate model for my data?</li>
+<li>What are the difference between supervised and unsupervised
+models?</li>
+<li>What are difference between traditional and deep learning machine
+learning?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Understand the background of machine learning and what it does.</li>
+<li>To understand the aspects of your data to refine your model
+selection.</li>
+<li>To understand the difference between supervised and unsupervised
+models.</li>
+<li>To know the differences between traditional and deep learning
+models.</li>
+<li>To understand the positives and negatives to different model
+approaches.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<hr class="half-width">
+<p>Machine learning comprises a variety of tools and methodologies
+designed to uncover patterns within datasets. This lesson aims to
+introduce a selection of these techniques, although there exist numerous
+others beyond the scope of this session. These techniques can be broadly
+categorised into two main groups: predictors and classifiers. Predictors
+are employed to forecast a value or a set of values based on a given set
+of inputs. For instance, they may predict the cost of an item
+considering economic conditions and the price of raw materials or
+forecast a country’s GDP based on its life expectancy. On the other
+hand, classifiers are tasked with categorised data into distinct groups.
+For example, they might discern visible characters within an image of
+written text or determine whether a message is spam or legitimate.</p>
+<div class="section level3">
+<h3 id="general-overview">General overview<a class="anchor" aria-label="anchor" href="#general-overview"></a>
+</h3>
+<p>Many machine learning systems, although not all, acquire knowledge by
+processing a sequence of input and output data, which they then utilize
+to construct a model. The mathematical underpinnings of machine learning
+are agnostic to the nature of the data, based upon whether it can be
+represented numerically or categorized. Examples of such applications
+include:</p>
+<ul>
+<li>Estimating an individual’s weight based on their height.</li>
+<li>Predicting commute duration given prevailing traffic
+conditions.</li>
+<li>Forecasting housing prices based on stock market fluctuations.</li>
+<li>Distinguishing between spam and legitimate emails.</li>
+<li>Identifying whether an image contains a person or not.</li>
+</ul>
+<p>Typically, these models require extensive training with hundreds,
+thousands, or even millions of examples before they achieve sufficient
+accuracy for practical predictions or classifications. Some systems
+undertake training as a one-time process, resulting in the creation of a
+model. Others may continuously refine their training through real-world
+system usage and human feedback known as reinforcement learning. For
+instance, every time a user labels an email as spam or not spam, they
+likely contribute to further training of the spam filter’s model.</p>
+</div>
+<div class="section level3">
+<h3 id="types-of-output">Types of output<a class="anchor" aria-label="anchor" href="#types-of-output"></a>
+</h3>
+<p>Predictors will usually involve a continuous scale of outputs, such
+as the price of something or as classifiers which will tell you which
+class (or classes) are present in the data. For example, a system to
+recognize handwriting numbers from an input image will need to classify
+the output into one of a set of potential characters e.g. 1 to 9.</p>
+</div>
+<div class="section level3">
+<h3 id="machine-learning-vs-artificial-intelligence">Machine learning vs Artificial Intelligence<a class="anchor" aria-label="anchor" href="#machine-learning-vs-artificial-intelligence"></a>
+</h3>
+<p>Artificial Intelligence encompasses systems with generalized
+intelligence, theoretically capable of solving a wide array of problems.
+However, AI is a broad term with varying interpretations. Machine
+learning systems, on the other hand, are typically trained to address
+specific problems. While they may exhibit learning behaviour, they lack
+the generalized intelligence to solve any problem a human could tackle.
+This usually means that a Machine Learning model trained on one domain
+isn’t applicable to another without any additional training.
+Additionally, these systems often require hundreds or thousands of
+examples to learn and are limited to relatively straightforward
+classifications. In contrast, a human-like system could learn from a
+single example. Another definition of Artificial Intelligence traces
+back to the 1950s and Alan Turing’s “Imitation Game.” According to this
+concept, a system could be deemed intelligent if it could deceive a
+human into believing they were interacting with another human when in
+fact, they were conversing with a computer. Modern endeavours in this
+realm are approaching the point of successfully fooling humans, yet
+achieving a machine with full human-like intelligence remains a distant
+prospect.</p>
+<p>Some examples of Machine learning used within our daily lives
+include:</p>
+<ul>
+<li>Image Recognition</li>
+<li>Object Detection</li>
+<li>Character Recognition</li>
+<li>Insurance Premiums</li>
+<li>Energy usage</li>
+<li>Example of machine learning in research</li>
+<li>Detecting water leaks in pipes.</li>
+<li>Cancer detection.</li>
+<li>Improving farming productivity.</li>
+</ul>
+<div id="reflecting-on-the-real-world." class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="reflecting-on-the-real-world." class="callout-inner">
+<h3 class="callout-title">Reflecting on the real world.</h3>
+<div class="callout-content">
+<p>Q: What items/products that are called AI but after that definition
+would you now consider to be machine learning?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<p>A: As we are yet to achieve general intelligence anything shown for
+example on TV is actually just machine learning!!! e.g. the new smart
+feature that are being incorperated into phones.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="limitations-of-machine-learning">Limitations of Machine Learning<a class="anchor" aria-label="anchor" href="#limitations-of-machine-learning"></a>
+</h3>
+<p>There is a common statement used in computer science, that defines
+the effectiveness of machine learning methods.</p>
+</div>
+<div class="section level3">
+<h3 id="garbage-in-garbage-out">Garbage In = Garbage Out !!!<a class="anchor" aria-label="anchor" href="#garbage-in-garbage-out"></a>
+</h3>
+<p>This slogan highlights the principle that if the input data provided
+is of poor quality or irrelevant, the resulting output will likely be
+similarly flawed. For example, if we attempt to train a machine learning
+system to establish a correlation between two variables that are
+fundamentally unrelated, the model may still generate a semblance of a
+connection, but the output will lack meaningful significance. This is
+often apparent when the model’s output appears erratic or seemingly
+random.</p>
+<p><img src="fig/rubbish_in_rubbish_out.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<p>(credit: <a href="https://x.com/DSaience/status/1597612047889465344" class="external-link uri">https://x.com/DSaience/status/1597612047889465344</a>)</p>
+</div>
+<div class="section level3">
+<h3 id="bias-or-lacking-training-data">Bias or lacking training data<a class="anchor" aria-label="anchor" href="#bias-or-lacking-training-data"></a>
+</h3>
+<p>The input data may also lack sufficient diversity to encompass all
+potential scenarios. Biases present in the data collection process can
+subsequently manifest in the machine learning system. For instance, if
+data on crime reporting is gathered, it may skew towards wealthier areas
+where incidents are more likely to be reported. Historical data might be
+inadequate in terms of coverage or relevance to the specific context
+being analysed. For example, imagine creating a model to transcribe
+written text from historical documents. If the model is trained solely
+on documents from the 1950s to 2000, it may perform well when tested on
+similar samples from that era. However, testing the model on pre-1950s
+material might yield poor results because handwriting styles and
+language usage evolve over time.</p>
+<p><img src="fig/out_of_distrabution.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<p>(credit: <a href="https://www.researchgate.net/figure/n-distribution-data-gray-circle-and-out-of-distribution-data-red-circle-in-feature_fig1_349602822" class="external-link uri">https://www.researchgate.net/figure/n-distribution-data-gray-circle-and-out-of-distribution-data-red-circle-in-feature_fig1_349602822</a>)</p>
+<div id="effect-of-outter-distrabution-testing." class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="effect-of-outter-distrabution-testing." class="callout-inner">
+<h3 class="callout-title">Effect of outter-distrabution testing.</h3>
+<div class="callout-content">
+<p>Q: What do think would happen if say we trained a model on one type
+of medical scan, say mammography (X-ray) and then tested our model using
+ultrasound.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<p>A: As our model doesnt know how to detect features in ultrasound the
+results would be random and unpredictable.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="extrapolation">Extrapolation<a class="anchor" aria-label="anchor" href="#extrapolation"></a>
+</h3>
+<p>We can only confidently forecast outcomes for data that falls within
+the range of our training data. When attempting to extrapolate beyond
+the scope of our training data, it’s likely that our predictions will be
+inaccurate. An easy way to see this is to plot your training data based
+on it features along with the sample you want to analyse. If the sample
+is nowhere near your data, then you could consider this sample an
+outlier.</p>
+</div>
+<div class="section level3">
+<h3 id="over-fitting">Over fitting<a class="anchor" aria-label="anchor" href="#over-fitting"></a>
+</h3>
+<p>Sometimes ML algorithms become over trained to their training data
+and struggle to work when presented with real data. Meaning that the
+model has focused too much on certain characteristics that determine
+said task, but these may not be applicable when it is used to predict on
+the test set. This again results in some random predictions. Therefore,
+its critical not to over train (train for too long) your model.</p>
+<div id="overfiting-question." class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="overfiting-question." class="callout-inner">
+<h3 class="callout-title">Overfiting question.</h3>
+<div class="callout-content">
+<p>Q: What do you think happens to the results of the test set if you
+training your model for too long and it becomes over fitted.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div class="accordion-body">
+<p>A: Typically the model will perform badly on the testing data, as
+over fitting describes a model paying to much attention to
+attributes/characteristics specific to the training data.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="inability-to-explain-answers">Inability to explain answers<a class="anchor" aria-label="anchor" href="#inability-to-explain-answers"></a>
+</h3>
+<p>Many machine learning techniques will give us an answer given some
+input data even if that answer is wrong. Most are unable to explain any
+kind of logic in arriving at that answer. This can make diagnosing and
+even detecting problems with them difficult.</p>
+<p><img src="fig/explainability_of_ml.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
+<p>(cite: <a href="https://www.sciencedirect.com/science/article/abs/pii/S1389041723001225" class="external-link uri">https://www.sciencedirect.com/science/article/abs/pii/S1389041723001225</a>)</p>
+<div id="the-issues-with-the-lack-of-explainablity" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="the-issues-with-the-lack-of-explainablity" class="callout-inner">
+<h3 class="callout-title">The issues with the lack of explainablity</h3>
+<div class="callout-content">
+<p>Q: Say you have created a model that achieves 95% accuracy in
+classification on a given task. Then you go to and expert and show them
+the model, what do you think the first thing they are going to ask? What
+fields do you think this lack of explainablity is a massive issue?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
+</button>
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div class="accordion-body">
+<p>A: Any medical field it becomes a massive issue, especially because
+patents lives could be drectly effected.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="ethics-and-machine-learning">Ethics and Machine Learning<a class="anchor" aria-label="anchor" href="#ethics-and-machine-learning"></a>
+</h2>
+<hr class="half-width">
+<p>There are increasing worries about the ethics of using machine
+learning. In recent year’s we’ve seen several worrying problems from
+machine learning entering all kinds of aspects of daily life and the
+economy:</p>
+<ul>
+<li>The first death from an autonomous car which failed to brake for a
+pedestrian.[1]</li>
+<li>Highly targeted advertising based around social media and internet
+usage. [2]</li>
+<li>The outcomes of elections and referendums being influenced by highly
+targeted social media posts. This is compounded by the data being
+obtained without the users’ consent. [3]</li>
+<li>The mass deployment of facial recognition technologies. [4]</li>
+<li>The possible first use of autonomous military robots planning to
+kill in battle. [5]</li>
+</ul>
+<div class="section level3">
+<h3 id="problems-with-bias">Problems with bias<a class="anchor" aria-label="anchor" href="#problems-with-bias"></a>
+</h3>
+<p>Machine learning systems are often presented as more impartial and
+consistent ways to make decisions. For example, sentencing criminals or
+deciding if somebody should be granted bail. There have been several
+examples recently where machine learning systems have been shown to be
+biased because the data they were trained on was already biased. This
+can occur due to the training data being unrepresentative and under
+representing certain groups. For example, if you were trying to
+automatically screen job candidates and used a sample of people the same
+company had previously decided to employ then any biases in their past
+employment processes would be reflected in the machine learning.</p>
+</div>
+<div class="section level3">
+<h3 id="problems-with-explaining-decisions">Problems with explaining decisions<a class="anchor" aria-label="anchor" href="#problems-with-explaining-decisions"></a>
+</h3>
+<p>Many machine learning systems (e.g. neural networks) can’t really
+explain their decisions. Although the input and output are known trying
+to explain why the training caused the network to behave in a certain
+way can be very difficult. If a decision is questioned by a human, it’s
+difficult to provide any rationale as to how a decision was arrived
+at.</p>
+</div>
+<div class="section level3">
+<h3 id="problems-with-accuracy">Problems with accuracy<a class="anchor" aria-label="anchor" href="#problems-with-accuracy"></a>
+</h3>
+<p>No machine learning system is ever 100% accurate. Getting into the
+high 90s is usually considered good. But when we’re evaluating millions
+of data items this can translate into 100s of thousands of
+mis-identifications. If the implications of these incorrect decisions
+are serious then it will cause major problems. For instance if it
+results in somebody being imprisoned or even investigated for a crime or
+maybe just being denied insurance or a credit card.</p>
+</div>
+<div class="section level3">
+<h3 id="energy-usage">Energy Usage<a class="anchor" aria-label="anchor" href="#energy-usage"></a>
+</h3>
+<p>Many machine learning systems (especially deep learning) need vast
+amounts of computational power which in turn can consume vast amounts of
+energy. Depending on the source of that energy this might account for
+significant amounts of fossil fuels being burned. It is not uncommon for
+a modern GPU accelerated computer to use several kilowatts of power,
+running this for one hour could easily use as much energy a typical home
+would use in an entire day. This can be particularly bad when models are
+constantly being retrained or when “parameter sweeps” are done to find
+the best set of parameters to train with.</p>
+</div>
+<div class="section level3">
+<h3 id="ethics-of-machine-learning-in-research">Ethics of machine learning in research<a class="anchor" aria-label="anchor" href="#ethics-of-machine-learning-in-research"></a>
+</h3>
+<ul>
+<li>Not all research using machine learning will have major ethical
+implications. Many research projects don’t directly affect the lives of
+other people, but this isn’t always the case.</li>
+<li>Some questions you might want to ask yourself (and which an ethics
+committee might also ask you):</li>
+<li>Will anything your machine learning system does decide that somehow
+affects a person’s life?</li>
+<li>Will anything your machine learning system does decide that somehow
+affects an animal’s life?</li>
+<li>Will you be using any people to create your training data? Will they
+have to look at any disturbing or traumatic material during the training
+process?</li>
+<li>Are there any inherent biases in the dataset(s) you’re using for
+training?</li>
+<li>How much energy will this computation use? Are there more efficient
+ways to get the same answer?</li>
+</ul>
+<div id="something-to-think-about." class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="something-to-think-about." class="callout-inner">
+<h3 class="callout-title">Something to think about.</h3>
+<div class="callout-content">
+<p>Q: In groups discuss who you think is responsible if a AI/ML learning
+model goes wrong?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
+  <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
+</button>
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div class="accordion-body">
+<p>A: There is no correct answer, this is a heavily debated topic.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section><section id="aio-09-neural-networks-and-deep-learning"><p>Content from <a href="09-neural-networks-and-deep-learning.html">Neural Networks and Deep Learning</a></p>
+<hr>
+<p>Last updated on 2026-04-13 |
+
+        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/09-neural-networks-and-deep-learning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -3080,10 +3528,10 @@ considering?</li>
 <h3 class="card-title">Objectives</h3>
 <ul>
 <li>Explain the basic idea of neurons, layers, weights, and
-activations.</li>
-<li>Distinguish between a simple multilayer perceptron and architectures
-designed for structured data such as CNNs.</li>
-<li>Identify when deep learning is a sensible modelling option and when
+activation’s.</li>
+<li>Distinguish between a simple multi-layer perception and
+architectures designed for structured data such as CNNs.</li>
+<li>Identify when deep learning is a sensible modeling option and when
 it is not.</li>
 </ul>
 </div>
@@ -3106,18 +3554,21 @@ hand-crafted features.</p>
 <hr class="half-width">
 <p>A neural network starts from a simple idea.</p>
 <ul>
-<li>take the inputs;</li>
-<li>multiply them by weights;</li>
-<li>add them together;</li>
+<li>take the inputs (say two <span class="math inline">\(x_1\)</span>
+and <span class="math inline">\(x_2\)</span>)</li>
+<li>multiply them by weights (<span class="math inline">\(w_1\)</span>
+and <span class="math inline">\(w_2\)</span>)</li>
+<li>add them together, along with the bias</li>
 <li>pass the result through an activation function.</li>
 </ul>
 <p>That combination acts like a simple computational unit, often called
 a neuron.</p>
 <p><img src="fig/MLP.png" alt="Diagram of a simple perceptron showing inputs, weights, and an output." class="figure">
 (cite:<a href="https://muneebsa.medium.com/deep-learning-101-lesson-7-perceptron-f6a698d81be8" class="external-link uri">https://muneebsa.medium.com/deep-learning-101-lesson-7-perceptron-f6a698d81be8</a>)</p>
-<p>If you removed the activation function and used only a single layer,
-the model would behave a lot like a linear model. The activation is what
-lets the model learn more flexible nonlinear patterns.</p>
+<p>Diagram of a simple perceptron showing inputs, weights, and an
+output. If you removed the activation function and used only a single
+layer, the model would behave a lot like a linear model. The activation
+is what lets the model learn more flexible nonlinear patterns.</p>
 </section><section><h2 class="section-heading" id="why-one-perceptron-is-not-enough">Why one perceptron is not enough<a class="anchor" aria-label="anchor" href="#why-one-perceptron-is-not-enough"></a>
 </h2>
 <hr class="half-width">
@@ -3177,6 +3628,279 @@ error signal backward through the network so those weights can be
 updated. Learners do not need all the calculus here. The main idea is
 simple: the model checks which weights contributed to the error and
 nudges them to reduce it on the next pass.</p>
+</section><section><h2 class="section-heading" id="what-is-backpropagation">What is Backpropagation?<a class="anchor" aria-label="anchor" href="#what-is-backpropagation"></a>
+</h2>
+<hr class="half-width">
+<p>In deep learning, backpropagation (short for backward propagation of
+errors) is the core algorithm that enables a neural network to learn. It
+determines how much each weight and bias in the network contributed to
+the final error after a forward pass.</p>
+<p>While the forward pass generates predictions and computes the loss,
+backpropagation works in reverse—it tells the network how to adjust its
+internal parameters to reduce that error in future predictions.</p>
+<p>Rather than computing a simple difference, backpropagation operates
+layer by layer, moving backward through the network and using calculus
+to efficiently assign responsibility for the error.</p>
+<p><strong>How it works</strong> - Propagating the Error Backward: The
+process begins at the output layer, where the total loss is calculated.
+This error signal is then propagated backward through the network,
+assigning each connection a measure of how much it contributed to the
+final error. - The Chain Rule of Calculus: Neural networks are composed
+of nested mathematical functions. Backpropagation relies on the chain
+rule to compute gradients efficiently. The gradient of a parameter in an
+earlier layer is determined by multiplying gradients from all subsequent
+layers, revealing how small changes affect the final loss. - Updating
+the Parameters: Once gradients are computed for all parameters, an
+optimizer (such as gradient descent) updates the weights and biases.
+These updates move the model toward lower loss and improved
+accuracy.</p>
+</section><section><h2 class="section-heading" id="what-is-a-loss-function">What is a Loss Function?<a class="anchor" aria-label="anchor" href="#what-is-a-loss-function"></a>
+</h2>
+<hr class="half-width">
+<p>A loss function (also called an error or objective function) measures
+how far a model’s predictions are from the true values. It acts as a
+feedback signal that guides learning.</p>
+<p>You can think of it as a “report card” for the model:</p>
+<ul>
+<li>A high loss means poor predictions</li>
+<li>A low loss (close to zero) means accurate predictions</li>
+</ul>
+<div class="section level3">
+<h3 id="common-loss-functions">Common Loss Functions<a class="anchor" aria-label="anchor" href="#common-loss-functions"></a>
+</h3>
+<p>Different tasks require different loss functions:</p>
+<ul>
+<li>Regression (predicting continuous values): Mean Squared Error (MSE)
+squares the difference between predictions and true values, heavily
+penalizing large errors. This makes it suitable for tasks like price
+prediction.</li>
+<li>Binary Classification (yes/no decisions): Binary Cross-Entropy (Log
+Loss) measures how confident the model is in predicting the correct
+class.</li>
+<li>Segmentation (predicting regions): Intersection over Union (IoU)
+evaluates how well predicted regions overlap with ground truth.</li>
+<li>Robust/Hybrid Approaches: Huber Loss combines the benefits of MSE
+and MAE—sensitive to small errors but more robust to outliers.</li>
+</ul>
+<div id="callout1" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>Some evaluation metrics can also be used as loss functions, but they
+must be structured so that the optimal value is 0. For example, if a
+metric’s best value is 1, you can convert it into a loss by using: loss
+= 1 − metric</p>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="what-about-gradient-descent">What about Gradient Descent<a class="anchor" aria-label="anchor" href="#what-about-gradient-descent"></a>
+</h2>
+<hr class="half-width">
+<p>Gradient Descent: The Network’s Mountain Guide</p>
+<p>Gradient Descent is the main optimization algorithm used to train
+neural networks. If you recall our previous discussions, a loss function
+acts like a report card, telling the network how wrong its prediction
+is. But the loss function doesn’t tell the network how to improve.</p>
+<p>Gradient descent is the guide that takes that information and tells
+the network exactly how to adjust its internal “knobs” (the weights and
+biases you see being updated in our graphics) to reduce the error on the
+next prediction. The Intuitive Analogy: Down the Foggy Mountain</p>
+<p>Imagine you are standing at the top of a rugged mountain peak. Your
+goal is to reach the lowest possible point—the valley—where the loss is
+minimum (the global minimum).</p>
+<p>The catch: You are completely blindfolded, and the entire landscape
+is covered in thick fog. All you can do is feel the ground beneath your
+feet to determine the steepest slope downwards.</p>
+<p>Gradient Descent does this step-by-step:</p>
+<ul>
+<li>Feel the Slope: You stand in place and feel which direction slopes
+down most steeply.</li>
+<li>Take a Step: You take a single, careful step in that downward
+direction.</li>
+<li>Repeat: You repeat this process—checking the slope and taking
+another step—until the ground becomes flat, meaning you’ve reached the
+bottom (minimum loss).</li>
+</ul>
+<p>To understand how the math works, you must understand three critical
+terms that form the gradient descent process:</p>
+<table class="table">
+<colgroup>
+<col width="25%">
+<col width="25%">
+<col width="25%">
+<col width="25%">
+</colgroup>
+<thead><tr>
+<th>Concept</th>
+<th>The Analogy</th>
+<th>The Technical Meaning</th>
+<th>How it impacts the graphic</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Loss Function (Cost)</td>
+<td>The entire mountain range</td>
+<td>The mathematical function measuring the prediction error.</td>
+<td>Goal: Finding the lowest point on this surface.</td>
+</tr>
+<tr>
+<td>Learning Rate (α)</td>
+<td>The size of your footprint/step</td>
+<td>A key setting (a small number like 0.01) that controls how large an
+adjustment is made.</td>
+<td>Tuning: A bad learning rate means you’ll either move too slow or
+jump over the valley entirely.</td>
+</tr>
+<tr>
+<td>Gradient</td>
+<td>The direction and steepness of the slope</td>
+<td>The mathematical derivative (vector) that points uphill (steepest
+ascent).</td>
+<td>Direction: Because we subtract the gradient, we move in the exact
+opposite direction (downhill).</td>
+</tr>
+</tbody>
+</table>
+<div class="section level3">
+<h3 id="but-how-does-gradient-descent-update-the-model">But how does Gradient Descent update the Model?<a class="anchor" aria-label="anchor" href="#but-how-does-gradient-descent-update-the-model"></a>
+</h3>
+<p>Gradient descent operates iteratively. The model takes a batch of
+data, performs a Forward Pass to get predictions, and calculates the
+total loss. Then, it uses Backpropagation to determine the gradient for
+every single weight and bias in the network.</p>
+<p>Once it has all the gradients, the optimizer (Gradient Descent)
+applies targeted adjustments using this simple formula: <span class="math display">\[
+W_{new}=W_{old}−(Learning Rate×Gradient)
+\]</span></p>
+<p>This complex feedback loop—calculating errors, determining which
+internal connections caused them (backpropagation), and then slightly
+adjusting those connections (gradient descent)—is what allows neural
+networks to “learn” and become more accurate over time.</p>
+</div>
+</section><section><h2 class="section-heading" id="what-is-a-learning-rate">What is a learning rate<a class="anchor" aria-label="anchor" href="#what-is-a-learning-rate"></a>
+</h2>
+<hr class="half-width">
+<p>In the process of gradient descent, which we discussed previously,
+the network needs to adjust its internal “knobs” (weights and biases) to
+minimize the error in its predictions. Backpropagation calculates the
+direction and magnitude (the gradient) that these weights should
+change.</p>
+<p>The Learning Rate (α) is a tuning hyperparameter that controls how
+large a step the model takes in the opposite direction of the calculated
+gradient during each update cycle.</p>
+<p>The Intuitive Analogy: Your Footprint on the Mountain</p>
+<p>The Learning Rate (α) determines the size of your footprint. Are you
+taking massive, leaping jumps? Or tiny, conservative, shuffle-steps? The
+graphic illustrates how this setting drastically impacts your ability to
+converge to the true minimum. Detailed Visualization: Tuning for the
+Goal</p>
+<table class="table">
+<colgroup>
+<col width="25%">
+<col width="25%">
+<col width="25%">
+<col width="25%">
+</colgroup>
+<thead><tr>
+<th>LEARNING RATE</th>
+<th>THE VISUAL PATH</th>
+<th>THE OUTCOME</th>
+<th></th>
+</tr></thead>
+<tbody>
+<tr>
+<td>High (α = Large)</td>
+<td>Divergence / Chaotic Overshoot: The model takes a huge jump, but
+instead of finding the minimum, it overshoots the valley entirely and
+flies up the other side. This results in the loss increasing or
+oscillating wildly.</td>
+<td>Training fails. Predictions become unstable (e.g., Cat features
+-&gt; Predicting DOG with high confidence).</td>
+<td></td>
+</tr>
+<tr>
+<td>Ideal (α = Optimal)</td>
+<td>Optimal Convergence: The model takes medium-sized, efficient steps.
+It balances speed with precision, finding the true global minimum
+quickly and settling there.</td>
+<td>Model learns efficiently. Predictions become highly accurate.</td>
+<td></td>
+</tr>
+<tr>
+<td>Low (α = Tiny)</td>
+<td>Slow Convergence / Local Trap: The model takes incredibly small
+steps. It may take forever to reach the bottom, making training
+extremely time-consuming. It also risks getting stuck in small
+depressions (local minima) on the path, never reaching the best possible
+solution.</td>
+<td>Training is very slow. Progress is minimal.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="callout2" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>The challenge is that an ideal learning rate is hard to determine.
+Just like walking down a mountain, where the terrain constantly changes,
+it makes more sense to adapt your steps based on the conditions ahead
+rather than relying on a fixed approach.</p>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="the-adjustable-learning-rate">The adjustable learning rate<a class="anchor" aria-label="anchor" href="#the-adjustable-learning-rate"></a>
+</h2>
+<hr class="half-width">
+<p>Learning rate schedulers are techniques used during training to
+adjust the learning rate over time instead of keeping it constant.</p>
+<p>Like: - Step Decay: Reduces the learning rate by a fixed factor after
+a set number of epochs. - Exponential Decay: Continuously decreases the
+learning rate at an exponential rate. - Cosine Annealing: Gradually
+decreases the learning rate following a cosine curve.</p>
+<figure><img src="fig/learningrate.png" alt="Diagram of a multilayer perceptron with input, hidden, and output layers." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="the-optimizer">The Optimizer<a class="anchor" aria-label="anchor" href="#the-optimizer"></a>
+</h2>
+<hr class="half-width">
+<p>There is also a component called an optimizer, which defines how a
+model actually learns by updating its weights and biases during
+training. After the model makes a prediction and the loss is calculated,
+the optimizer uses the gradients (from backpropagation) to adjust the
+parameters in a way that reduces the error.</p>
+<p>In other words, the optimizer is responsible for turning information
+(gradients) into action (weight updates).</p>
+<p>There are several different types of optimizers, each with its own
+strategy for improving learning efficiency, stability, and speed.</p>
+<p>Common Optimizers</p>
+<ul>
+<li>Gradient Descent: The most basic approach, which computes updates
+using the entire dataset. While simple, it can be slow and
+computationally expensive.</li>
+<li>Stochastic Gradient Descent (SGD): Updates weights using small
+batches of data instead of the full dataset. This makes training faster
+and introduces some randomness, which can help escape local minima.</li>
+<li>Adam (Adaptive Moment Estimation): An advanced optimizer that adapts
+the learning rate for each parameter by combining momentum (direction of
+past gradients) with scaling (magnitude of gradients). It is widely used
+due to its strong performance in practice.</li>
+<li>RMSprop: Adjusts learning rates based on recent gradients, helping
+stabilize training—especially useful in problems with noisy or changing
+gradients.</li>
+</ul>
+<div class="section level3">
+<h3 id="in-summary">In Summary<a class="anchor" aria-label="anchor" href="#in-summary"></a>
+</h3>
+<p>The optimizer is the mechanism that takes everything computed during
+training—predictions, loss, and gradients—and actually applies it to
+update the model. Without it, the model would not improve, as no
+learning would take place.</p>
+</div>
 </section><section><h2 class="section-heading" id="common-neural-network-families">Common neural-network families<a class="anchor" aria-label="anchor" href="#common-neural-network-families"></a>
 </h2>
 <hr class="half-width">
@@ -3220,171 +3944,10 @@ call for different architecture families.</p>
 <td>Detects local patterns across a sequence</td>
 </tr>
 </tbody>
-</table>
-<div class="section level3">
-<h3 id="mlp-use-cases">MLP Use cases<a class="anchor" aria-label="anchor" href="#mlp-use-cases"></a>
-</h3>
-<p>Multi-layer perceptrons offer the flexibility to function as either a
-regressor or a classifier by simply changing the activation function
-applied to the output layer (along with the objective function, which
-we’ll cover later). For instance, if you want your model to perform
-classification, you would typically use an activation function like
-SoftMax, which converts the outputs into probabilities that sum to one
-across all classes. On the other hand, for regression tasks where you
-want to estimate continuous values, you would usually apply a linear
-activation function to the output layer.</p>
-</div>
-<div class="section level3">
-<h3 id="code-example-classification">Code example classification:<a class="anchor" aria-label="anchor" href="#code-example-classification"></a>
-</h3>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="im">from</span> sklearn.neural_network</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="im">import</span> MLPClassifier <span class="im">from</span> sklearn.model_selection</span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="im">import</span> train_test_split</span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>iris_df <span class="op">=</span> pd.read_csv(<span class="st">"iris.csv"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>iris_df[<span class="st">'labels'</span>] <span class="op">=</span> iris_df.variety.astype(<span class="st">'category'</span>).cat.codes</span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>X, y <span class="op">=</span> iris_df.iloc[:, :<span class="dv">4</span>], iris_df[<span class="st">'labels'</span>] </span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.25</span>, random_state <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="bu">print</span>(X_train.shape, y_train.shape)</span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>clf <span class="op">=</span> MLPClassifier(solver<span class="op">=</span><span class="st">'lbfgs'</span>, random_state<span class="op">=</span><span class="dv">1</span>, max_iter<span class="op">=</span><span class="dv">300</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>clf.fit(X, y) result <span class="op">=</span> clf.predict(X_test)</span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>ground <span class="op">=</span> np.array(y_test)</span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="bu">print</span>(result, ground)</span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>clf.score(X_test, y_test)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>
-[2 1 0 2 0 2 0 1 1 1 2 1 1 1 1 0 1 1 0 0 2 1 0 0 2 0 0 1 1 0 2 1 0 2 2 1
-02]
-
-[2 1 0 2 0 2 0 1 1 1 2 1 1 1 1 0 1 1 0 0 2 1 0 0 2 0 0 1 1 0 2 1 0 2 2 1
-01]
-
-Out[19]: 0.9736842105263158</code></pre>
-</div>
-</div>
-<div class="section level3">
-<h3 id="code-example-regression">Code example: regression<a class="anchor" aria-label="anchor" href="#code-example-regression"></a>
-</h3>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="im">from</span> sklearn.neural_network <span class="im">import</span> MLPRegressor</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>iris_df <span class="op">=</span> pd.read_csv(<span class="st">"iris.csv"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>X, y <span class="op">=</span> iris_df.iloc[:, :<span class="dv">3</span>], iris_df[<span class="st">"petal.width"</span>]</span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.25</span>, random_state <span class="op">=</span> <span class="dv">0</span>) <span class="bu">print</span>(X_train.shape, y_train.shape)</span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>clf <span class="op">=</span> MLPRegressor(solver<span class="op">=</span><span class="st">'lbfgs'</span>, random_state<span class="op">=</span><span class="dv">1</span>, max_iter<span class="op">=</span><span class="dv">200</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>clf.fit(X, y)</span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>result <span class="op">=</span> clf.predict(X_test)</span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>ground <span class="op">=</span> np.array(y_test)</span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="bu">print</span>(result, ground)</span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>clf.score(X_test, y_test) </span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>
-(112, 3) (112,) [1.88532522 1.14165756 0.27955749 2.06547563 0.24919028
-2.28388127 0.2155882 1.51092191 1.53244915 1.19834217 1.86483485
-1.45142482 1.6306123 1.4613069 1.63934615 0.23025832 1.51957326
-1.54290422 0.20987057 0.24845432 1.85473185 1.6255684 0.39085837
-0.18676907 1.67834109 0.14667113 0.40639156 1.34237052 0.91551074
-0.27895251 2.07143315 1.67419905 0.26318909 1.79216822 1.94143883
-1.2643635 0.33543957 1.81911754]
-/home/corcor27/anaconda3/envs/tensorflow-gpu2/lib/python3.9/site-packages/sklearn/neural_network/\_multilayer_perceptron.py:546:
-ConvergenceWarning: lbfgs failed to converge (status=1): STOP: TOTAL NO.
-of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown
-in: &lt;https://scikit-learn.org/stable/modules/preprocessing.html&gt;
-self.n_iter\_ = \_check_optimize_result("lbfgs", opt_res, self.max_iter)
-
-Out[14]: 0.9227530392362144</code></pre>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="convolutional-neural-networks">Convolutional neural networks<a class="anchor" aria-label="anchor" href="#convolutional-neural-networks"></a>
+</table></section><section><h2 class="section-heading" id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h2>
 <hr class="half-width">
-<p>A convolutional neural network, or CNN, is designed for grid-like
-data such as images.</p>
-<p>Instead of treating every pixel independently, a CNN scans small
-filters across the input. This lets the model detect local patterns such
-as edges, textures, and shapes.</p>
-<p>Why that matters:</p>
-<ul>
-<li>nearby pixels in an image are related;</li>
-<li>the same useful pattern may appear in different positions;</li>
-<li>local structure should be reused rather than relearned from scratch
-everywhere.</li>
-</ul>
-<p>That is why CNNs became such an important model family for
-vision.</p>
-</section><section><h2 class="section-heading" id="how-a-cnn-works">How a CNN works<a class="anchor" aria-label="anchor" href="#how-a-cnn-works"></a>
-</h2>
-<hr class="half-width">
-<p>The key building block of a CNN is the convolutional layer.</p>
-<ul>
-<li>a small filter, or kernel, slides across the input image;</li>
-<li>at each position, it multiplies the local pixel values and sums the
-result;</li>
-<li>the output becomes a feature map that highlights a specific
-pattern.</li>
-</ul>
-<p>Different kernels can become sensitive to different structures, such
-as edges, corners, or textures. As the network gets deeper, those early
-patterns can be combined into more complex visual concepts.</p>
-<figure><img src="fig/image_in_pixels.png" alt="Diagram showing how an image is represented as pixel values." class="figure mx-auto d-block"></figure><p>At the start of training, the kernel values are not meaningful. The
-model learns them from data by adjusting them during training.</p>
-</section><section><h2 class="section-heading" id="d-convolutions-in-vision">2D convolutions in vision<a class="anchor" aria-label="anchor" href="#d-convolutions-in-vision"></a>
-</h2>
-<hr class="half-width">
-<p>In image tasks, the kernel is usually a small <span class="math inline">\(N \times N\)</span> window that moves across the
-image.</p>
-<figure><img src="fig/how_kernals_work.png" alt="Diagram showing a convolutional kernel sliding across an image." class="figure mx-auto d-block"></figure><p>Each pass of that kernel produces a feature map. This is what lets
-the network detect useful local visual structure without treating every
-pixel location as a completely separate problem.</p>
-<figure><img src="fig/kernal_features.png" alt="Example feature maps created by different convolutional kernels." class="figure mx-auto d-block"></figure><p>For teaching purposes, the important point is not the exact
-arithmetic. It is that CNNs learn reusable local detectors and then
-stack them into more abstract visual features.</p>
-</section><section><h2 class="section-heading" id="d-convolutions-for-sequences-and-signals">1D convolutions for sequences and signals<a class="anchor" aria-label="anchor" href="#d-convolutions-for-sequences-and-signals"></a>
-</h2>
-<hr class="half-width">
-<figure><img src="docs/fig/1D_convolution.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure mx-auto d-block"></figure><p>Convolutions are not only for images. A 1D convolution slides across
-a sequence rather than across a 2D image.</p>
-<p>This is useful for:</p>
-<ul>
-<li>time series;</li>
-<li>sensor data;</li>
-<li>spectra;</li>
-<li>some kinds of biological sequence data.</li>
-</ul>
-<p>The intuition is the same: the model learns short local patterns and
-reuses them across the sequence.</p>
-<p>This is why 1D convolutions can be useful for time series, spectra,
-and sensor signals. They are often a better match than flattening the
-whole sequence into one long feature vector and ignoring local
-structure.</p>
-</section><section><h2 class="section-heading" id="bridge-to-the-next-page">Bridge to the next page<a class="anchor" aria-label="anchor" href="#bridge-to-the-next-page"></a>
-</h2>
-<hr class="half-width">
-<p>Understanding neural-network families is only part of the decision.
-The next question is whether deep learning is actually justified for
-your problem, and whether a pre-trained representation would be a more
-realistic route than training from scratch.</p>
-<p>That is the topic of the next lesson: feature learning and transfer
-learning.</p>
-</section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
+<figure><img src="fig/nerual_networks_summary.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
 </h2>
 <hr class="half-width">
 <div id="keypoints1" class="callout keypoints">
@@ -3413,11 +3976,468 @@ representation learning?</p></li>
 </div>
 </div>
 </div>
-</section></section><section id="aio-09-feature-learning-and-transfer-learning"><p>Content from <a href="09-feature-learning-and-transfer-learning.html">Feature Learning and Transfer Learning</a></p>
+</section></section><section id="aio-10-CNNs"><p>Content from <a href="10-CNNs.html">Convolutional Neural Networks</a></p>
 <hr>
 <p>Last updated on 2026-04-13 |
 
-        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/09-feature-learning-and-transfer-learning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/10-CNNs.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What counts as a sensible baseline or comparison model?</li>
+<li>Which conventional models belong in my starter model basket?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Define both a trivial reference baseline and a practical model
+basket.</li>
+<li>Choose an initial model based on task type, data shape,
+interpretability, and time available.</li>
+<li>Distinguish between a first baseline model and a stronger comparison
+model.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="convolutional-neural-networks">Convolutional neural networks<a class="anchor" aria-label="anchor" href="#convolutional-neural-networks"></a>
+</h2>
+<hr class="half-width">
+<p>A convolutional neural network, or CNN, is designed for grid-like
+data such as images.</p>
+<p>Instead of treating every pixel independently, a CNN scans small
+filters across the input. This lets the model detect local patterns such
+as edges, textures, and shapes.</p>
+<p>Why this matters - Spatial relationships: Nearby pixels in an image
+are often related - Translation invariance: The same pattern (e.g., an
+edge or object) can appear anywhere in the image - Efficiency: Reusing
+small filters avoids relearning the same features across the entire
+image</p>
+<p>Because of these properties, CNNs became the foundation of modern
+computer vision systems.</p>
+<p>That is why CNNs became such an important model family for
+vision.</p>
+</section><section><h2 class="section-heading" id="how-a-cnn-works">How a CNN works<a class="anchor" aria-label="anchor" href="#how-a-cnn-works"></a>
+</h2>
+<hr class="half-width">
+<p>The core building block of a CNN is the convolutional layer.</p>
+<ul>
+<li>A small matrix called a filter (or kernel) slides across the
+input</li>
+<li>At each position, it performs element-wise multiplication with the
+input values</li>
+<li>The results are summed to produce a single value</li>
+<li>Repeating this process creates a feature map</li>
+</ul>
+<p>A feature map highlights where certain patterns appear in the
+input.</p>
+<figure><img src="fig/image_in_pixels.png" alt="Diagram showing how an image is represented as pixel values." class="figure mx-auto d-block"></figure><div class="section level3">
+<h3 id="what-the-network-learns">What the network learns<a class="anchor" aria-label="anchor" href="#what-the-network-learns"></a>
+</h3>
+<ul>
+<li>Early layers detect simple features (edges, lines, textures)</li>
+<li>Deeper layers combine these into complex patterns (shapes,
+objects)</li>
+</ul>
+<figure><img src="fig/CNN_layers.png" alt="Diagram showing how an image is represented as pixel values." class="figure mx-auto d-block"></figure><p>At the start of training, filters are random. Through backpropagation
+and optimization, the network learns which patterns are useful and
+adjusts the filter values accordingly.</p>
+<p>At the start of training, the kernel values are not meaningful. The
+model learns them from data by adjusting them during training.</p>
+</div>
+</section><section><h2 class="section-heading" id="d-convolutions-in-vision">2D convolutions in vision<a class="anchor" aria-label="anchor" href="#d-convolutions-in-vision"></a>
+</h2>
+<hr class="half-width">
+<p>For image tasks, CNNs typically use 2D convolutions.</p>
+<ul>
+<li>The kernel is a small window (e.g., 3×3 or 5×5)</li>
+<li>It moves across the height and width of the image</li>
+<li>Each pass produces a feature map</li>
+</ul>
+<p>This allows the network to:</p>
+<ul>
+<li>Detect local features regardless of their position</li>
+<li>Build hierarchical representations (from edges → shapes →
+objects)</li>
+</ul>
+<figure><img src="fig/how_kernals_work.png" alt="Diagram showing a convolutional kernel sliding across an image." class="figure mx-auto d-block"></figure><figure><img src="fig/kernal_features.png" alt="Example feature maps created by different convolutional kernels." class="figure mx-auto d-block"></figure><div id="callout1" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>CNNs learn reusable local pattern detectors and stack them to form
+increasingly abstract representations.</p>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="d-convolutions-for-sequences-and-signals">1D convolutions for sequences and signals<a class="anchor" aria-label="anchor" href="#d-convolutions-for-sequences-and-signals"></a>
+</h2>
+<hr class="half-width">
+<figure><img src="fig/1D_convolution.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure mx-auto d-block"></figure><p>Convolutions are not limited to images. A 1D convolution operates
+over sequences instead of 2D grids.</p>
+<p>Instead of sliding a 2D window, it slides along a single
+dimension.</p>
+<p>Common use cases - Time series data (e.g., stock prices, sensor
+readings) - Audio and signal processing - Spectral data - Biological
+sequences (e.g., DNA)</p>
+<div class="section level3">
+<h3 id="why-it-works">Why it works<a class="anchor" aria-label="anchor" href="#why-it-works"></a>
+</h3>
+<p>The intuition is the same as with images:</p>
+<p>The model learns short local patterns These patterns are reused
+across the sequence</p>
+<p>This makes 1D convolutions more effective than simply flattening the
+data, which would ignore local structure and relationships.</p>
+</div>
+</section><section><h2 class="section-heading" id="the-other-layers">The other layers<a class="anchor" aria-label="anchor" href="#the-other-layers"></a>
+</h2>
+<hr class="half-width">
+<p>CNNs don’t consist only of convolutional layers. They also include
+other types of layers that serve specific roles in helping the model
+learn and make predictions.</p>
+<p><strong>Pooling Layers (Downsampling)</strong></p>
+<p>Pooling layers reduce the spatial size of feature maps, which makes
+computation more efficient and helps the network focus on the most
+important features.</p>
+<p>They also make the model more robust to small spatial changes,
+meaning it becomes less sensitive to the exact position of an object in
+an image.</p>
+<p><strong>Fully Connected Layers (Dense Layers)</strong></p>
+<p>Fully connected (dense) layers are the standard type of neural
+network layer where every neuron in one layer is connected to every
+neuron in the next.</p>
+<p>These layers typically appear at the end of a CNN and are responsible
+for:</p>
+<ul>
+<li>Combining the extracted features</li>
+<li>Making the final prediction (e.g., classification or
+regression)</li>
+</ul>
+<p>They act as the decision-making part of the network, taking the
+high-level features learned by the convolutional layers and turning them
+into an output.</p>
+<p>Here is a polished and professionally formatted version of your
+summary. I’ve cleaned up the grammar, tightened the phrasing, and
+organized the comparison into a clear table to make the “division of
+labor” between these layers really pop. Putting It All Together</p>
+<p>By combining the layers just mentioned with the convolutional
+foundations discussed earlier, you create a powerful two-phase
+architecture. In this setup, the Convolutional layers act as the “eyes”
+of the model (feature extraction), while the Dense layers act as the
+“brain” (final decision-making).</p>
+<p>This standard architecture utilizes two distinct types of
+connectivity, which is why we conceptually separate the “convolutional”
+stage from the “standard neural network” stage:</p>
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr>
+<th>Feature</th>
+<th>Phase 1: CNN (Feature Extraction)</th>
+<th>Phase 2: Standard NN (Classification Head)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Layer Type</td>
+<td>Convolution, Pooling</td>
+<td>Fully Connected (Dense)</td>
+</tr>
+<tr>
+<td>Connectivity</td>
+<td>Local Connectivity: Each neuron only “sees” a small window (the
+filter size).</td>
+<td>Fully Connected: Every neuron connects to every single neuron in the
+next layer.</td>
+</tr>
+<tr>
+<td>Efficiency</td>
+<td>High Efficiency: Uses “Weight Sharing” where one filter scans the
+entire image.</td>
+<td>Low Efficiency: Parameters explode as the input grows (often
+millions of weights).</td>
+</tr>
+<tr>
+<td>Data Structure</td>
+<td>Operates on 2D grids / 3D volumes to preserve spatial
+relationships.</td>
+<td>Operates on 1D feature vectors, effectively ignoring spatial
+location.</td>
+</tr>
+<tr>
+<td>Function Learns what and where visual features (edges, patterns,
+objects) exist.</td>
+<td>Interprets global features to make a high-level decision (e.g.,
+“This is a cat”).</td>
+<td></td>
+</tr>
+</tbody>
+</table></section><section><h2 class="section-heading" id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
+</h2>
+<hr class="half-width">
+<figure><img src="fig/CNN.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
+</h2>
+<hr class="half-width">
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>Choose the task type before choosing the algorithm.</li>
+<li>A good starter model basket includes both simple baselines and one
+or two stronger comparison options.</li>
+<li>Conventional models are usually the right first step for structured
+or limited data.</li>
+<li>Stronger models should be added for a reason, not because they sound
+more advanced.</li>
+</ul>
+</div>
+</div>
+</div>
+</section></section><section id="aio-11-transformers"><p>Content from <a href="11-transformers.html">Transformers</a></p>
+<hr>
+<p>Last updated on 2026-04-13 |
+
+        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/11-transformers.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What counts as a sensible baseline or comparison model?</li>
+<li>Which conventional models belong in my starter model basket?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Define both a trivial reference baseline and a practical model
+basket.</li>
+<li>Choose an initial model based on task type, data shape,
+interpretability, and time available.</li>
+<li>Distinguish between a first baseline model and a stronger comparison
+model.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="transformer-deep-learning-models">Transformer Deep Learning Models<a class="anchor" aria-label="anchor" href="#transformer-deep-learning-models"></a>
+</h2>
+<hr class="half-width">
+<div class="section level3">
+<h3 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h3>
+<p>Transformers are a type of deep learning architecture designed
+primarily for handling sequential data such as text, audio, and time
+series. They power many modern AI systems, including language models,
+translation systems, and chatbots.</p>
+<p>Instead of processing data step-by-step like RNNs or LSTMs,
+transformers process entire sequences in parallel using a mechanism
+called attention.</p>
+</div>
+</section><section><h2 class="section-heading" id="the-core-philosophy-parallelism-context">The Core Philosophy: Parallelism &amp; Context<a class="anchor" aria-label="anchor" href="#the-core-philosophy-parallelism-context"></a>
+</h2>
+<hr class="half-width">
+<p>Before 2017, AI processed language like a human reading a book: one
+word at a time, from left to right (using RNNs or LSTMs). This was slow
+and often “forgot” the beginning of a long sentence by the time it
+reached the end.</p>
+<p>The Transformer changed this by processing the entire sentence at
+once. It doesn’t care about the order initially; instead, it uses
+“Attention” to see how every word relates to every other word
+simultaneously. Key Advantages:</p>
+<ul>
+<li>Parallelization: Because it sees everything at once, we can train it
+on massive GPUs much faster.</li>
+<li>Long-Range Dependencies: It can easily link a word at the beginning
+of a 1,000-page book to a word at the very end.</li>
+</ul>
+<p>Step 0: Tokenisation &amp; Embedding</p>
+<p>Computers don’t read words; they read numbers.</p>
+<ul>
+<li>Tokenization: The sentence “The cat sat” is broken into chunks
+(tokens): [“The”, ” cat”, ” sat”].</li>
+<li>Embedding: Each token is converted into a long list of numbers (a
+vector) that represents its meaning. In this space, the vector for “cat”
+is mathematically close to “kitten” but far from “airplane.”</li>
+</ul>
+<div class="section level3">
+<h3 id="step-1-positional-encoding-the-map">Step 1: Positional Encoding (The “Map”)<a class="anchor" aria-label="anchor" href="#step-1-positional-encoding-the-map"></a>
+</h3>
+<p>Since the model processes all words at once, it loses the sense of
+order. To fix this, we add a “Position Signal” to the embeddings.</p>
+<ul>
+<li>Classic Method: Sinusoidal waves (sine/cosine).</li>
+<li>Modern 2026 Standard: RoPE (Rotary Positional Embeddings), which
+rotates the vectors in a way that helps the model understand relative
+distances between words more naturally.</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="step-2-self-attention-the-spotlight">Step 2: Self-Attention (The “Spotlight”)<a class="anchor" aria-label="anchor" href="#step-2-self-attention-the-spotlight"></a>
+</h3>
+<p>This is the “secret sauce.” For every word, the model asks: “Which
+other words in this sentence help me understand this specific word
+better?”</p>
+<p>It uses three vectors for each token:</p>
+<ul>
+<li>Query (Q): What am I looking for? (The “Question”)</li>
+<li>Key (K): What do I contain? (The “Label”)</li>
+<li>Value (V): What information do I actually hold? (The “Content”)</li>
+<li>Example: In the sentence “The animal didn’t cross the street because
+it was too tired,” the word “it” sends out a Query. The Key for “animal”
+matches that Query strongly, so the model “attends” to “animal” to
+understand what “it” refers to.</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="step-3-multi-head-attention">Step 3: Multi-Head Attention<a class="anchor" aria-label="anchor" href="#step-3-multi-head-attention"></a>
+</h3>
+<p>Instead of looking at the sentence once, the model does it many times
+in parallel (Heads).</p>
+<ul>
+<li>Head 1 might focus on grammar.</li>
+<li>Head 2 might focus on pronouns.</li>
+<li>Head 3 might focus on the relationship between objects and
+actions.</li>
+<li>All these perspectives are then merged back together.</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="step-4-feed-forward-normalization">Step 4: Feed-Forward &amp; Normalization<a class="anchor" aria-label="anchor" href="#step-4-feed-forward-normalization"></a>
+</h3>
+<p>After attention, the data passes through a standard neural network
+(Feed-Forward) to refine the features.</p>
+<ul>
+<li>Add &amp; Norm: We use “Residual Connections” (shortcuts) to make
+sure information doesn’t get lost as the model gets deeper.</li>
+<li>Modern Note: Most 2026 models use Pre-Norm (normalizing before the
+layer) for better stability during training.</li>
+</ul>
+<figure><img src="fig/multi-head.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><figure><img src="fig/scaled_dot.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure>
+</div>
+</section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
+</h2>
+<hr class="half-width">
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>Choose the task type before choosing the algorithm.</li>
+<li>A good starter model basket includes both simple baselines and one
+or two stronger comparison options.</li>
+<li>Conventional models are usually the right first step for structured
+or limited data.</li>
+<li>Stronger models should be added for a reason, not because they sound
+more advanced.</li>
+</ul>
+</div>
+</div>
+</div>
+</section></section><section id="aio-12-LLMs"><p>Content from <a href="12-LLMs.html">Large Language Models</a></p>
+<hr>
+<p>Last updated on 2026-04-13 |
+
+        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/12-LLMs.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What counts as a sensible baseline or comparison model?</li>
+<li>Which conventional models belong in my starter model basket?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Define both a trivial reference baseline and a practical model
+basket.</li>
+<li>Choose an initial model based on task type, data shape,
+interpretability, and time available.</li>
+<li>Distinguish between a first baseline model and a stronger comparison
+model.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
+</h2>
+<hr class="half-width">
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>Choose the task type before choosing the algorithm.</li>
+<li>A good starter model basket includes both simple baselines and one
+or two stronger comparison options.</li>
+<li>Conventional models are usually the right first step for structured
+or limited data.</li>
+<li>Stronger models should be added for a reason, not because they sound
+more advanced.</li>
+</ul>
+</div>
+</div>
+</div>
+</section></section><section id="aio-13-feature-learning-and-transfer-learning"><p>Content from <a href="13-feature-learning-and-transfer-learning.html">Feature Learning and Transfer Learning</a></p>
+<hr>
+<p>Last updated on 2026-04-13 |
+
+        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/13-feature-learning-and-transfer-learning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -3728,223 +4748,6 @@ learning?” but “is there a useful pre-trained representation for my data
 type?”</li>
 <li>Conventional baselines still matter because they tell you whether
 the extra complexity is justified.</li>
-</ul>
-</div>
-</div>
-</div>
-</section></section><section id="aio-10-transformers"><p>Content from <a href="10-transformers.html">Transformers</a></p>
-<hr>
-<p>Last updated on 2026-04-13 |
-
-        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/10-transformers.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
-        </div>
-<div class="overview card">
-<h2 class="card-header">Overview</h2>
-<div class="row g-0">
-<div class="col-md-4">
-<div class="card-body">
-<div class="inner">
-<h3 class="card-title">Questions</h3>
-<ul>
-<li>What counts as a sensible baseline or comparison model?</li>
-<li>Which conventional models belong in my starter model basket?</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-md-8">
-<div class="card-body">
-<div class="inner bordered">
-<h3 class="card-title">Objectives</h3>
-<ul>
-<li>Define both a trivial reference baseline and a practical model
-basket.</li>
-<li>Choose an initial model based on task type, data shape,
-interpretability, and time available.</li>
-<li>Distinguish between a first baseline model and a stronger comparison
-model.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<section><h2 class="section-heading" id="transformer-deep-learning-models">Transformer Deep Learning Models<a class="anchor" aria-label="anchor" href="#transformer-deep-learning-models"></a>
-</h2>
-<hr class="half-width">
-<div class="section level3">
-<h3 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
-</h3>
-<p>Transformers are a type of deep learning architecture designed
-primarily for handling sequential data such as text, audio, and time
-series. They power many modern AI systems, including language models,
-translation systems, and chatbots.</p>
-<p>Instead of processing data step-by-step like RNNs or LSTMs,
-transformers process entire sequences in parallel using a mechanism
-called attention.</p>
-</div>
-</section><section><h2 class="section-heading" id="the-core-philosophy-parallelism-context">The Core Philosophy: Parallelism &amp; Context<a class="anchor" aria-label="anchor" href="#the-core-philosophy-parallelism-context"></a>
-</h2>
-<hr class="half-width">
-<p>Before 2017, AI processed language like a human reading a book: one
-word at a time, from left to right (using RNNs or LSTMs). This was slow
-and often “forgot” the beginning of a long sentence by the time it
-reached the end.</p>
-<p>The Transformer changed this by processing the entire sentence at
-once. It doesn’t care about the order initially; instead, it uses
-“Attention” to see how every word relates to every other word
-simultaneously. Key Advantages:</p>
-<ul>
-<li>Parallelization: Because it sees everything at once, we can train it
-on massive GPUs much faster.</li>
-<li>Long-Range Dependencies: It can easily link a word at the beginning
-of a 1,000-page book to a word at the very end.</li>
-</ul>
-<p>Step 0: Tokenisation &amp; Embedding</p>
-<p>Computers don’t read words; they read numbers.</p>
-<ul>
-<li>Tokenization: The sentence “The cat sat” is broken into chunks
-(tokens): [“The”, ” cat”, ” sat”].</li>
-<li>Embedding: Each token is converted into a long list of numbers (a
-vector) that represents its meaning. In this space, the vector for “cat”
-is mathematically close to “kitten” but far from “airplane.”</li>
-</ul>
-<div class="section level3">
-<h3 id="step-1-positional-encoding-the-map">Step 1: Positional Encoding (The “Map”)<a class="anchor" aria-label="anchor" href="#step-1-positional-encoding-the-map"></a>
-</h3>
-<p>Since the model processes all words at once, it loses the sense of
-order. To fix this, we add a “Position Signal” to the embeddings.</p>
-<ul>
-<li>Classic Method: Sinusoidal waves (sine/cosine).</li>
-<li>Modern 2026 Standard: RoPE (Rotary Positional Embeddings), which
-rotates the vectors in a way that helps the model understand relative
-distances between words more naturally.</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="step-2-self-attention-the-spotlight">Step 2: Self-Attention (The “Spotlight”)<a class="anchor" aria-label="anchor" href="#step-2-self-attention-the-spotlight"></a>
-</h3>
-<p>This is the “secret sauce.” For every word, the model asks: “Which
-other words in this sentence help me understand this specific word
-better?”</p>
-<p>It uses three vectors for each token:</p>
-<ul>
-<li>Query (Q): What am I looking for? (The “Question”)</li>
-<li>Key (K): What do I contain? (The “Label”)</li>
-<li>Value (V): What information do I actually hold? (The “Content”)</li>
-<li>Example: In the sentence “The animal didn’t cross the street because
-it was too tired,” the word “it” sends out a Query. The Key for “animal”
-matches that Query strongly, so the model “attends” to “animal” to
-understand what “it” refers to.</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="step-3-multi-head-attention">Step 3: Multi-Head Attention<a class="anchor" aria-label="anchor" href="#step-3-multi-head-attention"></a>
-</h3>
-<p>Instead of looking at the sentence once, the model does it many times
-in parallel (Heads).</p>
-<ul>
-<li>Head 1 might focus on grammar.</li>
-<li>Head 2 might focus on pronouns.</li>
-<li>Head 3 might focus on the relationship between objects and
-actions.</li>
-<li>All these perspectives are then merged back together.</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="step-4-feed-forward-normalization">Step 4: Feed-Forward &amp; Normalization<a class="anchor" aria-label="anchor" href="#step-4-feed-forward-normalization"></a>
-</h3>
-<p>After attention, the data passes through a standard neural network
-(Feed-Forward) to refine the features.</p>
-<ul>
-<li>Add &amp; Norm: We use “Residual Connections” (shortcuts) to make
-sure information doesn’t get lost as the model gets deeper.</li>
-<li>Modern Note: Most 2026 models use Pre-Norm (normalizing before the
-layer) for better stability during training.</li>
-</ul>
-<figure><img src="fig/multi-head.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><figure><img src="fig/scaled_dot.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure>
-</div>
-</section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
-</h2>
-<hr class="half-width">
-<div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<span class="callout-header">Key Points</span>
-<div class="callout-inner">
-<div class="callout-content">
-<ul>
-<li>Choose the task type before choosing the algorithm.</li>
-<li>A good starter model basket includes both simple baselines and one
-or two stronger comparison options.</li>
-<li>Conventional models are usually the right first step for structured
-or limited data.</li>
-<li>Stronger models should be added for a reason, not because they sound
-more advanced.</li>
-</ul>
-</div>
-</div>
-</div>
-</section></section><section id="aio-11-LLMs"><p>Content from <a href="11-LLMs.html">Large Language Models</a></p>
-<hr>
-<p>Last updated on 2026-04-13 |
-
-        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/11-LLMs.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
-        </div>
-<div class="overview card">
-<h2 class="card-header">Overview</h2>
-<div class="row g-0">
-<div class="col-md-4">
-<div class="card-body">
-<div class="inner">
-<h3 class="card-title">Questions</h3>
-<ul>
-<li>What counts as a sensible baseline or comparison model?</li>
-<li>Which conventional models belong in my starter model basket?</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-md-8">
-<div class="card-body">
-<div class="inner bordered">
-<h3 class="card-title">Objectives</h3>
-<ul>
-<li>Define both a trivial reference baseline and a practical model
-basket.</li>
-<li>Choose an initial model based on task type, data shape,
-interpretability, and time available.</li>
-<li>Distinguish between a first baseline model and a stronger comparison
-model.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
-</h2>
-<hr class="half-width">
-<div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<span class="callout-header">Key Points</span>
-<div class="callout-inner">
-<div class="callout-content">
-<ul>
-<li>Choose the task type before choosing the algorithm.</li>
-<li>A good starter model basket includes both simple baselines and one
-or two stronger comparison options.</li>
-<li>Conventional models are usually the right first step for structured
-or limited data.</li>
-<li>Stronger models should be added for a reason, not because they sound
-more advanced.</li>
 </ul>
 </div>
 </div>
