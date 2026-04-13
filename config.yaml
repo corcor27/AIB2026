@@ -64,6 +64,7 @@ episodes:
 - 06-model-evaluation.md
 - 07-feature-engineering.md
 - 08-neural-networks-and-deep-learning.md
+- 09-feature-learning-and-transfer-learning.md
 
 # Information for Learners
 learners: 

@@ -296,6 +296,18 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush7">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading7">
+        <a href="09-feature-learning-and-transfer-learning.html">6. Feature Learning and Transfer Learning</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -1480,7 +1492,7 @@ problem.</li>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>“My baseline classification model is missing important domain
 structure, so I will add two engineered features before trying a more
@@ -1893,7 +1905,7 @@ model may be needed.</li>
   Example answers
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul>
 <li>“I chose MAE because average error in the original units is easy to
@@ -2229,7 +2241,7 @@ training and final evaluation?</p>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ul>
 <li>cross-entropy used to fit a classifier: training loss;</li>
@@ -2292,7 +2304,7 @@ and scoring user guide</a></li>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>“My logistic regression baseline performed better than the majority
 class baseline and gives a useful first signal for this classification
@@ -3384,6 +3396,326 @@ and the limits of simpler models.</p></li>
 <li><p>In what sense is it similar to learned embeddings?</p></li>
 <li><p>In what sense is it different from neural-network-based
 representation learning?</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section></section><section id="aio-09-feature-learning-and-transfer-learning"><p>Content from <a href="09-feature-learning-and-transfer-learning.html">Feature Learning and Transfer Learning</a></p>
+<hr>
+<p>Last updated on 2026-04-13 |
+
+        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/09-feature-learning-and-transfer-learning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 50 minutes</p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What does it mean for a model to learn features automatically?</li>
+<li>When is transfer learning more realistic than training from
+scratch?</li>
+<li>How should representation and data type guide the next modelling
+step?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Explain feature learning in plain language.</li>
+<li>Distinguish between conventional feature engineering and learned
+representations.</li>
+<li>Identify cases where transfer learning or specialised architectures
+are a more realistic next step than training a deep model from
+scratch.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="from-engineered-features-to-learned-representations">From engineered features to learned representations<a class="anchor" aria-label="anchor" href="#from-engineered-features-to-learned-representations"></a>
+</h2>
+<hr class="half-width">
+<p>In conventional machine learning, people usually decide which
+features the model should use. In feature learning, the model learns
+internal representations automatically from the training data.</p>
+<p>This page is about what you do with that idea in practice, especially
+when you do not want to train a large deep model from scratch.</p>
+<p>Learned representations can arise in more than one way:</p>
+<ul>
+<li>in <strong>supervised learning</strong>, the internal features are
+shaped by a task label such as a class or target value;</li>
+<li>in <strong>self-supervised learning</strong>, the model learns
+useful internal structure from the input itself, for example by
+predicting masked or missing parts.</li>
+</ul>
+<figure><img src="../fig/representation_learning.svg" alt="Diagram showing raw inputs transformed by an encoder into learned representations, trained through supervised or self-supervised objectives." class="figure mx-auto d-block"></figure><p>One useful plain-language definition is this: a representation is a
+way of transforming your data into a feature vector space where the
+patterns you care about become easier to separate, compare, or
+retrieve.</p>
+<p>For text, that raises an important question: what exactly is being
+represented?</p>
+<ul>
+<li>a <strong>word embedding</strong> gives one learned vector per
+vocabulary item;</li>
+<li>a <strong>token embedding</strong> gives a vector for a word as it
+appears in a particular context;</li>
+<li>a <strong>sentence embedding</strong> gives one vector for the whole
+sentence or short document.</li>
+</ul>
+<p>For this lesson, the most useful visual is the sentence-embedding
+view, because that is the pattern used in the text demo notebook.</p>
+</section><section><h2 class="section-heading" id="a-text-to-embedding-example">A text to embedding example<a class="anchor" aria-label="anchor" href="#a-text-to-embedding-example"></a>
+</h2>
+<hr class="half-width">
+<p>An embedding model changes the problem. Instead of counting only
+visible tokens, it learns vectors that summarise how pieces of text
+behave across many examples.</p>
+<figure><img src="../fig/token_sentence_embeddings.svg" alt="Diagram showing a sentence tokenised, mapped into token vectors by an encoder, then combined into one sentence embedding for a downstream task." class="figure mx-auto d-block"></figure><p>This is why embeddings are often described as learned
+representations: the model has learned a reusable way to encode inputs
+before the final classifier sees them.</p>
+</section><section><h2 class="section-heading" id="why-the-embedding-can-be-meaningful">Why the embedding can be meaningful<a class="anchor" aria-label="anchor" href="#why-the-embedding-can-be-meaningful"></a>
+</h2>
+<hr class="half-width">
+<p>The key idea is not that the vector itself is magical. The key idea
+is that training pushes similar inputs toward similar internal
+representations.</p>
+<p>For example, a useful text embedding should tend to place medically
+related sentences nearer each other than to space-related sentences,
+even if the wording is not identical.</p>
+<figure><img src="../fig/embedding_space_meaning.svg" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><p>This drawing is only a sketch. Real embeddings may have hundreds of
+dimensions, and we usually inspect them only after projection. The
+important point is the geometry: closeness in representation space can
+correspond to semantic similarity or task-relevant similarity.</p>
+<p>That is exactly what makes transfer learning practical. If a
+pre-trained encoder already places related inputs in sensible regions of
+the space, you can often train a much simpler downstream model on
+top.</p>
+</section><section><h2 class="section-heading" id="when-deep-learning-can-help">When deep learning can help<a class="anchor" aria-label="anchor" href="#when-deep-learning-can-help"></a>
+</h2>
+<hr class="half-width">
+<p>Deep learning can be a good next step when:</p>
+<ul>
+<li>the data are unstructured or highly structured in raw form;</li>
+<li>important patterns are hard to hand-design as features;</li>
+<li>there is enough data, compute, or a strong pre-trained starting
+point;</li>
+<li>the data type naturally suggests a specialist architecture.</li>
+</ul></section><section><h2 class="section-heading" id="when-deep-learning-is-not-the-right-next-step">When deep learning is not the right next step<a class="anchor" aria-label="anchor" href="#when-deep-learning-is-not-the-right-next-step"></a>
+</h2>
+<hr class="half-width">
+<p>Deep learning is not automatically better.</p>
+<ul>
+<li>it is often harder to interpret;</li>
+<li>it can be slower to train and debug;</li>
+<li>it may need far more data than a workshop project has;</li>
+<li>it is easy to add complexity without adding insight.</li>
+</ul>
+<p>That is why conventional baselines still matter. They tell you
+whether the extra complexity is justified.</p>
+</section><section><h2 class="section-heading" id="why-transfer-learning-matters-in-practice">Why transfer learning matters in practice<a class="anchor" aria-label="anchor" href="#why-transfer-learning-matters-in-practice"></a>
+</h2>
+<hr class="half-width">
+<p>Most bootcamp projects do not have the data, time, or compute needed
+to train a large deep model well from scratch. That is why transfer
+learning is often the more realistic route.</p>
+<p>Instead of learning everything from the beginning, you reuse a model
+or encoder that has already learned a useful representation somewhere
+else.</p>
+</section><section><h2 class="section-heading" id="transfer-learning">Transfer learning<a class="anchor" aria-label="anchor" href="#transfer-learning"></a>
+</h2>
+<hr class="half-width">
+<p>Many workshop projects do not have enough data to train a deep model
+from scratch. In those cases, transfer learning is often the realistic
+option.</p>
+<p>Transfer learning means starting from a model that has already
+learned a useful representation on a larger dataset, then adapting that
+learned representation to a new task.</p>
+<p>Examples:</p>
+<ul>
+<li>sentence embeddings for text classification;</li>
+<li>pre-trained image models for vision tasks;</li>
+<li>pre-trained sequence encoders for genomic or protein sequences;</li>
+<li>pre-trained encoders for spectroscopy or multi-spectral signals such
+as NIRS when those data are treated as structured spectra or temporal
+signals.</li>
+</ul></section><section><h2 class="section-heading" id="common-transfer-learning-patterns">Common transfer-learning patterns<a class="anchor" aria-label="anchor" href="#common-transfer-learning-patterns"></a>
+</h2>
+<hr class="half-width">
+<p>There are several practical ways to use a pre-trained
+representation.</p>
+<ul>
+<li>use the encoder only and train a simpler downstream model on
+top;</li>
+<li>fine-tune part of the pre-trained model for the new task;</li>
+<li>compare a frozen feature extractor against a fully trainable model
+if you have enough data.</li>
+</ul>
+<p>For workshop-scale projects, the first option is often the
+safest.</p>
+</section><section><h2 class="section-heading" id="matching-transfer-learning-to-the-data">Matching transfer learning to the data<a class="anchor" aria-label="anchor" href="#matching-transfer-learning-to-the-data"></a>
+</h2>
+<hr class="half-width">
+<p>The question here is less about the architecture family itself and
+more about what kind of pre-trained representation is available.</p>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr>
+<th>Data type</th>
+<th>Useful transfer-learning direction</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Text</td>
+<td>sentence embeddings, transformer encoders</td>
+</tr>
+<tr>
+<td>Vision</td>
+<td>pre-trained image encoders, transfer features</td>
+</tr>
+<tr>
+<td>Time series / signals</td>
+<td>pre-trained sequence encoders when available</td>
+</tr>
+<tr>
+<td>Spectra / specialist scientific data</td>
+<td>domain-specific encoders or extracted embeddings</td>
+</tr>
+<tr>
+<td>Tabular</td>
+<td>usually better feature engineering first</td>
+</tr>
+</tbody>
+</table></section><section><h2 class="section-heading" id="available-demo-notebooks">Available demo notebooks<a class="anchor" aria-label="anchor" href="#available-demo-notebooks"></a>
+</h2>
+<hr class="half-width">
+<p>Two demo notebooks are available for this lesson.</p>
+<ul>
+<li>
+<a href="../demo_transfer_learning_vision.ipynb">demo_transfer_learning_vision.ipynb</a>:
+compares a weak raw-pixel baseline with features from a pre-trained
+image model.</li>
+<li>
+<a href="../demo_transfer_learning_text.ipynb">demo_transfer_learning_text.ipynb</a>:
+compares TF-IDF plus logistic regression with sentence embeddings plus
+logistic regression.</li>
+</ul>
+<p>That combination gives a strong cross-task story without making the
+lesson too abstract.</p>
+</section><section><h2 class="section-heading" id="a-practical-decision-rule">A practical decision rule<a class="anchor" aria-label="anchor" href="#a-practical-decision-rule"></a>
+</h2>
+<hr class="half-width">
+<p>Ask these questions in order:</p>
+<ol style="list-style-type: decimal">
+<li>Can a conventional model with sensible features solve enough of the
+problem?</li>
+<li>If not, is the limitation mainly about representation rather than
+the choice of classifier or regressor?</li>
+<li>If yes, is there a pre-trained representation or architecture that
+matches this data type?</li>
+</ol>
+<p>If the answer to the third question is yes, transfer learning or a
+representation-learning approach may be the right next step.</p>
+<div id="which-route-fits-your-data" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="which-route-fits-your-data" class="callout-inner">
+<h3 class="callout-title">Which route fits your data?</h3>
+<div class="callout-content">
+<p>For your own project, write down:</p>
+<ul>
+<li>what kind of data structure you have;</li>
+<li>whether a simple feature table is enough to represent it;</li>
+<li>whether the next step should be better feature engineering, a
+specialist deep-learning architecture, or transfer learning.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="feature-engineering-or-feature-learning" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="feature-engineering-or-feature-learning" class="callout-inner">
+<h3 class="callout-title">Feature engineering or feature learning?</h3>
+<div class="callout-content">
+<p>For your own project, answer:</p>
+<ul>
+<li>What representation are you currently using?</li>
+<li>What important structure might it be missing?</li>
+<li>Would that gap be better addressed by a hand-crafted feature or by a
+learned representation?</li>
+</ul>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="is-pca-representation-learning">Is PCA representation learning?<a class="anchor" aria-label="anchor" href="#is-pca-representation-learning"></a>
+</h2>
+<hr class="half-width">
+<p>PCA creates a lower-dimensional representation of the data, so it
+does learn a new representation in a broad sense. However, it is usually
+not what people mean by deep representation learning because:</p>
+<ul>
+<li>it is linear rather than highly expressive;</li>
+<li>it does not learn layered features through a neural network;</li>
+<li>it is usually unsupervised dimensionality reduction rather than deep
+feature learning.</li>
+</ul>
+<div id="comparing-pca-with-learned-embeddings" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="comparing-pca-with-learned-embeddings" class="callout-inner">
+<h3 class="callout-title">Comparing PCA with learned embeddings</h3>
+<div class="callout-content">
+<p>Discuss with a partner:</p>
+<ul>
+<li>In what sense is it similar to learned embeddings?</li>
+<li>In what sense is it different from neural-network-based
+representation learning?</li>
+</ul>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
+</h2>
+<hr class="half-width">
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>Feature learning means the model learns useful internal
+representations rather than relying only on hand-crafted features.</li>
+<li>Transfer learning is usually more realistic than training from
+scratch for workshop-scale projects.</li>
+<li>Transfer learning is about reusing a representation that has already
+been learned elsewhere.</li>
+<li>The most practical question is often not “should I use deep
+learning?” but “is there a useful pre-trained representation for my data
+type?”</li>
+<li>Conventional baselines still matter because they tell you whether
+the extra complexity is justified.</li>
 </ul>
 </div>
 </div>
