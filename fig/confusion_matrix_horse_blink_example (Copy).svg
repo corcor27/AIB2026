@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="540" viewBox="0 0 760 540" role="img" aria-labelledby="title desc">
+  <title id="title">Horse Blink Example Confusion Matrix</title>
+  <desc id="desc">A 2 by 2 confusion matrix for horse blink classification with cells TP 8, FN 2, FP 3, and TN 7.</desc>
+  <rect width="760" height="540" fill="#ffffff"/>
+  <text x="380" y="56" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Horse Blink Example Confusion Matrix</text>
+
+  <text x="480" y="100" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#334155">Model prediction</text>
+  <text x="72" y="305" text-anchor="middle" transform="rotate(-90 72 305)" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#334155">Ground truth</text>
+
+  <text x="380" y="138" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#0f172a">Predicted H</text>
+  <text x="560" y="138" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#0f172a">Predicted F</text>
+  <text x="190" y="230" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#0f172a">Actual H</text>
+  <text x="190" y="390" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#0f172a">Actual F</text>
+
+  <rect x="260" y="160" width="180" height="160" rx="14" fill="#1d4ed8"/>
+  <rect x="440" y="160" width="180" height="160" rx="14" fill="#bfdbfe"/>
+  <rect x="260" y="320" width="180" height="160" rx="14" fill="#93c5fd"/>
+  <rect x="440" y="320" width="180" height="160" rx="14" fill="#2563eb"/>
+
+  <text x="350" y="220" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#ffffff">TP</text>
+  <text x="350" y="258" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="700" fill="#ffffff">8</text>
+
+  <text x="530" y="220" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">FN</text>
+  <text x="530" y="258" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="700" fill="#0f172a">2</text>
+
+  <text x="350" y="380" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">FP</text>
+  <text x="350" y="418" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="700" fill="#0f172a">3</text>
+
+  <text x="530" y="380" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#ffffff">TN</text>
+  <text x="530" y="418" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="40" font-weight="700" fill="#ffffff">7</text>
+
+  <rect x="260" y="495" width="360" height="10" rx="5" fill="url(#legend)"/>
+  <defs>
+    <linearGradient id="legend" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <text x="260" y="525" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#475569">Lower count</text>
+  <text x="620" y="525" text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="14" fill="#475569">Higher count</text>
+</svg>
