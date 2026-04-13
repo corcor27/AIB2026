@@ -281,6 +281,18 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush6">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading6">
+        <a href="08-neural-networks-and-deep-learning.html">5. Neural Networks and Deep Learning</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -1460,7 +1472,7 @@ problem.</li>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>“My baseline classification model is missing important domain
 structure, so I will add two engineered features before trying a more
@@ -1872,7 +1884,7 @@ model may be needed.</li>
   Example answers
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul>
 <li>“I chose MAE because average error in the original units is easy to
@@ -2208,7 +2220,7 @@ training and final evaluation?</p>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ul>
 <li>cross-entropy used to fit a classifier: training loss;</li>
@@ -2271,7 +2283,7 @@ and scoring user guide</a></li>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>“My logistic regression baseline performed better than the majority
 class baseline and gives a useful first signal for this classification
@@ -2998,6 +3010,369 @@ document.</li>
 features such as k-mers, motifs, SNP markers, or pathway summaries.</li>
 <li>Feature engineering and feature learning sit on the same continuum
 of representation choices.</li>
+</ul>
+</div>
+</div>
+</div>
+</section></section><section id="aio-08-neural-networks-and-deep-learning"><p>Content from <a href="08-neural-networks-and-deep-learning.html">Neural Networks and Deep Learning</a></p>
+<hr>
+<p>Last updated on 2026-04-13 |
+
+        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/08-neural-networks-and-deep-learning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What is a neural network in plain language?</li>
+<li>What makes deep learning different from a simple linear model?</li>
+<li>When are CNNs or other deep-learning architectures worth
+considering?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Explain the basic idea of neurons, layers, weights, and
+activations.</li>
+<li>Distinguish between a simple multilayer perceptron and architectures
+designed for structured data such as CNNs.</li>
+<li>Identify when deep learning is a sensible modelling option and when
+it is not.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="why-introduce-neural-networks-here">Why introduce neural networks here?<a class="anchor" aria-label="anchor" href="#why-introduce-neural-networks-here"></a>
+</h2>
+<hr class="half-width">
+<p>By this point in the bootcamp, learners have already seen
+conventional machine-learning baselines, training, validation,
+evaluation, and feature engineering.</p>
+<p>Neural networks are the next step when the modelling difficulty is no
+longer only about choosing a classifier or regressor. Sometimes the main
+difficulty is that the important structure is hard to express with
+hand-crafted features.</p>
+</section><section><h2 class="section-heading" id="from-a-weighted-sum-to-a-neuron">From a weighted sum to a neuron<a class="anchor" aria-label="anchor" href="#from-a-weighted-sum-to-a-neuron"></a>
+</h2>
+<hr class="half-width">
+<p>A neural network starts from a simple idea.</p>
+<ul>
+<li>take the inputs;</li>
+<li>multiply them by weights;</li>
+<li>add them together;</li>
+<li>pass the result through an activation function.</li>
+</ul>
+<p>That combination acts like a simple computational unit, often called
+a neuron.</p>
+<p><img src="fig/MLP.png" alt="Diagram of a simple perceptron showing inputs, weights, and an output." class="figure">
+(cite:<a href="https://muneebsa.medium.com/deep-learning-101-lesson-7-perceptron-f6a698d81be8" class="external-link uri">https://muneebsa.medium.com/deep-learning-101-lesson-7-perceptron-f6a698d81be8</a>)</p>
+<p>If you removed the activation function and used only a single layer,
+the model would behave a lot like a linear model. The activation is what
+lets the model learn more flexible nonlinear patterns.</p>
+</section><section><h2 class="section-heading" id="why-one-perceptron-is-not-enough">Why one perceptron is not enough<a class="anchor" aria-label="anchor" href="#why-one-perceptron-is-not-enough"></a>
+</h2>
+<hr class="half-width">
+<p>A single perceptron can only learn patterns that are linearly
+separable. If the classes cannot be split by one straight boundary, a
+single unit will not be enough.</p>
+<p>That limitation is the reason neural networks use multiple neurons
+and multiple layers. Stacking layers lets the model combine simple local
+decisions into richer nonlinear behaviour.</p>
+<figure><img src="fig/MLP_output.png" alt="Illustration showing a limitation of a single perceptron on a nonlinearly separable pattern." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="from-one-layer-to-deep-learning">From one layer to deep learning<a class="anchor" aria-label="anchor" href="#from-one-layer-to-deep-learning"></a>
+</h2>
+<hr class="half-width">
+<p><img src="fig/Multilayer_mlp.png" alt="Diagram of a multilayer perceptron with input, hidden, and output layers." class="figure">
+(cite:<a href="https://machinelearninggeek.com/multi-layer-perceptron-neural-network-using-python/" class="external-link uri">https://machinelearninggeek.com/multi-layer-perceptron-neural-network-using-python/</a>)</p>
+<p>A neural network is built by stacking many of those units into
+layers. Each layer transforms the representation a little more.</p>
+<ul>
+<li>the <strong>input layer</strong> receives the features;</li>
+<li>one or more <strong>hidden layers</strong> transform them;</li>
+<li>the <strong>output layer</strong> produces the final
+prediction.</li>
+</ul>
+<p>An MLP with one hidden layer is still best thought of as a neural
+network. When a network has several learned hidden layers, we usually
+describe it as deep learning.</p>
+<p>The key teaching idea is not the number of layers by itself. It is
+that the model can build increasingly useful internal representations as
+data move through the network.</p>
+</section><section><h2 class="section-heading" id="why-activations-matter">Why activations matter<a class="anchor" aria-label="anchor" href="#why-activations-matter"></a>
+</h2>
+<hr class="half-width">
+<figure><img src="fig/activation_functions.png" alt="Examples of common activation functions used in neural networks." class="figure mx-auto d-block"></figure><p>Activation functions decide how strongly a unit responds to its
+input. They matter because without them, stacking layers would still
+behave like a single linear transformation.</p>
+<p>In practice, learners do not need to memorise many activation
+functions. They only need to understand the role:</p>
+<ul>
+<li>introduce nonlinearity;</li>
+<li>help the model represent more complex patterns;</li>
+<li>shape how information passes through the network.</li>
+</ul></section><section><h2 class="section-heading" id="what-training-changes-in-a-neural-network">What training changes in a neural network<a class="anchor" aria-label="anchor" href="#what-training-changes-in-a-neural-network"></a>
+</h2>
+<hr class="half-width">
+<p>Training a neural network still follows the same high-level logic as
+other models:</p>
+<ol style="list-style-type: decimal">
+<li>make a prediction;</li>
+<li>measure the error with a loss function;</li>
+<li>adjust parameters to reduce that error.</li>
+</ol>
+<p>The difference is scale. Neural networks often have many more
+parameters, so training means adjusting many weights across many layers.
+This is why they often need more data, more compute, and more care than
+conventional baselines.</p>
+<p>At a high level, backpropagation is the mechanism that sends the
+error signal backward through the network so those weights can be
+updated. Learners do not need all the calculus here. The main idea is
+simple: the model checks which weights contributed to the error and
+nudges them to reduce it on the next pass.</p>
+</section><section><h2 class="section-heading" id="common-neural-network-families">Common neural-network families<a class="anchor" aria-label="anchor" href="#common-neural-network-families"></a>
+</h2>
+<hr class="half-width">
+<p>Not all neural networks are the same. Different data structures often
+call for different architecture families.</p>
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr>
+<th>Data type</th>
+<th>Common architecture</th>
+<th>Why</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Tabular</td>
+<td>MLP</td>
+<td>Works on fixed-length numeric feature vectors</td>
+</tr>
+<tr>
+<td>Images</td>
+<td>CNN or vision transformer</td>
+<td>Preserves spatial structure</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>Sequence model or transformer</td>
+<td>Captures order and context</td>
+</tr>
+<tr>
+<td>Time series</td>
+<td>1D CNN, recurrent model, or transformer</td>
+<td>Captures temporal structure</td>
+</tr>
+<tr>
+<td>Signals / spectra</td>
+<td>1D CNN or feature-based hybrid</td>
+<td>Detects local patterns across a sequence</td>
+</tr>
+</tbody>
+</table>
+<div class="section level3">
+<h3 id="mlp-use-cases">MLP Use cases<a class="anchor" aria-label="anchor" href="#mlp-use-cases"></a>
+</h3>
+<p>Multi-layer perceptrons offer the flexibility to function as either a
+regressor or a classifier by simply changing the activation function
+applied to the output layer (along with the objective function, which
+we’ll cover later). For instance, if you want your model to perform
+classification, you would typically use an activation function like
+SoftMax, which converts the outputs into probabilities that sum to one
+across all classes. On the other hand, for regression tasks where you
+want to estimate continuous values, you would usually apply a linear
+activation function to the output layer.</p>
+</div>
+<div class="section level3">
+<h3 id="code-example-classification">Code example classification:<a class="anchor" aria-label="anchor" href="#code-example-classification"></a>
+</h3>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="im">from</span> sklearn.neural_network</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="im">import</span> MLPClassifier <span class="im">from</span> sklearn.model_selection</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="im">import</span> train_test_split</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>iris_df <span class="op">=</span> pd.read_csv(<span class="st">"iris.csv"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>iris_df[<span class="st">'labels'</span>] <span class="op">=</span> iris_df.variety.astype(<span class="st">'category'</span>).cat.codes</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>X, y <span class="op">=</span> iris_df.iloc[:, :<span class="dv">4</span>], iris_df[<span class="st">'labels'</span>] </span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.25</span>, random_state <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="bu">print</span>(X_train.shape, y_train.shape)</span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>clf <span class="op">=</span> MLPClassifier(solver<span class="op">=</span><span class="st">'lbfgs'</span>, random_state<span class="op">=</span><span class="dv">1</span>, max_iter<span class="op">=</span><span class="dv">300</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>clf.fit(X, y) result <span class="op">=</span> clf.predict(X_test)</span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>ground <span class="op">=</span> np.array(y_test)</span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="bu">print</span>(result, ground)</span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>clf.score(X_test, y_test)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>
+[2 1 0 2 0 2 0 1 1 1 2 1 1 1 1 0 1 1 0 0 2 1 0 0 2 0 0 1 1 0 2 1 0 2 2 1
+02]
+
+[2 1 0 2 0 2 0 1 1 1 2 1 1 1 1 0 1 1 0 0 2 1 0 0 2 0 0 1 1 0 2 1 0 2 2 1
+01]
+
+Out[19]: 0.9736842105263158</code></pre>
+</div>
+</div>
+<div class="section level3">
+<h3 id="code-example-regression">Code example: regression<a class="anchor" aria-label="anchor" href="#code-example-regression"></a>
+</h3>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="im">from</span> sklearn.neural_network <span class="im">import</span> MLPRegressor</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>iris_df <span class="op">=</span> pd.read_csv(<span class="st">"iris.csv"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>X, y <span class="op">=</span> iris_df.iloc[:, :<span class="dv">3</span>], iris_df[<span class="st">"petal.width"</span>]</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.25</span>, random_state <span class="op">=</span> <span class="dv">0</span>) <span class="bu">print</span>(X_train.shape, y_train.shape)</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>clf <span class="op">=</span> MLPRegressor(solver<span class="op">=</span><span class="st">'lbfgs'</span>, random_state<span class="op">=</span><span class="dv">1</span>, max_iter<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>clf.fit(X, y)</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>result <span class="op">=</span> clf.predict(X_test)</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>ground <span class="op">=</span> np.array(y_test)</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="bu">print</span>(result, ground)</span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a>clf.score(X_test, y_test) </span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>
+(112, 3) (112,) [1.88532522 1.14165756 0.27955749 2.06547563 0.24919028
+2.28388127 0.2155882 1.51092191 1.53244915 1.19834217 1.86483485
+1.45142482 1.6306123 1.4613069 1.63934615 0.23025832 1.51957326
+1.54290422 0.20987057 0.24845432 1.85473185 1.6255684 0.39085837
+0.18676907 1.67834109 0.14667113 0.40639156 1.34237052 0.91551074
+0.27895251 2.07143315 1.67419905 0.26318909 1.79216822 1.94143883
+1.2643635 0.33543957 1.81911754]
+/home/corcor27/anaconda3/envs/tensorflow-gpu2/lib/python3.9/site-packages/sklearn/neural_network/\_multilayer_perceptron.py:546:
+ConvergenceWarning: lbfgs failed to converge (status=1): STOP: TOTAL NO.
+of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown
+in: &lt;https://scikit-learn.org/stable/modules/preprocessing.html&gt;
+self.n_iter\_ = \_check_optimize_result("lbfgs", opt_res, self.max_iter)
+
+Out[14]: 0.9227530392362144</code></pre>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="convolutional-neural-networks">Convolutional neural networks<a class="anchor" aria-label="anchor" href="#convolutional-neural-networks"></a>
+</h2>
+<hr class="half-width">
+<p>A convolutional neural network, or CNN, is designed for grid-like
+data such as images.</p>
+<p>Instead of treating every pixel independently, a CNN scans small
+filters across the input. This lets the model detect local patterns such
+as edges, textures, and shapes.</p>
+<p>Why that matters:</p>
+<ul>
+<li>nearby pixels in an image are related;</li>
+<li>the same useful pattern may appear in different positions;</li>
+<li>local structure should be reused rather than relearned from scratch
+everywhere.</li>
+</ul>
+<p>That is why CNNs became such an important model family for
+vision.</p>
+</section><section><h2 class="section-heading" id="how-a-cnn-works">How a CNN works<a class="anchor" aria-label="anchor" href="#how-a-cnn-works"></a>
+</h2>
+<hr class="half-width">
+<p>The key building block of a CNN is the convolutional layer.</p>
+<ul>
+<li>a small filter, or kernel, slides across the input image;</li>
+<li>at each position, it multiplies the local pixel values and sums the
+result;</li>
+<li>the output becomes a feature map that highlights a specific
+pattern.</li>
+</ul>
+<p>Different kernels can become sensitive to different structures, such
+as edges, corners, or textures. As the network gets deeper, those early
+patterns can be combined into more complex visual concepts.</p>
+<figure><img src="fig/image_in_pixels.png" alt="Diagram showing how an image is represented as pixel values." class="figure mx-auto d-block"></figure><p>At the start of training, the kernel values are not meaningful. The
+model learns them from data by adjusting them during training.</p>
+</section><section><h2 class="section-heading" id="d-convolutions-in-vision">2D convolutions in vision<a class="anchor" aria-label="anchor" href="#d-convolutions-in-vision"></a>
+</h2>
+<hr class="half-width">
+<p>In image tasks, the kernel is usually a small <span class="math inline">\(N \times N\)</span> window that moves across the
+image.</p>
+<figure><img src="fig/how_kernals_work.png" alt="Diagram showing a convolutional kernel sliding across an image." class="figure mx-auto d-block"></figure><p>Each pass of that kernel produces a feature map. This is what lets
+the network detect useful local visual structure without treating every
+pixel location as a completely separate problem.</p>
+<figure><img src="fig/kernal_features.png" alt="Example feature maps created by different convolutional kernels." class="figure mx-auto d-block"></figure><p>For teaching purposes, the important point is not the exact
+arithmetic. It is that CNNs learn reusable local detectors and then
+stack them into more abstract visual features.</p>
+</section><section><h2 class="section-heading" id="d-convolutions-for-sequences-and-signals">1D convolutions for sequences and signals<a class="anchor" aria-label="anchor" href="#d-convolutions-for-sequences-and-signals"></a>
+</h2>
+<hr class="half-width">
+<figure><img src="docs/fig/1D_convolution.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure mx-auto d-block"></figure><p>Convolutions are not only for images. A 1D convolution slides across
+a sequence rather than across a 2D image.</p>
+<p>This is useful for:</p>
+<ul>
+<li>time series;</li>
+<li>sensor data;</li>
+<li>spectra;</li>
+<li>some kinds of biological sequence data.</li>
+</ul>
+<p>The intuition is the same: the model learns short local patterns and
+reuses them across the sequence.</p>
+<p>This is why 1D convolutions can be useful for time series, spectra,
+and sensor signals. They are often a better match than flattening the
+whole sequence into one long feature vector and ignoring local
+structure.</p>
+</section><section><h2 class="section-heading" id="bridge-to-the-next-page">Bridge to the next page<a class="anchor" aria-label="anchor" href="#bridge-to-the-next-page"></a>
+</h2>
+<hr class="half-width">
+<p>Understanding neural-network families is only part of the decision.
+The next question is whether deep learning is actually justified for
+your problem, and whether a pre-trained representation would be a more
+realistic route than training from scratch.</p>
+<p>That is the topic of the next lesson: feature learning and transfer
+learning.</p>
+</section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
+</h2>
+<hr class="half-width">
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li><p>A neural network is built from weighted transformations and
+activation functions arranged in layers.</p></li>
+<li><p>Deep learning means learning increasingly useful internal
+representations across multiple layers.</p></li>
+<li><p>Different data types suggest different architecture
+families.</p></li>
+<li><p>CNNs are especially useful when local spatial or sequential
+patterns matter.</p></li>
+<li><p>Deep learning should be justified by the structure of the data
+and the limits of simpler models.</p></li>
+<li><p>Does PCA count as representation learning?</p></li>
+<li><p>In what sense is it similar to learned embeddings?</p></li>
+<li><p>In what sense is it different from neural-network-based
+representation learning?</p></li>
 </ul>
 </div>
 </div>
