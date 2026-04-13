@@ -308,6 +308,30 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush8">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading8">
+        <a href="10-transformers.html">7. Transformers</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush9">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading9">
+        <a href="11-LLMs.html">8. Large Language Models</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -1905,7 +1929,7 @@ model may be needed.</li>
   Example answers
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul>
 <li>“I chose MAE because average error in the original units is easy to
@@ -2241,7 +2265,7 @@ training and final evaluation?</p>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ul>
 <li>cross-entropy used to fit a classifier: training loss;</li>
@@ -2304,7 +2328,7 @@ and scoring user guide</a></li>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>“My logistic regression baseline performed better than the majority
 class baseline and gives a useful first signal for this classification
@@ -2881,7 +2905,7 @@ baseline?</li>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Possible answers include:</p>
 <ul>
@@ -2931,7 +2955,7 @@ completely new process from scratch.</p>
   Example answers
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ul>
 <li>“I have daily sales totals, and I could add day-of-week as a feature
@@ -3716,6 +3740,130 @@ learning?” but “is there a useful pre-trained representation for my data
 type?”</li>
 <li>Conventional baselines still matter because they tell you whether
 the extra complexity is justified.</li>
+</ul>
+</div>
+</div>
+</div>
+</section></section><section id="aio-10-transformers"><p>Content from <a href="10-transformers.html">Transformers</a></p>
+<hr>
+<p>Last updated on 2026-04-13 |
+
+        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/10-transformers.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 65 minutes</p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What counts as a sensible baseline or comparison model?</li>
+<li>Which conventional models belong in my starter model basket?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Define both a trivial reference baseline and a practical model
+basket.</li>
+<li>Choose an initial model based on task type, data shape,
+interpretability, and time available.</li>
+<li>Distinguish between a first baseline model and a stronger comparison
+model.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
+</h2>
+<hr class="half-width">
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>Choose the task type before choosing the algorithm.</li>
+<li>A good starter model basket includes both simple baselines and one
+or two stronger comparison options.</li>
+<li>Conventional models are usually the right first step for structured
+or limited data.</li>
+<li>Stronger models should be added for a reason, not because they sound
+more advanced.</li>
+</ul>
+</div>
+</div>
+</div>
+</section></section><section id="aio-11-LLMs"><p>Content from <a href="11-LLMs.html">Large Language Models</a></p>
+<hr>
+<p>Last updated on 2026-04-13 |
+
+        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/11-LLMs.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 65 minutes</p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What counts as a sensible baseline or comparison model?</li>
+<li>Which conventional models belong in my starter model basket?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Define both a trivial reference baseline and a practical model
+basket.</li>
+<li>Choose an initial model based on task type, data shape,
+interpretability, and time available.</li>
+<li>Distinguish between a first baseline model and a stronger comparison
+model.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
+</h2>
+<hr class="half-width">
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>Choose the task type before choosing the algorithm.</li>
+<li>A good starter model basket includes both simple baselines and one
+or two stronger comparison options.</li>
+<li>Conventional models are usually the right first step for structured
+or limited data.</li>
+<li>Stronger models should be added for a reason, not because they sound
+more advanced.</li>
 </ul>
 </div>
 </div>
