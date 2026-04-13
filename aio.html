@@ -269,6 +269,18 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush5">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading5">
+        <a href="07-feature-engineering.html">4. Feature Engineering for Real Problems</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -1860,7 +1872,7 @@ model may be needed.</li>
   Example answers
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul>
 <li>“I chose MAE because average error in the original units is easy to
@@ -2196,7 +2208,7 @@ training and final evaluation?</p>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ul>
 <li>cross-entropy used to fit a classifier: training loss;</li>
@@ -2259,7 +2271,7 @@ and scoring user guide</a></li>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>“My logistic regression baseline performed better than the majority
 class baseline and gives a useful first signal for this classification
@@ -2303,6 +2315,689 @@ result.</li>
 beyond a single headline score.</li>
 <li>Responsible evaluation means documenting who may be missing, what
 errors matter, and what claims the evidence can support.</li>
+</ul>
+</div>
+</div>
+</div>
+</section></section><section id="aio-07-feature-engineering"><p>Content from <a href="07-feature-engineering.html">Feature Engineering for Real Problems</a></p>
+<hr>
+<p>Last updated on 2026-04-13 |
+
+        <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/07-feature-engineering.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What is feature engineering and why does it matter?</li>
+<li>How do features differ across tabular, text, image, time-series, and
+spectral problems?</li>
+<li>What simple task-specific features can I try before training a more
+complex model?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Explain why the representation of the data often matters as much as
+the choice of model.</li>
+<li>Identify common feature-engineering strategies for tabular, text,
+vision, time-series, spectral, and bioinformatics tasks.</li>
+<li>Choose one or two realistic feature ideas to test on your own
+problem.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="quick-navigation">Quick navigation<a class="anchor" aria-label="anchor" href="#quick-navigation"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li><a href="#quick-navigation">Quick navigation</a></li>
+<li><a href="#why-feature-engineering-comes-early">Why feature
+engineering comes early</a></li>
+<li><a href="#a-simple-way-to-think-about-features">A simple way to
+think about features</a></li>
+<li><a href="#tabular-features">Tabular features</a></li>
+<li><a href="#vision-features">Vision features</a></li>
+<li>
+<a href="#text-features">Text features</a>
+<ul>
+<li><a href="#a-concrete-tf-idf-example">A concrete TF-IDF
+example</a></li>
+</ul>
+</li>
+<li>
+<a href="#bioinformatics-and-genomics-features">Bioinformatics and
+genomics features</a>
+<ul>
+<li><a href="#k-mers-as-the-sequence-counterpart-to-n-grams">k-mers as
+the sequence counterpart to n-grams</a></li>
+<li><a href="#other-useful-genomics-style-features">Other useful
+genomics-style features</a></li>
+<li><a href="#marker-style-features">Marker-style features</a></li>
+<li><a href="#a-concrete-genomics-example">A concrete genomics
+example</a></li>
+</ul>
+</li>
+<li>
+<a href="#time-series-and-spectral-features">Time-series and
+spectral features</a>
+<ul>
+<li><a href="#a-more-concrete-feature-sketch">A more concrete feature
+sketch</a></li>
+</ul>
+</li>
+<li><a href="#features-for-specialised-scientific-data">Features for
+specialised scientific data</a></li>
+<li>
+<a href="#cross-domain-transfer">Cross-domain transfer</a>
+<ul>
+<li><a href="#example-answer">Example answer</a></li>
+</ul>
+</li>
+<li>
+<a href="#pick-one-feature-change">Pick one feature change</a>
+<ul>
+<li><a href="#example-answers">Example answers</a></li>
+</ul>
+</li>
+<li><a href="#when-to-stop-engineering-by-hand">When to stop engineering
+by hand</a></li>
+<li><a href="#feature-planning-cheat-sheet">Feature planning cheat
+sheet</a></li>
+<li><a href="#key-points">Key points</a></li>
+</ul></section><section><h2 class="section-heading" id="why-feature-engineering-comes-early">Why feature engineering comes early<a class="anchor" aria-label="anchor" href="#why-feature-engineering-comes-early"></a>
+</h2>
+<hr class="half-width">
+<p>Choosing a model is only part of the job. The model can only learn
+from the information you give it.</p>
+<p>Feature engineering means creating or selecting inputs that make
+useful patterns easier for a model to detect.</p>
+<p>In many real projects, a better representation can improve results
+more than switching to a more complex algorithm.</p>
+<p>If you want a concise external overview, see the <a href="https://scikit-learn.org/stable/modules/feature_extraction.html" class="external-link">scikit-learn
+feature extraction guide</a>.</p>
+</section><section><h2 class="section-heading" id="a-simple-way-to-think-about-features">A simple way to think about features<a class="anchor" aria-label="anchor" href="#a-simple-way-to-think-about-features"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li>A <strong>raw input</strong> is the data as collected.</li>
+<li>A <strong>feature</strong> is a version of the data that helps a
+model detect a useful pattern.</li>
+<li>A <strong>representation</strong> is the overall way the problem is
+encoded for the model.</li>
+</ul></section><section><h2 class="section-heading" id="tabular-features">Tabular features<a class="anchor" aria-label="anchor" href="#tabular-features"></a>
+</h2>
+<hr class="half-width">
+<p>Tabular problems often benefit from small, high-value changes.</p>
+<p>Common ideas include:</p>
+<ul>
+<li>ratios and rates;</li>
+<li>interaction terms;</li>
+<li>log transforms;</li>
+<li>binned variables;</li>
+<li>domain flags such as “high risk” or “weekend”;</li>
+<li>grouping rare categories.</li>
+</ul>
+<p>Ask:</p>
+<ul>
+<li>What would a domain expert would use?</li>
+<li>Which two columns together tell a stronger story than either
+alone?</li>
+<li>Would the model benefit from a variable being grouped or
+scaled?</li>
+</ul></section><section><h2 class="section-heading" id="vision-features">Vision features<a class="anchor" aria-label="anchor" href="#vision-features"></a>
+</h2>
+<hr class="half-width">
+<p>Images are arrays of pixel values, but raw pixels are not always the
+best first representation for a small project.</p>
+<figure><img src="fig/image_in_pixels.png" alt="Illustration showing how image information is stored as pixel values." class="figure mx-auto d-block"></figure><p>Useful starter strategies include:</p>
+<ul>
+<li>resizing images to a consistent shape;</li>
+<li>converting to grayscale when colour is not central;</li>
+<li>simple summary statistics such as colour distributions;</li>
+<li>dimensionality reduction of pixel features, for example with
+PCA;</li>
+<li>hand-crafted descriptors such as edges or texture;</li>
+<li>transfer-learning features from a pre-trained vision model.</li>
+</ul>
+<p>If you have limited data, precomputed or pre-trained features are
+often more realistic than training a large deep model from scratch.</p>
+<p>If your first baseline uses raw pixel intensities, PCA can be a
+reasonable next step because it compresses the image into a smaller set
+of directions that capture large sources of variation. That can make a
+classical model easier to train and visualise, even though the new
+components are less directly interpretable than the original pixels.</p>
+<p>In the starter notebook, the first vision scaffold uses <a href="https://python-pillow.org/" class="external-link">Pillow</a> to load, resize, and
+convert images, then extracts simple summary features with NumPy. If you
+want richer classical descriptors later, a common next library is <a href="https://scikit-image.org/" class="external-link">scikit-image</a> and its <a href="https://scikit-image.org/docs/stable/api/skimage.feature.html" class="external-link">feature
+module</a>.</p>
+</section><section><h2 class="section-heading" id="text-features">Text features<a class="anchor" aria-label="anchor" href="#text-features"></a>
+</h2>
+<hr class="half-width">
+<p>Text usually cannot go straight into a conventional model in raw
+form. It first needs a representation.</p>
+<p>Common starter features include:</p>
+<ul>
+<li>bag-of-words counts;</li>
+<li>
+<a href="https://scikit-learn.org/stable/modules/feature_extraction.html#tfidf-term-weighting" class="external-link">TF-IDF</a>
+features;</li>
+<li>document length;</li>
+<li>counts of domain-specific keywords;</li>
+<li>precomputed embeddings, for example <a href="https://code.google.com/archive/p/word2vec/" class="external-link">Word2Vec</a>, <a href="https://nlp.stanford.edu/projects/glove/" class="external-link">GloVe</a>, <a href="https://fasttext.cc/" class="external-link">fastText</a>, or <a href="https://www.sbert.net/" class="external-link">sentence-transformers</a>.</li>
+</ul>
+<p>For many participants, TF-IDF plus Logistic Regression or Naive Bayes
+is an excellent first baseline.</p>
+<p>In the starter notebook, the text section uses <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html" class="external-link">TfidfVectorizer</a>
+from scikit-learn.</p>
+<p>Precomputed embeddings are useful when you want a richer
+representation of meaning without training a large language model from
+scratch. Instead of representing a document only as counts of words,
+embeddings map words or sentences into numeric vectors where similar
+meanings are closer together.</p>
+<div class="section level3">
+<h3 id="a-concrete-tf-idf-example">A concrete TF-IDF example<a class="anchor" aria-label="anchor" href="#a-concrete-tf-idf-example"></a>
+</h3>
+<p>Suppose you want to classify abstracts into topic areas. Raw
+sentences are hard for a conventional model to use directly, but you can
+convert them into features such as:</p>
+<ul>
+<li>counts of words like “cancer”, “climate”, or “genome”;</li>
+<li>TF-IDF scores that highlight terms that are informative in one
+document but not common everywhere.</li>
+</ul>
+<p>One simple way to write TF-IDF is:</p>
+<p><span class="math display">\[
+\mathrm{TF\text{-}IDF}(t, d) = \mathrm{TF}(t, d) \times
+\log\left(\frac{N}{\mathrm{DF}(t)}\right)
+\]</span></p>
+<p>where:</p>
+<ul>
+<li>
+<span class="math inline">\(t\)</span> is a term;</li>
+<li>
+<span class="math inline">\(d\)</span> is the current document;</li>
+<li>
+<span class="math inline">\(\mathrm{TF}(t, d)\)</span> is how often
+the term appears in that document;</li>
+<li>
+<span class="math inline">\(N\)</span> is the total number of
+documents in the corpus;</li>
+<li>
+<span class="math inline">\(\mathrm{DF}(t)\)</span> is the number of
+documents that contain the term.</li>
+</ul>
+<p>The intuition is simple:</p>
+<ul>
+<li>words that appear often in one document may be useful;</li>
+<li>words that appear in nearly every document are less
+informative;</li>
+<li>TF-IDF keeps the first signal and down-weights the second.</li>
+</ul>
+<p>This helps reduce the impact of extremely common words such as “the”,
+“a”, or other corpus-wide filler words that would otherwise dominate the
+model simply because they appear everywhere.</p>
+<p>An illustrative computation for one term is shown below.</p>
+<figure><img src="fig/tfidf_weights.svg" alt="Diagram showing one simple TF-IDF calculation for the term gene across a small corpus." class="figure mx-auto d-block"></figure><p>If you need a little local context beyond single words, n-grams can
+still be useful as an optional extension, but TF-IDF is often the
+cleaner first concept to teach in an introductory workshop.</p>
+</div>
+</section><section><h2 class="section-heading" id="bioinformatics-and-genomics-features">Bioinformatics and genomics features<a class="anchor" aria-label="anchor" href="#bioinformatics-and-genomics-features"></a>
+</h2>
+<hr class="half-width">
+<p>Biological sequences create the same representation challenge as
+text: raw strings are difficult for conventional models to use without
+being turned into features first.</p>
+<p>If you want practical sequence-handling tools later, useful Python
+starting points include <a href="https://biopython.org/" class="external-link">Biopython</a>
+for sequence workflows and <a href="https://scikit-learn.org/stable/" class="external-link">scikit-learn</a> for the
+downstream baseline models.</p>
+<p>One useful analogy is:</p>
+<ul>
+<li>
+<strong>token in text</strong> is similar to a <strong>base or
+amino-acid symbol</strong> in a sequence;</li>
+<li>
+<strong>short token pattern in text</strong> is similar to a
+<strong>k-mer in genomics</strong>;</li>
+<li>
+<strong>keyword or phrase count</strong> is similar to a
+<strong>motif or marker count</strong> in biological data.</li>
+</ul>
+<div class="section level3">
+<h3 id="k-mers-as-the-sequence-counterpart-to-n-grams">k-mers as the sequence counterpart to n-grams<a class="anchor" aria-label="anchor" href="#k-mers-as-the-sequence-counterpart-to-n-grams"></a>
+</h3>
+<p>A k-mer is a short sequence fragment of length <span class="math inline">\(k\)</span>.</p>
+<p>Examples:</p>
+<ul>
+<li>for DNA, 3-mers might include <code>ATG</code>, <code>TGC</code>, or
+<code>GCA</code>;</li>
+<li>for proteins, 2-mers or 3-mers can capture short amino-acid
+patterns.</li>
+</ul>
+<p>If a text process uses short token patterns or phrase-level features
+to capture local context, a genomics process can use k-mer counts or
+frequencies to capture local sequence patterns.</p>
+<p>For example, the DNA sequence <code>ATGCAT</code> contains the
+3-mers:</p>
+<ul>
+<li><code>ATG</code></li>
+<li><code>TGC</code></li>
+<li><code>GCA</code></li>
+<li><code>CAT</code></li>
+</ul>
+<figure><img src="fig/genomics_kmers.svg" alt="Diagram showing how a DNA sequence is split into symbols and 3-mers." class="figure mx-auto d-block"></figure><p>You can turn these into numeric features by counting how often each
+k-mer appears, or by using frequencies rather than raw counts.</p>
+</div>
+<div class="section level3">
+<h3 id="other-useful-genomics-style-features">Other useful genomics-style features<a class="anchor" aria-label="anchor" href="#other-useful-genomics-style-features"></a>
+</h3>
+<p>Depending on the problem, helpful sequence or molecular features
+might include:</p>
+<ul>
+<li>GC content;</li>
+<li>sequence length;</li>
+<li>motif presence or absence;</li>
+<li>counts of biologically meaningful subsequences;</li>
+<li>one-hot encoded sequence positions;</li>
+<li>known marker presence such as SNPs, mutation indicators, or selected
+marker panels;</li>
+<li>gene-expression summaries or pathway-level aggregates;</li>
+<li>embedding vectors from a pre-trained biological foundation
+model.</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="marker-style-features">Marker-style features<a class="anchor" aria-label="anchor" href="#marker-style-features"></a>
+</h3>
+<p>Many biological problems already have features that act a bit like
+domain keywords in text.</p>
+<p>Examples:</p>
+<ul>
+<li>a mutation is present or absent;</li>
+<li>a particular SNP genotype is encoded, for example as <code>0</code>,
+<code>1</code>, or <code>2</code> copies of the variant allele;</li>
+<li>a gene is highly expressed or not;</li>
+<li>a marker panel is positive or negative;</li>
+<li>a known motif occurs in the sequence.</li>
+</ul>
+<p>These are often strong starter features because they connect directly
+to domain interpretation.</p>
+<p>For example, in a genomics dataset you might use a small set of known
+SNPs as marker-style features alongside broader sequence features such
+as k-mer frequencies or GC content.</p>
+</div>
+<div class="section level3">
+<h3 id="a-concrete-genomics-example">A concrete genomics example<a class="anchor" aria-label="anchor" href="#a-concrete-genomics-example"></a>
+</h3>
+<p>Suppose the task is to classify DNA sequences into two functional
+groups. A sensible conventional baseline could use:</p>
+<ul>
+<li>k-mer frequencies as the main sequence representation;</li>
+<li>GC content as a summary feature;</li>
+<li>sequence length as a structural feature;</li>
+<li>a simple classifier such as Logistic Regression, Naive Bayes, or a
+tree-based model.</li>
+</ul>
+<p>This is closely analogous to a text process where you combine TF-IDF
+features with a simple classifier.</p>
+</div>
+</section><section><h2 class="section-heading" id="time-series-and-spectral-features">Time-series and spectral features<a class="anchor" aria-label="anchor" href="#time-series-and-spectral-features"></a>
+</h2>
+<hr class="half-width">
+<p>Time-series, sensor, and spectral tasks often benefit from features
+that capture order, local change, and broader patterns across a measured
+signal.</p>
+<p>Here, a time series means a variable measured in sequence over time,
+such as daily demand, monthly temperature, or repeated sensor readings.
+The same ideas also extend to multivariate time series, where several
+variables are recorded together over time.</p>
+<figure><img src="fig/time_series_univariate_multivariate.png" alt="Illustration comparing a univariate time series with one measured variable over time and a multivariate time series with several variables recorded over the same time points." class="figure mx-auto d-block"></figure><p>The top panel shows a univariate time series with one measured
+variable. The bottom panel shows a multivariate time series where
+several related variables are recorded over the same timeline.</p>
+<p>Common starter features include:</p>
+<ul>
+<li>lag features;</li>
+<li>
+<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rolling.html" class="external-link">rolling
+means or rolling standard deviations</a>;</li>
+<li>differences or growth rates;</li>
+<li>
+<a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.html" class="external-link">day-of-week,
+month, or season indicators</a>;</li>
+<li>peak counts, slopes, or summary statistics over a time window;</li>
+<li>Fourier or frequency-style summaries when periodic structure
+matters.</li>
+</ul>
+<p>In the starter notebook, these time features are created with <a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.dt.html" class="external-link">pandas
+datetime accessors</a> and <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rolling.html" class="external-link">rolling-window
+operations</a>.</p>
+<p>For spectral data such as NIRS, mass spectrometry, or other measured
+signals across wavelength or frequency, many of the same ideas still
+apply. The axis is not time, but it is still ordered, so neighbouring
+values carry related information.</p>
+<p>That means similar feature ideas can be useful, for example:</p>
+<ul>
+<li>smoothing;</li>
+<li>first differences or derivatives;</li>
+<li>peak height, peak position, or peak area;</li>
+<li>summaries over selected wavelength or frequency ranges;</li>
+<li>transformed versions of the signal when shape matters more than raw
+magnitude.</li>
+</ul>
+<p>The key teaching idea is that time series and spectra are both
+ordered signals. In both cases, feature engineering often tries to
+capture local trend, local change, and broader structure rather than
+treating every position as an unrelated column. This transfer is
+illustrated in the notebook <a href="/Users/cul/work/Teaching/AIbootcamp/demo_feature_engineering_timeseries_spectra.ipynb">demo_feature_engineering_timeseries_spectra.ipynb</a>.</p>
+<div class="section level3">
+<h3 id="a-more-concrete-feature-sketch">A more concrete feature sketch<a class="anchor" aria-label="anchor" href="#a-more-concrete-feature-sketch"></a>
+</h3>
+<p>Rather than listing more feature names, it is often clearer to ask
+what raw measurement you have and what summary might help a model detect
+the pattern.</p>
+<table class="table">
+<colgroup>
+<col width="25%">
+<col width="25%">
+<col width="25%">
+<col width="25%">
+</colgroup>
+<thead><tr>
+<th>Domain</th>
+<th>Raw input</th>
+<th>Engineered feature</th>
+<th>Why it may help</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Time series forecasting</td>
+<td>daily sales at time <span class="math inline">\(t\)</span>
+</td>
+<td>sales at <span class="math inline">\(t-1\)</span>
+</td>
+<td>yesterday often helps predict today</td>
+</tr>
+<tr>
+<td>Time series forecasting</td>
+<td>daily sales over the last week</td>
+<td>7-day rolling mean</td>
+<td>reduces noise and captures recent level</td>
+</tr>
+<tr>
+<td>Time series forecasting</td>
+<td>timestamp</td>
+<td>weekend or month flag</td>
+<td>captures calendar structure</td>
+</tr>
+<tr>
+<td>Spectral prediction</td>
+<td>raw intensity across wavelength</td>
+<td>smoothed spectrum</td>
+<td>reduces measurement noise</td>
+</tr>
+<tr>
+<td>Spectral prediction</td>
+<td>raw spectrum shape</td>
+<td>first derivative</td>
+<td>highlights local changes and peak edges</td>
+</tr>
+<tr>
+<td>Spectral prediction</td>
+<td>intensity in a scientifically important region</td>
+<td>band average or peak area</td>
+<td>summarises a meaningful part of the signal</td>
+</tr>
+</tbody>
+</table>
+<p>If you want code-based examples, the practical notebook companion is
+<a href="/Users/cul/work/Teaching/AIbootcamp/demo_feature_engineering_timeseries_spectra.ipynb">demo_feature_engineering_timeseries_spectra.ipynb</a>,
+which is the better place to show tables, calculations, and plots in
+detail.</p>
+</div>
+</section><section><h2 class="section-heading" id="features-for-specialised-scientific-data">Features for specialised scientific data<a class="anchor" aria-label="anchor" href="#features-for-specialised-scientific-data"></a>
+</h2>
+<hr class="half-width">
+<p>Some domains need features that come from subject knowledge or from
+specialised analysis methods, not just from generic preprocessing.</p>
+<p>This section is deliberately general. The domain-specific blocks
+above already gave concrete examples for text, genomics, vision, and
+ordered signals. Here the goal is to highlight broader sources of
+engineered features that often appear in scientific work.</p>
+<p>Common sources include:</p>
+<ul>
+<li>signal-processing features such as filtered signals, Fourier or
+wavelet transforms, derivatives, and peak summaries;</li>
+<li>image-processing features such as edges, textures, region summaries,
+local patch descriptors, or measurements from segmented objects;</li>
+<li>statistical summaries such as moments, quantiles, slopes,
+correlations, or variability measures computed over windows, regions, or
+groups;</li>
+<li>mathematical transforms such as log transforms, ratios,
+normalisations, PCA components, other dimensionality reduction scores,
+or basis-function coefficients;</li>
+<li>chemical or molecular descriptors such as molecular fingerprints,
+substructure counts, graph descriptors, or physicochemical
+properties;</li>
+<li>biological aggregation features such as pathway scores, marker-panel
+summaries, or outputs from domain-specific pipelines;</li>
+<li>embeddings or latent features from pre-trained domain-specific
+foundation models.</li>
+</ul>
+<p>The key question is not “what is the fanciest feature?” It is “what
+representation makes the real structure of this problem easier to
+detect?” In practice, that often means borrowing a useful summary from
+signal processing, image processing, statistics, mathematics, chemistry,
+or another domain-specific workflow.</p>
+<div id="cross-domain-transfer" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="cross-domain-transfer" class="callout-inner">
+<h3 class="callout-title">Cross-domain transfer</h3>
+<div class="callout-content">
+<p>One reason feature engineering becomes easier over time is that a
+good idea in one domain often suggests a useful idea in another.</p>
+<p>For example:</p>
+<ul>
+<li>text can be treated as a sequence of words or tokens;</li>
+<li>genomics can be treated as a sequence of bases or amino acids;</li>
+<li>images can be treated as a grid or sequence of local patches;</li>
+<li>time-series data can be treated as a sequence of windows or
+segments.</li>
+</ul>
+<p>Choose your own problem, or one of the domains above, and think about
+how an idea from another domain might transfer.</p>
+<p>Prompts:</p>
+<ul>
+<li>If text uses short token patterns such as n-grams, what might play a
+similar role in genomics, images, or time series?</li>
+<li>If an image can be broken into patches, what kinds of patch-level
+summary features might be useful?</li>
+<li>If a time series can be broken into windows, what kinds of
+window-level features might be useful?</li>
+<li>What is the smallest meaningful unit in your own data?</li>
+<li>What is the equivalent of a local pattern, motif, or patch in your
+own domain?</li>
+<li>What feature idea from another domain could you borrow as a first
+baseline?</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Example answer
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<p>Possible answers include:</p>
+<ul>
+<li>In genomics, a short token pattern in text is similar to a k-mer in
+a sequence.</li>
+<li>In images, a short local pattern is similar to a patch, edge, or
+texture region.</li>
+<li>In time-series data, a short local pattern is similar to a window,
+segment, trend, or repeated motif.</li>
+<li>In spectra, a local pattern may be a peak, band, or local change in
+shape.</li>
+</ul>
+<p>So the transferable idea is not tied to one subject area. Once you
+see that different data types can be broken into meaningful local units,
+you can start borrowing feature ideas across domains. A successful idea
+in text, genomics, images, or time series may suggest a useful first
+representation for your own data.</p>
+<p>The practical lesson is that success in one domain can suggest a good
+starting point in another. Once you recognise the shared structure of a
+problem, you can often transfer a feature idea instead of inventing a
+completely new process from scratch.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="pick-one-feature-change" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="pick-one-feature-change" class="callout-inner">
+<h3 class="callout-title">Pick one feature change</h3>
+<div class="callout-content">
+<p>Choose one concrete feature idea for your own problem and write:</p>
+<ul>
+<li>the raw input you currently have;</li>
+<li>the feature you could create;</li>
+<li>why that feature might make the pattern easier to learn.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
+  Example answers
+  </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<ul>
+<li>“I have daily sales totals, and I could add day-of-week as a feature
+because the pattern probably differs between weekdays and
+weekends.”</li>
+<li>“I have free-text comments, and I could use TF-IDF because the model
+needs a numeric representation of the words before classification.”</li>
+<li>“I have DNA sequences, and I could use 4-mer frequencies because the
+model needs a numeric summary of local sequence patterns before
+classification.”</li>
+<li>“I have gene-expression data, and I could aggregate genes into
+pathway scores because that may capture biology more directly than
+thousands of separate raw columns.”</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="when-to-stop-engineering-by-hand">When to stop engineering by hand<a class="anchor" aria-label="anchor" href="#when-to-stop-engineering-by-hand"></a>
+</h2>
+<hr class="half-width">
+<p>Hand-crafted features are powerful, but they are not always enough.
+When the data are highly unstructured, the model may need to learn its
+own internal representation. That is where neural networks and transfer
+learning become useful.</p>
+</section><section><h2 class="section-heading" id="feature-planning-cheat-sheet">Feature planning cheat sheet<a class="anchor" aria-label="anchor" href="#feature-planning-cheat-sheet"></a>
+</h2>
+<hr class="half-width">
+<p>This table is meant as a quick reference rather than a section to
+teach through step by step. Students can come back to it when choosing a
+first feature representation and a sensible baseline model.</p>
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr>
+<th>Task type</th>
+<th>Starter feature ideas</th>
+<th>Good first model pair</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Tabular</td>
+<td>ratios, flags, bins, interactions</td>
+<td>Linear or Logistic Regression, Decision Tree</td>
+</tr>
+<tr>
+<td>Vision</td>
+<td>resize, grayscale, raw pixels plus PCA, summary descriptors,
+transfer features</td>
+<td>Logistic Regression on extracted features, small CNN later</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>TF-IDF, keyword counts, embeddings</td>
+<td>Naive Bayes, Logistic Regression</td>
+</tr>
+<tr>
+<td>Genomics / sequence data</td>
+<td>k-mers, motif counts, GC content, marker presence</td>
+<td>Naive Bayes, Logistic Regression, tree models</td>
+</tr>
+<tr>
+<td>Time series</td>
+<td>lags, rolling summaries, seasonal indicators</td>
+<td>Linear Regression, tree models, sequence models later</td>
+</tr>
+<tr>
+<td>Spectral / ordered signals</td>
+<td>smoothing, derivatives, peak summaries, band averages</td>
+<td>Linear Regression, PLS or tree models</td>
+</tr>
+</tbody>
+</table></section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
+</h2>
+<hr class="half-width">
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>Better features often improve a model more than switching to a more
+complex algorithm.</li>
+<li>Different task types need different representations.</li>
+<li>Text, images, and time series usually need task-specific feature
+extraction before a conventional baseline makes sense.</li>
+<li>Spectral data and time-series data are often similar from a feature
+engineering perspective because both are ordered signals.</li>
+<li>TF-IDF is useful because it reduces the influence of very common
+words and highlights terms that are more informative for a particular
+document.</li>
+<li>Genomics and bioinformatics data often need sequence or marker-based
+features such as k-mers, motifs, SNP markers, or pathway summaries.</li>
+<li>Feature engineering and feature learning sit on the same continuum
+of representation choices.</li>
 </ul>
 </div>
 </div>
