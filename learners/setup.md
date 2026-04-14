@@ -8,6 +8,11 @@ This lesson is designed to be run on a personal computer.
 All of the software and data used in this lesson are freely available online,
 and instructions on how to obtain them are provided below.
 
+## Environment file for this set of lesions
+
+
+1. Download [aaib26.yaml][envfile]
+
 ## Install Python
 
 In this lesson, we will be using Python 3 with some of its most popular scientific libraries.
@@ -138,6 +143,7 @@ winpty python
 [gitbash]: https://gitforwindows.org
 [iris]: data/iris.csv
 [additional]: data/additional_stuff.zip
+[envfile]: ../episodes/files/enviroment_files/aaib26.yaml
 
 ## Your anaconda environment
 
@@ -285,5 +291,7 @@ Once you’re comfortable, you can then move on to:
 * Scripts
 * Terminals
 * Larger systems like HPC
+
+
 
 

@@ -112,7 +112,11 @@ Used in education, software, healthcare, business, and customer support.
 - Agentic systems  
 ![](fig/LLMS_summary.png){alt="Diagram showing a one-dimensional convolution scanning across a sequence."}
 
+One demo notebooks are available for this lesson.
 
+- [Google_gemini.ipynb](files/notebooks/Google_gemini.ipynb):
+  explores how to connect to google gemini in python.
+  
 ## Key points
 
 :::::::::::::::::::::::::::::::::::::::: keypoints

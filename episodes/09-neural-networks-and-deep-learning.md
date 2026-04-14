@@ -273,6 +273,16 @@ call for different architecture families.
 
 ![](fig/nerual_networks_summary.png){alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours."}
 
+## Available demo notebook
+
+One demo notebook is available for this lesson.
+
+
+- [MLP_and_NNs.ipynb](files/notebooks/MLP_and_NNs.ipynb):
+  Explores creating an MLP and NN for both classification and regression problem in the iris dataset
+
+
+
 ## Key points
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
