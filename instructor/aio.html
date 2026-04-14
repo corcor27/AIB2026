@@ -682,7 +682,7 @@ classification.</p>
   Answer
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>No. Logistic regression is often introduced first for binary
 classification, but it is not limited to only two classes.</p>
@@ -736,7 +736,7 @@ boundaries</h3>
   Answer
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>For classification, a split is useful when it makes the resulting
 child nodes contain more cases from a single class than before. In other
@@ -791,7 +791,7 @@ method.</p>
   Answer
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Yes. For regression, k-nearest neighbours can predict by averaging
 the target values of the <code>k</code> nearest neighbours instead of
@@ -861,7 +861,7 @@ tree?</li>
   Answer
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Yes, a random forest can be used for feature selection in a rough,
 practical sense. Because it can estimate feature importance, it can help
@@ -923,7 +923,7 @@ matter?</li>
   Answer
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>An SVM does not usually rely equally on all training points. Its
 decision rule is mainly determined by a smaller set of influential cases
@@ -987,7 +987,7 @@ build their trees?</li>
   Answer
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <p>The main difference is how the ensemble is built. A random forest
 grows many trees independently in parallel on different resampled
@@ -1069,7 +1069,7 @@ __________.”</p>
   Example answers
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <ul>
 <li>“My task is regression, my trivial reference baseline is predicting
@@ -2929,7 +2929,7 @@ baseline?</li>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Possible answers include:</p>
 <ul>
@@ -2979,7 +2979,7 @@ completely new process from scratch.</p>
   Example answers
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ul>
 <li>“I have daily sales totals, and I could add day-of-week as a feature
@@ -4278,7 +4278,16 @@ call for different architecture families.</p>
 </table></section><section><h2 class="section-heading" id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h2>
 <hr class="half-width">
-<figure><img src="../fig/nerual_networks_summary.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
+<figure><img src="../fig/nerual_networks_summary.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="available-demo-notebook">Available demo notebook<a class="anchor" aria-label="anchor" href="#available-demo-notebook"></a>
+</h2>
+<hr class="half-width">
+<p>One demo notebook is available for this lesson.</p>
+<ul>
+<li>
+<a href="../files/notebooks/MLP_and_NNs.ipynb">MLP_and_NNs.ipynb</a>:
+Explores creating an MLP and NN for both classification and regression
+problem in the iris dataset</li>
+</ul></section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
 </h2>
 <hr class="half-width">
 <div id="keypoints1" class="callout keypoints">
@@ -4538,7 +4547,15 @@ a neural network <img src="../fig/other_layers.png" alt="Diagram showing a one-d
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
+</section><section><h2 class="section-heading" id="available-demo-notebooks">Available demo notebooks<a class="anchor" aria-label="anchor" href="#available-demo-notebooks"></a>
+</h2>
+<hr class="half-width">
+<p>One demo notebooks are available for this lesson.</p>
+<ul>
+<li>
+<a href="../files/notebooks/CNN_from_scratch_example.ipynb">CNN_from_scratch_example.ipynb</a>:
+Trains you to create a CNN model from scratch.</li>
+</ul></section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
 </h2>
 <hr class="half-width">
 <div id="keypoints1" class="callout keypoints">
@@ -4716,7 +4733,19 @@ aggregates this information to produce the final prediction.</p>
 <figure><img src="../fig/ViTs.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h2>
 <hr class="half-width">
-<figure><img src="../fig/transformer_summary.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><div id="keypoints1" class="callout keypoints">
+<figure><img src="../fig/transformer_summary.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="available-demo-notebooks">Available demo notebooks<a class="anchor" aria-label="anchor" href="#available-demo-notebooks"></a>
+</h2>
+<hr class="half-width">
+<p>One demo notebook is available for this lesson.</p>
+<ul>
+<li>
+<a href="../files/notebooks/demo_transfer_learning_text.ipynb">demo_transfer_learning_text.ipynb</a>:
+compares TF-IDF plus logistic regression with sentence embeddings plus
+logistic regression.</li>
+</ul>
+<p>That combination gives a strong cross-task story without making the
+lesson too abstract.</p>
+<div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
@@ -4899,6 +4928,12 @@ support.</p>
 </li>
 <li>Agentic systems<br><img src="../fig/LLMS_summary.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure">
 </li>
+</ul>
+<p>One demo notebooks are available for this lesson.</p>
+<ul>
+<li>
+<a href="../files/notebooks/Google_gemini.ipynb">Google_gemini.ipynb</a>:
+explores how to connect to google gemini in python.</li>
 </ul>
 </div>
 </section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
