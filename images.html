@@ -296,7 +296,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="09-neural-networks-and-deep-learning.html">6. Neural Networks and Deep Learning</a>
+        <a href="13-feature-learning-and-transfer-learning.html">6. Feature Learning and Transfer Learning</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -308,7 +308,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="10-CNNs.html">7. Convolutional Neural Networks</a>
+        <a href="09-neural-networks-and-deep-learning.html">7. Neural Networks and Deep Learning</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -320,7 +320,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="11-transformers.html">8. Transformers</a>
+        <a href="10-CNNs.html">8. Convolutional Neural Networks</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -332,7 +332,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="12-LLMs.html">9. Large Language Models</a>
+        <a href="11-transformers.html">9. Transformers</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -344,7 +344,7 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="13-feature-learning-and-transfer-learning.html">10. Feature Learning and Transfer Learning</a>
+        <a href="12-LLMs.html">10. Large Language Models</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -532,7 +532,17 @@ the mistakes or residual patterns left by the earlier trees.</p>
 <h3 id="08-ethics-figure-3">Figure 3</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Flow Diagram for determining supvervised vs unsupervised’</p>
 <p><img src="fig/explainability_of_ml.png" alt="Flow Diagram for determining supvervised vs unsupervised" class="figure">.</p>
-<hr></section><section id="09-neural-networks-and-deep-learning"><h2 class="section-heading"><a href="09-neural-networks-and-deep-learning.html">Neural Networks and Deep Learning</a></h2>
+<hr></section><section id="13-feature-learning-and-transfer-learning"><h2 class="section-heading"><a href="13-feature-learning-and-transfer-learning.html">Feature Learning and Transfer Learning</a></h2>
+<hr class="half-width">
+<h3 id="13-feature-learning-and-transfer-learning-figure-1">Figure 1</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Diagram showing raw inputs transformed by an encoder into learned representations, trained through supervised or self-supervised objectives.’</p>
+<figure><img src="fig/representation_learning.svg" alt="Diagram showing raw inputs transformed by an encoder into learned representations, trained through supervised or self-supervised objectives." class="figure mx-auto d-block"></figure><hr>
+<h3 id="13-feature-learning-and-transfer-learning-figure-2">Figure 2</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Diagram showing a sentence tokenised, mapped into token vectors by an encoder, then combined into one sentence embedding for a downstream task.’</p>
+<figure><img src="fig/token_sentence_embeddings.svg" alt="Diagram showing a sentence tokenised, mapped into token vectors by an encoder, then combined into one sentence embedding for a downstream task." class="figure mx-auto d-block"></figure><hr>
+<h3 id="13-feature-learning-and-transfer-learning-figure-3">Figure 3</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours.’</p>
+<figure><img src="fig/embedding_space_meaning.svg" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><hr></section><section id="09-neural-networks-and-deep-learning"><h2 class="section-heading"><a href="09-neural-networks-and-deep-learning.html">Neural Networks and Deep Learning</a></h2>
 <hr class="half-width">
 <h3 id="09-neural-networks-and-deep-learning-figure-1">Figure 1</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Diagram of a simple perceptron showing inputs, weights, and an output.’</p>
@@ -544,16 +554,23 @@ the mistakes or residual patterns left by the earlier trees.</p>
 <figure><img src="fig/MLP_output.png" alt="Illustration showing a limitation of a single perceptron on a nonlinearly separable pattern." class="figure mx-auto d-block"></figure><hr>
 <h3 id="09-neural-networks-and-deep-learning-figure-3">Figure 3</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Diagram of a multilayer perceptron with input, hidden, and output layers.’</p>
-<p><img src="fig/Multilayer_mlp.png" alt="Diagram of a multilayer perceptron with input, hidden, and output layers." class="figure">
-(cite:<a href="https://machinelearninggeek.com/multi-layer-perceptron-neural-network-using-python/" class="external-link uri">https://machinelearninggeek.com/multi-layer-perceptron-neural-network-using-python/</a>)</p>
-<hr>
+<figure><img src="fig/MLP_NN.png" alt="Diagram of a multilayer perceptron with input, hidden, and output layers." class="figure mx-auto d-block"></figure><hr>
 <h3 id="09-neural-networks-and-deep-learning-figure-4">Figure 4</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Examples of common activation functions used in neural networks.’</p>
-<figure><img src="fig/activation_functions.png" alt="Examples of common activation functions used in neural networks." class="figure mx-auto d-block"></figure><hr>
+<figure><img src="fig/activations_mark2.png" alt="Examples of common activation functions used in neural networks." class="figure mx-auto d-block"></figure><hr>
 <h3 id="09-neural-networks-and-deep-learning-figure-5">Figure 5</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Illustration showing a limitation of a single perceptron on a nonlinearly separable pattern.’</p>
+<figure><img src="fig/backprop.png" alt="Illustration showing a limitation of a single perceptron on a nonlinearly separable pattern." class="figure mx-auto d-block"></figure><hr>
+<h3 id="09-neural-networks-and-deep-learning-figure-6">Figure 6</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Illustration showing a limitation of a single perceptron on a nonlinearly separable pattern.’</p>
+<figure><img src="fig/loss_functions.png" alt="Illustration showing a limitation of a single perceptron on a nonlinearly separable pattern." class="figure mx-auto d-block"></figure><hr>
+<h3 id="09-neural-networks-and-deep-learning-figure-7">Figure 7</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Diagram of a multilayer perceptron with input, hidden, and output layers.’</p>
 <figure><img src="fig/learningrate.png" alt="Diagram of a multilayer perceptron with input, hidden, and output layers." class="figure mx-auto d-block"></figure><hr>
-<h3 id="09-neural-networks-and-deep-learning-figure-6">Figure 6</h3>
+<h3 id="09-neural-networks-and-deep-learning-figure-8">Figure 8</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Diagram of a multilayer perceptron with input, hidden, and output layers.’</p>
+<figure><img src="fig/gradient_decent.png" alt="Diagram of a multilayer perceptron with input, hidden, and output layers." class="figure mx-auto d-block"></figure><hr>
+<h3 id="09-neural-networks-and-deep-learning-figure-9">Figure 9</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours.’</p>
 <figure><img src="fig/nerual_networks_summary.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><hr></section><section id="10-CNNs"><h2 class="section-heading"><a href="10-CNNs.html">Convolutional Neural Networks</a></h2>
 <hr class="half-width">
@@ -561,38 +578,51 @@ the mistakes or residual patterns left by the earlier trees.</p>
 <p aria-hidden="true">Image 1 of 1: ‘Diagram showing how an image is represented as pixel values.’</p>
 <figure><img src="fig/image_in_pixels.png" alt="Diagram showing how an image is represented as pixel values." class="figure mx-auto d-block"></figure><hr>
 <h3 id="10-CNNs-figure-2">Figure 2</h3>
-<p aria-hidden="true">Image 1 of 1: ‘Diagram showing how an image is represented as pixel values.’</p>
-<figure><img src="fig/CNN_layers.png" alt="Diagram showing how an image is represented as pixel values." class="figure mx-auto d-block"></figure><hr>
+<p aria-hidden="true">Image 1 of 1: ‘Example feature maps created by different convolutional kernels.’</p>
+<figure><img src="fig/kernal_features.png" alt="Example feature maps created by different convolutional kernels." class="figure mx-auto d-block"></figure><hr>
 <h3 id="10-CNNs-figure-3">Figure 3</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Diagram showing a convolutional kernel sliding across an image.’</p>
 <figure><img src="fig/how_kernals_work.png" alt="Diagram showing a convolutional kernel sliding across an image." class="figure mx-auto d-block"></figure><hr>
 <h3 id="10-CNNs-figure-4">Figure 4</h3>
-<p aria-hidden="true">Image 1 of 1: ‘Example feature maps created by different convolutional kernels.’</p>
-<figure><img src="fig/kernal_features.png" alt="Example feature maps created by different convolutional kernels." class="figure mx-auto d-block"></figure><hr>
+<p aria-hidden="true">Image 1 of 1: ‘Diagram showing how an image is represented as pixel values.’</p>
+<figure><img src="fig/CNN_layers.png" alt="Diagram showing how an image is represented as pixel values." class="figure mx-auto d-block"></figure><hr>
 <h3 id="10-CNNs-figure-5">Figure 5</h3>
-<p aria-hidden="true">Image 1 of 1: ‘Diagram showing a one-dimensional convolution scanning across a sequence.’</p>
-<figure><img src="fig/1D_convolution.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure mx-auto d-block"></figure><hr>
+<p aria-hidden="true">Image 1 of 1: ‘Example feature maps created by different convolutional kernels.’</p>
+<figure><img src="fig/cnn_feature_maps.png" alt="Example feature maps created by different convolutional kernels." class="figure mx-auto d-block"></figure><hr>
 <h3 id="10-CNNs-figure-6">Figure 6</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Diagram showing a one-dimensional convolution scanning across a sequence.’</p>
-<figure><img src="fig/CNN.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure mx-auto d-block"></figure><hr></section><section id="11-transformers"><h2 class="section-heading"><a href="11-transformers.html">Transformers</a></h2>
+<figure><img src="fig/1D_convolution.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure mx-auto d-block"></figure><hr>
+<h3 id="10-CNNs-figure-7">Figure 7</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Example feature maps created by different convolutional kernels.’</p>
+<figure><img src="fig/pooling_diagram.png" alt="Example feature maps created by different convolutional kernels." class="figure mx-auto d-block"></figure><hr>
+<h3 id="10-CNNs-figure-8">Figure 8</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Diagram showing a one-dimensional convolution scanning across a sequence.’</p>
+<figure><img src="fig/CNN.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure mx-auto d-block"></figure><hr>
+<h3 id="10-CNNs-figure-9">Figure 9</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Diagram showing a one-dimensional convolution scanning across a sequence.’</p>
+<p>Lastly, there are additional layers required for the construction in
+a neural network <img src="fig/other_layers.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure"></p>
+<hr></section><section id="11-transformers"><h2 class="section-heading"><a href="11-transformers.html">Transformers</a></h2>
 <hr class="half-width">
 <h3 id="11-transformers-figure-1">Figure 1</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours.’</p>
-<figure><img src="fig/multi-head.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><hr>
+<figure><img src="fig/transformer_NLP.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><hr>
 <h3 id="11-transformers-figure-2">Figure 2</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours.’</p>
-<figure><img src="fig/scaled_dot.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><hr></section><section id="12-LLMs"><h2 class="section-heading"><a href="12-LLMs.html">Large Language Models</a></h2>
-<hr class="half-width"></section><section id="13-feature-learning-and-transfer-learning"><h2 class="section-heading"><a href="13-feature-learning-and-transfer-learning.html">Feature Learning and Transfer Learning</a></h2>
-<hr class="half-width">
-<h3 id="13-feature-learning-and-transfer-learning-figure-1">Figure 1</h3>
-<p aria-hidden="true">Image 1 of 1: ‘Diagram showing raw inputs transformed by an encoder into learned representations, trained through supervised or self-supervised objectives.’</p>
-<figure><img src="fig/representation_learning.svg" alt="Diagram showing raw inputs transformed by an encoder into learned representations, trained through supervised or self-supervised objectives." class="figure mx-auto d-block"></figure><hr>
-<h3 id="13-feature-learning-and-transfer-learning-figure-2">Figure 2</h3>
-<p aria-hidden="true">Image 1 of 1: ‘Diagram showing a sentence tokenised, mapped into token vectors by an encoder, then combined into one sentence embedding for a downstream task.’</p>
-<figure><img src="fig/token_sentence_embeddings.svg" alt="Diagram showing a sentence tokenised, mapped into token vectors by an encoder, then combined into one sentence embedding for a downstream task." class="figure mx-auto d-block"></figure><hr>
-<h3 id="13-feature-learning-and-transfer-learning-figure-3">Figure 3</h3>
+<figure><img src="fig/multi-head.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><hr>
+<h3 id="11-transformers-figure-3">Figure 3</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours.’</p>
-<figure><img src="fig/embedding_space_meaning.svg" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><hr></section>
+<figure><img src="fig/scaled_dot.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><hr>
+<h3 id="11-transformers-figure-4">Figure 4</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours.’</p>
+<figure><img src="fig/ViTs.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><hr>
+<h3 id="11-transformers-figure-5">Figure 5</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours.’</p>
+<figure><img src="fig/transformer_summary.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><hr></section><section id="12-LLMs"><h2 class="section-heading"><a href="12-LLMs.html">Large Language Models</a></h2>
+<hr class="half-width">
+<h3 id="12-LLMs-figure-1">Figure 1</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Diagram showing a one-dimensional convolution scanning across a sequence.’</p>
+<figure><img src="fig/LLMS_summary.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure mx-auto d-block"></figure><hr></section>
 </div>
     </main>
 </div>

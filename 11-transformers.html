@@ -109,11 +109,11 @@
   Programming with Python
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 73%" class="percentage">
-    73%
+<aside class="col-md-12 lesson-progress"><div style="width: 81%" class="percentage">
+    81%
   </div>
   <div class="progress software">
-    <div class="progress-bar software" role="progressbar" style="width: 73%" aria-valuenow="73" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar software" role="progressbar" style="width: 81%" aria-valuenow="81" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -242,7 +242,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="09-neural-networks-and-deep-learning.html">6. Neural Networks and Deep Learning</a>
+        <a href="13-feature-learning-and-transfer-learning.html">6. Feature Learning and Transfer Learning</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -251,7 +251,16 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="10-CNNs.html">7. Convolutional Neural Networks</a>
+        <a href="09-neural-networks-and-deep-learning.html">7. Neural Networks and Deep Learning</a>
+    </div><!--/div.accordion-header-->
+
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush9">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading9">
+        <a href="10-CNNs.html">8. Convolutional Neural Networks</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -263,7 +272,7 @@
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
-        8. Transformers
+        9. Transformers
         </span>
       </button>
     </div><!--/div.accordion-header-->
@@ -272,18 +281,10 @@
       <div class="accordion-body">
         <ul><li><a href="#transformer-deep-learning-models">Transformer Deep Learning Models</a></li>
 <li><a href="#the-core-philosophy-parallelism-context">The Core Philosophy: Parallelism &amp; Context</a></li>
-<li><a href="#key-points">Key points</a></li>
+<li><a href="#vision-transformers">Vision Transformers</a></li>
+<li><a href="#summary">Summary</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush10">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading10">
-        <a href="12-LLMs.html">9. Large Language Models</a>
-    </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
@@ -291,7 +292,7 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="13-feature-learning-and-transfer-learning.html">10. Feature Learning and Transfer Learning</a>
+        <a href="12-LLMs.html">10. Large Language Models</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -355,7 +356,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Transformers</h1>
-        <p>Last updated on 2026-04-13 |
+        <p>Last updated on 2026-04-14 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/11-transformers.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -418,14 +419,16 @@ simultaneously. Key Advantages:</p>
 on massive GPUs much faster.</li>
 <li>Long-Range Dependencies: It can easily link a word at the beginning
 of a 1,000-page book to a word at the very end.</li>
-</ul><p>Step 0: Tokenisation &amp; Embedding</p>
+</ul><div class="section level3">
+<h3 id="step-0-tokenisation-embedding">Step 0: Tokenisation &amp; Embedding<a class="anchor" aria-label="anchor" href="#step-0-tokenisation-embedding"></a></h3>
 <p>Computers don’t read words; they read numbers.</p>
 <ul><li>Tokenization: The sentence “The cat sat” is broken into chunks
 (tokens): [“The”, ” cat”, ” sat”].</li>
 <li>Embedding: Each token is converted into a long list of numbers (a
 vector) that represents its meaning. In this space, the vector for “cat”
 is mathematically close to “kitten” but far from “airplane.”</li>
-</ul><div class="section level3">
+</ul></div>
+<div class="section level3">
 <h3 id="step-1-positional-encoding-the-map">Step 1: Positional Encoding (The “Map”)<a class="anchor" aria-label="anchor" href="#step-1-positional-encoding-the-map"></a></h3>
 <p>Since the model processes all words at once, it loses the sense of
 order. To fix this, we add a “Position Signal” to the embeddings.</p>
@@ -466,9 +469,23 @@ actions.</li>
 sure information doesn’t get lost as the model gets deeper.</li>
 <li>Modern Note: Most 2026 models use Pre-Norm (normalizing before the
 layer) for better stability during training.</li>
-</ul><figure><img src="fig/multi-head.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><figure><img src="fig/scaled_dot.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure></div>
-</section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a></h2>
-<hr class="half-width"><div id="keypoints1" class="callout keypoints">
+</ul><figure><img src="fig/transformer_NLP.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><figure><img src="fig/multi-head.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><p>This is the layout of the model created for text based analysis, as
+found in the paper “Attention is all you need”. This paper changed the
+lanscape of how NLP was conducted.</p>
+<figure><img src="fig/scaled_dot.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><p>Although one of the critical parts is that of the multihead attention
+aspect. This feature isnt just for NLP and has been applied to a number
+of different areas, like in computer vision.</p>
+</div>
+</section><section><h2 class="section-heading" id="vision-transformers">Vision Transformers<a class="anchor" aria-label="anchor" href="#vision-transformers"></a></h2>
+<hr class="half-width"><p>Vision Transformers split an image into small patches and treat them
+as a sequence of tokens. Each patch is converted into an embedding and
+combined with positional information to retain spatial context. The
+sequence is then processed using a Transformer with self-attention
+mechanisms. Self-attention enables the model to learn relationships
+between all parts of the image. A special classification token
+aggregates this information to produce the final prediction.</p>
+<figure><img src="fig/ViTs.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a></h2>
+<hr class="half-width"><figure><img src="fig/transformer_summary.png" alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours." class="figure mx-auto d-block"></figure><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
@@ -545,7 +562,7 @@ more advanced.</li>
   "url": "https://swcarpentry.github.io/python-novice-inflammation/11-transformers.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/11-transformers.html",
   "dateCreated": "2025-11-25",
-  "dateModified": "2026-04-13",
+  "dateModified": "2026-04-14",
   "datePublished": "2026-04-14"
 }
 

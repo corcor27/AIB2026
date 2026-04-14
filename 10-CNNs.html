@@ -109,11 +109,11 @@
   Programming with Python
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 63%" class="percentage">
-    63%
+<aside class="col-md-12 lesson-progress"><div style="width: 71%" class="percentage">
+    71%
   </div>
   <div class="progress software">
-    <div class="progress-bar software" role="progressbar" style="width: 63%" aria-valuenow="63" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar software" role="progressbar" style="width: 71%" aria-valuenow="71" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -242,7 +242,16 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="09-neural-networks-and-deep-learning.html">6. Neural Networks and Deep Learning</a>
+        <a href="13-feature-learning-and-transfer-learning.html">6. Feature Learning and Transfer Learning</a>
+    </div><!--/div.accordion-header-->
+
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush8">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading8">
+        <a href="09-neural-networks-and-deep-learning.html">7. Neural Networks and Deep Learning</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -254,7 +263,7 @@
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
-        7. Convolutional Neural Networks
+        8. Convolutional Neural Networks
         </span>
       </button>
     </div><!--/div.accordion-header-->
@@ -274,19 +283,10 @@
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
-<div class="accordion accordion-flush" id="accordionFlush9">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading9">
-        <a href="11-transformers.html">8. Transformers</a>
-    </div><!--/div.accordion-header-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="12-LLMs.html">9. Large Language Models</a>
+        <a href="11-transformers.html">9. Transformers</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -295,7 +295,7 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="13-feature-learning-and-transfer-learning.html">10. Feature Learning and Transfer Learning</a>
+        <a href="12-LLMs.html">10. Large Language Models</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -359,7 +359,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Convolutional Neural Networks</h1>
-        <p>Last updated on 2026-04-13 |
+        <p>Last updated on 2026-04-14 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/10-CNNs.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -428,7 +428,7 @@ input.</p>
 <ul><li>Early layers detect simple features (edges, lines, textures)</li>
 <li>Deeper layers combine these into complex patterns (shapes,
 objects)</li>
-</ul><figure><img src="fig/CNN_layers.png" alt="Diagram showing how an image is represented as pixel values." class="figure mx-auto d-block"></figure><p>At the start of training, filters are random. Through backpropagation
+</ul><figure><img src="fig/kernal_features.png" alt="Example feature maps created by different convolutional kernels." class="figure mx-auto d-block"></figure><p>At the start of training, filters are random. Through backpropagation
 and optimization, the network learns which patterns are useful and
 adjusts the filter values accordingly.</p>
 <p>At the start of training, the kernel values are not meaningful. The
@@ -443,7 +443,7 @@ model learns them from data by adjusting them during training.</p>
 <ul><li>Detect local features regardless of their position</li>
 <li>Build hierarchical representations (from edges → shapes →
 objects)</li>
-</ul><figure><img src="fig/how_kernals_work.png" alt="Diagram showing a convolutional kernel sliding across an image." class="figure mx-auto d-block"></figure><figure><img src="fig/kernal_features.png" alt="Example feature maps created by different convolutional kernels." class="figure mx-auto d-block"></figure><div id="callout1" class="callout">
+</ul><figure><img src="fig/how_kernals_work.png" alt="Diagram showing a convolutional kernel sliding across an image." class="figure mx-auto d-block"></figure><figure><img src="fig/CNN_layers.png" alt="Diagram showing how an image is represented as pixel values." class="figure mx-auto d-block"></figure><div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -455,7 +455,7 @@ increasingly abstract representations.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="d-convolutions-for-sequences-and-signals">1D convolutions for sequences and signals<a class="anchor" aria-label="anchor" href="#d-convolutions-for-sequences-and-signals"></a></h2>
+<figure><img src="fig/cnn_feature_maps.png" alt="Example feature maps created by different convolutional kernels." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="d-convolutions-for-sequences-and-signals">1D convolutions for sequences and signals<a class="anchor" aria-label="anchor" href="#d-convolutions-for-sequences-and-signals"></a></h2>
 <hr class="half-width"><figure><img src="fig/1D_convolution.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure mx-auto d-block"></figure><p>Convolutions are not limited to images. A 1D convolution operates
 over sequences instead of 2D grids.</p>
 <p>Instead of sliding a 2D window, it slides along a single
@@ -482,7 +482,7 @@ important features.</p>
 <p>They also make the model more robust to small spatial changes,
 meaning it becomes less sensitive to the exact position of an object in
 an image.</p>
-<p><strong>Fully Connected Layers (Dense Layers)</strong></p>
+<figure><img src="fig/pooling_diagram.png" alt="Example feature maps created by different convolutional kernels." class="figure mx-auto d-block"></figure><p><strong>Fully Connected Layers (Dense Layers)</strong></p>
 <p>Fully connected (dense) layers are the standard type of neural
 network layer where every neuron in one layer is connected to every
 neuron in the next.</p>
@@ -533,7 +533,19 @@ objects) exist.</td>
 “This is a cat”).</td>
 <td></td>
 </tr></tbody></table></section><section><h2 class="section-heading" id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a></h2>
-<hr class="half-width"><figure><img src="fig/CNN.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a></h2>
+<hr class="half-width"><figure><img src="fig/CNN.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure mx-auto d-block"></figure><div id="callout2" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>Lastly, there are additional layers required for the construction in
+a neural network <img src="fig/other_layers.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure"></p>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a></h2>
 <hr class="half-width"><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -611,7 +623,7 @@ more advanced.</li>
   "url": "https://swcarpentry.github.io/python-novice-inflammation/10-CNNs.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/10-CNNs.html",
   "dateCreated": "2025-11-25",
-  "dateModified": "2026-04-13",
+  "dateModified": "2026-04-14",
   "datePublished": "2026-04-14"
 }
 

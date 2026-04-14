@@ -64,11 +64,12 @@ episodes:
 - 06-model-evaluation.md
 - 07-feature-engineering.md
 - 08-ethics.md
+- 13-feature-learning-and-transfer-learning.md
 - 09-neural-networks-and-deep-learning.md
 - 10-CNNs.md
 - 11-transformers.md
 - 12-LLMs.md
-- 13-feature-learning-and-transfer-learning.md
+
 
 # Information for Learners
 learners: 

@@ -109,11 +109,11 @@
   Programming with Python
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 83%" class="percentage">
-    83%
+<aside class="col-md-12 lesson-progress"><div style="width: 90%" class="percentage">
+    90%
   </div>
   <div class="progress software">
-    <div class="progress-bar software" role="progressbar" style="width: 83%" aria-valuenow="83" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar software" role="progressbar" style="width: 90%" aria-valuenow="90" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -242,7 +242,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="09-neural-networks-and-deep-learning.html">6. Neural Networks and Deep Learning</a>
+        <a href="13-feature-learning-and-transfer-learning.html">6. Feature Learning and Transfer Learning</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -251,7 +251,7 @@
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="10-CNNs.html">7. Convolutional Neural Networks</a>
+        <a href="09-neural-networks-and-deep-learning.html">7. Neural Networks and Deep Learning</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -260,7 +260,16 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="11-transformers.html">8. Transformers</a>
+        <a href="10-CNNs.html">8. Convolutional Neural Networks</a>
+    </div><!--/div.accordion-header-->
+
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush10">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading10">
+        <a href="11-transformers.html">9. Transformers</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -272,7 +281,7 @@
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
-        9. Large Language Models
+        10. Large Language Models
         </span>
       </button>
     </div><!--/div.accordion-header-->
@@ -282,15 +291,6 @@
         <ul><li><a href="#key-points">Key points</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush11">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading11">
-        <a href="13-feature-learning-and-transfer-learning.html">10. Feature Learning and Transfer Learning</a>
-    </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
@@ -338,7 +338,7 @@
   <div class="col-xl-8 col-lg-12 primary-content">
     <nav class="lesson-content mx-md-4" aria-label="Previous and Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="11-transformers.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="13-feature-learning-and-transfer-learning.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="index.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
@@ -346,14 +346,14 @@
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
           Previous: Transformers
         </a>
-        <a class="chapter-link float-end" href="13-feature-learning-and-transfer-learning.html" rel="next">
-          Next: Feature Learning and...
+        <a class="chapter-link float-end" href="index.html" rel="next">
+          Home
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Large Language Models</h1>
-        <p>Last updated on 2026-04-13 |
+        <p>Last updated on 2026-04-14 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/12-LLMs.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -392,7 +392,96 @@ model.</li>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a></h2>
+<ol style="list-style-type: decimal"><li>What is a Language Model?</li>
+</ol><p>A language model learns the statistical structure of language by
+estimating the probability of a sequence of tokens (words or
+subwords).</p>
+<p>Formally, it models:</p>
+<p>P(w1,w2,…,wn) P(w 1 ​</p>
+<p>,w 2 ​</p>
+<p>,…,w n ​</p>
+<p>)</p>
+<p>Using the chain rule of probability, this can be decomposed as:</p>
+<p>P(w1,…,wn)=∏t=1nP(wt∣w1,…,wt−1) P(w 1 ​</p>
+<p>,…,w n ​</p>
+<p>)= t=1 ∏ n ​</p>
+<p>P(w t ​</p>
+<p>∣w 1 ​</p>
+<p>,…,w t−1 ​</p>
+<p>)</p>
+<p>This means the model predicts each token based on all previous
+tokens.</p>
+<p>Example: Input: “The capital of France is” Prediction: “Paris”</p>
+<p>By repeatedly predicting the next token, the model can generate full
+sentences and paragraphs.</p>
+<ol start="2" style="list-style-type: decimal"><li>Tokens and Tokenization</li>
+</ol><p>Large language models do not process raw text directly. Instead, text
+is converted into tokens—numerical representations of words or subword
+units.</p>
+<p>Example sentence: “Machine learning models are powerful.”</p>
+<p>Possible tokenization: [“Machine”, “learning”, “models”, “are”,
+“powerful”, “.”]</p>
+<p>Common tokenization methods include:</p>
+<p>Byte Pair Encoding (BPE): Splits words into frequent subword units
+WordPiece: Widely used in transformer-based models SentencePiece:
+Language-independent and works directly on raw text</p>
+<p>Tokenization enables models to efficiently handle large and diverse
+vocabularies.</p>
+<ol start="3" style="list-style-type: decimal"><li>Architecture of Large Language Models</li>
+</ol><p>Most modern LLMs are based on decoder-only versions of the
+Transformer architecture.</p>
+<p>A typical pipeline consists of:</p>
+<p>Token embeddings Positional encodings Stacked transformer layers
+Output probability distribution</p>
+<p>Simplified flow:</p>
+<p>Input Tokens ↓ Embedding Layer ↓ Transformer Blocks (Self-Attention +
+Feedforward) ↓ Linear Projection ↓ Softmax ↓ Next Token
+Probabilities</p>
+<p>Each transformer layer uses self-attention to allow tokens to attend
+to earlier tokens in the sequence, enabling rich contextual
+understanding.</p>
+<ol start="4" style="list-style-type: decimal"><li>Training Large Language Models</li>
+</ol><p>Training a large language model (LLM) typically occurs in multiple
+stages, each improving the model’s capabilities.</p>
+<p>Pretraining</p>
+<p>The first stage is self-supervised learning on massive text
+datasets.</p>
+<p>Objective: Predict missing or next tokens in a sequence.</p>
+<p>Common training tasks:</p>
+<p>Next-token prediction: Predict the next word in a sequence Masked
+language modeling: Predict missing words within a sentence Sequence
+completion: Continue a given passage</p>
+<p>Typical training data includes:</p>
+<p>Books Web pages Scientific articles Code repositories News
+archives</p>
+<p>This stage provides the model with broad knowledge of language,
+grammar, and general world concepts.</p>
+<p>Fine-Tuning</p>
+<p>After pretraining, the model is adapted to specific tasks using
+smaller, labeled datasets.</p>
+<p>Examples:</p>
+<p>Question answering Summarization Dialogue generation Code
+completion</p>
+<p>Fine-tuning improves performance on targeted applications.</p>
+<p>Instruction Tuning</p>
+<p>Instruction tuning trains the model to better follow human
+instructions.</p>
+<p>Example:</p>
+<p>Instruction: “Explain photosynthesis in simple terms.” Response: A
+clear, simplified explanation</p>
+<p>This stage improves:</p>
+<p>Usability Alignment with user intent Task-specific performance
+Reinforcement Learning from Human Feedback (RLHF)</p>
+<p>Many LLMs are further refined using Reinforcement Learning from Human
+Feedback.</p>
+<p>Process:</p>
+<p>Humans rank multiple model outputs A reward model learns these
+preferences Reinforcement learning updates the model to favor better
+responses</p>
+<p>Outcomes:</p>
+<p>More helpful answers Safer and more aligned outputs Improved
+reasoning and coherence</p>
+<figure><img src="fig/LLMS_summary.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure mx-auto d-block"></figure><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a></h2>
 <hr class="half-width"><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -413,7 +502,7 @@ more advanced.</li>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="11-transformers.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="13-feature-learning-and-transfer-learning.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="index.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
@@ -421,8 +510,8 @@ more advanced.</li>
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
           Previous: Transformers
         </a>
-        <a class="chapter-link float-end" href="13-feature-learning-and-transfer-learning.html" rel="next">
-          Next: Feature Learning and...
+        <a class="chapter-link float-end" href="index.html" rel="next">
+          Home
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -470,7 +559,7 @@ more advanced.</li>
   "url": "https://swcarpentry.github.io/python-novice-inflammation/12-LLMs.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/12-LLMs.html",
   "dateCreated": "2025-11-25",
-  "dateModified": "2026-04-13",
+  "dateModified": "2026-04-14",
   "datePublished": "2026-04-14"
 }
 
