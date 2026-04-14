@@ -22,181 +22,94 @@ exercises: 20
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-1. What is a Language Model?
+## Large Language Models (LLMs)
 
-A language model learns the statistical structure of language by estimating the probability of a sequence of tokens (words or subwords).
+Large Language Models (LLMs) are AI systems built on the Transformer architecture that understand and generate human language. They are trained on massive datasets and power applications like chatbots, code generation, summarization, and translation. Their key feature is scale, with billions or more parameters.
 
-Formally, it models:
+### 1. Language Models
 
-P(w1,w2,...,wn)
-P(w
-1
-	​
+A language model estimates the probability of a token sequence:
 
-,w
-2
-	​
+$$
+P(w_1, ..., w_n) = \prod_{t=1}^{n} P(w_t \mid w_1, ..., w_{t-1})
+$$
 
-,...,w
-n
-	​
 
-)
+It predicts the next token based on previous ones, enabling text generation.
 
-Using the chain rule of probability, this can be decomposed as:
+### 2. Tokens and Tokenization
 
-P(w1,...,wn)=∏t=1nP(wt∣w1,...,wt−1)
-P(w
-1
-	​
+Text is converted into tokens (words or subwords). Methods like BPE, WordPiece, and SentencePiece allow efficient handling of large vocabularies.
 
-,...,w
-n
-	​
+## 3. Architecture
 
-)=
-t=1
-∏
-n
-	​
+Most LLMs use decoder-only transformers:
 
-P(w
-t
-	​
+Input → Embeddings → Transformer layers (self-attention) → Output probabilities
 
-∣w
-1
-	​
+self-attention enables models to capture context across tokens.
 
-,...,w
-t−1
-	​
+### 4. Training
 
-)
+Training occurs in stages:
 
-This means the model predicts each token based on all previous tokens.
+- **Pretraining:** Learn general language patterns  
+- **Fine-tuning:** Adapt to specific tasks  
+- **Instruction tuning:** Improve responses to prompts  
+- **RLHF:** Align outputs with human preferences  
 
-Example:
-Input: “The capital of France is”
-Prediction: “Paris”
+---
 
-By repeatedly predicting the next token, the model can generate full sentences and paragraphs.
+### 5. Scaling Laws
 
-2. Tokens and Tokenization
+Performance improves with more parameters, data, and compute. Larger models can show emergent abilities like reasoning and code generation.
 
-Large language models do not process raw text directly. Instead, text is converted into tokens—numerical representations of words or subword units.
+---
 
-Example sentence:
-“Machine learning models are powerful.”
+### 6. Context Windows
 
-Possible tokenization:
-["Machine", "learning", "models", "are", "powerful", "."]
+Defines how many tokens a model can process at once, affecting handling of long inputs.
 
-Common tokenization methods include:
+---
 
-Byte Pair Encoding (BPE): Splits words into frequent subword units
-WordPiece: Widely used in transformer-based models
-SentencePiece: Language-independent and works directly on raw text
+### 7. Capabilities
 
-Tokenization enables models to efficiently handle large and diverse vocabularies.
+- Text generation  
+- Summarization  
+- Translation  
+- Question answering  
+- Code generation  
+- Reasoning  
 
-3. Architecture of Large Language Models
+---
 
-Most modern LLMs are based on decoder-only versions of the Transformer architecture.
+### 8. Prompt Engineering
 
-A typical pipeline consists of:
+Careful prompt design improves accuracy, style, and depth.
 
-Token embeddings
-Positional encodings
-Stacked transformer layers
-Output probability distribution
+---
 
-Simplified flow:
+### 9. Limitations
 
-Input Tokens
-↓
-Embedding Layer
-↓
-Transformer Blocks (Self-Attention + Feedforward)
-↓
-Linear Projection
-↓
-Softmax
-↓
-Next Token Probabilities
+- Hallucinations  
+- Bias  
+- High computational cost  
+- Limited true understanding  
 
-Each transformer layer uses self-attention to allow tokens to attend to earlier tokens in the sequence, enabling rich contextual understanding.
+---
 
-4. Training Large Language Models
+### 10. Applications
 
-Training a large language model (LLM) typically occurs in multiple stages, each improving the model’s capabilities.
+Used in education, software, healthcare, business, and customer support.
 
-Pretraining
+---
 
-The first stage is self-supervised learning on massive text datasets.
+### 11. Future Directions
 
-Objective:
-Predict missing or next tokens in a sequence.
-
-Common training tasks:
-
-Next-token prediction: Predict the next word in a sequence
-Masked language modeling: Predict missing words within a sentence
-Sequence completion: Continue a given passage
-
-Typical training data includes:
-
-Books
-Web pages
-Scientific articles
-Code repositories
-News archives
-
-This stage provides the model with broad knowledge of language, grammar, and general world concepts.
-
-Fine-Tuning
-
-After pretraining, the model is adapted to specific tasks using smaller, labeled datasets.
-
-Examples:
-
-Question answering
-Summarization
-Dialogue generation
-Code completion
-
-Fine-tuning improves performance on targeted applications.
-
-Instruction Tuning
-
-Instruction tuning trains the model to better follow human instructions.
-
-Example:
-
-Instruction: “Explain photosynthesis in simple terms.”
-Response: A clear, simplified explanation
-
-This stage improves:
-
-Usability
-Alignment with user intent
-Task-specific performance
-Reinforcement Learning from Human Feedback (RLHF)
-
-Many LLMs are further refined using Reinforcement Learning from Human Feedback.
-
-Process:
-
-Humans rank multiple model outputs
-A reward model learns these preferences
-Reinforcement learning updates the model to favor better responses
-
-Outcomes:
-
-More helpful answers
-Safer and more aligned outputs
-Improved reasoning and coherence
-
+- Multimodal models  
+- Retrieval-Augmented Generation (RAG)  
+- Efficient models (quantization, distillation)  
+- Agentic systems  
 ![](fig/LLMS_summary.png){alt="Diagram showing a one-dimensional convolution scanning across a sequence."}
 
 
