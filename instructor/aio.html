@@ -1953,7 +1953,7 @@ model may be needed.</li>
   Example answers
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul>
 <li>“I chose MAE because average error in the original units is easy to
@@ -2289,7 +2289,7 @@ training and final evaluation?</p>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ul>
 <li>cross-entropy used to fit a classifier: training loss;</li>
@@ -2352,7 +2352,7 @@ and scoring user guide</a></li>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>“My logistic regression baseline performed better than the majority
 class baseline and gives a useful first signal for this classification
@@ -4775,104 +4775,133 @@ model.</li>
 </div>
 </div>
 </div>
-<ol style="list-style-type: decimal">
-<li>What is a Language Model?</li>
-</ol>
-<p>A language model learns the statistical structure of language by
-estimating the probability of a sequence of tokens (words or
-subwords).</p>
-<p>Formally, it models:</p>
-<p>P(w1,w2,…,wn) P(w 1 ​</p>
-<p>,w 2 ​</p>
-<p>,…,w n ​</p>
-<p>)</p>
-<p>Using the chain rule of probability, this can be decomposed as:</p>
-<p>P(w1,…,wn)=∏t=1nP(wt∣w1,…,wt−1) P(w 1 ​</p>
-<p>,…,w n ​</p>
-<p>)= t=1 ∏ n ​</p>
-<p>P(w t ​</p>
-<p>∣w 1 ​</p>
-<p>,…,w t−1 ​</p>
-<p>)</p>
-<p>This means the model predicts each token based on all previous
-tokens.</p>
-<p>Example: Input: “The capital of France is” Prediction: “Paris”</p>
-<p>By repeatedly predicting the next token, the model can generate full
-sentences and paragraphs.</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Tokens and Tokenization</li>
-</ol>
-<p>Large language models do not process raw text directly. Instead, text
-is converted into tokens—numerical representations of words or subword
-units.</p>
-<p>Example sentence: “Machine learning models are powerful.”</p>
-<p>Possible tokenization: [“Machine”, “learning”, “models”, “are”,
-“powerful”, “.”]</p>
-<p>Common tokenization methods include:</p>
-<p>Byte Pair Encoding (BPE): Splits words into frequent subword units
-WordPiece: Widely used in transformer-based models SentencePiece:
-Language-independent and works directly on raw text</p>
-<p>Tokenization enables models to efficiently handle large and diverse
+<section><h2 class="section-heading" id="large-language-models-llms">Large Language Models (LLMs)<a class="anchor" aria-label="anchor" href="#large-language-models-llms"></a>
+</h2>
+<hr class="half-width">
+<p>Large Language Models (LLMs) are AI systems built on the Transformer
+architecture that understand and generate human language. They are
+trained on massive datasets and power applications like chatbots, code
+generation, summarization, and translation. Their key feature is scale,
+with billions or more parameters.</p>
+<div class="section level3">
+<h3 id="language-models">1. Language Models<a class="anchor" aria-label="anchor" href="#language-models"></a>
+</h3>
+<p>A language model estimates the probability of a token sequence:</p>
+<p><span class="math display">\[
+P(w_1, ..., w_n) = \prod_{t=1}^{n} P(w_t \mid w_1, ..., w_{t-1})
+\]</span></p>
+<p>It predicts the next token based on previous ones, enabling text
+generation.</p>
+</div>
+<div class="section level3">
+<h3 id="tokens-and-tokenization">2. Tokens and Tokenization<a class="anchor" aria-label="anchor" href="#tokens-and-tokenization"></a>
+</h3>
+<p>Text is converted into tokens (words or subwords). Methods like BPE,
+WordPiece, and SentencePiece allow efficient handling of large
 vocabularies.</p>
-<ol start="3" style="list-style-type: decimal">
-<li>Architecture of Large Language Models</li>
-</ol>
-<p>Most modern LLMs are based on decoder-only versions of the
-Transformer architecture.</p>
-<p>A typical pipeline consists of:</p>
-<p>Token embeddings Positional encodings Stacked transformer layers
-Output probability distribution</p>
-<p>Simplified flow:</p>
-<p>Input Tokens ↓ Embedding Layer ↓ Transformer Blocks (Self-Attention +
-Feedforward) ↓ Linear Projection ↓ Softmax ↓ Next Token
-Probabilities</p>
-<p>Each transformer layer uses self-attention to allow tokens to attend
-to earlier tokens in the sequence, enabling rich contextual
-understanding.</p>
-<ol start="4" style="list-style-type: decimal">
-<li>Training Large Language Models</li>
-</ol>
-<p>Training a large language model (LLM) typically occurs in multiple
-stages, each improving the model’s capabilities.</p>
-<p>Pretraining</p>
-<p>The first stage is self-supervised learning on massive text
-datasets.</p>
-<p>Objective: Predict missing or next tokens in a sequence.</p>
-<p>Common training tasks:</p>
-<p>Next-token prediction: Predict the next word in a sequence Masked
-language modeling: Predict missing words within a sentence Sequence
-completion: Continue a given passage</p>
-<p>Typical training data includes:</p>
-<p>Books Web pages Scientific articles Code repositories News
-archives</p>
-<p>This stage provides the model with broad knowledge of language,
-grammar, and general world concepts.</p>
-<p>Fine-Tuning</p>
-<p>After pretraining, the model is adapted to specific tasks using
-smaller, labeled datasets.</p>
-<p>Examples:</p>
-<p>Question answering Summarization Dialogue generation Code
-completion</p>
-<p>Fine-tuning improves performance on targeted applications.</p>
-<p>Instruction Tuning</p>
-<p>Instruction tuning trains the model to better follow human
-instructions.</p>
-<p>Example:</p>
-<p>Instruction: “Explain photosynthesis in simple terms.” Response: A
-clear, simplified explanation</p>
-<p>This stage improves:</p>
-<p>Usability Alignment with user intent Task-specific performance
-Reinforcement Learning from Human Feedback (RLHF)</p>
-<p>Many LLMs are further refined using Reinforcement Learning from Human
-Feedback.</p>
-<p>Process:</p>
-<p>Humans rank multiple model outputs A reward model learns these
-preferences Reinforcement learning updates the model to favor better
-responses</p>
-<p>Outcomes:</p>
-<p>More helpful answers Safer and more aligned outputs Improved
-reasoning and coherence</p>
-<figure><img src="../fig/LLMS_summary.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure mx-auto d-block"></figure><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
+</div>
+</section><section><h2 class="section-heading" id="architecture">3. Architecture<a class="anchor" aria-label="anchor" href="#architecture"></a>
+</h2>
+<hr class="half-width">
+<p>Most LLMs use decoder-only transformers:</p>
+<p>Input → Embeddings → Transformer layers (self-attention) → Output
+probabilities</p>
+<p>self-attention enables models to capture context across tokens.</p>
+<div class="section level3">
+<h3 id="training">4. Training<a class="anchor" aria-label="anchor" href="#training"></a>
+</h3>
+<p>Training occurs in stages:</p>
+<ul>
+<li>
+<strong>Pretraining:</strong> Learn general language patterns<br>
+</li>
+<li>
+<strong>Fine-tuning:</strong> Adapt to specific tasks<br>
+</li>
+<li>
+<strong>Instruction tuning:</strong> Improve responses to
+prompts<br>
+</li>
+<li>
+<strong>RLHF:</strong> Align outputs with human preferences</li>
+</ul>
+<hr>
+</div>
+<div class="section level3">
+<h3 id="scaling-laws">5. Scaling Laws<a class="anchor" aria-label="anchor" href="#scaling-laws"></a>
+</h3>
+<p>Performance improves with more parameters, data, and compute. Larger
+models can show emergent abilities like reasoning and code
+generation.</p>
+<hr>
+</div>
+<div class="section level3">
+<h3 id="context-windows">6. Context Windows<a class="anchor" aria-label="anchor" href="#context-windows"></a>
+</h3>
+<p>Defines how many tokens a model can process at once, affecting
+handling of long inputs.</p>
+<hr>
+</div>
+<div class="section level3">
+<h3 id="capabilities">7. Capabilities<a class="anchor" aria-label="anchor" href="#capabilities"></a>
+</h3>
+<ul>
+<li>Text generation<br>
+</li>
+<li>Summarization<br>
+</li>
+<li>Translation<br>
+</li>
+<li>Question answering<br>
+</li>
+<li>Code generation<br>
+</li>
+<li>Reasoning</li>
+</ul>
+<hr>
+</div>
+<div class="section level3">
+<h3 id="prompt-engineering">8. Prompt Engineering<a class="anchor" aria-label="anchor" href="#prompt-engineering"></a>
+</h3>
+<p>Careful prompt design improves accuracy, style, and depth.</p>
+<hr>
+</div>
+<div class="section level3">
+<h3 id="limitations">9. Limitations<a class="anchor" aria-label="anchor" href="#limitations"></a>
+</h3>
+<ul>
+<li>Hallucinations<br>
+</li>
+<li>Bias<br>
+</li>
+<li>High computational cost<br>
+</li>
+<li>Limited true understanding</li>
+</ul>
+<hr>
+</div>
+<div class="section level3">
+<h3 id="applications">10. Applications<a class="anchor" aria-label="anchor" href="#applications"></a>
+</h3>
+<p>Used in education, software, healthcare, business, and customer
+support.</p>
+<hr>
+</div>
+<div class="section level3">
+<h3 id="future-directions">11. Future Directions<a class="anchor" aria-label="anchor" href="#future-directions"></a>
+</h3>
+<ul>
+<li>Multimodal models<br>
+</li>
+<li>Retrieval-Augmented Generation (RAG)<br>
+</li>
+<li>Efficient models (quantization, distillation)<br>
+</li>
+<li>Agentic systems<br><img src="../fig/LLMS_summary.png" alt="Diagram showing a one-dimensional convolution scanning across a sequence." class="figure">
+</li>
+</ul>
+</div>
+</section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
 </h2>
 <hr class="half-width">
 <div id="keypoints1" class="callout keypoints">
