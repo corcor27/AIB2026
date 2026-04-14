@@ -168,10 +168,10 @@ about what kind of pre-trained representation is available.
 
 Two demo notebooks are available for this lesson.
 
-- [demo_transfer_learning_vision.ipynb](demo_transfer_learning_vision.ipynb):
+- [demo_transfer_learning_vision.ipynb](files/notebooks/demo_transfer_learning_vision.ipynb):
   compares a weak raw-pixel baseline with features from a pre-trained
   image model.
-- [demo_transfer_learning_text.ipynb](demo_transfer_learning_text.ipynb):
+- [demo_transfer_learning_text.ipynb](files/notebooks/demo_transfer_learning_text.ipynb):
   compares TF-IDF plus logistic regression with sentence embeddings plus
   logistic regression.
 

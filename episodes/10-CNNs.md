@@ -57,7 +57,9 @@ A feature map highlights where certain patterns appear in the input.
 - Early layers detect simple features (edges, lines, textures)
 - Deeper layers combine these into complex patterns (shapes, objects)
 
-![](fig/CNN_layers.png){alt="Diagram showing how an image is represented as pixel values."}
+![](fig/kernal_features.png){alt="Example feature maps created by different convolutional kernels."}
+
+
 
 At the start of training, filters are random. Through backpropagation and optimization, the network learns which patterns are useful and adjusts the filter values accordingly.
 
@@ -80,11 +82,13 @@ This allows the network to:
 
 ![](fig/how_kernals_work.png){alt="Diagram showing a convolutional kernel sliding across an image."}
 
-![](fig/kernal_features.png){alt="Example feature maps created by different convolutional kernels."}
+![](fig/CNN_layers.png){alt="Diagram showing how an image is represented as pixel values."}
 
 ::: callout
 CNNs learn reusable local pattern detectors and stack them to form increasingly abstract representations.
 :::
+
+![](fig/cnn_feature_maps.png){alt="Example feature maps created by different convolutional kernels."}
 
 ## 1D convolutions for sequences and signals
 
@@ -119,6 +123,8 @@ Pooling layers reduce the spatial size of feature maps, which makes computation 
 
 They also make the model more robust to small spatial changes, meaning it becomes less sensitive to the exact position of an object in an image.
 
+![](fig/pooling_diagram.png){alt="Example feature maps created by different convolutional kernels."}
+
 **Fully Connected Layers (Dense Layers)**
 
 Fully connected (dense) layers are the standard type of neural network layer where every neuron in one layer is connected to every neuron in the next.
@@ -148,6 +154,12 @@ This standard architecture utilizes two distinct types of connectivity, which is
 ## Summary
 
 ![](fig/CNN.png){alt="Diagram showing a one-dimensional convolution scanning across a sequence."}
+
+::: callout
+Lastly, there are additional layers required for the construction in a neural network
+![](fig/other_layers.png){alt="Diagram showing a one-dimensional convolution scanning across a sequence."}
+
+:::
 
 ## Key points
 

@@ -66,8 +66,8 @@ decisions into richer nonlinear behaviour.
 
 ## From one layer to deep learning
 
-![](fig/Multilayer_mlp.png){alt="Diagram of a multilayer perceptron with input, hidden, and output layers."}
-(cite:https://machinelearninggeek.com/multi-layer-perceptron-neural-network-using-python/)
+![](fig/MLP_NN.png){alt="Diagram of a multilayer perceptron with input, hidden, and output layers."}
+
 
 A neural network is built by stacking many of those units into layers.
 Each layer transforms the representation a little more.
@@ -85,7 +85,7 @@ move through the network.
 
 ## Why activations matter
 
-![](fig/activation_functions.png){alt="Examples of common activation functions used in neural networks."}
+![](fig/activations_mark2.png){alt="Examples of common activation functions used in neural networks."}
 
 Activation functions decide how strongly a unit responds to its input.
 They matter because without them, stacking layers would still behave
@@ -131,6 +131,7 @@ Rather than computing a simple difference, backpropagation operates layer by lay
 - The Chain Rule of Calculus: Neural networks are composed of nested mathematical functions. Backpropagation relies on the chain rule to compute gradients efficiently. The gradient of a parameter in an earlier layer is determined by multiplying gradients from all subsequent layers, revealing how small changes affect the final loss.
 - Updating the Parameters: Once gradients are computed for all parameters, an optimizer (such as gradient descent) updates the weights and biases. These updates move the model toward lower loss and improved accuracy.
 
+![](fig/backprop.png){alt="Illustration showing a limitation of a single perceptron on a nonlinearly separable pattern."}
 
 ## What is a Loss Function?
 
@@ -156,6 +157,8 @@ Some evaluation metrics can also be used as loss functions, but they must be str
 loss = 1 − metric
 
 :::
+
+![](fig/loss_functions.png){alt="Illustration showing a limitation of a single perceptron on a nonlinearly separable pattern."}
 
 ## What about Gradient Descent
 
@@ -244,6 +247,8 @@ Common Optimizers
 - Stochastic Gradient Descent (SGD): Updates weights using small batches of data instead of the full dataset. This makes training faster and introduces some randomness, which can help escape local minima.
 - Adam (Adaptive Moment Estimation): An advanced optimizer that adapts the learning rate for each parameter by combining momentum (direction of past gradients) with scaling (magnitude of gradients). It is widely used due to its strong performance in practice.
 - RMSprop: Adjusts learning rates based on recent gradients, helping stabilize training—especially useful in problems with noisy or changing gradients.
+
+![](fig/gradient_decent.png){alt="Diagram of a multilayer perceptron with input, hidden, and output layers."}
 
 ### In Summary
 
