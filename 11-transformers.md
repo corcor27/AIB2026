@@ -40,7 +40,7 @@ Key Advantages:
 - Parallelization: Because it sees everything at once, we can train it on massive GPUs much faster.
 - Long-Range Dependencies: It can easily link a word at the beginning of a 1,000-page book to a word at the very end.
 
-Step 0: Tokenisation & Embedding
+### Step 0: Tokenisation & Embedding
 
 Computers don't read words; they read numbers.
 
@@ -81,15 +81,25 @@ After attention, the data passes through a standard neural network (Feed-Forward
 - Add & Norm: We use "Residual Connections" (shortcuts) to make sure information doesn't get lost as the model gets deeper.
 - Modern Note: Most 2026 models use Pre-Norm (normalizing before the layer) for better stability during training.
 
+![](fig/transformer_NLP.png){alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours."}
+
 ![](fig/multi-head.png){alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours."}
+
+This is the layout of the model created for text based analysis, as found in the paper "Attention is all you need". This paper changed the lanscape of how NLP was conducted.
 
 ![](fig/scaled_dot.png){alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours."}
 
+Although one of the critical parts is that of the multihead attention aspect. This feature isnt just for NLP and has been applied to a number of different areas, like in computer vision.
 
+## Vision Transformers
 
+Vision Transformers split an image into small patches and treat them as a sequence of tokens. Each patch is converted into an embedding and combined with positional information to retain spatial context. The sequence is then processed using a Transformer with self-attention mechanisms. Self-attention enables the model to learn relationships between all parts of the image. A special classification token aggregates this information to produce the final prediction.
 
+![](fig/ViTs.png){alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours."}
 
-## Key points
+## Summary
+
+![](fig/transformer_summary.png){alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours."}
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 - Choose the task type before choosing the algorithm.
