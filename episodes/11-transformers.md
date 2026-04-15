@@ -101,17 +101,6 @@ Vision Transformers split an image into small patches and treat them as a sequen
 
 ![](fig/transformer_summary.png){alt="Schematic embedding space showing biology and space related texts forming separate regions, with a new example placed near its semantically similar neighbours."}
 
-## Available demo notebooks
-
-One demo notebook is available for this lesson.
-
-- [demo_transfer_learning_text.ipynb](files/notebooks/demo_transfer_learning_text.ipynb):
-  compares TF-IDF plus logistic regression with sentence embeddings plus
-  logistic regression.
-
-That combination gives a strong cross-task story without making the
-lesson too abstract.
-
 :::::::::::::::::::::::::::::::::::::::: keypoints
 - Choose the task type before choosing the algorithm.
 - A good starter model basket includes both simple baselines and one or

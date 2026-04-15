@@ -161,13 +161,6 @@ Lastly, there are additional layers required for the construction in a neural ne
 
 :::
 
-## Available demo notebooks
-
-One demo notebooks are available for this lesson.
-
-- [CNN_from_scratch_example.ipynb](files/notebooks/CNN_from_scratch_example.ipynb):
-  Trains you to create a CNN model from scratch.
-
 ## Key points
 
 :::::::::::::::::::::::::::::::::::::::: keypoints

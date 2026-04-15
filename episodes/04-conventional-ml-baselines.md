@@ -28,7 +28,7 @@ When you first start modelling a real problem, you usually need a
 small basket of models that are understandable, quick to run, and easy
 to compare.
 
-This page is designed to support student viewing during the workshop.
+This lesson is designed to support participant viewing during the workshop.
 Use it as a reference while you work through the notebook activities.
 
 Good first choices are driven by four practical questions:
@@ -42,33 +42,6 @@ For this reason, conventional machine learning is often the right place
 to start. It gives you a reference point before you decide whether you
 need more complex feature engineering or feature learning.
 
-## What this page assumes
-
-This page assumes you have already worked through the earlier problem
-definition material or the worked example, and therefore already have a
-rough answer to questions such as:
-
-- Is this a regression, classification, or clustering task?
-- What is the target or prediction goal?
-- What would count as a wrong answer in context?
-
-It also assumes you have already done the basic data preparation needed
-before conventional machine learning, for example:
-
-- explored the dataset and checked what each variable means;
-- cleaned the data and handled obvious data-quality problems;
-- preprocessed the data into a usable modelling table;
-- converted categorical variables into numeric representations such as
-  dummy variables where needed;
-- made sure the inputs are now numeric and ready for machine-learning
-  models.
-
-If you are still unsure about the task type, return to the earlier
-problem-definition material or the worked example before choosing from
-the model basket below. If the data are still not in a modelling-ready
-numeric form, finish that preparation step first and then return to
-this page.
-
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Confirm the modelling goal
@@ -78,7 +51,7 @@ Before selecting a model, write down:
 - your task type;
 - your target or prediction goal;
 - what a wrong answer looks like;
-- whether interpretability matters for your audience.
+- whether interpretability matters.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -102,26 +75,17 @@ learning model learning anything useful beyond a trivial rule?
 
 This is the first real model you build.
 
-- **Regression:** Linear Regression.
-- **Classification:** Logistic Regression.
-- **Interpretable non-linear option:** Decision Tree.
-- **Similarity-based option:** k-Nearest Neighbours.
-- **Clustering:** K-Means.
-
-These are strong first choices because they are fast to run, widely
-available, and simple enough to explain.
-
 ![](fig/model_basket_concepts.svg){alt="Summary diagram showing the main ideas behind baseline and comparison models in the starter model basket."}
 
 
-## A model basket for students
+## A model basket
 
-You do not need to try every model. You do need a small set of sensible
-options.
+You do not need to try every model. You only need a small set of
+sensible options.
 
 ### Core starter models
 
-These are the safest first models for most people starting out.
+These are the safest first models for most projects at this stage.
 
 - **Linear Regression** for continuous targets when you want a quick,
   interpretable baseline.
@@ -133,7 +97,7 @@ These are the safest first models for most people starting out.
   similarity may matter.
 - **K-Means** for simple exploratory clustering.
 
-### Useful task-specific additions
+### Useful additions when needed
 
 - **Naive Bayes** for sparse text or count-based text features.
 - **Random Forest** when you want a stronger tree-ensemble comparison
@@ -146,38 +110,32 @@ These are the safest first models for most people starting out.
   Unlike random forests, boosting builds trees in sequence so that each
   new tree tries to correct errors made by the earlier ones.
 
-### How to think about the basket
 
-- pick one trivial reference baseline;
-- pick one first conventional ML baseline;
-- optionally pick one stronger comparison model.
+In most cases, start with the simpler models first. Random forests,
+support vector machines, and boosted trees are often more useful as
+comparison models after you already have a simple baseline in place.
 
-Not every model in the basket is equally suitable as the first model.
-Random forests, support vector machines, and boosted trees are often
-best used as comparison models after a simpler baseline is already in
-place. However, if you already have some preliminary analysis based on
-linear models, simple baselines, or earlier exploratory modelling, you
-may reasonably move on to stronger non-linear models to test whether
-they capture structure that the simpler model is missing.
-
-## Choosing the first model
 
 The sections below are split by model type so they are easier to find
-from the lesson index and easier to teach one at a time.
+from the lesson index.
 
 ## Linear Regression
 
 - Best for: small or medium tabular regression.
 - Why start here: quick, interpretable, easy to explain.
 
-<img src="fig/3-linearregression.webp" alt="Illustration of linear regression fitting a straight-line relationship to continuous data" height="215"><br><strong>Key points:</strong> The model represents the outcome as a weighted sum of the input variables. Learning means adjusting those weights to minimize prediction error on a continuous target.
+<img src="fig/3-linearregression.webp" alt="Illustration of linear regression fitting a straight-line relationship to continuous data" height="300"><br><strong>Key points:</strong> The model represents the outcome as a weighted sum of the input variables. Learning means adjusting those weights to minimize prediction error on a continuous target.
+
+Docs: [LinearRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)
 
 ## Logistic Regression
 
 - Best for: small or medium tabular classification.
 - Why start here: strong baseline with a simple decision boundary.
 
-<img src="fig/3-logisticRegression.webp" alt="Illustration of logistic regression separating classes with a simple decision boundary" height="215"><br><strong>Key points:</strong> The model uses a weighted combination of the inputs and then applies a logistic function to turn that score into a class probability. Learning means adjusting the weights so the predicted probabilities better match the observed labels, usually by minimizing cross-entropy loss; it can be viewed as a neural network with no hidden layer.
+<img src="fig/3-logisticRegression.webp" alt="Illustration of logistic regression separating classes with a simple decision boundary" height="300"><br><strong>Key points:</strong> The model uses a weighted combination of the inputs and then applies a logistic function to turn that score into a class probability. Learning means adjusting the weights so the predicted probabilities better match the observed labels, usually by minimizing cross-entropy loss; it can be viewed as a neural network with no hidden layer.
+
+Docs: [LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
 
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -213,7 +171,9 @@ training neural networks.
 - Best for: interpretable tabular problems where simple rules matter.
 - Why start here: easy to inspect and discuss.
 
-<img src="fig/3-DecisionTree.webp" alt="Illustration of a decision tree splitting data into interpretable rules" height="215"><br><strong>Key points:</strong> A decision tree represents the model as a sequence of if-then splits. Learning means choosing splits that make the resulting groups purer for classification or more consistent for regression.
+<img src="fig/3-DecisionTree.webp" alt="Illustration of a decision tree splitting data into interpretable rules" height="300"><br><strong>Key points:</strong> A decision tree represents the model as a sequence of if-then splits. Learning means choosing splits that make the resulting groups purer for classification or more consistent for regression.
+
+Docs: [DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html)
 
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -251,7 +211,9 @@ rule-based decision boundary.
 - Best for: a simple comparison model when local similarity matters.
 - Why start here: gives a useful contrast with linear methods.
 
-<img src="fig/3-kNN.webp" alt="Illustration of k-nearest neighbours predicting from the closest training examples in feature space" height="215"><br><strong>Key points:</strong> k-nearest neighbours predicts from the nearest training cases, where “nearest” is defined by a distance measure in the feature space. For classification, it takes a majority vote across the <code>k</code> neighbours; for regression, it can take their average.
+<img src="fig/3-kNN.webp" alt="Illustration of k-nearest neighbours predicting from the closest training examples in feature space" height="300"><br><strong>Key points:</strong> k-nearest neighbours predicts from the nearest training cases, where “nearest” is defined by a distance measure in the feature space. For classification, it takes a majority vote across the <code>k</code> neighbours; for regression, it can take their average.
+
+Docs: [KNeighborsClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
 
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -282,7 +244,9 @@ scales can otherwise dominate the distance calculation.
 - Best for: exploratory unlabeled grouping.
 - Why start here: simple clustering workflow.
 
-<img src="fig/3-kmeans.webp" alt="Illustration of k-means grouping points into cluster centres" height="215"><br><strong>Key points:</strong> K-Means represents each cluster by a centre point. Learning means repeatedly assigning cases to the nearest centre and updating the centres until the grouping stabilizes.
+<img src="fig/3-kmeans.webp" alt="Illustration of k-means grouping points into cluster centres" height="300"><br><strong>Key points:</strong> K-Means represents each cluster by a centre point. Learning means repeatedly assigning cases to the nearest centre and updating the centres until the grouping stabilizes.
+
+Docs: [KMeans](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
 
 
 ## Naive Bayes
@@ -290,7 +254,9 @@ scales can otherwise dominate the distance calculation.
 - Best for: sparse text classification and count-based features.
 - Why start here: good simple baseline for bag-of-words style inputs.
 
-<img src="fig/3-NaiveBayes.png" alt="Illustration of Naive Bayes using class-conditional evidence from features" height="215"><br><strong>Key points:</strong> The model treats features as separate pieces of evidence and combines them probabilistically for each class. Learning mostly means estimating how often features appear within each class from the training data.
+<img src="fig/3-NaiveBayes.png" alt="Illustration of Naive Bayes using class-conditional evidence from features" height="300"><br><strong>Key points:</strong> The model treats features as separate pieces of evidence and combines them probabilistically for each class. Learning mostly means estimating how often features appear within each class from the training data.
+
+Docs: [MultinomialNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html)
 
 
 ## Random Forest
@@ -298,6 +264,10 @@ scales can otherwise dominate the distance calculation.
 - Best for: a stronger tabular comparison after a first baseline.
 - Why start here: many trees are averaged together, which usually
   improves stability over a single tree.
+
+Docs: [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
+
+Related docs: [Gradient boosting in scikit-learn](https://scikit-learn.org/stable/modules/ensemble.html#gradient-boosting)
 
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -335,7 +305,9 @@ combining their predictions by voting or averaging.
 - Why start here: can work well when margins and similarity structure
   matter, though it may be slower to fit.
   
-<img src="fig/3-svm.webp" alt="Illustration of a support vector machine finding a margin between classes" height="215"><br><strong>Key points:</strong> A support vector machine makes its decision using a small set of key training cases called support vectors, rather than all training points or the nearest neighbours. With a kernel function, it can measure similarity between a new case and those support vectors in a transformed feature space, which is why SVMs are often useful for small-sample, high-dimensional problems, although fitting can become slow because the optimization often involves a large kernel matrix.
+<img src="fig/3-svm.webp" alt="Illustration of a support vector machine finding a margin between classes" height="300"><br><strong>Key points:</strong> A support vector machine makes its decision using a small set of key training cases called support vectors, rather than all training points or the nearest neighbours. With a kernel function, it can measure similarity between a new case and those support vectors in a transformed feature space, which is why SVMs are often useful for small-sample, high-dimensional problems, although fitting can become slow because the optimization often involves a large kernel matrix.
+
+Docs: [SVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html)
 
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -385,7 +357,11 @@ kernel.
 - Why start here: often performs well, but usually needs more tuning
   and setup time.
 
-<img src="fig/3-XGBoost.webp" alt="Illustration of gradient-boosted trees building an ensemble sequentially to correct earlier errors" height="215"><br><strong>Key points:</strong> XGBoost represents the model as a sequence of small trees added one after another. Learning means each new tree focuses on the mistakes or residual patterns left by the earlier trees.
+<img src="fig/3-XGBoost.webp" alt="Illustration of gradient-boosted trees building an ensemble sequentially to correct earlier errors" height="300"><br><strong>Key points:</strong> XGBoost represents the model as a sequence of small trees added one after another. Learning means each new tree focuses on the mistakes or residual patterns left by the earlier trees.
+
+Docs: [XGBoost Python package](https://xgboost.readthedocs.io/en/release_3.2.0/python/index.html)
+
+Install note: XGBoost is a separate package rather than part of scikit-learn, so it needs to be installed before use.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 ### Random forests versus XGBoost
@@ -442,10 +418,6 @@ Common poor choices include:
 - using a complex model that cannot be interpreted or debugged;
 - picking a model that does not match the target type.
 
-For mixed-ability teaching, a simple model that runs and can be
-explained is a stronger teaching outcome than a complex model that only
-partly works.
-
 ## When the basket is not enough
 
 If a simple conventional model misses important structure, the next step
@@ -456,8 +428,10 @@ is usually one of these:
 - move to neural networks or transfer learning if the model needs to
   learn features automatically.
 
-That is why this lesson is followed by separate pages on feature
-engineering and neural networks.
+That is why the next lessons look at where to search for further
+improvement: better engineered features, stronger neural-network
+approaches, and feature learning when the model needs to learn useful
+representations more automatically.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 ## Choose a baseline sequence
@@ -495,9 +469,10 @@ If you are planning a later development step, add one more line:
 The code below shows the structure of a simple baseline process for a
 classification task.
 
-If you want a concrete mental model while reading this code, think of a
-simple species classification task such as predicting penguin species or
-iris species from measured features.
+If you want a concrete mental model while reading this code, map it to
+the worked example on horse blinking: measured input features come in,
+the model predicts the blink-related class or outcome, and the baseline
+is checked against a trivial reference first.
 
 ```python
 from sklearn.datasets import load_iris

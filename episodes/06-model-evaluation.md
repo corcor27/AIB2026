@@ -51,15 +51,13 @@ That is why evaluation should always connect three things:
 ### Regression
 
 <div style="background: white; padding: 12px; border-radius: 8px; display: inline-block;">
-<img src="docs/fig/LR_errors.png" alt="Linear regression example showing predictions and their errors." style="display: block; max-width: 100%; height: auto;" />
+<img src="fig/LR_errors.png" alt="Linear regression example showing predictions and their errors." style="display: block; max-width: 100%; height: auto;" />
 </div>
 
 - **MAE** measures average absolute error and is often the easiest to
   explain.
 - **RMSE** penalises large errors more strongly.
 - **R^2** summarises explained variance but is often overinterpreted.
-
-For mixed-ability teaching, MAE is usually the safest first choice.
 
 ### What the regression metrics actually compute
 
@@ -131,6 +129,52 @@ Interpretation:
 - use recall when missing a positive case is costly;
 - use F1 when both precision and recall matter and you want one summary
   number.
+
+### Thresholds, ROC curves, and precision-recall curves
+
+Many classifiers do not only output a label. They also output a score
+or probability, and a threshold then turns that score into a final
+class.
+
+For example, you might label a case as positive when the model gives a
+probability above 0.5. But that threshold is a choice. Changing it
+changes the trade-off between false positives and false negatives.
+
+- **ROC curve**: shows the trade-off between true positive rate and
+  false positive rate across thresholds;
+- **precision-recall curve**: shows the trade-off between precision and
+  recall across thresholds, and is especially useful when the positive
+  class is rare.
+
+**ROC-AUC** summarises the ROC curve into one number: the larger the
+area, the better the model is at separating positive and negative cases
+across many thresholds.
+
+**PR-AUC** summarises the precision-recall curve into one number. A
+higher PR-AUC means the model does a better job of keeping precision
+high while also recovering more of the true positive cases.
+
+![](fig/roc_pr_pair.svg){alt="Side-by-side illustrative ROC and precision-recall curves showing how threshold changes move model performance."}
+
+In general:
+
+- if classes are fairly balanced, ROC can be a reasonable overview;
+- if the positive class is rare or especially important, the
+  precision-recall curve is often more informative.
+
+These curves are best treated as an extension once students already
+understand the confusion matrix and the precision-recall trade-off.
+
+```python
+from sklearn.metrics import PrecisionRecallDisplay, RocCurveDisplay
+
+RocCurveDisplay.from_predictions(y_test, y_score)
+PrecisionRecallDisplay.from_predictions(y_test, y_score)
+```
+
+In other words, a classifier is not always one fixed answer. Sometimes
+it is a scoring system, and evaluation helps you decide where to place
+the decision boundary.
 
 ### Clustering
 
@@ -241,76 +285,8 @@ Interpretation:
 - if that size of error is too large, better features or a different
   model may be needed.
 
-
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-## Pick the metric before training
-
-For your project, answer these three prompts:
-
-- What is the primary metric?
-- Why does it fit the task better than the obvious alternatives?
-- Which error would matter more in practice?
-
-:::::::::::::::  solution
-## Example answers
-
-- "I chose MAE because average error in the original units is easy to
-  explain to a non-technical audience."
-- "I chose recall because missing a positive case is worse than raising
-  an extra false alarm."
-:::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Compare against the baseline, not just against zero
-
-Evaluation is more meaningful when you can answer three related
-questions.
-
-1. Does the model beat the trivial reference baseline?
-2. Does it still perform reasonably on unseen data?
-3. Is the result useful enough to guide the next decision?
-
-Without a baseline, it is hard to tell whether a score is impressive or
-just normal for the problem.
-
-## Diagnose fit quality
-
-### Underfitting
-
-Typical pattern:
-
-- weak training performance;
-- weak test performance.
-
-Interpretation:
-
-The model is too simple, the features are too weak, or the problem is
-not yet represented well enough.
-
-### Overfitting
-
-Typical pattern:
-
-- very strong training performance;
-- weaker test performance.
-
-Interpretation:
-
-The model has learned quirks of the training data rather than a stable
-pattern.
-
-### Plausible generalisation
-
-Typical pattern:
-
-- training and test performance are reasonably close;
-- the score beats the reference baseline;
-- the result makes sense in context.
-
-Interpretation:
-
-The model is credible enough to interpret and improve.
+Once you have a result, the next step is to judge whether the pattern of
+performance is believable.
 
 ## Task-specific evaluation views
 
@@ -324,7 +300,7 @@ Ask:
 - Are there obvious large-error cases?
 - Do the errors get worse in a particular region?
 
-What to teach students to notice:
+Check:
 
 - if residuals are roughly centred around zero, the model is not showing
   a clear one-direction bias;
@@ -358,9 +334,6 @@ Use a confusion matrix to ask:
 - Where are the false negatives?
 - Are the errors acceptable for this context?
 
-In teaching, this is often easier than starting from a single accuracy
-value. A confusion matrix shows what kind of mistake the model is making,
-not just how many.
 
 ```python
 from sklearn.metrics import ConfusionMatrixDisplay, classification_report
@@ -368,15 +341,6 @@ from sklearn.metrics import ConfusionMatrixDisplay, classification_report
 ConfusionMatrixDisplay.from_predictions(y_test, baseline_predictions)
 print(classification_report(y_test, baseline_predictions))
 ```
-
-Optional domain-specific follow-up:
-
-In the horse blink example, the same logic still applies, but the error
-cost is less obvious. The confusion matrix shows what the model is
-mixing up, but the important error depends on the scientific question.
-That makes it a better second example than a first one.
-
-![](fig/confusion_matrix_horse_blink_sklearn_style.svg){alt="Local confusion matrix visual for the horse blink example showing TP 8, FN 2, FP 3, and TN 7."}
 
 ### Clustering: inspect whether the groups are meaningful
 
@@ -388,9 +352,6 @@ Ask:
 - Does changing the number of clusters change the story completely?
 - Is the grouping useful for a downstream task or research question?
 
-This is why clustering evaluation should be taught more cautiously than
-regression or classification evaluation: a numerical score alone rarely
-tells the whole story.
 
 ## What your metric is not telling you
 
@@ -415,54 +376,13 @@ For simpler models, this can be quite direct:
 
 For more complex models, explanation is usually more approximate.
 
-- tools such as **LIME** and **SHAP** try to explain which inputs were
-  influential for a prediction or across the model as a whole.
+- tools such as [LIME](https://lime.readthedocs.io/en/latest/) and
+  [SHAP](https://shap.readthedocs.io/en/latest/) try to explain which inputs were influential for a prediction or across the model as a
+  whole.
 
-For deep learning, explainability is still an active research area, so
-it is often better treated as a separate advanced topic or special
-lecture rather than part of the core evaluation workflow.
-
-![](fig/explainability_of_ml.png){alt="Diagram illustrating the challenge of explaining machine learning model decisions."}
-
-## Thresholds, ROC curves, and precision-recall curves
-
-Many classifiers do not only output a label. They also output a score or probability. A threshold then turns that score into a final class.
-
-For example, you might label a case as positive when the model gives a probability above 0.5. But that threshold is a choice when applying the model. Changing the threshold changes the trade-off between false positives and
-false negatives. This is why ROC and precision-recall curves can be useful:
-
-- **ROC curve**: shows the trade-off between true positive rate and false positive rate across thresholds;
-
-A better model tends to push the ROC curve closer to the top-left corner, where true positive rate
-is high and false positive rate is low.
-
-**ROC-AUC** summarises that curve into one number: the larger the area under the ROC curve, the better the model is at separating positive and negative cases across many possible thresholds.
-
-- **precision-recall curve**: shows the trade-off between precision and recall across thresholds. 
-This is especially useful when the positive class is rare.
-
-**PR-AUC** summarises the precision-recall curve into one number. A higher PR-AUC means the model does a better job of keeping precision high while also recovering more of the true positive cases.
-
-![](docs/fig/roc_pr_pair.svg){alt="Side-by-side illustrative ROC and precision-recall curves showing how threshold changes move model performance."}
-
-In general:
-
-- if classes are fairly balanced, ROC can be a reasonable overview;
-- if the positive class is rare or especially important, the
-  precision-recall curve is often more informative.
-
-These curves are best treated as an extension once students already
-understand the confusion matrix and the precision-recall trade-off.
+![](https://shap.readthedocs.io/en/latest/_images/shap_header.png){alt="SHAP example figure showing how feature contributions can explain a prediction."}
 
 
-```python
-from sklearn.metrics import PrecisionRecallDisplay, RocCurveDisplay
-
-RocCurveDisplay.from_predictions(y_test, y_score)
-PrecisionRecallDisplay.from_predictions(y_test, y_score)
-```
-
-In other words, a classifier is not always one fixed answer. Sometimes it is a scoring system, and evaluation helps you decide where to place the decision boundary.
 
 ## Proportionate responsible evaluation
 
@@ -491,28 +411,6 @@ If subgroup review is not possible, they should say why:
 The important step is documenting the limitation rather than pretending
 the issue does not exist.
 
-## Turning evaluation into a next step
-
-Evaluation should end with an action, not just a score.
-
-One useful pattern is:
-
-- metric: what happened numerically?
-- interpretation: what does that mean in plain language?
-- action: what should I try next?
-
-Useful next steps include:
-
-- improve preprocessing;
-- engineer a new feature;
-- compare one stronger but explainable model;
-- rethink the representation of the data;
-- narrow claims to what the evidence actually supports.
-
-Finish with a short statement:
-
-"My model is useful for __________, but it is still limited by
-__________. My next step is __________."
 
 ## Evaluation metric is not always the training loss
 
@@ -583,47 +481,12 @@ to the metric tools they are most likely to need.
 - [RocCurveDisplay](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.RocCurveDisplay.html)
 - [PrecisionRecallDisplay](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.PrecisionRecallDisplay.html)
 
-:::::::::::::::::::::::::::::::::::::::  challenge
-## Write a responsible conclusion
-
-Write three sentences that cover:
-
-- your main result;
-- one important limitation;
-- one concrete next step.
-
-:::::::::::::::  solution
-## Example answer
-
-"My logistic regression baseline performed better than the majority
-class baseline and gives a useful first signal for this classification
-task. However, recall remains weak for the class I care about most, so
-I should be cautious about strong claims. My next step is to inspect the
-confusion matrix more closely and test whether feature engineering can
-improve recall."
-:::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Preparing to communicate results
-
-You should be ready to explain evaluation using the PDMRI shape:
-
-- **Problem**
-- **Data**
-- **Model**
-- **Results**
-- **Insights**
-
-That means they need more than a metric value. They need a short,
-defensible interpretation of what the score means, what it does not
-mean, and what should happen next.
 
 ## Key points
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 - Choose the primary metric before training, not after seeing the
   result.
-- Always compare a model against a trivial reference baseline.
 - Use residuals, confusion matrices, or cluster interpretation to look
   beyond a single headline score.
 - Responsible evaluation means documenting who may be missing, what
