@@ -109,11 +109,11 @@
   Programming with Python
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 56%" class="percentage">
-    56%
+<aside class="col-md-12 lesson-progress"><div style="width: 55%" class="percentage">
+    55%
   </div>
   <div class="progress software">
-    <div class="progress-bar software" role="progressbar" style="width: 56%" aria-valuenow="56" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar software" role="progressbar" style="width: 55%" aria-valuenow="55" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -261,7 +261,6 @@
 <li><a href="#transfer-learning">Transfer learning</a></li>
 <li><a href="#common-transfer-learning-patterns">Common transfer-learning patterns</a></li>
 <li><a href="#matching-transfer-learning-to-the-data">Matching transfer learning to the data</a></li>
-<li><a href="#available-demo-notebooks">Available demo notebooks</a></li>
 <li><a href="#a-practical-decision-rule">A practical decision rule</a></li>
 <li><a href="#is-pca-representation-learning">Is PCA representation learning?</a></li>
 <li><a href="#key-points">Key points</a></li>
@@ -365,7 +364,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Feature Learning and Transfer Learning</h1>
-        <p>Last updated on 2026-04-14 |
+        <p>Last updated on 2026-04-15 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/13-feature-learning-and-transfer-learning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -413,8 +412,9 @@ scratch.</li>
 <hr class="half-width"><p>In conventional machine learning, people usually decide which
 features the model should use. In feature learning, the model learns
 internal representations automatically from the training data.</p>
-<p>This page is about what you do with that idea in practice, especially
-when you do not want to train a large deep model from scratch.</p>
+<p>This lesson is about what you do with that idea in practice,
+especially when you do not want to train a large deep model from
+scratch.</p>
 <p>Learned representations can arise in more than one way:</p>
 <ul><li>in <strong>supervised learning</strong>, the internal features are
 shaped by a task label such as a class or target value;</li>
@@ -518,19 +518,7 @@ more about what kind of pre-trained representation is available.</p>
 <td>domain-specific encoders or extracted embeddings</td>
 </tr><tr><td>Tabular</td>
 <td>usually better feature engineering first</td>
-</tr></tbody></table></section><section><h2 class="section-heading" id="available-demo-notebooks">Available demo notebooks<a class="anchor" aria-label="anchor" href="#available-demo-notebooks"></a></h2>
-<hr class="half-width"><p>Two demo notebooks are available for this lesson.</p>
-<ul><li>
-<a href="../files/notebooks/demo_transfer_learning_vision.ipynb">demo_transfer_learning_vision.ipynb</a>:
-compares a weak raw-pixel baseline with features from a pre-trained
-image model.</li>
-<li>
-<a href="../files/notebooks/demo_transfer_learning_text.ipynb">demo_transfer_learning_text.ipynb</a>:
-compares TF-IDF plus logistic regression with sentence embeddings plus
-logistic regression.</li>
-</ul><p>That combination gives a strong cross-task story without making the
-lesson too abstract.</p>
-</section><section><h2 class="section-heading" id="a-practical-decision-rule">A practical decision rule<a class="anchor" aria-label="anchor" href="#a-practical-decision-rule"></a></h2>
+</tr></tbody></table></section><section><h2 class="section-heading" id="a-practical-decision-rule">A practical decision rule<a class="anchor" aria-label="anchor" href="#a-practical-decision-rule"></a></h2>
 <hr class="half-width"><p>Ask these questions in order:</p>
 <ol style="list-style-type: decimal"><li>Can a conventional model with sensible features solve enough of the
 problem?</li>
@@ -540,22 +528,6 @@ the choice of classifier or regressor?</li>
 matches this data type?</li>
 </ol><p>If the answer to the third question is yes, transfer learning or a
 representation-learning approach may be the right next step.</p>
-<div id="which-route-fits-your-data" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<span class="callout-header">Discussion</span>
-<div id="which-route-fits-your-data" class="callout-inner">
-<h3 class="callout-title">Which route fits your data?</h3>
-<div class="callout-content">
-<p>For your own project, write down:</p>
-<ul><li>what kind of data structure you have;</li>
-<li>whether a simple feature table is enough to represent it;</li>
-<li>whether the next step should be better feature engineering, a
-specialist deep-learning architecture, or transfer learning.</li>
-</ul></div>
-</div>
-</div>
 <div id="feature-engineering-or-feature-learning" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -588,7 +560,7 @@ feature learning.</li>
 <div id="comparing-pca-with-learned-embeddings" class="callout-inner">
 <h3 class="callout-title">Comparing PCA with learned embeddings</h3>
 <div class="callout-content">
-<p>Discuss with a partner:</p>
+<p>Discuss:</p>
 <ul><li>In what sense is it similar to learned embeddings?</li>
 <li>In what sense is it different from neural-network-based
 representation learning?</li>
@@ -677,8 +649,8 @@ the extra complexity is justified.</li>
   "url": "https://swcarpentry.github.io/python-novice-inflammation/instructor/13-feature-learning-and-transfer-learning.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/instructor/13-feature-learning-and-transfer-learning.html",
   "dateCreated": "2025-11-25",
-  "dateModified": "2026-04-14",
-  "datePublished": "2026-04-14"
+  "dateModified": "2026-04-15",
+  "datePublished": "2026-04-15"
 }
 
   </script><script>

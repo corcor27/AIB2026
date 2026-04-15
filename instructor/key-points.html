@@ -431,8 +431,11 @@ more advanced.</li>
 process, not just running one line of code.</li>
 <li>A train/test split is the standard first check for
 generalisation.</li>
-<li>Cross-validation is useful, but it should be introduced in
-proportion to participant confidence and dataset size.</li>
+<li>Default model settings may not work well; tuning hyperparameters
+with validation or cross-validation can help.</li>
+<li>Random and stratified splits are common defaults for ordinary
+classification, but time series and grouped subject data need different
+validation strategies.</li>
 <li>Any further development should be justified by the data, the task,
 and the current state of the model and analysis.</li>
 </ul></section><section id="06-model-evaluation"><h2 class="section-heading"><a href="06-model-evaluation.html">Checking What Your Model Learned</a></h2>
@@ -440,7 +443,6 @@ and the current state of the model and analysis.</li>
 <ul>
 <li>Choose the primary metric before training, not after seeing the
 result.</li>
-<li>Always compare a model against a trivial reference baseline.</li>
 <li>Use residuals, confusion matrices, or cluster interpretation to look
 beyond a single headline score.</li>
 <li>Responsible evaluation means documenting who may be missing, what
@@ -574,8 +576,8 @@ more advanced.</li>
   "url": "https://swcarpentry.github.io/python-novice-inflammation/instructor/key-points.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/instructor/key-points.html",
   "dateCreated": "2025-11-25",
-  "dateModified": "2026-04-14",
-  "datePublished": "2026-04-14"
+  "dateModified": "2026-04-15",
+  "datePublished": "2026-04-15"
 }
 
   </script><script>

@@ -234,8 +234,7 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#quick-navigation">Quick navigation</a></li>
-<li><a href="#why-feature-engineering-comes-early">Why feature engineering comes early</a></li>
+        <ul><li><a href="#why-feature-engineering-often-comes-next">Why feature engineering often comes next</a></li>
 <li><a href="#a-simple-way-to-think-about-features">A simple way to think about features</a></li>
 <li><a href="#tabular-features">Tabular features</a></li>
 <li><a href="#vision-features">Vision features</a></li>
@@ -364,13 +363,13 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Feature Engineering for Real Problems</h1>
-        <p>Last updated on 2026-04-13 |
+        <p>Last updated on 2026-04-15 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/07-feature-engineering.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
 
 
-        <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 65 minutes</p>
+        <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 55 minutes</p>
 
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
@@ -408,56 +407,15 @@ problem.</li>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="quick-navigation">Quick navigation<a class="anchor" aria-label="anchor" href="#quick-navigation"></a></h2>
-<hr class="half-width"><ul><li><a href="#quick-navigation">Quick navigation</a></li>
-<li><a href="#why-feature-engineering-comes-early">Why feature
-engineering comes early</a></li>
-<li><a href="#a-simple-way-to-think-about-features">A simple way to
-think about features</a></li>
-<li><a href="#tabular-features">Tabular features</a></li>
-<li><a href="#vision-features">Vision features</a></li>
-<li>
-<a href="#text-features">Text features</a>
-<ul><li><a href="#a-concrete-tf-idf-example">A concrete TF-IDF
-example</a></li>
-</ul></li>
-<li>
-<a href="#bioinformatics-and-genomics-features">Bioinformatics and
-genomics features</a>
-<ul><li><a href="#k-mers-as-the-sequence-counterpart-to-n-grams">k-mers as
-the sequence counterpart to n-grams</a></li>
-<li><a href="#other-useful-genomics-style-features">Other useful
-genomics-style features</a></li>
-<li><a href="#marker-style-features">Marker-style features</a></li>
-<li><a href="#a-concrete-genomics-example">A concrete genomics
-example</a></li>
-</ul></li>
-<li>
-<a href="#time-series-and-spectral-features">Time-series and
-spectral features</a>
-<ul><li><a href="#a-more-concrete-feature-sketch">A more concrete feature
-sketch</a></li>
-</ul></li>
-<li><a href="#features-for-specialised-scientific-data">Features for
-specialised scientific data</a></li>
-<li>
-<a href="#cross-domain-transfer">Cross-domain transfer</a>
-<ul><li><a href="#example-answer">Example answer</a></li>
-</ul></li>
-<li>
-<a href="#pick-one-feature-change">Pick one feature change</a>
-<ul><li><a href="#example-answers">Example answers</a></li>
-</ul></li>
-<li><a href="#when-to-stop-engineering-by-hand">When to stop engineering
-by hand</a></li>
-<li><a href="#feature-planning-cheat-sheet">Feature planning cheat
-sheet</a></li>
-<li><a href="#key-points">Key points</a></li>
-</ul></section><section><h2 class="section-heading" id="why-feature-engineering-comes-early">Why feature engineering comes early<a class="anchor" aria-label="anchor" href="#why-feature-engineering-comes-early"></a></h2>
+<section><h2 class="section-heading" id="why-feature-engineering-often-comes-next">Why feature engineering often comes next<a class="anchor" aria-label="anchor" href="#why-feature-engineering-often-comes-next"></a></h2>
 <hr class="half-width"><p>Choosing a model is only part of the job. The model can only learn
 from the information you give it.</p>
 <p>Feature engineering means creating or selecting inputs that make
 useful patterns easier for a model to detect.</p>
+<p>In the teaching sequence here, feature engineering usually comes
+after you have already chosen a sensible baseline, trained it, and
+evaluated its first results. That gives you a clearer reason to change
+the representation instead of changing things blindly.</p>
 <p>In many real projects, a better representation can improve results
 more than switching to a more complex algorithm.</p>
 <p>If you want a concise external overview, see the <a href="https://scikit-learn.org/stable/modules/feature_extraction.html" class="external-link">scikit-learn
@@ -573,17 +531,7 @@ being turned into features first.</p>
 starting points include <a href="https://biopython.org/" class="external-link">Biopython</a>
 for sequence workflows and <a href="https://scikit-learn.org/stable/" class="external-link">scikit-learn</a> for the
 downstream baseline models.</p>
-<p>One useful analogy is:</p>
-<ul><li>
-<strong>token in text</strong> is similar to a <strong>base or
-amino-acid symbol</strong> in a sequence;</li>
-<li>
-<strong>short token pattern in text</strong> is similar to a
-<strong>k-mer in genomics</strong>;</li>
-<li>
-<strong>keyword or phrase count</strong> is similar to a
-<strong>motif or marker count</strong> in biological data.</li>
-</ul><div class="section level3">
+<div class="section level3">
 <h3 id="k-mers-as-the-sequence-counterpart-to-n-grams">k-mers as the sequence counterpart to n-grams<a class="anchor" aria-label="anchor" href="#k-mers-as-the-sequence-counterpart-to-n-grams"></a></h3>
 <p>A k-mer is a short sequence fragment of length <span class="math inline">\(k\)</span>.</p>
 <p>Examples:</p>
@@ -591,9 +539,8 @@ amino-acid symbol</strong> in a sequence;</li>
 <code>GCA</code>;</li>
 <li>for proteins, 2-mers or 3-mers can capture short amino-acid
 patterns.</li>
-</ul><p>If a text process uses short token patterns or phrase-level features
-to capture local context, a genomics process can use k-mer counts or
-frequencies to capture local sequence patterns.</p>
+</ul><p>Like n-grams in text, k-mer counts or frequencies capture short local
+patterns in a sequence.</p>
 <p>For example, the DNA sequence <code>ATGCAT</code> contains the
 3-mers:</p>
 <ul><li><code>ATG</code></li>
@@ -634,18 +581,6 @@ to domain interpretation.</p>
 <p>For example, in a genomics dataset you might use a small set of known
 SNPs as marker-style features alongside broader sequence features such
 as k-mer frequencies or GC content.</p>
-</div>
-<div class="section level3">
-<h3 id="a-concrete-genomics-example">A concrete genomics example<a class="anchor" aria-label="anchor" href="#a-concrete-genomics-example"></a></h3>
-<p>Suppose the task is to classify DNA sequences into two functional
-groups. A sensible conventional baseline could use:</p>
-<ul><li>k-mer frequencies as the main sequence representation;</li>
-<li>GC content as a summary feature;</li>
-<li>sequence length as a structural feature;</li>
-<li>a simple classifier such as Logistic Regression, Naive Bayes, or a
-tree-based model.</li>
-</ul><p>This is closely analogous to a text process where you combine TF-IDF
-features with a simple classifier.</p>
 </div>
 </section><section><h2 class="section-heading" id="time-series-and-spectral-features">Time-series and spectral features<a class="anchor" aria-label="anchor" href="#time-series-and-spectral-features"></a></h2>
 <hr class="half-width"><p>Time-series, sensor, and spectral tasks often benefit from features
@@ -688,59 +623,19 @@ magnitude.</li>
 ordered signals. In both cases, feature engineering often tries to
 capture local trend, local change, and broader structure rather than
 treating every position as an unrelated column. This transfer is
-illustrated in the notebook <a href="../Users/cul/work/Teaching/AIbootcamp/demo_feature_engineering_timeseries_spectra.ipynb">demo_feature_engineering_timeseries_spectra.ipynb</a>.</p>
-<div class="section level3">
-<h3 id="a-more-concrete-feature-sketch">A more concrete feature sketch<a class="anchor" aria-label="anchor" href="#a-more-concrete-feature-sketch"></a></h3>
-<p>Rather than listing more feature names, it is often clearer to ask
-what raw measurement you have and what summary might help a model detect
-the pattern.</p>
-<table class="table"><colgroup><col width="25%"><col width="25%"><col width="25%"><col width="25%"></colgroup><thead><tr><th>Domain</th>
-<th>Raw input</th>
-<th>Engineered feature</th>
-<th>Why it may help</th>
-</tr></thead><tbody><tr><td>Time series forecasting</td>
-<td>daily sales at time <span class="math inline">\(t\)</span>
-</td>
-<td>sales at <span class="math inline">\(t-1\)</span>
-</td>
-<td>yesterday often helps predict today</td>
-</tr><tr><td>Time series forecasting</td>
-<td>daily sales over the last week</td>
-<td>7-day rolling mean</td>
-<td>reduces noise and captures recent level</td>
-</tr><tr><td>Time series forecasting</td>
-<td>timestamp</td>
-<td>weekend or month flag</td>
-<td>captures calendar structure</td>
-</tr><tr><td>Spectral prediction</td>
-<td>raw intensity across wavelength</td>
-<td>smoothed spectrum</td>
-<td>reduces measurement noise</td>
-</tr><tr><td>Spectral prediction</td>
-<td>raw spectrum shape</td>
-<td>first derivative</td>
-<td>highlights local changes and peak edges</td>
-</tr><tr><td>Spectral prediction</td>
-<td>intensity in a scientifically important region</td>
-<td>band average or peak area</td>
-<td>summarises a meaningful part of the signal</td>
-</tr></tbody></table><p>If you want code-based examples, the practical notebook companion is
-<a href="../Users/cul/work/Teaching/AIbootcamp/demo_feature_engineering_timeseries_spectra.ipynb">demo_feature_engineering_timeseries_spectra.ipynb</a>,
-which is the better place to show tables, calculations, and plots in
-detail.</p>
-</div>
+illustrated in the notebook <a href="../files/notebooks/demo_feature_engineering_timeseries_spectra.ipynb">demo_feature_engineering_timeseries_spectra.ipynb</a>.</p>
 </section><section><h2 class="section-heading" id="features-for-specialised-scientific-data">Features for specialised scientific data<a class="anchor" aria-label="anchor" href="#features-for-specialised-scientific-data"></a></h2>
-<hr class="half-width"><p>Some domains need features that come from subject knowledge or from
-specialised analysis methods, not just from generic preprocessing.</p>
-<p>This section is deliberately general. The domain-specific blocks
-above already gave concrete examples for text, genomics, vision, and
-ordered signals. Here the goal is to highlight broader sources of
-engineered features that often appear in scientific work.</p>
+<hr class="half-width"><p>Some scientific problems need features that come from domain
+knowledge or specialised analysis methods, not just generic
+preprocessing.</p>
+<p>The earlier sections already covered text, genomics, vision, and
+ordered signals. Here are a few other common sources of engineered
+features in scientific work:</p>
 <p>Common sources include:</p>
 <ul><li>signal-processing features such as filtered signals, Fourier or
 wavelet transforms, derivatives, and peak summaries;</li>
-<li>image-processing features such as edges, textures, region summaries,
-local patch descriptors, or measurements from segmented objects;</li>
+<li>graph or network features such as node degree, centrality,
+neighbourhood summaries, community labels, or graph embeddings;</li>
 <li>statistical summaries such as moments, quantiles, slopes,
 correlations, or variability measures computed over windows, regions, or
 groups;</li>
@@ -757,72 +652,8 @@ foundation models.</li>
 </ul><p>The key question is not “what is the fanciest feature?” It is “what
 representation makes the real structure of this problem easier to
 detect?” In practice, that often means borrowing a useful summary from
-signal processing, image processing, statistics, mathematics, chemistry,
+signal processing, graph analysis, statistics, mathematics, chemistry,
 or another domain-specific workflow.</p>
-<div id="cross-domain-transfer" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="cross-domain-transfer" class="callout-inner">
-<h3 class="callout-title">Cross-domain transfer</h3>
-<div class="callout-content">
-<p>One reason feature engineering becomes easier over time is that a
-good idea in one domain often suggests a useful idea in another.</p>
-<p>For example:</p>
-<ul><li>text can be treated as a sequence of words or tokens;</li>
-<li>genomics can be treated as a sequence of bases or amino acids;</li>
-<li>images can be treated as a grid or sequence of local patches;</li>
-<li>time-series data can be treated as a sequence of windows or
-segments.</li>
-</ul><p>Choose your own problem, or one of the domains above, and think about
-how an idea from another domain might transfer.</p>
-<p>Prompts:</p>
-<ul><li>If text uses short token patterns such as n-grams, what might play a
-similar role in genomics, images, or time series?</li>
-<li>If an image can be broken into patches, what kinds of patch-level
-summary features might be useful?</li>
-<li>If a time series can be broken into windows, what kinds of
-window-level features might be useful?</li>
-<li>What is the smallest meaningful unit in your own data?</li>
-<li>What is the equivalent of a local pattern, motif, or patch in your
-own domain?</li>
-<li>What feature idea from another domain could you borrow as a first
-baseline?</li>
-</ul></div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Example answer
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
-<p>Possible answers include:</p>
-<ul><li>In genomics, a short token pattern in text is similar to a k-mer in
-a sequence.</li>
-<li>In images, a short local pattern is similar to a patch, edge, or
-texture region.</li>
-<li>In time-series data, a short local pattern is similar to a window,
-segment, trend, or repeated motif.</li>
-<li>In spectra, a local pattern may be a peak, band, or local change in
-shape.</li>
-</ul><p>So the transferable idea is not tied to one subject area. Once you
-see that different data types can be broken into meaningful local units,
-you can start borrowing feature ideas across domains. A successful idea
-in text, genomics, images, or time series may suggest a useful first
-representation for your own data.</p>
-<p>The practical lesson is that success in one domain can suggest a good
-starting point in another. Once you recognise the shared structure of a
-problem, you can often transfer a feature idea instead of inventing a
-completely new process from scratch.</p>
-</div>
-</div>
-</div>
-</div>
 <div id="pick-one-feature-change" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -838,14 +669,14 @@ completely new process from scratch.</p>
 </ul></div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
   Example answers
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul><li>“I have daily sales totals, and I could add day-of-week as a feature
 because the pattern probably differs between weekdays and
@@ -868,31 +699,35 @@ When the data are highly unstructured, the model may need to learn its
 own internal representation. That is where neural networks and transfer
 learning become useful.</p>
 </section><section><h2 class="section-heading" id="feature-planning-cheat-sheet">Feature planning cheat sheet<a class="anchor" aria-label="anchor" href="#feature-planning-cheat-sheet"></a></h2>
-<hr class="half-width"><p>This table is meant as a quick reference rather than a section to
-teach through step by step. Students can come back to it when choosing a
-first feature representation and a sensible baseline model.</p>
+<hr class="half-width"><p>These are starting points to try, not universally best choices. The
+right model still depends on the task, data size, feature quality, and
+evaluation results.</p>
 <table class="table"><colgroup><col width="33%"><col width="33%"><col width="33%"></colgroup><thead><tr><th>Task type</th>
 <th>Starter feature ideas</th>
-<th>Good first model pair</th>
+<th>Possible starter models</th>
 </tr></thead><tbody><tr><td>Tabular</td>
 <td>ratios, flags, bins, interactions</td>
-<td>Linear or Logistic Regression, Decision Tree</td>
+<td>Linear or Logistic Regression, tree-based models</td>
 </tr><tr><td>Vision</td>
 <td>resize, grayscale, raw pixels plus PCA, summary descriptors,
 transfer features</td>
-<td>Logistic Regression on extracted features, small CNN later</td>
+<td>Logistic Regression on extracted features, transfer learning
+later</td>
 </tr><tr><td>Text</td>
 <td>TF-IDF, keyword counts, embeddings</td>
 <td>Naive Bayes, Logistic Regression</td>
 </tr><tr><td>Genomics / sequence data</td>
 <td>k-mers, motif counts, GC content, marker presence</td>
-<td>Naive Bayes, Logistic Regression, tree models</td>
+<td>Logistic Regression, tree-based models</td>
 </tr><tr><td>Time series</td>
 <td>lags, rolling summaries, seasonal indicators</td>
-<td>Linear Regression, tree models, sequence models later</td>
+<td>Linear Regression, tree-based models</td>
 </tr><tr><td>Spectral / ordered signals</td>
 <td>smoothing, derivatives, peak summaries, band averages</td>
-<td>Linear Regression, PLS or tree models</td>
+<td>Linear Regression, PLS, tree-based models</td>
+</tr><tr><td>Graph / network data</td>
+<td>degree, centrality, neighbourhood summaries, graph embeddings</td>
+<td>Logistic Regression or tree-based models on node features</td>
 </tr></tbody></table></section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a></h2>
 <hr class="half-width"><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
@@ -978,8 +813,8 @@ of representation choices.</li>
   "url": "https://swcarpentry.github.io/python-novice-inflammation/instructor/07-feature-engineering.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/instructor/07-feature-engineering.html",
   "dateCreated": "2025-11-25",
-  "dateModified": "2026-04-13",
-  "datePublished": "2026-04-14"
+  "dateModified": "2026-04-15",
+  "datePublished": "2026-04-15"
 }
 
   </script><script>

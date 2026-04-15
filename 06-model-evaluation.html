@@ -230,16 +230,11 @@
 <li><a href="#choosing-a-primary-metric">Choosing a primary metric</a></li>
 <li><a href="#a-small-worked-example-before-coding">A small worked example before coding</a></li>
 <li><a href="#when-false-positives-and-false-negatives-have-different-costs">When false positives and false negatives have different costs</a></li>
-<li><a href="#compare-against-the-baseline-not-just-against-zero">Compare against the baseline, not just against zero</a></li>
-<li><a href="#diagnose-fit-quality">Diagnose fit quality</a></li>
 <li><a href="#task-specific-evaluation-views">Task-specific evaluation views</a></li>
 <li><a href="#what-your-metric-is-not-telling-you">What your metric is not telling you</a></li>
-<li><a href="#thresholds-roc-curves-and-precision-recall-curves">Thresholds, ROC curves, and precision-recall curves</a></li>
 <li><a href="#proportionate-responsible-evaluation">Proportionate responsible evaluation</a></li>
-<li><a href="#turning-evaluation-into-a-next-step">Turning evaluation into a next step</a></li>
 <li><a href="#evaluation-metric-is-not-always-the-training-loss">Evaluation metric is not always the training loss</a></li>
 <li><a href="#useful-scikit-learn-references">Useful scikit-learn references</a></li>
-<li><a href="#preparing-to-communicate-results">Preparing to communicate results</a></li>
 <li><a href="#key-points">Key points</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -368,7 +363,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Checking What Your Model Learned</h1>
-        <p>Last updated on 2026-04-13 |
+        <p>Last updated on 2026-04-15 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/06-model-evaluation.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -438,7 +433,7 @@ context.</p>
 <hr class="half-width"><div class="section level3">
 <h3 id="regression">Regression<a class="anchor" aria-label="anchor" href="#regression"></a></h3>
 <div style="background: white; padding: 12px; border-radius: 8px; display: inline-block;">
-<figure><img src="docs/fig/LR_errors.png" alt="Linear regression example showing predictions and their errors." style="display: block; max-width: 100%; height: auto;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="fig/LR_errors.png" alt="Linear regression example showing predictions and their errors." style="display: block; max-width: 100%; height: auto;" class="figure mx-auto d-block"></figure></div>
 <ul><li>
 <strong>MAE</strong> measures average absolute error and is often
 the easiest to explain.</li>
@@ -447,9 +442,7 @@ the easiest to explain.</li>
 <li>
 <strong>R^2</strong> summarises explained variance but is often
 overinterpreted.</li>
-</ul><p>For mixed-ability teaching, MAE is usually the safest first
-choice.</p>
-</div>
+</ul></div>
 <div class="section level3">
 <h3 id="what-the-regression-metrics-actually-compute">What the regression metrics actually compute<a class="anchor" aria-label="anchor" href="#what-the-regression-metrics-actually-compute"></a></h3>
 <p><span class="math display">\[
@@ -520,6 +513,47 @@ is overall correctness;</li>
 <li>use F1 when both precision and recall matter and you want one
 summary number.</li>
 </ul></div>
+<div class="section level3">
+<h3 id="thresholds-roc-curves-and-precision-recall-curves">Thresholds, ROC curves, and precision-recall curves<a class="anchor" aria-label="anchor" href="#thresholds-roc-curves-and-precision-recall-curves"></a></h3>
+<p>Many classifiers do not only output a label. They also output a score
+or probability, and a threshold then turns that score into a final
+class.</p>
+<p>For example, you might label a case as positive when the model gives
+a probability above 0.5. But that threshold is a choice. Changing it
+changes the trade-off between false positives and false negatives.</p>
+<ul><li>
+<strong>ROC curve</strong>: shows the trade-off between true
+positive rate and false positive rate across thresholds;</li>
+<li>
+<strong>precision-recall curve</strong>: shows the trade-off between
+precision and recall across thresholds, and is especially useful when
+the positive class is rare.</li>
+</ul><p><strong>ROC-AUC</strong> summarises the ROC curve into one number:
+the larger the area, the better the model is at separating positive and
+negative cases across many thresholds.</p>
+<p><strong>PR-AUC</strong> summarises the precision-recall curve into
+one number. A higher PR-AUC means the model does a better job of keeping
+precision high while also recovering more of the true positive
+cases.</p>
+<figure><img src="fig/roc_pr_pair.svg" alt="Side-by-side illustrative ROC and precision-recall curves showing how threshold changes move model performance." class="figure mx-auto d-block"></figure><p>In general:</p>
+<ul><li>if classes are fairly balanced, ROC can be a reasonable
+overview;</li>
+<li>if the positive class is rare or especially important, the
+precision-recall curve is often more informative.</li>
+</ul><p>These curves are best treated as an extension once students already
+understand the confusion matrix and the precision-recall trade-off.</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> PrecisionRecallDisplay, RocCurveDisplay</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>RocCurveDisplay.from_predictions(y_test, y_score)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>PrecisionRecallDisplay.from_predictions(y_test, y_score)</span></code></pre>
+</div>
+<p>In other words, a classifier is not always one fixed answer.
+Sometimes it is a scoring system, and evaluation helps you decide where
+to place the decision boundary.</p>
+</div>
 <div class="section level3">
 <h3 id="clustering">Clustering<a class="anchor" aria-label="anchor" href="#clustering"></a></h3>
 <ul><li>
@@ -624,74 +658,8 @@ mistake is the model making most often, and which kind matters more?</p>
 useful;</li>
 <li>if that size of error is too large, better features or a different
 model may be needed.</li>
-</ul><div id="pick-the-metric-before-training" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="pick-the-metric-before-training" class="callout-inner">
-<h3 class="callout-title">Pick the metric before training</h3>
-<div class="callout-content">
-<p>For your project, answer these three prompts:</p>
-<ul><li>What is the primary metric?</li>
-<li>Why does it fit the task better than the obvious alternatives?</li>
-<li>Which error would matter more in practice?</li>
-</ul></div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Example answers
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
-<div class="accordion-body">
-<ul><li>“I chose MAE because average error in the original units is easy to
-explain to a non-technical audience.”</li>
-<li>“I chose recall because missing a positive case is worse than
-raising an extra false alarm.”</li>
-</ul></div>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="compare-against-the-baseline-not-just-against-zero">Compare against the baseline, not just against zero<a class="anchor" aria-label="anchor" href="#compare-against-the-baseline-not-just-against-zero"></a></h2>
-<hr class="half-width"><p>Evaluation is more meaningful when you can answer three related
-questions.</p>
-<ol style="list-style-type: decimal"><li>Does the model beat the trivial reference baseline?</li>
-<li>Does it still perform reasonably on unseen data?</li>
-<li>Is the result useful enough to guide the next decision?</li>
-</ol><p>Without a baseline, it is hard to tell whether a score is impressive
-or just normal for the problem.</p>
-</section><section><h2 class="section-heading" id="diagnose-fit-quality">Diagnose fit quality<a class="anchor" aria-label="anchor" href="#diagnose-fit-quality"></a></h2>
-<hr class="half-width"><div class="section level3">
-<h3 id="underfitting">Underfitting<a class="anchor" aria-label="anchor" href="#underfitting"></a></h3>
-<p>Typical pattern:</p>
-<ul><li>weak training performance;</li>
-<li>weak test performance.</li>
-</ul><p>Interpretation:</p>
-<p>The model is too simple, the features are too weak, or the problem is
-not yet represented well enough.</p>
-</div>
-<div class="section level3">
-<h3 id="overfitting">Overfitting<a class="anchor" aria-label="anchor" href="#overfitting"></a></h3>
-<p>Typical pattern:</p>
-<ul><li>very strong training performance;</li>
-<li>weaker test performance.</li>
-</ul><p>Interpretation:</p>
-<p>The model has learned quirks of the training data rather than a
-stable pattern.</p>
-</div>
-<div class="section level3">
-<h3 id="plausible-generalisation">Plausible generalisation<a class="anchor" aria-label="anchor" href="#plausible-generalisation"></a></h3>
-<p>Typical pattern:</p>
-<ul><li>training and test performance are reasonably close;</li>
-<li>the score beats the reference baseline;</li>
-<li>the result makes sense in context.</li>
-</ul><p>Interpretation:</p>
-<p>The model is credible enough to interpret and improve.</p>
+</ul><p>Once you have a result, the next step is to judge whether the pattern
+of performance is believable.</p>
 </div>
 </section><section><h2 class="section-heading" id="task-specific-evaluation-views">Task-specific evaluation views<a class="anchor" aria-label="anchor" href="#task-specific-evaluation-views"></a></h2>
 <hr class="half-width"><div class="section level3">
@@ -701,28 +669,28 @@ stable pattern.</p>
 <ul><li>Are the errors roughly spread out?</li>
 <li>Are there obvious large-error cases?</li>
 <li>Do the errors get worse in a particular region?</li>
-</ul><p>What to teach students to notice:</p>
+</ul><p>Check:</p>
 <ul><li>if residuals are roughly centred around zero, the model is not
 showing a clear one-direction bias;</li>
 <li>if residual spread gets larger for bigger predictions, the model may
 behave worse in one region of the target range;</li>
 <li>if a few points sit far away from the rest, there may be outliers or
 important subgroups to inspect.</li>
-</ul><div class="codewrapper sourceCode" id="cb1">
+</ul><div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>errors <span class="op">=</span> y_test <span class="op">-</span> baseline_predictions</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MAE:"</span>, mean_absolute_error(y_test, baseline_predictions))</span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>plt.scatter(baseline_predictions, errors)</span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>plt.xlabel(<span class="st">"Predicted value"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>plt.ylabel(<span class="st">"Residual"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>plt.show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>errors <span class="op">=</span> y_test <span class="op">-</span> baseline_predictions</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MAE:"</span>, mean_absolute_error(y_test, baseline_predictions))</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>plt.scatter(baseline_predictions, errors)</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>plt.xlabel(<span class="st">"Predicted value"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>plt.ylabel(<span class="st">"Residual"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -732,23 +700,15 @@ important subgroups to inspect.</li>
 <ul><li>Where are the false positives?</li>
 <li>Where are the false negatives?</li>
 <li>Are the errors acceptable for this context?</li>
-</ul><p>In teaching, this is often easier than starting from a single
-accuracy value. A confusion matrix shows what kind of mistake the model
-is making, not just how many.</p>
-<div class="codewrapper sourceCode" id="cb2">
+</ul><div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> ConfusionMatrixDisplay, classification_report</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>ConfusionMatrixDisplay.from_predictions(y_test, baseline_predictions)</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_test, baseline_predictions))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> ConfusionMatrixDisplay, classification_report</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>ConfusionMatrixDisplay.from_predictions(y_test, baseline_predictions)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_test, baseline_predictions))</span></code></pre>
 </div>
-<p>Optional domain-specific follow-up:</p>
-<p>In the horse blink example, the same logic still applies, but the
-error cost is less obvious. The confusion matrix shows what the model is
-mixing up, but the important error depends on the scientific question.
-That makes it a better second example than a first one.</p>
-<figure><img src="fig/confusion_matrix_horse_blink_sklearn_style.svg" alt="Local confusion matrix visual for the horse blink example showing TP 8, FN 2, FP 3, and TN 7." class="figure mx-auto d-block"></figure></div>
+</div>
 <div class="section level3">
 <h3 id="clustering-inspect-whether-the-groups-are-meaningful">Clustering: inspect whether the groups are meaningful<a class="anchor" aria-label="anchor" href="#clustering-inspect-whether-the-groups-are-meaningful"></a></h3>
 <p>For clustering, do not stop at inertia or silhouette score.</p>
@@ -758,10 +718,7 @@ That makes it a better second example than a first one.</p>
 completely?</li>
 <li>Is the grouping useful for a downstream task or research
 question?</li>
-</ul><p>This is why clustering evaluation should be taught more cautiously
-than regression or classification evaluation: a numerical score alone
-rarely tells the whole story.</p>
-</div>
+</ul></div>
 </section><section><h2 class="section-heading" id="what-your-metric-is-not-telling-you">What your metric is not telling you<a class="anchor" aria-label="anchor" href="#what-your-metric-is-not-telling-you"></a></h2>
 <hr class="half-width"><p>Do not treat one score as the whole truth.</p>
 <p>A model can have a good headline metric and still be weak
@@ -779,58 +736,10 @@ importance;</li>
 <li>in many models, you can vary one input and see how the prediction
 changes.</li>
 </ul><p>For more complex models, explanation is usually more approximate.</p>
-<ul><li>tools such as <strong>LIME</strong> and <strong>SHAP</strong> try to
-explain which inputs were influential for a prediction or across the
-model as a whole.</li>
-</ul><p>For deep learning, explainability is still an active research area,
-so it is often better treated as a separate advanced topic or special
-lecture rather than part of the core evaluation workflow.</p>
-<figure><img src="fig/explainability_of_ml.png" alt="Diagram illustrating the challenge of explaining machine learning model decisions." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="thresholds-roc-curves-and-precision-recall-curves">Thresholds, ROC curves, and precision-recall curves<a class="anchor" aria-label="anchor" href="#thresholds-roc-curves-and-precision-recall-curves"></a></h2>
-<hr class="half-width"><p>Many classifiers do not only output a label. They also output a score
-or probability. A threshold then turns that score into a final
-class.</p>
-<p>For example, you might label a case as positive when the model gives
-a probability above 0.5. But that threshold is a choice when applying
-the model. Changing the threshold changes the trade-off between false
-positives and false negatives. This is why ROC and precision-recall
-curves can be useful:</p>
-<ul><li>
-<strong>ROC curve</strong>: shows the trade-off between true
-positive rate and false positive rate across thresholds;</li>
-</ul><p>A better model tends to push the ROC curve closer to the top-left
-corner, where true positive rate is high and false positive rate is
-low.</p>
-<p><strong>ROC-AUC</strong> summarises that curve into one number: the
-larger the area under the ROC curve, the better the model is at
-separating positive and negative cases across many possible
-thresholds.</p>
-<ul><li>
-<strong>precision-recall curve</strong>: shows the trade-off between
-precision and recall across thresholds. This is especially useful when
-the positive class is rare.</li>
-</ul><p><strong>PR-AUC</strong> summarises the precision-recall curve into
-one number. A higher PR-AUC means the model does a better job of keeping
-precision high while also recovering more of the true positive
-cases.</p>
-<figure><img src="docs/fig/roc_pr_pair.svg" alt="Side-by-side illustrative ROC and precision-recall curves showing how threshold changes move model performance." class="figure mx-auto d-block"></figure><p>In general:</p>
-<ul><li>if classes are fairly balanced, ROC can be a reasonable
-overview;</li>
-<li>if the positive class is rare or especially important, the
-precision-recall curve is often more informative.</li>
-</ul><p>These curves are best treated as an extension once students already
-understand the confusion matrix and the precision-recall trade-off.</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> PrecisionRecallDisplay, RocCurveDisplay</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>RocCurveDisplay.from_predictions(y_test, y_score)</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>PrecisionRecallDisplay.from_predictions(y_test, y_score)</span></code></pre>
-</div>
-<p>In other words, a classifier is not always one fixed answer.
-Sometimes it is a scoring system, and evaluation helps you decide where
-to place the decision boundary.</p>
-</section><section><h2 class="section-heading" id="proportionate-responsible-evaluation">Proportionate responsible evaluation<a class="anchor" aria-label="anchor" href="#proportionate-responsible-evaluation"></a></h2>
+<ul><li>tools such as <a href="https://lime.readthedocs.io/en/latest/" class="external-link">LIME</a> and <a href="https://shap.readthedocs.io/en/latest/" class="external-link">SHAP</a> try to explain
+which inputs were influential for a prediction or across the model as a
+whole.</li>
+</ul><figure><img src="https://shap.readthedocs.io/en/latest/_images/shap_header.png" alt="SHAP example figure showing how feature contributions can explain a prediction." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="proportionate-responsible-evaluation">Proportionate responsible evaluation<a class="anchor" aria-label="anchor" href="#proportionate-responsible-evaluation"></a></h2>
 <hr class="half-width"><p>At some point you need to move beyond score-only thinking.</p>
 <div class="section level3">
 <h3 id="responsible-review-questions">Responsible review questions<a class="anchor" aria-label="anchor" href="#responsible-review-questions"></a></h3>
@@ -852,21 +761,6 @@ across groups.</p>
 </ul><p>The important step is documenting the limitation rather than
 pretending the issue does not exist.</p>
 </div>
-</section><section><h2 class="section-heading" id="turning-evaluation-into-a-next-step">Turning evaluation into a next step<a class="anchor" aria-label="anchor" href="#turning-evaluation-into-a-next-step"></a></h2>
-<hr class="half-width"><p>Evaluation should end with an action, not just a score.</p>
-<p>One useful pattern is:</p>
-<ul><li>metric: what happened numerically?</li>
-<li>interpretation: what does that mean in plain language?</li>
-<li>action: what should I try next?</li>
-</ul><p>Useful next steps include:</p>
-<ul><li>improve preprocessing;</li>
-<li>engineer a new feature;</li>
-<li>compare one stronger but explainable model;</li>
-<li>rethink the representation of the data;</li>
-<li>narrow claims to what the evidence actually supports.</li>
-</ul><p>Finish with a short statement:</p>
-<p>“My model is useful for __________, but it is still limited by
-__________. My next step is __________.”</p>
 </section><section><h2 class="section-heading" id="evaluation-metric-is-not-always-the-training-loss">Evaluation metric is not always the training loss<a class="anchor" aria-label="anchor" href="#evaluation-metric-is-not-always-the-training-loss"></a></h2>
 <hr class="half-width"><p>One subtle but important idea is that the quantity used to evaluate a
 model is not always the same as the quantity the learning algorithm
@@ -906,14 +800,14 @@ training and final evaluation?</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
   Example answer
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul><li>cross-entropy used to fit a classifier: training loss;</li>
 <li>accuracy reported on the test set: evaluation metric;</li>
@@ -946,51 +840,7 @@ and scoring user guide</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html" class="external-link">r2_score</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.RocCurveDisplay.html" class="external-link">RocCurveDisplay</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.PrecisionRecallDisplay.html" class="external-link">PrecisionRecallDisplay</a></li>
-</ul><div id="write-a-responsible-conclusion" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="write-a-responsible-conclusion" class="callout-inner">
-<h3 class="callout-title">Write a responsible conclusion</h3>
-<div class="callout-content">
-<p>Write three sentences that cover:</p>
-<ul><li>your main result;</li>
-<li>one important limitation;</li>
-<li>one concrete next step.</li>
-</ul></div>
-</div>
-</div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3">
-  Example answer
-  </h4>
-</button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
-<div class="accordion-body">
-<p>“My logistic regression baseline performed better than the majority
-class baseline and gives a useful first signal for this classification
-task. However, recall remains weak for the class I care about most, so I
-should be cautious about strong claims. My next step is to inspect the
-confusion matrix more closely and test whether feature engineering can
-improve recall.”</p>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="preparing-to-communicate-results">Preparing to communicate results<a class="anchor" aria-label="anchor" href="#preparing-to-communicate-results"></a></h2>
-<hr class="half-width"><p>You should be ready to explain evaluation using the PDMRI shape:</p>
-<ul><li><strong>Problem</strong></li>
-<li><strong>Data</strong></li>
-<li><strong>Model</strong></li>
-<li><strong>Results</strong></li>
-<li><strong>Insights</strong></li>
-</ul><p>That means they need more than a metric value. They need a short,
-defensible interpretation of what the score means, what it does not
-mean, and what should happen next.</p>
-</section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a></h2>
+</ul></section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a></h2>
 <hr class="half-width"><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -1000,7 +850,6 @@ mean, and what should happen next.</p>
 <div class="callout-content">
 <ul><li>Choose the primary metric before training, not after seeing the
 result.</li>
-<li>Always compare a model against a trivial reference baseline.</li>
 <li>Use residuals, confusion matrices, or cluster interpretation to look
 beyond a single headline score.</li>
 <li>Responsible evaluation means documenting who may be missing, what
@@ -1068,8 +917,8 @@ errors matter, and what claims the evidence can support.</li>
   "url": "https://swcarpentry.github.io/python-novice-inflammation/06-model-evaluation.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/06-model-evaluation.html",
   "dateCreated": "2025-11-25",
-  "dateModified": "2026-04-13",
-  "datePublished": "2026-04-14"
+  "dateModified": "2026-04-15",
+  "datePublished": "2026-04-15"
 }
 
   </script><script>

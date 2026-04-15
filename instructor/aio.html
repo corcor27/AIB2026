@@ -416,7 +416,7 @@
         
 <section id="aio-04-conventional-ml-baselines"><p>Content from <a href="04-conventional-ml-baselines.html">Choosing Your First Conventional ML Baseline</a></p>
 <hr>
-<p>Last updated on 2026-04-13 |
+<p>Last updated on 2026-04-15 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/04-conventional-ml-baselines.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 65 minutes</p>
@@ -460,8 +460,8 @@ model.</li>
 <p>When you first start modelling a real problem, you usually need a
 small basket of models that are understandable, quick to run, and easy
 to compare.</p>
-<p>This page is designed to support student viewing during the workshop.
-Use it as a reference while you work through the notebook
+<p>This lesson is designed to support participant viewing during the
+workshop. Use it as a reference while you work through the notebook
 activities.</p>
 <p>Good first choices are driven by four practical questions:</p>
 <ul>
@@ -473,33 +473,6 @@ activities.</p>
 <p>For this reason, conventional machine learning is often the right
 place to start. It gives you a reference point before you decide whether
 you need more complex feature engineering or feature learning.</p>
-</section><section><h2 class="section-heading" id="what-this-page-assumes">What this page assumes<a class="anchor" aria-label="anchor" href="#what-this-page-assumes"></a>
-</h2>
-<hr class="half-width">
-<p>This page assumes you have already worked through the earlier problem
-definition material or the worked example, and therefore already have a
-rough answer to questions such as:</p>
-<ul>
-<li>Is this a regression, classification, or clustering task?</li>
-<li>What is the target or prediction goal?</li>
-<li>What would count as a wrong answer in context?</li>
-</ul>
-<p>It also assumes you have already done the basic data preparation
-needed before conventional machine learning, for example:</p>
-<ul>
-<li>explored the dataset and checked what each variable means;</li>
-<li>cleaned the data and handled obvious data-quality problems;</li>
-<li>preprocessed the data into a usable modelling table;</li>
-<li>converted categorical variables into numeric representations such as
-dummy variables where needed;</li>
-<li>made sure the inputs are now numeric and ready for machine-learning
-models.</li>
-</ul>
-<p>If you are still unsure about the task type, return to the earlier
-problem-definition material or the worked example before choosing from
-the model basket below. If the data are still not in a modelling-ready
-numeric form, finish that preparation step first and then return to this
-page.</p>
 <div id="confirm-the-modelling-goal" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -513,7 +486,7 @@ page.</p>
 <li>your task type;</li>
 <li>your target or prediction goal;</li>
 <li>what a wrong answer looks like;</li>
-<li>whether interpretability matters for your audience.</li>
+<li>whether interpretability matters.</li>
 </ul>
 </div>
 </div>
@@ -544,32 +517,18 @@ learning model learning anything useful beyond a trivial rule?</p>
 <h3 id="first-machine-learning-baseline">2. First machine learning baseline<a class="anchor" aria-label="anchor" href="#first-machine-learning-baseline"></a>
 </h3>
 <p>This is the first real model you build.</p>
-<ul>
-<li>
-<strong>Regression:</strong> Linear Regression.</li>
-<li>
-<strong>Classification:</strong> Logistic Regression.</li>
-<li>
-<strong>Interpretable non-linear option:</strong> Decision
-Tree.</li>
-<li>
-<strong>Similarity-based option:</strong> k-Nearest Neighbours.</li>
-<li>
-<strong>Clustering:</strong> K-Means.</li>
-</ul>
-<p>These are strong first choices because they are fast to run, widely
-available, and simple enough to explain.</p>
 <figure><img src="../fig/model_basket_concepts.svg" alt="Summary diagram showing the main ideas behind baseline and comparison models in the starter model basket." class="figure mx-auto d-block"></figure>
 </div>
-</section><section><h2 class="section-heading" id="a-model-basket-for-students">A model basket for students<a class="anchor" aria-label="anchor" href="#a-model-basket-for-students"></a>
+</section><section><h2 class="section-heading" id="a-model-basket">A model basket<a class="anchor" aria-label="anchor" href="#a-model-basket"></a>
 </h2>
 <hr class="half-width">
-<p>You do not need to try every model. You do need a small set of
+<p>You do not need to try every model. You only need a small set of
 sensible options.</p>
 <div class="section level3">
 <h3 id="core-starter-models">Core starter models<a class="anchor" aria-label="anchor" href="#core-starter-models"></a>
 </h3>
-<p>These are the safest first models for most people starting out.</p>
+<p>These are the safest first models for most projects at this
+stage.</p>
 <ul>
 <li>
 <strong>Linear Regression</strong> for continuous targets when you
@@ -588,7 +547,7 @@ when local similarity may matter.</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="useful-task-specific-additions">Useful task-specific additions<a class="anchor" aria-label="anchor" href="#useful-task-specific-additions"></a>
+<h3 id="useful-additions-when-needed">Useful additions when needed<a class="anchor" aria-label="anchor" href="#useful-additions-when-needed"></a>
 </h3>
 <ul>
 <li>
@@ -608,28 +567,12 @@ setup and tuning. Unlike random forests, boosting builds trees in
 sequence so that each new tree tries to correct errors made by the
 earlier ones.</li>
 </ul>
-</div>
-<div class="section level3">
-<h3 id="how-to-think-about-the-basket">How to think about the basket<a class="anchor" aria-label="anchor" href="#how-to-think-about-the-basket"></a>
-</h3>
-<ul>
-<li>pick one trivial reference baseline;</li>
-<li>pick one first conventional ML baseline;</li>
-<li>optionally pick one stronger comparison model.</li>
-</ul>
-<p>Not every model in the basket is equally suitable as the first model.
-Random forests, support vector machines, and boosted trees are often
-best used as comparison models after a simpler baseline is already in
-place. However, if you already have some preliminary analysis based on
-linear models, simple baselines, or earlier exploratory modelling, you
-may reasonably move on to stronger non-linear models to test whether
-they capture structure that the simpler model is missing.</p>
-</div>
-</section><section><h2 class="section-heading" id="choosing-the-first-model">Choosing the first model<a class="anchor" aria-label="anchor" href="#choosing-the-first-model"></a>
-</h2>
-<hr class="half-width">
+<p>In most cases, start with the simpler models first. Random forests,
+support vector machines, and boosted trees are often more useful as
+comparison models after you already have a simple baseline in place.</p>
 <p>The sections below are split by model type so they are easier to find
-from the lesson index and easier to teach one at a time.</p>
+from the lesson index.</p>
+</div>
 </section><section><h2 class="section-heading" id="linear-regression">Linear Regression<a class="anchor" aria-label="anchor" href="#linear-regression"></a>
 </h2>
 <hr class="half-width">
@@ -637,10 +580,11 @@ from the lesson index and easier to teach one at a time.</p>
 <li>Best for: small or medium tabular regression.</li>
 <li>Why start here: quick, interpretable, easy to explain.</li>
 </ul>
-<p><img src="../fig/3-linearregression.webp" alt="Illustration of linear regression fitting a straight-line relationship to continuous data" height="215" class="figure"><br><strong>Key
+<p><img src="../fig/3-linearregression.webp" alt="Illustration of linear regression fitting a straight-line relationship to continuous data" height="300" class="figure"><br><strong>Key
 points:</strong> The model represents the outcome as a weighted sum of
 the input variables. Learning means adjusting those weights to minimize
 prediction error on a continuous target.</p>
+<p>Docs: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html" class="external-link">LinearRegression</a></p>
 </section><section><h2 class="section-heading" id="logistic-regression">Logistic Regression<a class="anchor" aria-label="anchor" href="#logistic-regression"></a>
 </h2>
 <hr class="half-width">
@@ -649,13 +593,14 @@ prediction error on a continuous target.</p>
 <li>Why start here: strong baseline with a simple decision
 boundary.</li>
 </ul>
-<p><img src="../fig/3-logisticRegression.webp" alt="Illustration of logistic regression separating classes with a simple decision boundary" height="215" class="figure"><br><strong>Key
+<p><img src="../fig/3-logisticRegression.webp" alt="Illustration of logistic regression separating classes with a simple decision boundary" height="300" class="figure"><br><strong>Key
 points:</strong> The model uses a weighted combination of the inputs and
 then applies a logistic function to turn that score into a class
 probability. Learning means adjusting the weights so the predicted
 probabilities better match the observed labels, usually by minimizing
 cross-entropy loss; it can be viewed as a neural network with no hidden
 layer.</p>
+<p>Docs: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html" class="external-link">LogisticRegression</a></p>
 <div id="logistic-regression-beyond-binary-classification" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -682,7 +627,7 @@ classification.</p>
   Answer
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>No. Logistic regression is often introduced first for binary
 classification, but it is not limited to only two classes.</p>
@@ -706,10 +651,11 @@ neural networks.</p>
 matter.</li>
 <li>Why start here: easy to inspect and discuss.</li>
 </ul>
-<p><img src="../fig/3-DecisionTree.webp" alt="Illustration of a decision tree splitting data into interpretable rules" height="215" class="figure"><br><strong>Key
+<p><img src="../fig/3-DecisionTree.webp" alt="Illustration of a decision tree splitting data into interpretable rules" height="300" class="figure"><br><strong>Key
 points:</strong> A decision tree represents the model as a sequence of
 if-then splits. Learning means choosing splits that make the resulting
 groups purer for classification or more consistent for regression.</p>
+<p>Docs: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html" class="external-link">DecisionTreeClassifier</a></p>
 <div id="decision-trees-impurity-and-linear-boundaries" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -736,7 +682,7 @@ boundaries</h3>
   Answer
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>For classification, a split is useful when it makes the resulting
 child nodes contain more cases from a single class than before. In other
@@ -761,12 +707,13 @@ rule-based decision boundary.</p>
 matters.</li>
 <li>Why start here: gives a useful contrast with linear methods.</li>
 </ul>
-<p><img src="../fig/3-kNN.webp" alt="Illustration of k-nearest neighbours predicting from the closest training examples in feature space" height="215" class="figure"><br><strong>Key
+<p><img src="../fig/3-kNN.webp" alt="Illustration of k-nearest neighbours predicting from the closest training examples in feature space" height="300" class="figure"><br><strong>Key
 points:</strong> k-nearest neighbours predicts from the nearest training
 cases, where “nearest” is defined by a distance measure in the feature
 space. For classification, it takes a majority vote across the
 <code>k</code> neighbours; for regression, it can take their
 average.</p>
+<p>Docs: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html" class="external-link">KNeighborsClassifier</a></p>
 <div id="k-nearest-neighbours-for-regression" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -791,7 +738,7 @@ method.</p>
   Answer
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Yes. For regression, k-nearest neighbours can predict by averaging
 the target values of the <code>k</code> nearest neighbours instead of
@@ -811,10 +758,11 @@ scales can otherwise dominate the distance calculation.</p>
 <li>Best for: exploratory unlabeled grouping.</li>
 <li>Why start here: simple clustering workflow.</li>
 </ul>
-<p><img src="../fig/3-kmeans.webp" alt="Illustration of k-means grouping points into cluster centres" height="215" class="figure"><br><strong>Key
+<p><img src="../fig/3-kmeans.webp" alt="Illustration of k-means grouping points into cluster centres" height="300" class="figure"><br><strong>Key
 points:</strong> K-Means represents each cluster by a centre point.
 Learning means repeatedly assigning cases to the nearest centre and
 updating the centres until the grouping stabilizes.</p>
+<p>Docs: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html" class="external-link">KMeans</a></p>
 </section><section><h2 class="section-heading" id="naive-bayes">Naive Bayes<a class="anchor" aria-label="anchor" href="#naive-bayes"></a>
 </h2>
 <hr class="half-width">
@@ -823,11 +771,12 @@ updating the centres until the grouping stabilizes.</p>
 <li>Why start here: good simple baseline for bag-of-words style
 inputs.</li>
 </ul>
-<p><img src="../fig/3-NaiveBayes.png" alt="Illustration of Naive Bayes using class-conditional evidence from features" height="215" class="figure"><br><strong>Key
+<p><img src="../fig/3-NaiveBayes.png" alt="Illustration of Naive Bayes using class-conditional evidence from features" height="300" class="figure"><br><strong>Key
 points:</strong> The model treats features as separate pieces of
 evidence and combines them probabilistically for each class. Learning
 mostly means estimating how often features appear within each class from
 the training data.</p>
+<p>Docs: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html" class="external-link">MultinomialNB</a></p>
 </section><section><h2 class="section-heading" id="random-forest">Random Forest<a class="anchor" aria-label="anchor" href="#random-forest"></a>
 </h2>
 <hr class="half-width">
@@ -836,6 +785,9 @@ the training data.</p>
 <li>Why start here: many trees are averaged together, which usually
 improves stability over a single tree.</li>
 </ul>
+<p>Docs: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" class="external-link">RandomForestClassifier</a></p>
+<p>Related docs: <a href="https://scikit-learn.org/stable/modules/ensemble.html#gradient-boosting" class="external-link">Gradient
+boosting in scikit-learn</a></p>
 <div id="random-forests-and-feature-selection" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -861,7 +813,7 @@ tree?</li>
   Answer
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Yes, a random forest can be used for feature selection in a rough,
 practical sense. Because it can estimate feature importance, it can help
@@ -887,7 +839,7 @@ sample sizes.</li>
 <li>Why start here: can work well when margins and similarity structure
 matter, though it may be slower to fit.</li>
 </ul>
-<p><img src="../fig/3-svm.webp" alt="Illustration of a support vector machine finding a margin between classes" height="215" class="figure"><br><strong>Key
+<p><img src="../fig/3-svm.webp" alt="Illustration of a support vector machine finding a margin between classes" height="300" class="figure"><br><strong>Key
 points:</strong> A support vector machine makes its decision using a
 small set of key training cases called support vectors, rather than all
 training points or the nearest neighbours. With a kernel function, it
@@ -895,6 +847,7 @@ can measure similarity between a new case and those support vectors in a
 transformed feature space, which is why SVMs are often useful for
 small-sample, high-dimensional problems, although fitting can become
 slow because the optimization often involves a large kernel matrix.</p>
+<p>Docs: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html" class="external-link">SVC</a></p>
 <div id="support-vector-machines-beyond-classification" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -923,7 +876,7 @@ matter?</li>
   Answer
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>An SVM does not usually rely equally on all training points. Its
 decision rule is mainly determined by a smaller set of influential cases
@@ -958,10 +911,14 @@ kernel.</p>
 <li>Why start here: often performs well, but usually needs more tuning
 and setup time.</li>
 </ul>
-<p><img src="../fig/3-XGBoost.webp" alt="Illustration of gradient-boosted trees building an ensemble sequentially to correct earlier errors" height="215" class="figure"><br><strong>Key
+<p><img src="../fig/3-XGBoost.webp" alt="Illustration of gradient-boosted trees building an ensemble sequentially to correct earlier errors" height="300" class="figure"><br><strong>Key
 points:</strong> XGBoost represents the model as a sequence of small
 trees added one after another. Learning means each new tree focuses on
 the mistakes or residual patterns left by the earlier trees.</p>
+<p>Docs: <a href="https://xgboost.readthedocs.io/en/release_3.2.0/python/index.html" class="external-link">XGBoost
+Python package</a></p>
+<p>Install note: XGBoost is a separate package rather than part of
+scikit-learn, so it needs to be installed before use.</p>
 <div id="random-forests-versus-xgboost" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -987,7 +944,7 @@ build their trees?</li>
   Answer
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>The main difference is how the ensemble is built. A random forest
 grows many trees independently in parallel on different resampled
@@ -1028,11 +985,7 @@ that task.</p>
 <li>comparing many models without a reference point;</li>
 <li>using a complex model that cannot be interpreted or debugged;</li>
 <li>picking a model that does not match the target type.</li>
-</ul>
-<p>For mixed-ability teaching, a simple model that runs and can be
-explained is a stronger teaching outcome than a complex model that only
-partly works.</p>
-</section><section><h2 class="section-heading" id="when-the-basket-is-not-enough">When the basket is not enough<a class="anchor" aria-label="anchor" href="#when-the-basket-is-not-enough"></a>
+</ul></section><section><h2 class="section-heading" id="when-the-basket-is-not-enough">When the basket is not enough<a class="anchor" aria-label="anchor" href="#when-the-basket-is-not-enough"></a>
 </h2>
 <hr class="half-width">
 <p>If a simple conventional model misses important structure, the next
@@ -1043,8 +996,10 @@ step is usually one of these:</p>
 <li>move to neural networks or transfer learning if the model needs to
 learn features automatically.</li>
 </ul>
-<p>That is why this lesson is followed by separate pages on feature
-engineering and neural networks.</p>
+<p>That is why the next lessons look at where to search for further
+improvement: better engineered features, stronger neural-network
+approaches, and feature learning when the model needs to learn useful
+representations more automatically.</p>
 <div id="choose-a-baseline-sequence" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -1069,7 +1024,7 @@ __________.”</p>
   Example answers
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 <ul>
 <li>“My task is regression, my trivial reference baseline is predicting
@@ -1094,9 +1049,10 @@ test.”</li>
 <hr class="half-width">
 <p>The code below shows the structure of a simple baseline process for a
 classification task.</p>
-<p>If you want a concrete mental model while reading this code, think of
-a simple species classification task such as predicting penguin species
-or iris species from measured features.</p>
+<p>If you want a concrete mental model while reading this code, map it
+to the worked example on horse blinking: measured input features come
+in, the model predicts the blink-related class or outcome, and the
+baseline is checked against a trivial reference first.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1156,7 +1112,7 @@ more advanced.</li>
 </div>
 </section></section><section id="aio-05-training"><p>Content from <a href="05-training.html">Building and Improving a Baseline Model</a></p>
 <hr>
-<p>Last updated on 2026-04-13 |
+<p>Last updated on 2026-04-15 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/05-training.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 60 minutes</p>
@@ -1173,9 +1129,10 @@ more advanced.</li>
 <ul>
 <li>What is the minimum process needed to build a baseline model
 well?</li>
-<li>How do train/test split and cross-validation fit into that
-process?</li>
-<li>How should you decide on a sensible next development step?</li>
+<li>How do training, validation, test splitting, and cross-validation
+fit into that process?</li>
+<li>How do early results help you decide on a sensible next development
+step?</li>
 </ul>
 </div>
 </div>
@@ -1184,72 +1141,26 @@ process?</li>
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul>
-<li>Run a complete baseline model-building process from data split to
-model fit.</li>
-<li>Distinguish between train, validation, and test thinking at an
-appropriate level for an introductory lesson.</li>
-<li>Use train/test comparison to spot underfitting or overfitting.</li>
-<li>Plan one justified further-development pathway after a baseline
-exists.</li>
-</ul>
+<p>Explain the minimum workflow for building a credible first baseline.
+Distinguish the roles of training, validation, and test data in that
+workflow. Interpret simple train/test patterns as underfitting,
+overfitting, or a reasonable fit. Decide when cross-validation or a
+further development step is justified.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="building-a-baseline-model">Building a baseline model<a class="anchor" aria-label="anchor" href="#building-a-baseline-model"></a>
-</h2>
-<hr class="half-width">
 <p>Training is not just calling <code>.fit()</code>.</p>
-<p>This lesson page is the student-facing companion to the live
-workshop. Follow it during the practical, then return to it when you
-need to remember the order of the steps.</p>
-<p>In practice, building a baseline model means moving through a short,
-reproducible sequence:</p>
-<ol style="list-style-type: decimal">
-<li>confirm the task, target, and primary metric;</li>
-<li>prepare the data;</li>
-<li>split into train and test sets;</li>
-<li>fit a trivial reference baseline;</li>
-<li>fit one simple machine learning baseline;</li>
-<li>compare results on unseen data;</li>
-<li>write a short interpretation and next step.</li>
-</ol>
-<p>This is the core baseline process. Once that exists, you can improve
-it in a justified way.</p>
-</section><section><h2 class="section-heading" id="before-fitting-any-model">Before fitting any model<a class="anchor" aria-label="anchor" href="#before-fitting-any-model"></a>
+<p>The aim in this lesson is to turn model fitting into a small,
+credible workflow. The minimum baseline process below shows that
+workflow step by step.</p>
+<section><h2 class="section-heading" id="the-minimum-baseline-process">The minimum baseline process<a class="anchor" aria-label="anchor" href="#the-minimum-baseline-process"></a>
 </h2>
 <hr class="half-width">
-<p>Check a few basic points first.</p>
-<div class="section level3">
-<h3 id="is-the-target-clear">1. Is the target clear?<a class="anchor" aria-label="anchor" href="#is-the-target-clear"></a>
-</h3>
-<p>If the target is vague, the model training step will be vague
-too.</p>
-</div>
-<div class="section level3">
-<h3 id="is-the-data-clean-enough">2. Is the data clean enough?<a class="anchor" aria-label="anchor" href="#is-the-data-clean-enough"></a>
-</h3>
-<p>The bootcamp does not need perfect preprocessing, but it does need
-data that can be used consistently.</p>
-<p>Check for:</p>
-<ul>
-<li>missing values;</li>
-<li>inconsistent labels;</li>
-<li>obvious leakage from future or outcome variables;</li>
-<li>severe class imbalance or an uneven target distribution.</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="is-the-primary-metric-already-chosen">3. Is the primary metric already chosen?<a class="anchor" aria-label="anchor" href="#is-the-primary-metric-already-chosen"></a>
-</h3>
-<p>Do not wait until after training to decide what “good” means.</p>
-</div>
-</section><section><h2 class="section-heading" id="the-minimum-baseline-process">The minimum baseline process<a class="anchor" aria-label="anchor" href="#the-minimum-baseline-process"></a>
-</h2>
-<hr class="half-width">
-<figure><img src="../fig/ML_pipeline.png" alt="Machine learning pipeline diagram showing the main stages from data to evaluation." class="figure mx-auto d-block"></figure><div class="section level3">
+<p>Start by confirming the prediction task, target, and primary metric.
+Then work through the rest of the baseline process.</p>
+<figure><img src="../fig/minimum_baseline_process.svg" alt="Diagram of the minimum baseline process: confirm task and metric, prepare data, split data, build baselines using only training data, evaluate once on the held-out test set, and interpret the next step." class="figure mx-auto d-block"></figure><div class="section level3">
 <h3 id="prepare-the-data">Prepare the data<a class="anchor" aria-label="anchor" href="#prepare-the-data"></a>
 </h3>
 <p>Use a clean tabular dataset or a simplified version of personal
@@ -1265,29 +1176,35 @@ data.</p>
 <div class="section level3">
 <h3 id="split-the-data">Split the data<a class="anchor" aria-label="anchor" href="#split-the-data"></a>
 </h3>
-<p>Use an 80/20 train/test split as the standard first pass.</p>
-<p>The training set is used to fit the model. The test set is held back
-so that you can check whether the model generalises.</p>
-<p>In this workshop, most model development happens inside the training
-portion of the data. That training portion may then be split again into
-training and validation sets, or used with cross-validation, so that you
-can compare options and tune the model without touching the final test
-set.</p>
-<p>For classification, stratification is often useful because it keeps
-the class balance similar across train and test sets.</p>
-<p>What this means in practice is simple:</p>
+<p>Splitting is part of the generalisation question, not just a
+technical step. Ask what kind of new case the model should work on: new
+rows from the same population, later observations, or completely new
+subjects, groups, or sites.</p>
+<p>Use an 80/20 train/test split as a standard first pass when rows are
+independent and sampled from the same population. The training set is
+used to fit and develop the model; the test set is kept back for the
+final check.</p>
+<p>Choose the split to match the data:</p>
+<ul>
+<li>for ordinary classification, a random split with
+<code>stratify=y</code> is often sensible;</li>
+<li>for ordinary regression, a random split is often enough if rows are
+independent;</li>
+<li>for time series, keep time order and test on later data;</li>
+<li>for repeated measures or grouped data, split by subject or
+group.</li>
+</ul>
+<p>In practice:</p>
 <ul>
 <li>the training set is the part the model is allowed to learn
 from;</li>
 <li>the validation step is where you compare versions or tune
 settings;</li>
-<li>the test set is the part kept back for the final first check;</li>
-<li>if the test data influenced model choices too early, the evaluation
-is no longer a fair check of generalisation.</li>
+<li>the test set is the part kept back for the final check;</li>
+<li>avoid leakage: do not let future information, the same person or
+group, full-dataset preprocessing, or repeated test-set checking shape
+model development.</li>
 </ul>
-<p>For example, if you had 100 labelled rows and used an 80/20 split,
-the model would train on 80 rows and be evaluated on 20 previously
-unseen rows.</p>
 </div>
 <div class="section level3">
 <h3 id="fit-the-trivial-reference-baseline">Fit the trivial reference baseline<a class="anchor" aria-label="anchor" href="#fit-the-trivial-reference-baseline"></a>
@@ -1313,82 +1230,13 @@ in plain language:</p>
 <li>What should be improved next: data, features, model choice, or
 evaluation?</li>
 </ol>
-<div id="baseline-check" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
 </div>
-<span class="callout-header">Discussion</span>
-<div id="baseline-check" class="callout-inner">
-<h3 class="callout-title">Baseline check</h3>
-<div class="callout-content">
-<p>Before running code, write down your answers to these prompts:</p>
-<ul>
-<li>What is my target?</li>
-<li>What is my primary metric?</li>
-<li>What is my trivial reference baseline?</li>
-<li>What is my first ML baseline?</li>
-<li>What result would count as a meaningful change over the
-reference?</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="a-simple-training-example">A simple training example<a class="anchor" aria-label="anchor" href="#a-simple-training-example"></a>
-</h2>
-<hr class="half-width">
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_diabetes</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="im">from</span> sklearn.dummy <span class="im">import</span> DummyRegressor</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>data <span class="op">=</span> load_diabetes(as_frame<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>X <span class="op">=</span> data.data</span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>y <span class="op">=</span> data.target</span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>    X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>)</span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>reference_model <span class="op">=</span> DummyRegressor(strategy<span class="op">=</span><span class="st">"mean"</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>reference_model.fit(X_train, y_train)</span>
-<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a>reference_predictions <span class="op">=</span> reference_model.predict(X_test)</span>
-<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>baseline_model <span class="op">=</span> LinearRegression()</span>
-<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a>baseline_model.fit(X_train, y_train)</span>
-<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a>baseline_predictions <span class="op">=</span> baseline_model.predict(X_test)</span>
-<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Reference MAE:"</span>, mean_absolute_error(y_test, reference_predictions))</span>
-<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Baseline MAE:"</span>, mean_absolute_error(y_test, baseline_predictions))</span></code></pre>
-</div>
-<p>This demonstrates the minimum bootcamp pattern:</p>
-<ul>
-<li>use a holdout set;</li>
-<li>compare against a dummy reference;</li>
-<li>report one clear metric.</li>
-</ul>
-<p>The interpretation step matters just as much as the code.</p>
-<p>For example:</p>
-<ul>
-<li>if the baseline MAE is lower than the reference MAE, the model is
-learning something beyond the trivial benchmark;</li>
-<li>if the improvement is tiny, the next step may be better features
-rather than a more complex model;</li>
-<li>if the improvement is large, the baseline may already be credible
-enough to interpret and communicate.</li>
-</ul>
-<p>This is the kind of short conclusion participants should be
-encouraged to write after every first model run.</p>
 </section><section><h2 class="section-heading" id="underfitting-and-overfitting">Underfitting and Overfitting<a class="anchor" aria-label="anchor" href="#underfitting-and-overfitting"></a>
 </h2>
 <hr class="half-width">
-<p>The goal of training is not just to fit the training set. The goal is
-to develop a model that generalises well to new, unseen data.</p>
-<p>This is one of the main interpretive ideas in an introductory machine
+<p>The goal of training is not just to fit the training set. It is to
+develop a model that generalises well to new, unseen data.</p>
+<p>Generalisation is one of the main concepts in an introductory machine
 learning lesson.</p>
 <p><img src="../fig/sphx_glr_plot_underfitting_overfitting_001.png" alt="Illustration comparing underfitting, reasonable fit, and overfitting curves." class="figure">
 (Image from scikit-learn documentation: <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html" class="external-link uri">https://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html</a>)</p>
@@ -1424,30 +1272,41 @@ better score with a harder-to-explain process.</p>
 </section><section><h2 class="section-heading" id="where-cross-validation-fits">Where cross-validation fits<a class="anchor" aria-label="anchor" href="#where-cross-validation-fits"></a>
 </h2>
 <hr class="half-width">
-<figure><img src="../fig/cross_validation.png" alt="Diagram showing how cross-validation rotates through multiple train and validation splits." class="figure mx-auto d-block"></figure><p>Cross-validation should be presented as an extension, not a
-barrier.</p>
-<p>For beginners, a train/test split is enough for a first baseline. For
-more confident participants, 5-fold cross-validation can provide a more
-stable estimate of performance.</p>
-<p>Use cross-validation when:</p>
+<figure><img src="../fig/cross_validation.png" alt="Diagram showing how cross-validation rotates through multiple train and validation splits." class="figure mx-auto d-block"></figure><p>Use cross-validation when:</p>
 <ul>
 <li>the dataset is small;</li>
 <li>results vary a lot across splits;</li>
 <li>you are comparing two plausible alternatives;</li>
 <li>you are ready for a slightly more rigorous check.</li>
 </ul>
-<p>Do not make cross-validation mandatory if it prevents complete
-beginners from finishing the core process.</p>
-<div class="codewrapper sourceCode" id="cb2">
+<div class="section level3">
+<h3 id="choose-the-cross-validation-strategy-to-match-the-data">Choose the cross-validation strategy to match the data<a class="anchor" aria-label="anchor" href="#choose-the-cross-validation-strategy-to-match-the-data"></a>
+</h3>
+<p>Cross-validation follows the same rule as train/test splitting:
+choose the strategy to match the structure of the data.</p>
+<ul>
+<li>for ordinary classification, stratified k-fold is often helpful
+because each fold keeps a similar class balance;</li>
+<li>for time series, use a time-aware split so the model is always
+tested on later observations;</li>
+<li>for subject-based or grouped data, use group-aware validation so all
+rows from one subject stay together.</li>
+</ul>
+<p>In scikit-learn terms, the important idea is not to memorize function
+names, but to know that tools such as <code>TimeSeriesSplit</code> and
+<code>GroupKFold</code> exist for these cases.</p>
+<p>Cross-validation is not mandatory if it prevents complete beginners
+from finishing the core process.</p>
+<div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_val_score(</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>    LinearRegression(), X, y, cv<span class="op">=</span><span class="dv">5</span>, scoring<span class="op">=</span><span class="st">"neg_mean_absolute_error"</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>)</span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mean CV MAE:"</span>, <span class="op">-</span>cv_scores.mean())</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>cv_scores <span class="op">=</span> cross_val_score(</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>    LinearRegression(), X, y, cv<span class="op">=</span><span class="dv">5</span>, scoring<span class="op">=</span><span class="st">"neg_mean_absolute_error"</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>)</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mean CV MAE:"</span>, <span class="op">-</span>cv_scores.mean())</span></code></pre>
 </div>
 <p>How should you read this result?</p>
 <ul>
@@ -1460,7 +1319,56 @@ and should be interpreted more cautiously.</li>
 </ul>
 <p>This is why cross-validation is best taught as a stronger check, not
 as the first barrier to entry.</p>
-</section><section><h2 class="section-heading" id="justified-further-development-pathways">Justified further-development pathways<a class="anchor" aria-label="anchor" href="#justified-further-development-pathways"></a>
+</div>
+</section><section><h2 class="section-heading" id="a-simple-training-example">A simple training example<a class="anchor" aria-label="anchor" href="#a-simple-training-example"></a>
+</h2>
+<hr class="half-width">
+<p>This example pulls together the baseline process, the holdout split,
+and the idea of interpreting results before deciding on a next step.</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_diabetes</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="im">from</span> sklearn.dummy <span class="im">import</span> DummyRegressor</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>data <span class="op">=</span> load_diabetes(as_frame<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>X <span class="op">=</span> data.data</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>y <span class="op">=</span> data.target</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>    X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>)</span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>reference_model <span class="op">=</span> DummyRegressor(strategy<span class="op">=</span><span class="st">"mean"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a>reference_model.fit(X_train, y_train)</span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>reference_predictions <span class="op">=</span> reference_model.predict(X_test)</span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a>baseline_model <span class="op">=</span> LinearRegression()</span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a>baseline_model.fit(X_train, y_train)</span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a>baseline_predictions <span class="op">=</span> baseline_model.predict(X_test)</span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Reference MAE:"</span>, mean_absolute_error(y_test, reference_predictions))</span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Baseline MAE:"</span>, mean_absolute_error(y_test, baseline_predictions))</span></code></pre>
+</div>
+<p>This demonstrates the minimum bootcamp pattern:</p>
+<ul>
+<li>use a holdout set;</li>
+<li>compare against a dummy reference;</li>
+<li>report one clear metric.</li>
+</ul>
+<p>The interpretation step matters just as much as the code.</p>
+<p>For example:</p>
+<ul>
+<li>if the baseline MAE is lower than the reference MAE, the model is
+learning something beyond the trivial benchmark;</li>
+<li>if the improvement is tiny, the next step may be better features
+rather than a more complex model;</li>
+<li>if the improvement is large, the baseline may already be credible
+enough to interpret and communicate.</li>
+</ul></section><section><h2 class="section-heading" id="justified-further-development-pathways">Justified further-development pathways<a class="anchor" aria-label="anchor" href="#justified-further-development-pathways"></a>
 </h2>
 <hr class="half-width">
 <p>Once you have a credible baseline, the next step should still be
@@ -1504,87 +1412,6 @@ data.</p>
 </ul>
 <p>The goal is often a justified prototype plan rather than a complete,
 polished implementation.</p>
-<figure><img src="../fig/penguins.png" alt="Penguin dataset image that can be used as a concrete example for a student-friendly modelling task." class="figure mx-auto d-block"></figure>
-</div>
-</section><section><h2 class="section-heading" id="upgrade-planning-template">Upgrade planning template<a class="anchor" aria-label="anchor" href="#upgrade-planning-template"></a>
-</h2>
-<hr class="half-width">
-<p>Before you implement a larger development step, complete the
-following: - What I have now - What I will change next - Why this is the
-right next step - What evidence would show that the change is useful -
-What limitation or constraint might block the plan</p>
-<div id="choose-a-justified-next-step" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="choose-a-justified-next-step" class="callout-inner">
-<h3 class="callout-title">Choose a justified next step</h3>
-<div class="callout-content">
-<p>Pick one possible further development and justify it in two
-sentences.</p>
-<p>Your answer should include:</p>
-<ul>
-<li>the current weakness in the baseline;</li>
-<li>the specific development step you will try;</li>
-<li>the evidence you would expect if it helps or clarifies the
-problem.</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Example answer
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
-<div class="accordion-body">
-<p>“My baseline classification model is missing important domain
-structure, so I will add two engineered features before trying a more
-complex algorithm. I would expect this to improve recall on the minority
-class without making the process much harder to explain.”</p>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="mixed-ability-teaching-guidance">Mixed-ability teaching guidance<a class="anchor" aria-label="anchor" href="#mixed-ability-teaching-guidance"></a>
-</h2>
-<hr class="half-width">
-<div class="section level3">
-<h3 id="supported-starter-path">Supported starter path<a class="anchor" aria-label="anchor" href="#supported-starter-path"></a>
-</h3>
-<p>Success means:</p>
-<ul>
-<li>a completed notebook;</li>
-<li>a train/test split;</li>
-<li>one reference baseline;</li>
-<li>one simple ML baseline;</li>
-<li>one metric and one plain-language interpretation.</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="applied-research-path">Applied research path<a class="anchor" aria-label="anchor" href="#applied-research-path"></a>
-</h3>
-<p>Success means:</p>
-<ul>
-<li>training on personal data;</li>
-<li>sensible preprocessing;</li>
-<li>justified metric choice;</li>
-<li>one comparison or one clear next development step.</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="stretch-path">Stretch path<a class="anchor" aria-label="anchor" href="#stretch-path"></a>
-</h3>
-<p>Success means:</p>
-<ul>
-<li>a credible baseline or prototype;</li>
-<li>a documented comparison or architecture decision;</li>
-<li>explicit limits, assumptions, and next steps.</li>
-</ul>
 </div>
 </section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
 </h2>
@@ -1601,8 +1428,11 @@ class without making the process much harder to explain.”</p>
 process, not just running one line of code.</li>
 <li>A train/test split is the standard first check for
 generalisation.</li>
-<li>Cross-validation is useful, but it should be introduced in
-proportion to participant confidence and dataset size.</li>
+<li>Default model settings may not work well; tuning hyperparameters
+with validation or cross-validation can help.</li>
+<li>Random and stratified splits are common defaults for ordinary
+classification, but time series and grouped subject data need different
+validation strategies.</li>
 <li>Any further development should be justified by the data, the task,
 and the current state of the model and analysis.</li>
 </ul>
@@ -1611,7 +1441,7 @@ and the current state of the model and analysis.</li>
 </div>
 </section></section><section id="aio-06-model-evaluation"><p>Content from <a href="06-model-evaluation.html">Checking What Your Model Learned</a></p>
 <hr>
-<p>Last updated on 2026-04-13 |
+<p>Last updated on 2026-04-15 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/06-model-evaluation.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 80 minutes</p>
@@ -1688,7 +1518,7 @@ context.</p>
 <h3 id="regression">Regression<a class="anchor" aria-label="anchor" href="#regression"></a>
 </h3>
 <div style="background: white; padding: 12px; border-radius: 8px; display: inline-block;">
-<figure><img src="../docs/fig/LR_errors.png" alt="Linear regression example showing predictions and their errors." style="display: block; max-width: 100%; height: auto;" class="figure mx-auto d-block"></figure>
+<figure><img src="../fig/LR_errors.png" alt="Linear regression example showing predictions and their errors." style="display: block; max-width: 100%; height: auto;" class="figure mx-auto d-block"></figure>
 </div>
 <ul>
 <li>
@@ -1700,8 +1530,6 @@ the easiest to explain.</li>
 <strong>R^2</strong> summarises explained variance but is often
 overinterpreted.</li>
 </ul>
-<p>For mixed-ability teaching, MAE is usually the safest first
-choice.</p>
 </div>
 <div class="section level3">
 <h3 id="what-the-regression-metrics-actually-compute">What the regression metrics actually compute<a class="anchor" aria-label="anchor" href="#what-the-regression-metrics-actually-compute"></a>
@@ -1783,6 +1611,52 @@ is overall correctness;</li>
 <li>use F1 when both precision and recall matter and you want one
 summary number.</li>
 </ul>
+</div>
+<div class="section level3">
+<h3 id="thresholds-roc-curves-and-precision-recall-curves">Thresholds, ROC curves, and precision-recall curves<a class="anchor" aria-label="anchor" href="#thresholds-roc-curves-and-precision-recall-curves"></a>
+</h3>
+<p>Many classifiers do not only output a label. They also output a score
+or probability, and a threshold then turns that score into a final
+class.</p>
+<p>For example, you might label a case as positive when the model gives
+a probability above 0.5. But that threshold is a choice. Changing it
+changes the trade-off between false positives and false negatives.</p>
+<ul>
+<li>
+<strong>ROC curve</strong>: shows the trade-off between true
+positive rate and false positive rate across thresholds;</li>
+<li>
+<strong>precision-recall curve</strong>: shows the trade-off between
+precision and recall across thresholds, and is especially useful when
+the positive class is rare.</li>
+</ul>
+<p><strong>ROC-AUC</strong> summarises the ROC curve into one number:
+the larger the area, the better the model is at separating positive and
+negative cases across many thresholds.</p>
+<p><strong>PR-AUC</strong> summarises the precision-recall curve into
+one number. A higher PR-AUC means the model does a better job of keeping
+precision high while also recovering more of the true positive
+cases.</p>
+<figure><img src="../fig/roc_pr_pair.svg" alt="Side-by-side illustrative ROC and precision-recall curves showing how threshold changes move model performance." class="figure mx-auto d-block"></figure><p>In general:</p>
+<ul>
+<li>if classes are fairly balanced, ROC can be a reasonable
+overview;</li>
+<li>if the positive class is rare or especially important, the
+precision-recall curve is often more informative.</li>
+</ul>
+<p>These curves are best treated as an extension once students already
+understand the confusion matrix and the precision-recall trade-off.</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> PrecisionRecallDisplay, RocCurveDisplay</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>RocCurveDisplay.from_predictions(y_test, y_score)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>PrecisionRecallDisplay.from_predictions(y_test, y_score)</span></code></pre>
+</div>
+<p>In other words, a classifier is not always one fixed answer.
+Sometimes it is a scoring system, and evaluation helps you decide where
+to place the decision boundary.</p>
 </div>
 <div class="section level3">
 <h3 id="clustering">Clustering<a class="anchor" aria-label="anchor" href="#clustering"></a>
@@ -1929,93 +1803,8 @@ useful;</li>
 <li>if that size of error is too large, better features or a different
 model may be needed.</li>
 </ul>
-<div id="pick-the-metric-before-training" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="pick-the-metric-before-training" class="callout-inner">
-<h3 class="callout-title">Pick the metric before training</h3>
-<div class="callout-content">
-<p>For your project, answer these three prompts:</p>
-<ul>
-<li>What is the primary metric?</li>
-<li>Why does it fit the task better than the obvious alternatives?</li>
-<li>Which error would matter more in practice?</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Example answers
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
-<div class="accordion-body">
-<ul>
-<li>“I chose MAE because average error in the original units is easy to
-explain to a non-technical audience.”</li>
-<li>“I chose recall because missing a positive case is worse than
-raising an extra false alarm.”</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="compare-against-the-baseline-not-just-against-zero">Compare against the baseline, not just against zero<a class="anchor" aria-label="anchor" href="#compare-against-the-baseline-not-just-against-zero"></a>
-</h2>
-<hr class="half-width">
-<p>Evaluation is more meaningful when you can answer three related
-questions.</p>
-<ol style="list-style-type: decimal">
-<li>Does the model beat the trivial reference baseline?</li>
-<li>Does it still perform reasonably on unseen data?</li>
-<li>Is the result useful enough to guide the next decision?</li>
-</ol>
-<p>Without a baseline, it is hard to tell whether a score is impressive
-or just normal for the problem.</p>
-</section><section><h2 class="section-heading" id="diagnose-fit-quality">Diagnose fit quality<a class="anchor" aria-label="anchor" href="#diagnose-fit-quality"></a>
-</h2>
-<hr class="half-width">
-<div class="section level3">
-<h3 id="underfitting">Underfitting<a class="anchor" aria-label="anchor" href="#underfitting"></a>
-</h3>
-<p>Typical pattern:</p>
-<ul>
-<li>weak training performance;</li>
-<li>weak test performance.</li>
-</ul>
-<p>Interpretation:</p>
-<p>The model is too simple, the features are too weak, or the problem is
-not yet represented well enough.</p>
-</div>
-<div class="section level3">
-<h3 id="overfitting">Overfitting<a class="anchor" aria-label="anchor" href="#overfitting"></a>
-</h3>
-<p>Typical pattern:</p>
-<ul>
-<li>very strong training performance;</li>
-<li>weaker test performance.</li>
-</ul>
-<p>Interpretation:</p>
-<p>The model has learned quirks of the training data rather than a
-stable pattern.</p>
-</div>
-<div class="section level3">
-<h3 id="plausible-generalisation">Plausible generalisation<a class="anchor" aria-label="anchor" href="#plausible-generalisation"></a>
-</h3>
-<p>Typical pattern:</p>
-<ul>
-<li>training and test performance are reasonably close;</li>
-<li>the score beats the reference baseline;</li>
-<li>the result makes sense in context.</li>
-</ul>
-<p>Interpretation:</p>
-<p>The model is credible enough to interpret and improve.</p>
+<p>Once you have a result, the next step is to judge whether the pattern
+of performance is believable.</p>
 </div>
 </section><section><h2 class="section-heading" id="task-specific-evaluation-views">Task-specific evaluation views<a class="anchor" aria-label="anchor" href="#task-specific-evaluation-views"></a>
 </h2>
@@ -2030,7 +1819,7 @@ stable pattern.</p>
 <li>Are there obvious large-error cases?</li>
 <li>Do the errors get worse in a particular region?</li>
 </ul>
-<p>What to teach students to notice:</p>
+<p>Check:</p>
 <ul>
 <li>if residuals are roughly centred around zero, the model is not
 showing a clear one-direction bias;</li>
@@ -2039,21 +1828,21 @@ behave worse in one region of the target range;</li>
 <li>if a few points sit far away from the rest, there may be outliers or
 important subgroups to inspect.</li>
 </ul>
-<div class="codewrapper sourceCode" id="cb1">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>errors <span class="op">=</span> y_test <span class="op">-</span> baseline_predictions</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MAE:"</span>, mean_absolute_error(y_test, baseline_predictions))</span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>plt.scatter(baseline_predictions, errors)</span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>plt.xlabel(<span class="st">"Predicted value"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>plt.ylabel(<span class="st">"Residual"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>plt.show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>errors <span class="op">=</span> y_test <span class="op">-</span> baseline_predictions</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MAE:"</span>, mean_absolute_error(y_test, baseline_predictions))</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>plt.scatter(baseline_predictions, errors)</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>plt.xlabel(<span class="st">"Predicted value"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>plt.ylabel(<span class="st">"Residual"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -2066,23 +1855,14 @@ important subgroups to inspect.</li>
 <li>Where are the false negatives?</li>
 <li>Are the errors acceptable for this context?</li>
 </ul>
-<p>In teaching, this is often easier than starting from a single
-accuracy value. A confusion matrix shows what kind of mistake the model
-is making, not just how many.</p>
-<div class="codewrapper sourceCode" id="cb2">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> ConfusionMatrixDisplay, classification_report</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>ConfusionMatrixDisplay.from_predictions(y_test, baseline_predictions)</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_test, baseline_predictions))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> ConfusionMatrixDisplay, classification_report</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>ConfusionMatrixDisplay.from_predictions(y_test, baseline_predictions)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_test, baseline_predictions))</span></code></pre>
 </div>
-<p>Optional domain-specific follow-up:</p>
-<p>In the horse blink example, the same logic still applies, but the
-error cost is less obvious. The confusion matrix shows what the model is
-mixing up, but the important error depends on the scientific question.
-That makes it a better second example than a first one.</p>
-<figure><img src="../fig/confusion_matrix_horse_blink_sklearn_style.svg" alt="Local confusion matrix visual for the horse blink example showing TP 8, FN 2, FP 3, and TN 7." class="figure mx-auto d-block"></figure>
 </div>
 <div class="section level3">
 <h3 id="clustering-inspect-whether-the-groups-are-meaningful">Clustering: inspect whether the groups are meaningful<a class="anchor" aria-label="anchor" href="#clustering-inspect-whether-the-groups-are-meaningful"></a>
@@ -2096,9 +1876,6 @@ completely?</li>
 <li>Is the grouping useful for a downstream task or research
 question?</li>
 </ul>
-<p>This is why clustering evaluation should be taught more cautiously
-than regression or classification evaluation: a numerical score alone
-rarely tells the whole story.</p>
 </div>
 </section><section><h2 class="section-heading" id="what-your-metric-is-not-telling-you">What your metric is not telling you<a class="anchor" aria-label="anchor" href="#what-your-metric-is-not-telling-you"></a>
 </h2>
@@ -2124,67 +1901,11 @@ changes.</li>
 </ul>
 <p>For more complex models, explanation is usually more approximate.</p>
 <ul>
-<li>tools such as <strong>LIME</strong> and <strong>SHAP</strong> try to
-explain which inputs were influential for a prediction or across the
-model as a whole.</li>
+<li>tools such as <a href="https://lime.readthedocs.io/en/latest/" class="external-link">LIME</a> and <a href="https://shap.readthedocs.io/en/latest/" class="external-link">SHAP</a> try to explain
+which inputs were influential for a prediction or across the model as a
+whole.</li>
 </ul>
-<p>For deep learning, explainability is still an active research area,
-so it is often better treated as a separate advanced topic or special
-lecture rather than part of the core evaluation workflow.</p>
-<figure><img src="../fig/explainability_of_ml.png" alt="Diagram illustrating the challenge of explaining machine learning model decisions." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="thresholds-roc-curves-and-precision-recall-curves">Thresholds, ROC curves, and precision-recall curves<a class="anchor" aria-label="anchor" href="#thresholds-roc-curves-and-precision-recall-curves"></a>
-</h2>
-<hr class="half-width">
-<p>Many classifiers do not only output a label. They also output a score
-or probability. A threshold then turns that score into a final
-class.</p>
-<p>For example, you might label a case as positive when the model gives
-a probability above 0.5. But that threshold is a choice when applying
-the model. Changing the threshold changes the trade-off between false
-positives and false negatives. This is why ROC and precision-recall
-curves can be useful:</p>
-<ul>
-<li>
-<strong>ROC curve</strong>: shows the trade-off between true
-positive rate and false positive rate across thresholds;</li>
-</ul>
-<p>A better model tends to push the ROC curve closer to the top-left
-corner, where true positive rate is high and false positive rate is
-low.</p>
-<p><strong>ROC-AUC</strong> summarises that curve into one number: the
-larger the area under the ROC curve, the better the model is at
-separating positive and negative cases across many possible
-thresholds.</p>
-<ul>
-<li>
-<strong>precision-recall curve</strong>: shows the trade-off between
-precision and recall across thresholds. This is especially useful when
-the positive class is rare.</li>
-</ul>
-<p><strong>PR-AUC</strong> summarises the precision-recall curve into
-one number. A higher PR-AUC means the model does a better job of keeping
-precision high while also recovering more of the true positive
-cases.</p>
-<figure><img src="../docs/fig/roc_pr_pair.svg" alt="Side-by-side illustrative ROC and precision-recall curves showing how threshold changes move model performance." class="figure mx-auto d-block"></figure><p>In general:</p>
-<ul>
-<li>if classes are fairly balanced, ROC can be a reasonable
-overview;</li>
-<li>if the positive class is rare or especially important, the
-precision-recall curve is often more informative.</li>
-</ul>
-<p>These curves are best treated as an extension once students already
-understand the confusion matrix and the precision-recall trade-off.</p>
-<div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> PrecisionRecallDisplay, RocCurveDisplay</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>RocCurveDisplay.from_predictions(y_test, y_score)</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>PrecisionRecallDisplay.from_predictions(y_test, y_score)</span></code></pre>
-</div>
-<p>In other words, a classifier is not always one fixed answer.
-Sometimes it is a scoring system, and evaluation helps you decide where
-to place the decision boundary.</p>
-</section><section><h2 class="section-heading" id="proportionate-responsible-evaluation">Proportionate responsible evaluation<a class="anchor" aria-label="anchor" href="#proportionate-responsible-evaluation"></a>
+<figure><img src="https://shap.readthedocs.io/en/latest/_images/shap_header.png" alt="SHAP example figure showing how feature contributions can explain a prediction." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="proportionate-responsible-evaluation">Proportionate responsible evaluation<a class="anchor" aria-label="anchor" href="#proportionate-responsible-evaluation"></a>
 </h2>
 <hr class="half-width">
 <p>At some point you need to move beyond score-only thinking.</p>
@@ -2214,27 +1935,6 @@ across groups.</p>
 <p>The important step is documenting the limitation rather than
 pretending the issue does not exist.</p>
 </div>
-</section><section><h2 class="section-heading" id="turning-evaluation-into-a-next-step">Turning evaluation into a next step<a class="anchor" aria-label="anchor" href="#turning-evaluation-into-a-next-step"></a>
-</h2>
-<hr class="half-width">
-<p>Evaluation should end with an action, not just a score.</p>
-<p>One useful pattern is:</p>
-<ul>
-<li>metric: what happened numerically?</li>
-<li>interpretation: what does that mean in plain language?</li>
-<li>action: what should I try next?</li>
-</ul>
-<p>Useful next steps include:</p>
-<ul>
-<li>improve preprocessing;</li>
-<li>engineer a new feature;</li>
-<li>compare one stronger but explainable model;</li>
-<li>rethink the representation of the data;</li>
-<li>narrow claims to what the evidence actually supports.</li>
-</ul>
-<p>Finish with a short statement:</p>
-<p>“My model is useful for __________, but it is still limited by
-__________. My next step is __________.”</p>
 </section><section><h2 class="section-heading" id="evaluation-metric-is-not-always-the-training-loss">Evaluation metric is not always the training loss<a class="anchor" aria-label="anchor" href="#evaluation-metric-is-not-always-the-training-loss"></a>
 </h2>
 <hr class="half-width">
@@ -2282,14 +1982,14 @@ training and final evaluation?</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
   Example answer
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul>
 <li>cross-entropy used to fit a classifier: training loss;</li>
@@ -2327,58 +2027,7 @@ and scoring user guide</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html" class="external-link">r2_score</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.RocCurveDisplay.html" class="external-link">RocCurveDisplay</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.PrecisionRecallDisplay.html" class="external-link">PrecisionRecallDisplay</a></li>
-</ul>
-<div id="write-a-responsible-conclusion" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="write-a-responsible-conclusion" class="callout-inner">
-<h3 class="callout-title">Write a responsible conclusion</h3>
-<div class="callout-content">
-<p>Write three sentences that cover:</p>
-<ul>
-<li>your main result;</li>
-<li>one important limitation;</li>
-<li>one concrete next step.</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3">
-  Example answer
-  </h4>
-</button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
-<div class="accordion-body">
-<p>“My logistic regression baseline performed better than the majority
-class baseline and gives a useful first signal for this classification
-task. However, recall remains weak for the class I care about most, so I
-should be cautious about strong claims. My next step is to inspect the
-confusion matrix more closely and test whether feature engineering can
-improve recall.”</p>
-</div>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="preparing-to-communicate-results">Preparing to communicate results<a class="anchor" aria-label="anchor" href="#preparing-to-communicate-results"></a>
-</h2>
-<hr class="half-width">
-<p>You should be ready to explain evaluation using the PDMRI shape:</p>
-<ul>
-<li><strong>Problem</strong></li>
-<li><strong>Data</strong></li>
-<li><strong>Model</strong></li>
-<li><strong>Results</strong></li>
-<li><strong>Insights</strong></li>
-</ul>
-<p>That means they need more than a metric value. They need a short,
-defensible interpretation of what the score means, what it does not
-mean, and what should happen next.</p>
-</section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
+</ul></section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
 </h2>
 <hr class="half-width">
 <div id="keypoints1" class="callout keypoints">
@@ -2391,7 +2040,6 @@ mean, and what should happen next.</p>
 <ul>
 <li>Choose the primary metric before training, not after seeing the
 result.</li>
-<li>Always compare a model against a trivial reference baseline.</li>
 <li>Use residuals, confusion matrices, or cluster interpretation to look
 beyond a single headline score.</li>
 <li>Responsible evaluation means documenting who may be missing, what
@@ -2402,10 +2050,10 @@ errors matter, and what claims the evidence can support.</li>
 </div>
 </section></section><section id="aio-07-feature-engineering"><p>Content from <a href="07-feature-engineering.html">Feature Engineering for Real Problems</a></p>
 <hr>
-<p>Last updated on 2026-04-13 |
+<p>Last updated on 2026-04-15 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/07-feature-engineering.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 65 minutes</p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 55 minutes</p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -2443,71 +2091,17 @@ problem.</li>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="quick-navigation">Quick navigation<a class="anchor" aria-label="anchor" href="#quick-navigation"></a>
-</h2>
-<hr class="half-width">
-<ul>
-<li><a href="#quick-navigation">Quick navigation</a></li>
-<li><a href="#why-feature-engineering-comes-early">Why feature
-engineering comes early</a></li>
-<li><a href="#a-simple-way-to-think-about-features">A simple way to
-think about features</a></li>
-<li><a href="#tabular-features">Tabular features</a></li>
-<li><a href="#vision-features">Vision features</a></li>
-<li>
-<a href="#text-features">Text features</a>
-<ul>
-<li><a href="#a-concrete-tf-idf-example">A concrete TF-IDF
-example</a></li>
-</ul>
-</li>
-<li>
-<a href="#bioinformatics-and-genomics-features">Bioinformatics and
-genomics features</a>
-<ul>
-<li><a href="#k-mers-as-the-sequence-counterpart-to-n-grams">k-mers as
-the sequence counterpart to n-grams</a></li>
-<li><a href="#other-useful-genomics-style-features">Other useful
-genomics-style features</a></li>
-<li><a href="#marker-style-features">Marker-style features</a></li>
-<li><a href="#a-concrete-genomics-example">A concrete genomics
-example</a></li>
-</ul>
-</li>
-<li>
-<a href="#time-series-and-spectral-features">Time-series and
-spectral features</a>
-<ul>
-<li><a href="#a-more-concrete-feature-sketch">A more concrete feature
-sketch</a></li>
-</ul>
-</li>
-<li><a href="#features-for-specialised-scientific-data">Features for
-specialised scientific data</a></li>
-<li>
-<a href="#cross-domain-transfer">Cross-domain transfer</a>
-<ul>
-<li><a href="#example-answer">Example answer</a></li>
-</ul>
-</li>
-<li>
-<a href="#pick-one-feature-change">Pick one feature change</a>
-<ul>
-<li><a href="#example-answers">Example answers</a></li>
-</ul>
-</li>
-<li><a href="#when-to-stop-engineering-by-hand">When to stop engineering
-by hand</a></li>
-<li><a href="#feature-planning-cheat-sheet">Feature planning cheat
-sheet</a></li>
-<li><a href="#key-points">Key points</a></li>
-</ul></section><section><h2 class="section-heading" id="why-feature-engineering-comes-early">Why feature engineering comes early<a class="anchor" aria-label="anchor" href="#why-feature-engineering-comes-early"></a>
+<section><h2 class="section-heading" id="why-feature-engineering-often-comes-next">Why feature engineering often comes next<a class="anchor" aria-label="anchor" href="#why-feature-engineering-often-comes-next"></a>
 </h2>
 <hr class="half-width">
 <p>Choosing a model is only part of the job. The model can only learn
 from the information you give it.</p>
 <p>Feature engineering means creating or selecting inputs that make
 useful patterns easier for a model to detect.</p>
+<p>In the teaching sequence here, feature engineering usually comes
+after you have already chosen a sensible baseline, trained it, and
+evaluated its first results. That gives you a clearer reason to change
+the representation instead of changing things blindly.</p>
 <p>In many real projects, a better representation can improve results
 more than switching to a more complex algorithm.</p>
 <p>If you want a concise external overview, see the <a href="https://scikit-learn.org/stable/modules/feature_extraction.html" class="external-link">scikit-learn
@@ -2648,18 +2242,6 @@ being turned into features first.</p>
 starting points include <a href="https://biopython.org/" class="external-link">Biopython</a>
 for sequence workflows and <a href="https://scikit-learn.org/stable/" class="external-link">scikit-learn</a> for the
 downstream baseline models.</p>
-<p>One useful analogy is:</p>
-<ul>
-<li>
-<strong>token in text</strong> is similar to a <strong>base or
-amino-acid symbol</strong> in a sequence;</li>
-<li>
-<strong>short token pattern in text</strong> is similar to a
-<strong>k-mer in genomics</strong>;</li>
-<li>
-<strong>keyword or phrase count</strong> is similar to a
-<strong>motif or marker count</strong> in biological data.</li>
-</ul>
 <div class="section level3">
 <h3 id="k-mers-as-the-sequence-counterpart-to-n-grams">k-mers as the sequence counterpart to n-grams<a class="anchor" aria-label="anchor" href="#k-mers-as-the-sequence-counterpart-to-n-grams"></a>
 </h3>
@@ -2671,9 +2253,8 @@ amino-acid symbol</strong> in a sequence;</li>
 <li>for proteins, 2-mers or 3-mers can capture short amino-acid
 patterns.</li>
 </ul>
-<p>If a text process uses short token patterns or phrase-level features
-to capture local context, a genomics process can use k-mer counts or
-frequencies to capture local sequence patterns.</p>
+<p>Like n-grams in text, k-mer counts or frequencies capture short local
+patterns in a sequence.</p>
 <p>For example, the DNA sequence <code>ATGCAT</code> contains the
 3-mers:</p>
 <ul>
@@ -2723,21 +2304,6 @@ to domain interpretation.</p>
 SNPs as marker-style features alongside broader sequence features such
 as k-mer frequencies or GC content.</p>
 </div>
-<div class="section level3">
-<h3 id="a-concrete-genomics-example">A concrete genomics example<a class="anchor" aria-label="anchor" href="#a-concrete-genomics-example"></a>
-</h3>
-<p>Suppose the task is to classify DNA sequences into two functional
-groups. A sensible conventional baseline could use:</p>
-<ul>
-<li>k-mer frequencies as the main sequence representation;</li>
-<li>GC content as a summary feature;</li>
-<li>sequence length as a structural feature;</li>
-<li>a simple classifier such as Logistic Regression, Naive Bayes, or a
-tree-based model.</li>
-</ul>
-<p>This is closely analogous to a text process where you combine TF-IDF
-features with a simple classifier.</p>
-</div>
 </section><section><h2 class="section-heading" id="time-series-and-spectral-features">Time-series and spectral features<a class="anchor" aria-label="anchor" href="#time-series-and-spectral-features"></a>
 </h2>
 <hr class="half-width">
@@ -2785,87 +2351,22 @@ magnitude.</li>
 ordered signals. In both cases, feature engineering often tries to
 capture local trend, local change, and broader structure rather than
 treating every position as an unrelated column. This transfer is
-illustrated in the notebook <a href="../Users/cul/work/Teaching/AIbootcamp/demo_feature_engineering_timeseries_spectra.ipynb">demo_feature_engineering_timeseries_spectra.ipynb</a>.</p>
-<div class="section level3">
-<h3 id="a-more-concrete-feature-sketch">A more concrete feature sketch<a class="anchor" aria-label="anchor" href="#a-more-concrete-feature-sketch"></a>
-</h3>
-<p>Rather than listing more feature names, it is often clearer to ask
-what raw measurement you have and what summary might help a model detect
-the pattern.</p>
-<table class="table">
-<colgroup>
-<col width="25%">
-<col width="25%">
-<col width="25%">
-<col width="25%">
-</colgroup>
-<thead><tr>
-<th>Domain</th>
-<th>Raw input</th>
-<th>Engineered feature</th>
-<th>Why it may help</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>Time series forecasting</td>
-<td>daily sales at time <span class="math inline">\(t\)</span>
-</td>
-<td>sales at <span class="math inline">\(t-1\)</span>
-</td>
-<td>yesterday often helps predict today</td>
-</tr>
-<tr>
-<td>Time series forecasting</td>
-<td>daily sales over the last week</td>
-<td>7-day rolling mean</td>
-<td>reduces noise and captures recent level</td>
-</tr>
-<tr>
-<td>Time series forecasting</td>
-<td>timestamp</td>
-<td>weekend or month flag</td>
-<td>captures calendar structure</td>
-</tr>
-<tr>
-<td>Spectral prediction</td>
-<td>raw intensity across wavelength</td>
-<td>smoothed spectrum</td>
-<td>reduces measurement noise</td>
-</tr>
-<tr>
-<td>Spectral prediction</td>
-<td>raw spectrum shape</td>
-<td>first derivative</td>
-<td>highlights local changes and peak edges</td>
-</tr>
-<tr>
-<td>Spectral prediction</td>
-<td>intensity in a scientifically important region</td>
-<td>band average or peak area</td>
-<td>summarises a meaningful part of the signal</td>
-</tr>
-</tbody>
-</table>
-<p>If you want code-based examples, the practical notebook companion is
-<a href="../Users/cul/work/Teaching/AIbootcamp/demo_feature_engineering_timeseries_spectra.ipynb">demo_feature_engineering_timeseries_spectra.ipynb</a>,
-which is the better place to show tables, calculations, and plots in
-detail.</p>
-</div>
+illustrated in the notebook <a href="../files/notebooks/demo_feature_engineering_timeseries_spectra.ipynb">demo_feature_engineering_timeseries_spectra.ipynb</a>.</p>
 </section><section><h2 class="section-heading" id="features-for-specialised-scientific-data">Features for specialised scientific data<a class="anchor" aria-label="anchor" href="#features-for-specialised-scientific-data"></a>
 </h2>
 <hr class="half-width">
-<p>Some domains need features that come from subject knowledge or from
-specialised analysis methods, not just from generic preprocessing.</p>
-<p>This section is deliberately general. The domain-specific blocks
-above already gave concrete examples for text, genomics, vision, and
-ordered signals. Here the goal is to highlight broader sources of
-engineered features that often appear in scientific work.</p>
+<p>Some scientific problems need features that come from domain
+knowledge or specialised analysis methods, not just generic
+preprocessing.</p>
+<p>The earlier sections already covered text, genomics, vision, and
+ordered signals. Here are a few other common sources of engineered
+features in scientific work:</p>
 <p>Common sources include:</p>
 <ul>
 <li>signal-processing features such as filtered signals, Fourier or
 wavelet transforms, derivatives, and peak summaries;</li>
-<li>image-processing features such as edges, textures, region summaries,
-local patch descriptors, or measurements from segmented objects;</li>
+<li>graph or network features such as node degree, centrality,
+neighbourhood summaries, community labels, or graph embeddings;</li>
 <li>statistical summaries such as moments, quantiles, slopes,
 correlations, or variability measures computed over windows, regions, or
 groups;</li>
@@ -2883,78 +2384,8 @@ foundation models.</li>
 <p>The key question is not “what is the fanciest feature?” It is “what
 representation makes the real structure of this problem easier to
 detect?” In practice, that often means borrowing a useful summary from
-signal processing, image processing, statistics, mathematics, chemistry,
+signal processing, graph analysis, statistics, mathematics, chemistry,
 or another domain-specific workflow.</p>
-<div id="cross-domain-transfer" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="cross-domain-transfer" class="callout-inner">
-<h3 class="callout-title">Cross-domain transfer</h3>
-<div class="callout-content">
-<p>One reason feature engineering becomes easier over time is that a
-good idea in one domain often suggests a useful idea in another.</p>
-<p>For example:</p>
-<ul>
-<li>text can be treated as a sequence of words or tokens;</li>
-<li>genomics can be treated as a sequence of bases or amino acids;</li>
-<li>images can be treated as a grid or sequence of local patches;</li>
-<li>time-series data can be treated as a sequence of windows or
-segments.</li>
-</ul>
-<p>Choose your own problem, or one of the domains above, and think about
-how an idea from another domain might transfer.</p>
-<p>Prompts:</p>
-<ul>
-<li>If text uses short token patterns such as n-grams, what might play a
-similar role in genomics, images, or time series?</li>
-<li>If an image can be broken into patches, what kinds of patch-level
-summary features might be useful?</li>
-<li>If a time series can be broken into windows, what kinds of
-window-level features might be useful?</li>
-<li>What is the smallest meaningful unit in your own data?</li>
-<li>What is the equivalent of a local pattern, motif, or patch in your
-own domain?</li>
-<li>What feature idea from another domain could you borrow as a first
-baseline?</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Example answer
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
-<p>Possible answers include:</p>
-<ul>
-<li>In genomics, a short token pattern in text is similar to a k-mer in
-a sequence.</li>
-<li>In images, a short local pattern is similar to a patch, edge, or
-texture region.</li>
-<li>In time-series data, a short local pattern is similar to a window,
-segment, trend, or repeated motif.</li>
-<li>In spectra, a local pattern may be a peak, band, or local change in
-shape.</li>
-</ul>
-<p>So the transferable idea is not tied to one subject area. Once you
-see that different data types can be broken into meaningful local units,
-you can start borrowing feature ideas across domains. A successful idea
-in text, genomics, images, or time series may suggest a useful first
-representation for your own data.</p>
-<p>The practical lesson is that success in one domain can suggest a good
-starting point in another. Once you recognise the shared structure of a
-problem, you can often transfer a feature idea instead of inventing a
-completely new process from scratch.</p>
-</div>
-</div>
-</div>
-</div>
 <div id="pick-one-feature-change" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -2972,14 +2403,14 @@ completely new process from scratch.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
   Example answers
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul>
 <li>“I have daily sales totals, and I could add day-of-week as a feature
@@ -3008,9 +2439,9 @@ learning become useful.</p>
 </section><section><h2 class="section-heading" id="feature-planning-cheat-sheet">Feature planning cheat sheet<a class="anchor" aria-label="anchor" href="#feature-planning-cheat-sheet"></a>
 </h2>
 <hr class="half-width">
-<p>This table is meant as a quick reference rather than a section to
-teach through step by step. Students can come back to it when choosing a
-first feature representation and a sensible baseline model.</p>
+<p>These are starting points to try, not universally best choices. The
+right model still depends on the task, data size, feature quality, and
+evaluation results.</p>
 <table class="table">
 <colgroup>
 <col width="33%">
@@ -3020,19 +2451,20 @@ first feature representation and a sensible baseline model.</p>
 <thead><tr>
 <th>Task type</th>
 <th>Starter feature ideas</th>
-<th>Good first model pair</th>
+<th>Possible starter models</th>
 </tr></thead>
 <tbody>
 <tr>
 <td>Tabular</td>
 <td>ratios, flags, bins, interactions</td>
-<td>Linear or Logistic Regression, Decision Tree</td>
+<td>Linear or Logistic Regression, tree-based models</td>
 </tr>
 <tr>
 <td>Vision</td>
 <td>resize, grayscale, raw pixels plus PCA, summary descriptors,
 transfer features</td>
-<td>Logistic Regression on extracted features, small CNN later</td>
+<td>Logistic Regression on extracted features, transfer learning
+later</td>
 </tr>
 <tr>
 <td>Text</td>
@@ -3042,17 +2474,22 @@ transfer features</td>
 <tr>
 <td>Genomics / sequence data</td>
 <td>k-mers, motif counts, GC content, marker presence</td>
-<td>Naive Bayes, Logistic Regression, tree models</td>
+<td>Logistic Regression, tree-based models</td>
 </tr>
 <tr>
 <td>Time series</td>
 <td>lags, rolling summaries, seasonal indicators</td>
-<td>Linear Regression, tree models, sequence models later</td>
+<td>Linear Regression, tree-based models</td>
 </tr>
 <tr>
 <td>Spectral / ordered signals</td>
 <td>smoothing, derivatives, peak summaries, band averages</td>
-<td>Linear Regression, PLS or tree models</td>
+<td>Linear Regression, PLS, tree-based models</td>
+</tr>
+<tr>
+<td>Graph / network data</td>
+<td>degree, centrality, neighbourhood summaries, graph embeddings</td>
+<td>Logistic Regression or tree-based models on node features</td>
 </tr>
 </tbody>
 </table></section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
@@ -3234,7 +2671,7 @@ would you now consider to be machine learning?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>A: As we are yet to achieve general intelligence anything shown for
 example on TV is actually just machine learning!!! e.g. the new smart
@@ -3300,7 +2737,7 @@ ultrasound.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>A: As our model doesnt know how to detect features in ultrasound the
 results would be random and unpredictable.</p>
@@ -3347,7 +2784,7 @@ training your model for too long and it becomes over fitted.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>A: Typically the model will perform badly on the testing data, as
 over fitting describes a model paying to much attention to
@@ -3386,7 +2823,7 @@ fields do you think this lack of explainablity is a massive issue?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>A: Any medical field it becomes a massive issue, especially because
 patents lives could be drectly effected.</p>
@@ -3501,7 +2938,7 @@ model goes wrong?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>A: There is no correct answer, this is a heavily debated topic.</p>
 </div>
@@ -3511,7 +2948,7 @@ model goes wrong?</p>
 </div>
 </section></section><section id="aio-13-feature-learning-and-transfer-learning"><p>Content from <a href="13-feature-learning-and-transfer-learning.html">Feature Learning and Transfer Learning</a></p>
 <hr>
-<p>Last updated on 2026-04-14 |
+<p>Last updated on 2026-04-15 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/13-feature-learning-and-transfer-learning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 50 minutes</p>
@@ -3558,8 +2995,9 @@ scratch.</li>
 <p>In conventional machine learning, people usually decide which
 features the model should use. In feature learning, the model learns
 internal representations automatically from the training data.</p>
-<p>This page is about what you do with that idea in practice, especially
-when you do not want to train a large deep model from scratch.</p>
+<p>This lesson is about what you do with that idea in practice,
+especially when you do not want to train a large deep model from
+scratch.</p>
 <p>Learned representations can arise in more than one way:</p>
 <ul>
 <li>in <strong>supervised learning</strong>, the internal features are
@@ -3708,23 +3146,7 @@ more about what kind of pre-trained representation is available.</p>
 <td>usually better feature engineering first</td>
 </tr>
 </tbody>
-</table></section><section><h2 class="section-heading" id="available-demo-notebooks">Available demo notebooks<a class="anchor" aria-label="anchor" href="#available-demo-notebooks"></a>
-</h2>
-<hr class="half-width">
-<p>Two demo notebooks are available for this lesson.</p>
-<ul>
-<li>
-<a href="../files/notebooks/demo_transfer_learning_vision.ipynb">demo_transfer_learning_vision.ipynb</a>:
-compares a weak raw-pixel baseline with features from a pre-trained
-image model.</li>
-<li>
-<a href="../files/notebooks/demo_transfer_learning_text.ipynb">demo_transfer_learning_text.ipynb</a>:
-compares TF-IDF plus logistic regression with sentence embeddings plus
-logistic regression.</li>
-</ul>
-<p>That combination gives a strong cross-task story without making the
-lesson too abstract.</p>
-</section><section><h2 class="section-heading" id="a-practical-decision-rule">A practical decision rule<a class="anchor" aria-label="anchor" href="#a-practical-decision-rule"></a>
+</table></section><section><h2 class="section-heading" id="a-practical-decision-rule">A practical decision rule<a class="anchor" aria-label="anchor" href="#a-practical-decision-rule"></a>
 </h2>
 <hr class="half-width">
 <p>Ask these questions in order:</p>
@@ -3738,24 +3160,6 @@ matches this data type?</li>
 </ol>
 <p>If the answer to the third question is yes, transfer learning or a
 representation-learning approach may be the right next step.</p>
-<div id="which-route-fits-your-data" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<span class="callout-header">Discussion</span>
-<div id="which-route-fits-your-data" class="callout-inner">
-<h3 class="callout-title">Which route fits your data?</h3>
-<div class="callout-content">
-<p>For your own project, write down:</p>
-<ul>
-<li>what kind of data structure you have;</li>
-<li>whether a simple feature table is enough to represent it;</li>
-<li>whether the next step should be better feature engineering, a
-specialist deep-learning architecture, or transfer learning.</li>
-</ul>
-</div>
-</div>
-</div>
 <div id="feature-engineering-or-feature-learning" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -3794,7 +3198,7 @@ feature learning.</li>
 <div id="comparing-pca-with-learned-embeddings" class="callout-inner">
 <h3 class="callout-title">Comparing PCA with learned embeddings</h3>
 <div class="callout-content">
-<p>Discuss with a partner:</p>
+<p>Discuss:</p>
 <ul>
 <li>In what sense is it similar to learned embeddings?</li>
 <li>In what sense is it different from neural-network-based
@@ -5008,8 +4412,8 @@ more advanced.</li>
   "url": "https://swcarpentry.github.io/python-novice-inflammation/instructor/aio.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/instructor/aio.html",
   "dateCreated": "2025-11-25",
-  "dateModified": "2026-04-14",
-  "datePublished": "2026-04-14"
+  "dateModified": "2026-04-15",
+  "datePublished": "2026-04-15"
 }
 
   </script><script>
