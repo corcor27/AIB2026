@@ -290,7 +290,6 @@
       <div class="accordion-body">
         <ul><li><a href="#large-language-models-llms">Large Language Models (LLMs)</a></li>
 <li><a href="#architecture">3. Architecture</a></li>
-<li><a href="#key-points">Key points</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -355,7 +354,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Large Language Models</h1>
-        <p>Last updated on 2026-04-14 |
+        <p>Last updated on 2026-04-15 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/12-LLMs.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -374,8 +373,11 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>What counts as a sensible baseline or comparison model?</li>
-<li>Which conventional models belong in my starter model basket?</li>
+<ul><li>What does a language model actually predict?</li>
+<li>Why is tokenization necessary for LLMs?</li>
+<li>How does a decoder-only transformer generate text?</li>
+<li>What role does self-attention play in LLMs?</li>
+<li>Why are LLMs considered “large”?</li>
 </ul></div>
 </div>
 </div>
@@ -383,12 +385,11 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>Define both a trivial reference baseline and a practical model
-basket.</li>
-<li>Choose an initial model based on task type, data shape,
-interpretability, and time available.</li>
-<li>Distinguish between a first baseline model and a stronger comparison
-model.</li>
+<ul><li>Understand what Large Language Models (LLMs) are and how they
+work</li>
+<li>Explain how language models generate text using probabilities</li>
+<li>Describe tokenization and its role in processing language</li>
+<li>Recognize the architecture behind modern LLMs</li>
 </ul></div>
 </div>
 </div>
@@ -479,23 +480,24 @@ support.</p>
 <ul><li>
 <a href="files/notebooks/Google_gemini.ipynb">Google_gemini.ipynb</a>:
 explores how to connect to google gemini in python.</li>
-</ul></div>
-</section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a></h2>
-<hr class="half-width"><div id="keypoints1" class="callout keypoints">
+</ul><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <span class="callout-header">Key Points</span>
 <div class="callout-inner">
 <div class="callout-content">
-<ul><li>Choose the task type before choosing the algorithm.</li>
-<li>A good starter model basket includes both simple baselines and one
-or two stronger comparison options.</li>
-<li>Conventional models are usually the right first step for structured
-or limited data.</li>
-<li>Stronger models should be added for a reason, not because they sound
-more advanced.</li>
+<ul><li>LLMs are built on Transformer architectures and trained at massive
+scale</li>
+<li>Core idea: predict the next token given previous tokens</li>
+<li>Language modelling is based on probability of sequences</li>
+<li>Tokenization breaks text into manageable units: word-level or
+subword-level (BPE, WordPiece, SentencePiece)</li>
+<li>Most LLMs use decoder-only transformers: embeddings → self-attention
+→ output probabilities</li>
+<li>Self-attention enables context-aware predictions across tokens</li>
 </ul></div>
+</div>
 </div>
 </div>
 </section></div> <!-- / div.lesson-content -->
@@ -558,7 +560,7 @@ more advanced.</li>
   "url": "https://swcarpentry.github.io/python-novice-inflammation/12-LLMs.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/12-LLMs.html",
   "dateCreated": "2025-11-25",
-  "dateModified": "2026-04-14",
+  "dateModified": "2026-04-15",
   "datePublished": "2026-04-15"
 }
 

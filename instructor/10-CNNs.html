@@ -277,7 +277,6 @@
 <li><a href="#the-other-layers">The other layers</a></li>
 <li><a href="#summary">Summary</a></li>
 <li><a href="#available-demo-notebooks">Available demo notebooks</a></li>
-<li><a href="#key-points">Key points</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -360,7 +359,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Convolutional Neural Networks</h1>
-        <p>Last updated on 2026-04-14 |
+        <p>Last updated on 2026-04-15 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/10-CNNs.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -381,8 +380,12 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>What counts as a sensible baseline or comparison model?</li>
-<li>Which conventional models belong in my starter model basket?</li>
+<ul><li>Why are CNNs better suited for images than standard neural
+networks?</li>
+<li>What is a convolutional filter and how does it work?</li>
+<li>What is a feature map and what does it represent?</li>
+<li>Why is weight sharing important in CNNs?</li>
+<li>How do early and deeper layers differ in what they learn?</li>
 </ul></div>
 </div>
 </div>
@@ -390,12 +393,11 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>Define both a trivial reference baseline and a practical model
-basket.</li>
-<li>Choose an initial model based on task type, data shape,
-interpretability, and time available.</li>
-<li>Distinguish between a first baseline model and a stronger comparison
-model.</li>
+<ul><li>Understand what convolutional neural networks (CNNs) are designed
+for</li>
+<li>Explain how convolutional layers extract features from data</li>
+<li>Recognize why CNNs are effective for image data</li>
+<li>Describe how feature maps and filters work</li>
 </ul></div>
 </div>
 </div>
@@ -549,25 +551,23 @@ a neural network <img src="../fig/other_layers.png" alt="Diagram showing a one-d
 </div>
 </div>
 </section><section><h2 class="section-heading" id="available-demo-notebooks">Available demo notebooks<a class="anchor" aria-label="anchor" href="#available-demo-notebooks"></a></h2>
-<hr class="half-width"><p>One demo notebooks are available for this lesson.</p>
-<ul><li>
-<a href="../files/notebooks/CNN_from_scratch_example.ipynb">CNN_from_scratch_example.ipynb</a>:
-Trains you to create a CNN model from scratch.</li>
-</ul></section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a></h2>
-<hr class="half-width"><div id="keypoints1" class="callout keypoints">
+<hr class="half-width"><p>Two demo notebooks are available for this lesson.</p>
+<ul><li><p><a href="../files/notebooks/CNN_from_scratch_example.ipynb">CNN_from_scratch_example.ipynb</a>:
+Trains you to create a CNN model from scratch.</p></li>
+<li><p><a href="../files/notebooks/CNN_for_time_Series.ipynb">CNN_for_time_Series.ipynb</a>:
+Example of using LSTM for time series future value prediction</p></li>
+</ul><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <span class="callout-header">Key Points</span>
 <div class="callout-inner">
 <div class="callout-content">
-<ul><li>Choose the task type before choosing the algorithm.</li>
-<li>A good starter model basket includes both simple baselines and one
-or two stronger comparison options.</li>
-<li>Conventional models are usually the right first step for structured
-or limited data.</li>
-<li>Stronger models should be added for a reason, not because they sound
-more advanced.</li>
+<ul><li>CNNs are designed for grid-like data (e.g., images)</li>
+<li>They use filters (kernels) to scan across inputs and detect
+patterns</li>
+<li>Output of convolutions = feature maps showing where patterns
+occur</li>
 </ul></div>
 </div>
 </div>
@@ -631,7 +631,7 @@ more advanced.</li>
   "url": "https://swcarpentry.github.io/python-novice-inflammation/instructor/10-CNNs.html",
   "identifier": "https://swcarpentry.github.io/python-novice-inflammation/instructor/10-CNNs.html",
   "dateCreated": "2025-11-25",
-  "dateModified": "2026-04-14",
+  "dateModified": "2026-04-15",
   "datePublished": "2026-04-15"
 }
 

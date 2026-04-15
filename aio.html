@@ -1980,7 +1980,7 @@ training and final evaluation?</p>
   Example answer
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul>
 <li>cross-entropy used to fit a classifier: training loss;</li>
@@ -3223,7 +3223,7 @@ the extra complexity is justified.</li>
 </div>
 </section></section><section id="aio-09-neural-networks-and-deep-learning"><p>Content from <a href="09-neural-networks-and-deep-learning.html">Neural Networks and Deep Learning</a></p>
 <hr>
-<p>Last updated on 2026-04-14 |
+<p>Last updated on 2026-04-15 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/09-neural-networks-and-deep-learning.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -3237,10 +3237,12 @@ the extra complexity is justified.</li>
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>What is a neural network in plain language?</li>
-<li>What makes deep learning different from a simple linear model?</li>
-<li>When are CNNs or other deep-learning architectures worth
-considering?</li>
+<li>Why might traditional feature engineering fail on complex data?</li>
+<li>What mathematical operations define a single neuron?</li>
+<li>What happens if we remove the activation function?</li>
+<li>Why can’t a single perceptron solve all classification
+problems?</li>
+<li>How do multiple layers improve model capability?</li>
 </ul>
 </div>
 </div>
@@ -3250,12 +3252,13 @@ considering?</li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Explain the basic idea of neurons, layers, weights, and
-activation’s.</li>
-<li>Distinguish between a simple multi-layer perception and
-architectures designed for structured data such as CNNs.</li>
-<li>Identify when deep learning is a sensible modeling option and when
-it is not.</li>
+<li>Understand why neural networks are introduced beyond traditional
+machine learning models</li>
+<li>Explain how a single neuron (perceptron) works</li>
+<li>Recognize the limitations of linear models and single-layer
+perceptrons</li>
+<li>Describe the role of activation functions in enabling
+nonlinearity</li>
 </ul>
 </div>
 </div>
@@ -3689,27 +3692,21 @@ problem in the iris dataset</li>
 <div class="callout-inner">
 <div class="callout-content">
 <ul>
-<li><p>A neural network is built from weighted transformations and
-activation functions arranged in layers.</p></li>
-<li><p>Deep learning means learning increasingly useful internal
-representations across multiple layers.</p></li>
-<li><p>Different data types suggest different architecture
-families.</p></li>
-<li><p>CNNs are especially useful when local spatial or sequential
-patterns matter.</p></li>
-<li><p>Deep learning should be justified by the structure of the data
-and the limits of simpler models.</p></li>
-<li><p>Does PCA count as representation learning?</p></li>
-<li><p>In what sense is it similar to learned embeddings?</p></li>
-<li><p>In what sense is it different from neural-network-based
-representation learning?</p></li>
+<li>Neural networks are useful when patterns are too complex for
+hand-crafted features</li>
+<li>A neuron performs a weighted sum + bias → activation function</li>
+<li>Without activation functions, networks behave like linear
+models</li>
+<li>A single perceptron can only solve linearly separable problems</li>
+<li>Stacking layers allows networks to learn complex nonlinear
+relationships</li>
 </ul>
 </div>
 </div>
 </div>
 </section></section><section id="aio-10-CNNs"><p>Content from <a href="10-CNNs.html">Convolutional Neural Networks</a></p>
 <hr>
-<p>Last updated on 2026-04-14 |
+<p>Last updated on 2026-04-15 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/10-CNNs.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -3723,8 +3720,12 @@ representation learning?</p></li>
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>What counts as a sensible baseline or comparison model?</li>
-<li>Which conventional models belong in my starter model basket?</li>
+<li>Why are CNNs better suited for images than standard neural
+networks?</li>
+<li>What is a convolutional filter and how does it work?</li>
+<li>What is a feature map and what does it represent?</li>
+<li>Why is weight sharing important in CNNs?</li>
+<li>How do early and deeper layers differ in what they learn?</li>
 </ul>
 </div>
 </div>
@@ -3734,12 +3735,11 @@ representation learning?</p></li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Define both a trivial reference baseline and a practical model
-basket.</li>
-<li>Choose an initial model based on task type, data shape,
-interpretability, and time available.</li>
-<li>Distinguish between a first baseline model and a stronger comparison
-model.</li>
+<li>Understand what convolutional neural networks (CNNs) are designed
+for</li>
+<li>Explain how convolutional layers extract features from data</li>
+<li>Recognize why CNNs are effective for image data</li>
+<li>Describe how feature maps and filters work</li>
 </ul>
 </div>
 </div>
@@ -3940,14 +3940,13 @@ a neural network <img src="fig/other_layers.png" alt="Diagram showing a one-dime
 </section><section><h2 class="section-heading" id="available-demo-notebooks">Available demo notebooks<a class="anchor" aria-label="anchor" href="#available-demo-notebooks"></a>
 </h2>
 <hr class="half-width">
-<p>One demo notebooks are available for this lesson.</p>
+<p>Two demo notebooks are available for this lesson.</p>
 <ul>
-<li>
-<a href="files/notebooks/CNN_from_scratch_example.ipynb">CNN_from_scratch_example.ipynb</a>:
-Trains you to create a CNN model from scratch.</li>
-</ul></section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
-</h2>
-<hr class="half-width">
+<li><p><a href="files/notebooks/CNN_from_scratch_example.ipynb">CNN_from_scratch_example.ipynb</a>:
+Trains you to create a CNN model from scratch.</p></li>
+<li><p><a href="files/notebooks/CNN_for_time_Series.ipynb">CNN_for_time_Series.ipynb</a>:
+Example of using LSTM for time series future value prediction</p></li>
+</ul>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -3956,20 +3955,18 @@ Trains you to create a CNN model from scratch.</li>
 <div class="callout-inner">
 <div class="callout-content">
 <ul>
-<li>Choose the task type before choosing the algorithm.</li>
-<li>A good starter model basket includes both simple baselines and one
-or two stronger comparison options.</li>
-<li>Conventional models are usually the right first step for structured
-or limited data.</li>
-<li>Stronger models should be added for a reason, not because they sound
-more advanced.</li>
+<li>CNNs are designed for grid-like data (e.g., images)</li>
+<li>They use filters (kernels) to scan across inputs and detect
+patterns</li>
+<li>Output of convolutions = feature maps showing where patterns
+occur</li>
 </ul>
 </div>
 </div>
 </div>
 </section></section><section id="aio-11-transformers"><p>Content from <a href="11-transformers.html">Transformers</a></p>
 <hr>
-<p>Last updated on 2026-04-14 |
+<p>Last updated on 2026-04-15 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/11-transformers.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -3983,8 +3980,12 @@ more advanced.</li>
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>What counts as a sensible baseline or comparison model?</li>
-<li>Which conventional models belong in my starter model basket?</li>
+<li>What roles do Query, Key, and Value play in attention?</li>
+<li>Why is multi-head attention more powerful than single-head?</li>
+<li>How do residual connections improve deep models?</li>
+<li>How do Vision Transformers differ from CNNs?</li>
+<li>Why is self-attention considered the “core innovation” of
+transformers?</li>
 </ul>
 </div>
 </div>
@@ -3994,12 +3995,10 @@ more advanced.</li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Define both a trivial reference baseline and a practical model
-basket.</li>
-<li>Choose an initial model based on task type, data shape,
-interpretability, and time available.</li>
-<li>Distinguish between a first baseline model and a stronger comparison
-model.</li>
+<li>Understand how self-attention works using Query, Key, and Value</li>
+<li>Explain multi-head attention and its benefits</li>
+<li>Describe the full transformer block structure</li>
+<li>Recognize how transformers extend beyond NLP (e.g., vision)</li>
 </ul>
 </div>
 </div>
@@ -4142,20 +4141,24 @@ lesson too abstract.</p>
 <div class="callout-inner">
 <div class="callout-content">
 <ul>
-<li>Choose the task type before choosing the algorithm.</li>
-<li>A good starter model basket includes both simple baselines and one
-or two stronger comparison options.</li>
-<li>Conventional models are usually the right first step for structured
-or limited data.</li>
-<li>Stronger models should be added for a reason, not because they sound
-more advanced.</li>
+<li>Self-attention: each token evaluates relationships with all
+others</li>
+<li>Enables contextual understanding (e.g., resolving pronouns)</li>
+<li>Multi-head attention: multiple attention mechanisms run in
+parallel</li>
+<li>Residual connections + normalization: prevent information loss,
+improve training stability (Pre-Norm common in modern models)</li>
+<li>Vision Transformers (ViTs): treat image patches as tokens use
+attention to model global relationships</li>
+<li>Transformers are highly flexible and used across: NLP, computer
+vision, time series</li>
 </ul>
 </div>
 </div>
 </div>
 </section></section><section id="aio-12-LLMs"><p>Content from <a href="12-LLMs.html">Large Language Models</a></p>
 <hr>
-<p>Last updated on 2026-04-14 |
+<p>Last updated on 2026-04-15 |
 
         <a href="https://github.com/swcarpentry/python-novice-inflammation/edit/main/episodes/12-LLMs.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -4169,8 +4172,11 @@ more advanced.</li>
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>What counts as a sensible baseline or comparison model?</li>
-<li>Which conventional models belong in my starter model basket?</li>
+<li>What does a language model actually predict?</li>
+<li>Why is tokenization necessary for LLMs?</li>
+<li>How does a decoder-only transformer generate text?</li>
+<li>What role does self-attention play in LLMs?</li>
+<li>Why are LLMs considered “large”?</li>
 </ul>
 </div>
 </div>
@@ -4180,12 +4186,11 @@ more advanced.</li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Define both a trivial reference baseline and a practical model
-basket.</li>
-<li>Choose an initial model based on task type, data shape,
-interpretability, and time available.</li>
-<li>Distinguish between a first baseline model and a stronger comparison
-model.</li>
+<li>Understand what Large Language Models (LLMs) are and how they
+work</li>
+<li>Explain how language models generate text using probabilities</li>
+<li>Describe tokenization and its role in processing language</li>
+<li>Recognize the architecture behind modern LLMs</li>
 </ul>
 </div>
 </div>
@@ -4323,10 +4328,6 @@ support.</p>
 <a href="files/notebooks/Google_gemini.ipynb">Google_gemini.ipynb</a>:
 explores how to connect to google gemini in python.</li>
 </ul>
-</div>
-</section><section><h2 class="section-heading" id="key-points">Key points<a class="anchor" aria-label="anchor" href="#key-points"></a>
-</h2>
-<hr class="half-width">
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -4335,14 +4336,17 @@ explores how to connect to google gemini in python.</li>
 <div class="callout-inner">
 <div class="callout-content">
 <ul>
-<li>Choose the task type before choosing the algorithm.</li>
-<li>A good starter model basket includes both simple baselines and one
-or two stronger comparison options.</li>
-<li>Conventional models are usually the right first step for structured
-or limited data.</li>
-<li>Stronger models should be added for a reason, not because they sound
-more advanced.</li>
+<li>LLMs are built on Transformer architectures and trained at massive
+scale</li>
+<li>Core idea: predict the next token given previous tokens</li>
+<li>Language modelling is based on probability of sequences</li>
+<li>Tokenization breaks text into manageable units: word-level or
+subword-level (BPE, WordPiece, SentencePiece)</li>
+<li>Most LLMs use decoder-only transformers: embeddings → self-attention
+→ output probabilities</li>
+<li>Self-attention enables context-aware predictions across tokens</li>
 </ul>
+</div>
 </div>
 </div>
 </div>

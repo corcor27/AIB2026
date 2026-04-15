@@ -489,10 +489,11 @@ step?<br>::::::::::::::::::::::::::::::::::::::::::::::::::
 and Deep Learning</a>
 </td>
 <td>
-What is a neural network in plain language?<br>What makes deep learning
-different from a simple linear model?<br>When are CNNs or other
-deep-learning architectures worth
-considering?<br>::::::::::::::::::::::::::::::::::::::::::::::::::
+Why might traditional feature engineering fail on complex data?<br>What
+mathematical operations define a single neuron?<br>What happens if we
+remove the activation function?<br>Why can’t a single perceptron solve
+all classification problems?<br>How do multiple layers improve model
+capability?<br>::::::::::::::::::::::::::::::::::::::::::::::::::
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>07h 44m
@@ -501,8 +502,11 @@ considering?<br>::::::::::::::::::::::::::::::::::::::::::::::::::
  8. <a href="10-CNNs.html">Convolutional Neural Networks</a>
 </td>
 <td>
-What counts as a sensible baseline or comparison model?<br>Which
-conventional models belong in my starter model basket?
+Why are CNNs better suited for images than standard neural
+networks?<br>What is a convolutional filter and how does it
+work?<br>What is a feature map and what does it represent?<br>Why is
+weight sharing important in CNNs?<br>How do early and deeper layers
+differ in what they learn?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>08h 49m
@@ -511,8 +515,11 @@ conventional models belong in my starter model basket?
  9. <a href="11-transformers.html">Transformers</a>
 </td>
 <td>
-What counts as a sensible baseline or comparison model?<br>Which
-conventional models belong in my starter model basket?
+What roles do Query, Key, and Value play in attention?<br>Why is
+multi-head attention more powerful than single-head?<br>How do residual
+connections improve deep models?<br>How do Vision Transformers differ
+from CNNs?<br>Why is self-attention considered the “core innovation” of
+transformers?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>09h 54m
@@ -521,8 +528,10 @@ conventional models belong in my starter model basket?
 10. <a href="12-LLMs.html">Large Language Models</a>
 </td>
 <td>
-What counts as a sensible baseline or comparison model?<br>Which
-conventional models belong in my starter model basket?
+What does a language model actually predict?<br>Why is tokenization
+necessary for LLMs?<br>How does a decoder-only transformer generate
+text?<br>What role does self-attention play in LLMs?<br>Why are LLMs
+considered “large”?
 </td>
 </tr><tr><td>
 <span class="visually-hidden">Duration: </span>10h 59m
@@ -579,7 +588,7 @@ with Python. You can launch a notebook from the command line:</p>
   Command line (Terminal)
   </h3>
 </button>
-<div id="collapseSpoiler5" class="accordion-collapse collapse" aria-labelledby="headingSpoiler5" data-bs-parent="#accordionSpoiler5">
+<div id="collapseSpoiler5" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler5" aria-labelledby="headingSpoiler5">
 <div class="accordion-body">
 <p>1. Navigate to the <code>data</code> directory:</p>
 <div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
@@ -590,7 +599,7 @@ with Python. You can launch a notebook from the command line:</p>
   Unix shell
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>If you’re using a Unix shell application, such as Terminal app in
 macOS, Console or Terminal in Linux, or <a href="https://gitforwindows.org" class="external-link">Git Bash</a> on Windows, execute the
@@ -612,7 +621,7 @@ following command:</p>
   Command Prompt (Windows)
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <p>On Windows, you can use its native Command Prompt program. The
 easiest way to start it up is pressing <kbd>Windows Logo
@@ -633,7 +642,7 @@ navigate to the <code>data</code> folder:</p>
   Unix shell
   </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -652,7 +661,7 @@ navigate to the <code>data</code> folder:</p>
   Command Prompt (Windows)
   </h3>
 </button>
-<div id="collapseSpoiler4" class="accordion-collapse collapse" aria-labelledby="headingSpoiler4" data-bs-parent="#accordionSpoiler4">
+<div id="collapseSpoiler4" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler4" aria-labelledby="headingSpoiler4">
 <div class="accordion-body">
 <pre class="source"><code>python -m notebook</code></pre>
 </div>

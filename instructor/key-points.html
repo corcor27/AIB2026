@@ -482,50 +482,48 @@ the extra complexity is justified.</li>
 </ul></section><section id="09-neural-networks-and-deep-learning"><h2 class="section-heading"><a href="09-neural-networks-and-deep-learning.html">Neural Networks and Deep Learning</a></h2>
 <hr class="half-width">
 <ul>
-<li><p>A neural network is built from weighted transformations and
-activation functions arranged in layers.</p></li>
-<li><p>Deep learning means learning increasingly useful internal
-representations across multiple layers.</p></li>
-<li><p>Different data types suggest different architecture
-families.</p></li>
-<li><p>CNNs are especially useful when local spatial or sequential
-patterns matter.</p></li>
-<li><p>Deep learning should be justified by the structure of the data
-and the limits of simpler models.</p></li>
-<li><p>Does PCA count as representation learning?</p></li>
-<li><p>In what sense is it similar to learned embeddings?</p></li>
-<li><p>In what sense is it different from neural-network-based
-representation learning?</p></li>
+<li>Neural networks are useful when patterns are too complex for
+hand-crafted features</li>
+<li>A neuron performs a weighted sum + bias → activation function</li>
+<li>Without activation functions, networks behave like linear
+models</li>
+<li>A single perceptron can only solve linearly separable problems</li>
+<li>Stacking layers allows networks to learn complex nonlinear
+relationships</li>
 </ul></section><section id="10-CNNs"><h2 class="section-heading"><a href="10-CNNs.html">Convolutional Neural Networks</a></h2>
 <hr class="half-width">
 <ul>
-<li>Choose the task type before choosing the algorithm.</li>
-<li>A good starter model basket includes both simple baselines and one
-or two stronger comparison options.</li>
-<li>Conventional models are usually the right first step for structured
-or limited data.</li>
-<li>Stronger models should be added for a reason, not because they sound
-more advanced.</li>
+<li>CNNs are designed for grid-like data (e.g., images)</li>
+<li>They use filters (kernels) to scan across inputs and detect
+patterns</li>
+<li>Output of convolutions = feature maps showing where patterns
+occur</li>
 </ul></section><section id="11-transformers"><h2 class="section-heading"><a href="11-transformers.html">Transformers</a></h2>
 <hr class="half-width">
 <ul>
-<li>Choose the task type before choosing the algorithm.</li>
-<li>A good starter model basket includes both simple baselines and one
-or two stronger comparison options.</li>
-<li>Conventional models are usually the right first step for structured
-or limited data.</li>
-<li>Stronger models should be added for a reason, not because they sound
-more advanced.</li>
+<li>Self-attention: each token evaluates relationships with all
+others</li>
+<li>Enables contextual understanding (e.g., resolving pronouns)</li>
+<li>Multi-head attention: multiple attention mechanisms run in
+parallel</li>
+<li>Residual connections + normalization: prevent information loss,
+improve training stability (Pre-Norm common in modern models)</li>
+<li>Vision Transformers (ViTs): treat image patches as tokens use
+attention to model global relationships</li>
+<li>Transformers are highly flexible and used across: NLP, computer
+vision, time series</li>
 </ul></section><section id="12-LLMs"><h2 class="section-heading"><a href="12-LLMs.html">Large Language Models</a></h2>
 <hr class="half-width">
 <ul>
-<li>Choose the task type before choosing the algorithm.</li>
-<li>A good starter model basket includes both simple baselines and one
-or two stronger comparison options.</li>
-<li>Conventional models are usually the right first step for structured
-or limited data.</li>
-<li>Stronger models should be added for a reason, not because they sound
-more advanced.</li>
+<li>LLMs are built on Transformer architectures and trained at massive
+scale</li>
+<li>Core idea: predict the next token given previous tokens</li>
+<li>Language modelling is based on probability of sequences</li>
+<li>Tokenization breaks text into manageable units: word-level or
+subword-level (BPE, WordPiece, SentencePiece)</li>
+<li>Most LLMs use decoder-only transformers: embeddings → self-attention
+→ output probabilities</li>
+<li>Self-attention enables context-aware predictions across tokens</li>
 </ul></section>
 </div>
     </main>
