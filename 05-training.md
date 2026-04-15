@@ -7,70 +7,28 @@ exercises: 30
 
 
 ::::::::::::::::::::::::::::::::::::::: objectives
-- Run a complete baseline model-building process from data split to
-  model fit.
-- Distinguish between train, validation, and test thinking at an
-  appropriate level for an introductory lesson.
-- Use train/test comparison to spot underfitting or overfitting.
-- Plan one justified further-development pathway after a baseline
-  exists.
+ Explain the minimum workflow for building a credible first baseline.
+ Distinguish the roles of training, validation, and test data in that workflow.
+ Interpret simple train/test patterns as underfitting, overfitting, or a reasonable fit.
+ Decide when cross-validation or a further development step is justified.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
 :::::::::::::::::::::::::::::::::::::::: questions
 - What is the minimum process needed to build a baseline model well?
-- How do train/test split and cross-validation fit into that process?
-- How should you decide on a sensible next development step?
+- How do training, validation, test splitting, and cross-validation fit into that process?
+- How do early results help you decide on a sensible next development step?
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Building a baseline model
 
 Training is not just calling `.fit()`.
 
-This lesson page is the student-facing companion to the live workshop.
-Follow it during the practical, then return to it when you need to
-remember the order of the steps.
-
-In practice, building a baseline model means moving through a short,
-reproducible sequence:
-
-1. confirm the task, target, and primary metric;
-2. prepare the data;
-3. split into train and test sets;
-4. fit a trivial reference baseline;
-5. fit one simple machine learning baseline;
-6. compare results on unseen data;
-7. write a short interpretation and next step.
-
-This is the core baseline process. Once that exists, you can improve it
-in a justified way.
-
-## Before fitting any model
-
-Check a few basic points first.
-
-### 1. Is the target clear?
-
-If the target is vague, the model training step will be vague too.
-
-### 2. Is the data clean enough?
-
-The bootcamp does not need perfect preprocessing, but it does need data
-that can be used consistently.
-
-Check for:
-
-- missing values;
-- inconsistent labels;
-- obvious leakage from future or outcome variables;
-- severe class imbalance or an uneven target distribution.
-
-### 3. Is the primary metric already chosen?
-
-Do not wait until after training to decide what "good" means.
+The aim in this lesson is to turn model fitting into a small, credible workflow.
+The minimum baseline process below shows that workflow step by step.
 
 ## The minimum baseline process
 
-![](fig/ML_pipeline.png){alt="Machine learning pipeline diagram showing the main stages from data to evaluation."}
+Start by confirming the prediction task, target, and primary metric.
+Then work through the rest of the baseline process.
+
+![](fig/minimum_baseline_process.svg){alt="Diagram of the minimum baseline process: confirm task and metric, prepare data, split data, build baselines using only training data, evaluate once on the held-out test set, and interpret the next step."}
 
 ### Prepare the data
 
@@ -85,31 +43,30 @@ At this stage, simple preparation is enough:
 
 ### Split the data
 
-Use an 80/20 train/test split as the standard first pass.
+Splitting is part of the generalisation question, not just a technical
+step. Ask what kind of new case the model should work on: new rows from
+the same population, later observations, or completely new subjects,
+groups, or sites.
 
-The training set is used to fit the model. The test set is held back so
-that you can check whether the model generalises.
+Use an 80/20 train/test split as a standard first pass when rows are independent and sampled from the same population. The training set is used to fit and develop the model; the test set is kept back for the
+final check.
 
-In this workshop, most model development happens inside the training
-portion of the data. That training portion may then be split again into
-training and validation sets, or used with cross-validation, so that
-you can compare options and tune the model without touching the final
-test set.
+Choose the split to match the data:
 
-For classification, stratification is often useful because it keeps the
-class balance similar across train and test sets.
+- for ordinary classification, a random split with `stratify=y` is
+  often sensible;
+- for ordinary regression, a random split is often enough if rows are
+  independent;
+- for time series, keep time order and test on later data;
+- for repeated measures or grouped data, split by subject or group.
 
-What this means in practice is simple:
+In practice:
 
 - the training set is the part the model is allowed to learn from;
 - the validation step is where you compare versions or tune settings;
-- the test set is the part kept back for the final first check;
-- if the test data influenced model choices too early, the evaluation is
-  no longer a fair check of generalisation.
+- the test set is the part kept back for the final check;
+- avoid leakage: do not let future information, the same person or group, full-dataset preprocessing, or repeated test-set checking shape model development.
 
-For example, if you had 100 labelled rows and used an 80/20 split, the
-model would train on 80 rows and be evaluated on 20 previously unseen
-rows.
 
 ### Fit the trivial reference baseline
 
@@ -132,20 +89,97 @@ plain language:
 3. What should be improved next: data, features, model choice, or
   evaluation?
 
-:::::::::::::::::::::::::::::::::::::::  challenge
-## Baseline check
+## Underfitting and Overfitting
 
-Before running code, write down your answers to these prompts:
+The goal of training is not just to fit the training set. It is to develop a model that generalises well to new, unseen data.
 
-- What is my target?
-- What is my primary metric?
-- What is my trivial reference baseline?
-- What is my first ML baseline?
-- What result would count as a meaningful change over the
-  reference?
-::::::::::::::::::::::::::::::::::::::::::::::::::
+Generalisation is one of the main concepts in an introductory machine learning lesson.
+
+![](fig/sphx_glr_plot_underfitting_overfitting_001.png){alt="Illustration comparing underfitting, reasonable fit, and overfitting curves."}
+(Image from scikit-learn documentation: https://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html)
+
+### Underfitting
+
+The model is too simple to capture the pattern.
+
+Signal:
+
+- weak performance on training data;
+- weak performance on test data.
+
+### Overfitting
+
+The model learns training-specific patterns rather than general
+patterns.
+
+Signal:
+
+- strong performance on training data;
+- noticeably weaker performance on test data.
+
+### Reasonable fit
+
+The model is not perfect, but performance is consistent enough across
+training and test data to be believable.
+
+This is often a more valuable outcome than squeezing out a slightly
+better score with a harder-to-explain process.
+
+## Where cross-validation fits
+
+![](fig/cross_validation.png){alt="Diagram showing how cross-validation rotates through multiple train and validation splits."}
+
+Use cross-validation when:
+
+- the dataset is small;
+- results vary a lot across splits;
+- you are comparing two plausible alternatives;
+- you are ready for a slightly more rigorous check.
+
+### Choose the cross-validation strategy to match the data
+
+Cross-validation follows the same rule as train/test splitting: choose
+the strategy to match the structure of the data.
+
+- for ordinary classification, stratified k-fold is often helpful
+  because each fold keeps a similar class balance;
+- for time series, use a time-aware split so the model is always tested
+  on later observations;
+- for subject-based or grouped data, use group-aware validation so all
+  rows from one subject stay together.
+
+In scikit-learn terms, the important idea is not to memorize function
+names, but to know that tools such as `TimeSeriesSplit` and
+`GroupKFold` exist for these cases.
+
+Cross-validation is not mandatory if it prevents complete
+beginners from finishing the core process.
+
+```python
+from sklearn.model_selection import cross_val_score
+
+cv_scores = cross_val_score(
+    LinearRegression(), X, y, cv=5, scoring="neg_mean_absolute_error"
+)
+
+print("Mean CV MAE:", -cv_scores.mean())
+```
+
+How should you read this result?
+
+- a single train/test split gives one estimate based on one partition of
+  the data;
+- cross-validation gives several estimates across different partitions;
+- if the cross-validation scores vary a lot, the result is less stable
+  and should be interpreted more cautiously.
+
+This is why cross-validation is best taught as a stronger check, not as
+the first barrier to entry.
 
 ## A simple training example
+
+This example pulls together the baseline process, the holdout split,
+and the idea of interpreting results before deciding on a next step.
 
 ```python
 from sklearn.datasets import load_diabetes
@@ -191,86 +225,6 @@ For example:
 - if the improvement is large, the baseline may already be credible
   enough to interpret and communicate.
 
-This is the kind of short conclusion participants should be encouraged
-to write after every first model run.
-
-## Underfitting and Overfitting
-
-The goal of training is not just to fit the training set. The goal is to develop a model that generalises well to new, unseen data.
-
-This is one of the main interpretive ideas in an introductory machine learning lesson.
-
-![](fig/sphx_glr_plot_underfitting_overfitting_001.png){alt="Illustration comparing underfitting, reasonable fit, and overfitting curves."}
-(Image from scikit-learn documentation: https://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html)
-
-### Underfitting
-
-The model is too simple to capture the pattern.
-
-Signal:
-
-- weak performance on training data;
-- weak performance on test data.
-
-### Overfitting
-
-The model learns training-specific patterns rather than general
-patterns.
-
-Signal:
-
-- strong performance on training data;
-- noticeably weaker performance on test data.
-
-### Reasonable fit
-
-The model is not perfect, but performance is consistent enough across
-training and test data to be believable.
-
-This is often a more valuable outcome than squeezing out a slightly
-better score with a harder-to-explain process.
-
-## Where cross-validation fits
-
-![](fig/cross_validation.png){alt="Diagram showing how cross-validation rotates through multiple train and validation splits."}
-
-Cross-validation should be presented as an extension, not a barrier.
-
-For beginners, a train/test split is enough for a first baseline.
-For more confident participants, 5-fold cross-validation can provide a more
-stable estimate of performance.
-
-Use cross-validation when:
-
-- the dataset is small;
-- results vary a lot across splits;
-- you are comparing two plausible alternatives;
-- you are ready for a slightly more rigorous check.
-
-Do not make cross-validation mandatory if it prevents complete
-beginners from finishing the core process.
-
-```python
-from sklearn.model_selection import cross_val_score
-
-cv_scores = cross_val_score(
-    LinearRegression(), X, y, cv=5, scoring="neg_mean_absolute_error"
-)
-
-print("Mean CV MAE:", -cv_scores.mean())
-```
-
-How should you read this result?
-
-- a single train/test split gives one estimate based on one partition of
-  the data;
-- cross-validation gives several estimates across different partitions;
-- if the cross-validation scores vary a lot, the result is less stable
-  and should be interpreted more cautiously.
-
-This is why cross-validation is best taught as a stronger check, not as
-the first barrier to entry.
-
 ## Justified further-development pathways
 
 Once you have a credible baseline, the next step should still be
@@ -314,66 +268,6 @@ Examples:
 The goal is often a justified prototype plan rather than a complete,
 polished implementation.
 
-![](fig/penguins.png){alt="Penguin dataset image that can be used as a concrete example for a student-friendly modelling task."}
-
-## Upgrade planning template
-
-Before you implement a larger development step, complete the following:
-- What I have now
-- What I will change next
-- Why this is the right next step
-- What evidence would show that the change is useful
-- What limitation or constraint might block the plan
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-## Choose a justified next step
-
-Pick one possible further development and justify it in two sentences.
-
-Your answer should include:
-
-- the current weakness in the baseline;
-- the specific development step you will try;
-- the evidence you would expect if it helps or clarifies the problem.
-
-:::::::::::::::  solution
-## Example answer
-
-"My baseline classification model is missing important domain structure,
-so I will add two engineered features before trying a more complex
-algorithm. I would expect this to improve recall on the minority class
-without making the process much harder to explain."
-:::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Mixed-ability teaching guidance
-
-### Supported starter path
-
-Success means:
-
-- a completed notebook;
-- a train/test split;
-- one reference baseline;
-- one simple ML baseline;
-- one metric and one plain-language interpretation.
-
-### Applied research path
-
-Success means:
-
-- training on personal data;
-- sensible preprocessing;
-- justified metric choice;
-- one comparison or one clear next development step.
-
-### Stretch path
-
-Success means:
-
-- a credible baseline or prototype;
-- a documented comparison or architecture decision;
-- explicit limits, assumptions, and next steps.
 
 ## Key points
 
@@ -381,8 +275,8 @@ Success means:
 - Training in the bootcamp means following a short, reproducible
   process, not just running one line of code.
 - A train/test split is the standard first check for generalisation.
-- Cross-validation is useful, but it should be introduced in proportion
-  to participant confidence and dataset size.
+- Default model settings may not work well; tuning hyperparameters with validation or cross-validation can help.
+- Random and stratified splits are common defaults for ordinary classification, but time series and grouped subject data need different validation strategies.
 - Any further development should be justified by the data, the task, and
   the current state of the model and analysis.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
