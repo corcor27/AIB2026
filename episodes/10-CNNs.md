@@ -6,19 +6,20 @@ exercises: 20
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Define both a trivial reference baseline and a practical model
-  basket.
-- Choose an initial model based on task type, data shape,
-  interpretability, and time available.
-- Distinguish between a first baseline model and a stronger comparison
-  model.
+- Understand what convolutional neural networks (CNNs) are designed for
+- Explain how convolutional layers extract features from data
+- Recognize why CNNs are effective for image data
+- Describe how feature maps and filters work
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- What counts as a sensible baseline or comparison model?
-- Which conventional models belong in my starter model basket?
+- Why are CNNs better suited for images than standard neural networks?
+- What is a convolutional filter and how does it work?
+- What is a feature map and what does it represent?
+- Why is weight sharing important in CNNs?
+- How do early and deeper layers differ in what they learn?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -163,19 +164,17 @@ Lastly, there are additional layers required for the construction in a neural ne
 
 ## Available demo notebooks
 
-One demo notebooks are available for this lesson.
+Two demo notebooks are available for this lesson.
 
 - [CNN_from_scratch_example.ipynb](files/notebooks/CNN_from_scratch_example.ipynb):
   Trains you to create a CNN model from scratch.
+  
+- [CNN_for_time_Series.ipynb](files/notebooks/CNN_for_time_Series.ipynb):
+  Example of using LSTM for time series future value prediction
 
-## Key points
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
-- Choose the task type before choosing the algorithm.
-- A good starter model basket includes both simple baselines and one or
-  two stronger comparison options.
-- Conventional models are usually the right first step for structured
-  or limited data.
-- Stronger models should be added for a reason, not because they sound
-  more advanced.
+- CNNs are designed for grid-like data (e.g., images)
+- They use filters (kernels) to scan across inputs and detect patterns
+- Output of convolutions = feature maps showing where patterns occur
 ::::::::::::::::::::::::::::::::::::::::::::::::::

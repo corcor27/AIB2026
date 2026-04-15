@@ -6,19 +6,20 @@ exercises: 20
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Define both a trivial reference baseline and a practical model
-  basket.
-- Choose an initial model based on task type, data shape,
-  interpretability, and time available.
-- Distinguish between a first baseline model and a stronger comparison
-  model.
+- Understand what Large Language Models (LLMs) are and how they work
+- Explain how language models generate text using probabilities
+- Describe tokenization and its role in processing language
+- Recognize the architecture behind modern LLMs
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- What counts as a sensible baseline or comparison model?
-- Which conventional models belong in my starter model basket?
+- What does a language model actually predict?
+- Why is tokenization necessary for LLMs?
+- How does a decoder-only transformer generate text?
+- What role does self-attention play in LLMs?
+- Why are LLMs considered “large”?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -117,14 +118,12 @@ One demo notebooks are available for this lesson.
 - [Google_gemini.ipynb](files/notebooks/Google_gemini.ipynb):
   explores how to connect to google gemini in python.
   
-## Key points
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
-- Choose the task type before choosing the algorithm.
-- A good starter model basket includes both simple baselines and one or
-  two stronger comparison options.
-- Conventional models are usually the right first step for structured
-  or limited data.
-- Stronger models should be added for a reason, not because they sound
-  more advanced.
+- LLMs are built on Transformer architectures and trained at massive scale
+- Core idea: predict the next token given previous tokens
+- Language modelling is based on probability of sequences
+- Tokenization breaks text into manageable units: word-level or subword-level (BPE, WordPiece, SentencePiece)
+- Most LLMs use decoder-only transformers: embeddings → self-attention → output probabilities
+- Self-attention enables context-aware predictions across tokens
 ::::::::::::::::::::::::::::::::::::::::::::::::::
