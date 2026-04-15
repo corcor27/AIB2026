@@ -1,7 +1,7 @@
 ---
 title: "Feature Engineering for Real Problems"
-teaching: 40
-exercises: 25
+teaching: 45
+exercises: 10
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
@@ -21,39 +21,18 @@ exercises: 25
   complex model?
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Quick navigation
-
-
-- [Quick navigation](#quick-navigation)
-- [Why feature engineering comes early](#why-feature-engineering-comes-early)
-- [A simple way to think about features](#a-simple-way-to-think-about-features)
-- [Tabular features](#tabular-features)
-- [Vision features](#vision-features)
-- [Text features](#text-features)
-  - [A concrete TF-IDF example](#a-concrete-tf-idf-example)
-- [Bioinformatics and genomics features](#bioinformatics-and-genomics-features)
-  - [k-mers as the sequence counterpart to n-grams](#k-mers-as-the-sequence-counterpart-to-n-grams)
-  - [Other useful genomics-style features](#other-useful-genomics-style-features)
-  - [Marker-style features](#marker-style-features)
-  - [A concrete genomics example](#a-concrete-genomics-example)
-- [Time-series and spectral features](#time-series-and-spectral-features)
-  - [A more concrete feature sketch](#a-more-concrete-feature-sketch)
-- [Features for specialised scientific data](#features-for-specialised-scientific-data)
-- [Cross-domain transfer](#cross-domain-transfer)
-  - [Example answer](#example-answer)
-- [Pick one feature change](#pick-one-feature-change)
-  - [Example answers](#example-answers)
-- [When to stop engineering by hand](#when-to-stop-engineering-by-hand)
-- [Feature planning cheat sheet](#feature-planning-cheat-sheet)
-- [Key points](#key-points)
-
-## Why feature engineering comes early
+## Why feature engineering often comes next
 
 Choosing a model is only part of the job. The model can only learn from
 the information you give it.
 
 Feature engineering means creating or selecting inputs that make useful
 patterns easier for a model to detect.
+
+In the teaching sequence here, feature engineering usually comes after
+you have already chosen a sensible baseline, trained it, and evaluated
+its first results. That gives you a clearer reason to change the
+representation instead of changing things blindly.
 
 In many real projects, a better representation can improve results more
 than switching to a more complex algorithm.
@@ -200,14 +179,6 @@ starting points include [Biopython](https://biopython.org/) for sequence
 workflows and [scikit-learn](https://scikit-learn.org/stable/) for the
 downstream baseline models.
 
-One useful analogy is:
-
-- **token in text** is similar to a **base or amino-acid symbol** in a
-  sequence;
-- **short token pattern in text** is similar to a **k-mer in genomics**;
-- **keyword or phrase count** is similar to a **motif or marker count**
-  in biological data.
-
 ### k-mers as the sequence counterpart to n-grams
 
 A k-mer is a short sequence fragment of length $k$.
@@ -217,9 +188,8 @@ Examples:
 - for DNA, 3-mers might include `ATG`, `TGC`, or `GCA`;
 - for proteins, 2-mers or 3-mers can capture short amino-acid patterns.
 
-If a text process uses short token patterns or phrase-level features to
-capture local context, a genomics process can use k-mer counts or
-frequencies to capture local sequence patterns.
+Like n-grams in text, k-mer counts or frequencies capture short local
+patterns in a sequence.
 
 For example, the DNA sequence `ATGCAT` contains the 3-mers:
 
@@ -269,19 +239,6 @@ For example, in a genomics dataset you might use a small set of known
 SNPs as marker-style features alongside broader sequence features such
 as k-mer frequencies or GC content.
 
-### A concrete genomics example
-
-Suppose the task is to classify DNA sequences into two functional
-groups. A sensible conventional baseline could use:
-
-- k-mer frequencies as the main sequence representation;
-- GC content as a summary feature;
-- sequence length as a structural feature;
-- a simple classifier such as Logistic Regression, Naive Bayes, or a
-  tree-based model.
-
-This is closely analogous to a text process where you combine TF-IDF
-features with a simple classifier.
 
 ## Time-series and spectral features
 
@@ -331,44 +288,24 @@ The key teaching idea is that time series and spectra are both ordered
 signals. In both cases, feature engineering often tries to capture
 local trend, local change, and broader structure rather than treating
 every position as an unrelated column. This transfer is illustrated in
-the notebook [demo_feature_engineering_timeseries_spectra.ipynb](/Users/cul/work/Teaching/AIbootcamp/demo_feature_engineering_timeseries_spectra.ipynb).
+the notebook [demo_feature_engineering_timeseries_spectra.ipynb](files/notebooks/demo_feature_engineering_timeseries_spectra.ipynb).
 
-### A more concrete feature sketch
-
-Rather than listing more feature names, it is often clearer to ask what
-raw measurement you have and what summary might help a model detect the
-pattern.
-
-| Domain | Raw input | Engineered feature | Why it may help |
-| --- | --- | --- | --- |
-| Time series forecasting | daily sales at time $t$ | sales at $t-1$ | yesterday often helps predict today |
-| Time series forecasting | daily sales over the last week | 7-day rolling mean | reduces noise and captures recent level |
-| Time series forecasting | timestamp | weekend or month flag | captures calendar structure |
-| Spectral prediction | raw intensity across wavelength | smoothed spectrum | reduces measurement noise |
-| Spectral prediction | raw spectrum shape | first derivative | highlights local changes and peak edges |
-| Spectral prediction | intensity in a scientifically important region | band average or peak area | summarises a meaningful part of the signal |
-
-If you want code-based examples, the practical notebook companion is
-[demo_feature_engineering_timeseries_spectra.ipynb](/Users/cul/work/Teaching/AIbootcamp/demo_feature_engineering_timeseries_spectra.ipynb),
-which is the better place to show tables, calculations, and plots in
-detail.
 
 ## Features for specialised scientific data
 
-Some domains need features that come from subject knowledge or from
-specialised analysis methods, not just from generic preprocessing.
+Some scientific problems need features that come from domain knowledge
+or specialised analysis methods, not just generic preprocessing.
 
-This section is deliberately general. The domain-specific blocks above
-already gave concrete examples for text, genomics, vision, and ordered
-signals. Here the goal is to highlight broader sources of engineered
-features that often appear in scientific work.
+The earlier sections already covered text, genomics, vision, and
+ordered signals. Here are a few other common sources of engineered
+features in scientific work:
 
 Common sources include:
 
 - signal-processing features such as filtered signals, Fourier or
   wavelet transforms, derivatives, and peak summaries;
-- image-processing features such as edges, textures, region summaries,
-  local patch descriptors, or measurements from segmented objects;
+- graph or network features such as node degree, centrality,
+  neighbourhood summaries, community labels, or graph embeddings;
 - statistical summaries such as moments, quantiles, slopes,
   correlations, or variability measures computed over windows, regions,
   or groups;
@@ -383,73 +320,10 @@ Common sources include:
 - embeddings or latent features from pre-trained domain-specific
   foundation models.
 
-The key question is not "what is the fanciest feature?" It is "what
-representation makes the real structure of this problem easier to
-detect?" In practice, that often means borrowing a useful summary from
-signal processing, image processing, statistics, mathematics, chemistry,
-or another domain-specific workflow.
-
-::::::::::::::::::::::::::::::::::::::  challenge
-## Cross-domain transfer
-
-One reason feature engineering becomes easier over time is that a good
-idea in one domain often suggests a useful idea in another.
-
-For example:
-
-- text can be treated as a sequence of words or tokens;
-- genomics can be treated as a sequence of bases or amino acids;
-- images can be treated as a grid or sequence of local patches;
-- time-series data can be treated as a sequence of windows or segments.
-
-Choose your own problem, or one of the domains above, and think about
-how an idea from another domain might transfer.
-
-Prompts:
-
-- If text uses short token patterns such as n-grams, what might play a
-  similar role in genomics, images, or time series?
-- If an image can be broken into patches, what kinds of patch-level
-  summary features might be useful?
-- If a time series can be broken into windows, what kinds of
-  window-level features might be useful?
-- What is the smallest meaningful unit in your own data?
-- What is the equivalent of a local pattern, motif, or patch in your
-  own domain?
-- What feature idea from another domain could you borrow as a first
-  baseline?
-
-:::::::::::::::  solution
-### Example answer
-
-Possible answers include:
-
-- In genomics, a short token pattern in text is similar to a k-mer in a
-  sequence.
-- In images, a short local pattern is similar to a patch, edge, or
-  texture region.
-- In time-series data, a short local pattern is similar to a window,
-  segment, trend, or repeated motif.
-- In spectra, a local pattern may be a peak, band, or local change in
-  shape.
-
-So the transferable idea is not tied to one subject area. Once you see
-that different data types can be broken into meaningful local units,
-you can start borrowing feature ideas across domains. A successful idea
-in text, genomics, images, or time series may suggest a useful first
-representation for your own data.
-
-The practical lesson is that success in one domain can suggest a good
-starting point in another. Once you recognise the shared structure of a
-problem, you can often transfer a feature idea instead of inventing a
-completely new process from scratch.
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+The key question is not "what is the fanciest feature?" It is "what representation makes the real structure of this problem easier to detect?" In practice, that often means borrowing a useful summary from signal processing, graph analysis, statistics, mathematics, chemistry, or another domain-specific workflow.
 
 ::::::::::::::::::::::::::::::::::::::  challenge
 ## Pick one feature change
-
 Choose one concrete feature idea for your own problem and write:
 
 - the raw input you currently have;
@@ -482,18 +356,19 @@ learning become useful.
 
 ## Feature planning cheat sheet
 
-This table is meant as a quick reference rather than a section to teach
-through step by step. Students can come back to it when choosing a
-first feature representation and a sensible baseline model.
+These are starting points to try, not universally best choices. The
+right model still depends on the task, data size, feature quality, and
+evaluation results.
 
-| Task type | Starter feature ideas | Good first model pair |
+| Task type | Starter feature ideas | Possible starter models |
 | --- | --- | --- |
-| Tabular | ratios, flags, bins, interactions | Linear or Logistic Regression, Decision Tree |
-| Vision | resize, grayscale, raw pixels plus PCA, summary descriptors, transfer features | Logistic Regression on extracted features, small CNN later |
+| Tabular | ratios, flags, bins, interactions | Linear or Logistic Regression, tree-based models |
+| Vision | resize, grayscale, raw pixels plus PCA, summary descriptors, transfer features | Logistic Regression on extracted features, transfer learning later |
 | Text | TF-IDF, keyword counts, embeddings | Naive Bayes, Logistic Regression |
-| Genomics / sequence data | k-mers, motif counts, GC content, marker presence | Naive Bayes, Logistic Regression, tree models |
-| Time series | lags, rolling summaries, seasonal indicators | Linear Regression, tree models, sequence models later |
-| Spectral / ordered signals | smoothing, derivatives, peak summaries, band averages | Linear Regression, PLS or tree models |
+| Genomics / sequence data | k-mers, motif counts, GC content, marker presence | Logistic Regression, tree-based models |
+| Time series | lags, rolling summaries, seasonal indicators | Linear Regression, tree-based models |
+| Spectral / ordered signals | smoothing, derivatives, peak summaries, band averages | Linear Regression, PLS, tree-based models |
+| Graph / network data | degree, centrality, neighbourhood summaries, graph embeddings | Logistic Regression or tree-based models on node features |
 
 ## Key points
 

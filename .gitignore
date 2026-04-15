@@ -53,3 +53,8 @@ vendor/
 .docker-vendor/
 Gemfile.lock
 .*history
+
+# Local teaching datasets
+episodes/data/cifar-10-batches-py/
+episodes/files/notebooks/data/cifar-10-batches-py/
+episodes/files/notebooks/data/cifar-10-python.tar.gz

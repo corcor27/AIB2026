@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Minimum baseline process for a machine learning lesson</title>
+  <desc id="desc">A flow diagram showing the steps confirm task and metric, prepare data, split data, develop baselines on training data, evaluate once on the held out test set, and write an interpretation and next step.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f4ec; }
+      .title { font: 700 28px Arial, sans-serif; fill: #1f2933; }
+      .subtitle { font: 400 16px Arial, sans-serif; fill: #52606d; }
+      .box-title { font: 700 18px Arial, sans-serif; fill: #102a43; }
+      .box-text { font: 400 15px Arial, sans-serif; fill: #243b53; }
+      .small { font: 400 14px Arial, sans-serif; fill: #486581; }
+      .step { rx: 18; ry: 18; stroke-width: 2.5; }
+      .line { stroke: #486581; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .dash { stroke-dasharray: 8 7; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#486581" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="560" />
+
+  <text class="title" x="60" y="52">Minimum Baseline Process</text>
+  <text class="subtitle" x="60" y="80">Build one credible first model, protect the test set, then interpret what to do next.</text>
+
+  <rect class="step" x="60" y="130" width="210" height="92" fill="#fde68a" stroke="#b45309" />
+  <text class="box-title" x="84" y="166">1. Confirm the task</text>
+  <text class="box-text" x="84" y="192">Target, prediction goal,</text>
+  <text class="box-text" x="84" y="212">and primary metric.</text>
+
+  <rect class="step" x="320" y="130" width="210" height="92" fill="#bfdbfe" stroke="#1d4ed8" />
+  <text class="box-title" x="344" y="166">2. Prepare the data</text>
+  <text class="box-text" x="344" y="192">Clean obvious issues and</text>
+  <text class="box-text" x="344" y="212">record simple changes.</text>
+
+  <rect class="step" x="580" y="130" width="250" height="92" fill="#c7f9cc" stroke="#2f855a" />
+  <text class="box-title" x="604" y="166">3. Split the data</text>
+  <text class="box-text" x="604" y="192">Choose a split that matches</text>
+  <text class="box-text" x="604" y="212">your generalisation purpose.</text>
+
+  <path class="line" d="M270 176 H320" marker-end="url(#arrow)" />
+  <path class="line" d="M530 176 H580" marker-end="url(#arrow)" />
+
+  <rect x="90" y="280" width="760" height="220" rx="26" ry="26" fill="#ffffff" stroke="#9fb3c8" stroke-width="2.5" />
+  <text class="box-title" x="118" y="316">Development happens here</text>
+  <text class="small" x="118" y="340">Everything below uses only the training portion. Keep the final test set untouched.</text>
+
+  <rect class="step" x="120" y="368" width="210" height="94" fill="#fce7f3" stroke="#be185d" />
+  <text class="box-title" x="144" y="404">4. Reference baseline</text>
+  <text class="box-text" x="144" y="430">Fit a trivial benchmark,</text>
+  <text class="box-text" x="144" y="450">such as dummy mean or mode.</text>
+
+  <rect class="step" x="365" y="368" width="220" height="94" fill="#ede9fe" stroke="#6d28d9" />
+  <text class="box-title" x="389" y="404">5. Simple ML baseline</text>
+  <text class="box-text" x="389" y="430">Fit one understandable model</text>
+  <text class="box-text" x="389" y="450">for the first credible pass.</text>
+
+  <rect class="step" x="620" y="356" width="190" height="118" fill="#ecfeff" stroke="#0f766e" />
+  <text class="box-title" x="644" y="392">Validation inside</text>
+  <text class="box-title" x="644" y="414">training only</text>
+  <text class="box-text" x="644" y="440">Optional split or</text>
+  <text class="box-text" x="644" y="460">cross-validation.</text>
+
+  <path class="line" d="M330 415 H365" marker-end="url(#arrow)" />
+  <path class="line" d="M585 415 H620" marker-end="url(#arrow)" />
+  <path class="line dash" d="M715 356 V250" marker-end="url(#arrow)" />
+
+  <rect class="step" x="900" y="270" width="230" height="110" fill="#fee2e2" stroke="#dc2626" />
+  <text class="box-title" x="924" y="306">Held-out test set</text>
+  <text class="box-text" x="924" y="332">Use once for the final</text>
+  <text class="box-text" x="924" y="352">first check of generalisation.</text>
+
+  <rect class="step" x="900" y="408" width="230" height="92" fill="#dcfce7" stroke="#15803d" />
+  <text class="box-title" x="924" y="444">6. Compare and interpret</text>
+  <text class="box-text" x="924" y="470">Beat the reference, explain</text>
+  <text class="box-text" x="924" y="490">the result, choose next step.</text>
+
+  <path class="line" d="M830 176 H1015 V270" marker-end="url(#arrow)" />
+  <path class="line" d="M1015 380 V408" marker-end="url(#arrow)" />
+
+  <text class="small" x="860" y="220">Avoid leakage:</text>
+  <text class="small" x="860" y="240">do not let test data shape preprocessing,</text>
+  <text class="small" x="860" y="258">tuning, or model choice.</text>
+</svg>

@@ -1,7 +1,7 @@
 ---
 title: "Feature Learning and Transfer Learning"
-teaching: 35
-exercises: 15
+teaching: 20
+exercises: 30
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
@@ -27,7 +27,7 @@ In conventional machine learning, people usually decide which features
 the model should use. In feature learning, the model learns internal
 representations automatically from the training data.
 
-This page is about what you do with that idea in practice, especially
+This lesson is about what you do with that idea in practice, especially
 when you do not want to train a large deep model from scratch.
 
 Learned representations can arise in more than one way:
@@ -164,20 +164,6 @@ about what kind of pre-trained representation is available.
 | Spectra / specialist scientific data | domain-specific encoders or extracted embeddings |
 | Tabular | usually better feature engineering first |
 
-## Available demo notebooks
-
-Two demo notebooks are available for this lesson.
-
-- [demo_transfer_learning_vision.ipynb](files/notebooks/demo_transfer_learning_vision.ipynb):
-  compares a weak raw-pixel baseline with features from a pre-trained
-  image model.
-- [demo_transfer_learning_text.ipynb](files/notebooks/demo_transfer_learning_text.ipynb):
-  compares TF-IDF plus logistic regression with sentence embeddings plus
-  logistic regression.
-
-That combination gives a strong cross-task story without making the
-lesson too abstract.
-
 ## A practical decision rule
 
 Ask these questions in order:
@@ -193,25 +179,13 @@ If the answer to the third question is yes, transfer learning or a
 representation-learning approach may be the right next step.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
-### Which route fits your data?
-
-For your own project, write down:
-
-- what kind of data structure you have;
-- whether a simple feature table is enough to represent it;
-- whether the next step should be better feature engineering, a
-  specialist deep-learning architecture, or transfer learning.
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
 ### Feature engineering or feature learning?
 
 For your own project, answer:
 
 - What representation are you currently using?
 - What important structure might it be missing?
-- Would that gap be better addressed by a hand-crafted feature or by a
-  learned representation?
+- Would that gap be better addressed by a hand-crafted feature or by a learned representation?
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Is PCA representation learning?
@@ -228,7 +202,7 @@ what people mean by deep representation learning because:
 :::::::::::::::::::::::::::::::::::::::  challenge
 ### Comparing PCA with learned embeddings
 
-Discuss with a partner:
+Discuss:
 
 - In what sense is it similar to learned embeddings?
 - In what sense is it different from neural-network-based
