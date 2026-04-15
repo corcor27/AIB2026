@@ -5,17 +5,18 @@ exercises: 15
 
 ---
 ::::::::::::::::::::::::::::::::::::::: objectives
-- Explain the basic idea of neurons, layers, weights, and activation's.
-- Distinguish between a simple multi-layer perception and architectures
-  designed for structured data such as CNNs.
-- Identify when deep learning is a sensible modeling option and when it
-  is not.
+- Understand why neural networks are introduced beyond traditional machine learning models
+- Explain how a single neuron (perceptron) works
+- Recognize the limitations of linear models and single-layer perceptrons
+- Describe the role of activation functions in enabling nonlinearity
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
-- What is a neural network in plain language?
-- What makes deep learning different from a simple linear model?
-- When are CNNs or other deep-learning architectures worth considering?
+- Why might traditional feature engineering fail on complex data?
+- What mathematical operations define a single neuron?
+- What happens if we remove the activation function?
+- Why can’t a single perceptron solve all classification problems?
+- How do multiple layers improve model capability?
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
@@ -286,20 +287,11 @@ One demo notebook is available for this lesson.
 ## Key points
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
-- A neural network is built from weighted transformations and
-  activation functions arranged in layers.
-- Deep learning means learning increasingly useful internal
-  representations across multiple layers.
-- Different data types suggest different architecture families.
-- CNNs are especially useful when local spatial or sequential patterns
-  matter.
-- Deep learning should be justified by the structure of the data and
-  the limits of simpler models.
-
-- Does PCA count as representation learning?
-- In what sense is it similar to learned embeddings?
-- In what sense is it different from neural-network-based
-  representation learning?
+- Neural networks are useful when patterns are too complex for hand-crafted features
+- A neuron performs a weighted sum + bias → activation function
+- Without activation functions, networks behave like linear models
+- A single perceptron can only solve linearly separable problems
+- Stacking layers allows networks to learn complex nonlinear relationships
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 

@@ -6,19 +6,20 @@ exercises: 20
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Define both a trivial reference baseline and a practical model
-  basket.
-- Choose an initial model based on task type, data shape,
-  interpretability, and time available.
-- Distinguish between a first baseline model and a stronger comparison
-  model.
+- Understand how self-attention works using Query, Key, and Value
+- Explain multi-head attention and its benefits
+- Describe the full transformer block structure
+- Recognize how transformers extend beyond NLP (e.g., vision)
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- What counts as a sensible baseline or comparison model?
-- Which conventional models belong in my starter model basket?
+- What roles do Query, Key, and Value play in attention?
+- Why is multi-head attention more powerful than single-head?
+- How do residual connections improve deep models?
+- How do Vision Transformers differ from CNNs?
+- Why is self-attention considered the “core innovation” of transformers?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -113,11 +114,10 @@ That combination gives a strong cross-task story without making the
 lesson too abstract.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
-- Choose the task type before choosing the algorithm.
-- A good starter model basket includes both simple baselines and one or
-  two stronger comparison options.
-- Conventional models are usually the right first step for structured
-  or limited data.
-- Stronger models should be added for a reason, not because they sound
-  more advanced.
+- Self-attention: each token evaluates relationships with all others
+- Enables contextual understanding (e.g., resolving pronouns)
+- Multi-head attention: multiple attention mechanisms run in parallel
+- Residual connections + normalization: prevent information loss, improve training stability (Pre-Norm common in modern models)
+- Vision Transformers (ViTs): treat image patches as tokens use attention to model global relationships
+- Transformers are highly flexible and used across: NLP, computer vision, time series
 ::::::::::::::::::::::::::::::::::::::::::::::::::
